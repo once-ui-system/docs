@@ -8,6 +8,7 @@ import { baseURL, effects, style } from "@/app/resources";
 
 import { Inter } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 
 import { Background, Column, Flex, ToastProvider, ThemeProvider } from "@/once-ui/components";
 import { layout } from "./resources/config";
@@ -180,6 +181,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               </Flex>
               <Footer />
             </Column>
+            <Analytics />
           </Flex>
         </ToastProvider>
       </ThemeProvider>
