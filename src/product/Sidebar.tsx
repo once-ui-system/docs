@@ -1,13 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { ToggleButton } from '@/once-ui/components/ToggleButton';
-import { Accordion, Column, Flex, Icon, Row, Tag, Text } from "@/once-ui/components";
+import { Accordion, Column, Flex, Icon, Row, Tag } from "@/once-ui/components";
 import { usePathname } from 'next/navigation';
-import styles from './Sidebar.module.scss';
 import { layout } from "@/app/resources/config";
 import { routes } from "@/app/resources";
 import { Schemes } from "@/once-ui/types";
+
+import styles from './Sidebar.module.scss';
 
 export interface NavigationItem extends Omit<React.ComponentProps<typeof Flex>, "title" | "label" | "children">{
   slug: string;
@@ -35,24 +36,33 @@ const toTitleCase = (str: string) => {
     .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 };
 
-export const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
+const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
   const [navigation, setNavigation] = useState<NavigationItem[]>(initialNavigation || []);
   const pathname = usePathname();
-
-  useEffect(() => {
-    fetch("/api/navigation")
-      .then((res) => res.json())
-      .then((data) => {
-        setNavigation(data);
-      })
-      .catch((err) => console.error("Navigation fetch failed", err));
-  }, []);
   
-  const renderNavigation = (items: NavigationItem[], depth = 0) => {
+  useEffect(() => {
+    if (initialNavigation && initialNavigation.length > 0) {
+      return;
+    }
+    
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    
+    if (isDevelopment) {
+      fetch("/api/navigation")
+        .then((res) => res.json())
+        .then((data) => {
+          setNavigation(data);
+        })
+        .catch((err) => console.error("Navigation fetch failed", err));
+    }
+  }, [initialNavigation]);
+  
+  const renderNavigation = useCallback((items: NavigationItem[], depth = 0) => {
     return (
       <>
         {items.map((item) => {
           const correctedSlug = item.slug;
+          const isSelected = pathname.startsWith(`/docs/${correctedSlug}`);
   
           return (
             <React.Fragment key={item.slug}>
@@ -99,15 +109,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) 
                 <ToggleButton
                   fillWidth
                   justifyContent="space-between"
-                  selected={pathname.startsWith(`/docs/${correctedSlug}`)}
+                  selected={isSelected}
                   className={depth === 0 ? styles.navigation : undefined}
                   href={`/docs/${correctedSlug}`}>
                   <Row fillWidth horizontal="space-between" vertical="center">
                       <Row
                         overflow="hidden"
                         gap="8"
-                        onBackground={pathname.startsWith(`/docs/${correctedSlug}`) ? "neutral-strong" : "neutral-weak"}
-                        textVariant={pathname.startsWith(`/docs/${correctedSlug}`) ? "label-strong-s" : "label-default-s"}
+                        onBackground={isSelected ? "neutral-strong" : "neutral-weak"}
+                        textVariant={isSelected ? "label-strong-s" : "label-default-s"}
                         style={{ textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
                           {item.navIcon && <Icon size="xs" name={item.navIcon}/>}
                           {item.label || item.title}
@@ -125,51 +135,64 @@ export const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) 
         })}
       </>
     );
-  };
+  }, [pathname]);
+
+  const memoizedNavigation = useMemo(() => renderNavigation(navigation), [navigation, renderNavigation]);
+
+  const memoizedResources = useMemo(() => {
+    if (!(routes['/roadmap'] || routes['/changelog'])) {
+      return null;
+    }
+
+    return (
+      <Column gap="2" marginTop="32" paddingLeft="4">
+        <Row textVariant="label-strong-s" onBackground="brand-strong" paddingLeft="8" paddingY="12">
+          Resources
+        </Row>
+        {routes['/roadmap'] && (
+          <ToggleButton
+            fillWidth
+            justifyContent="space-between"
+            selected={pathname === '/roadmap'}
+            className={styles.navigation}
+            href="/roadmap">
+            <Row 
+              gap="8"
+              onBackground={pathname === '/roadmap' ? "neutral-strong" : "neutral-weak"}
+              textVariant={pathname === '/roadmap' ? "label-strong-s" : "label-default-s"}>
+              <Icon size="xs" name="roadmap"/>
+              Roadmap
+            </Row>
+          </ToggleButton>
+        )}
+        
+        {routes['/changelog'] && (
+          <ToggleButton
+            fillWidth
+            justifyContent="space-between"
+            selected={pathname === '/changelog'}
+            className={styles.navigation}
+            href="/changelog">
+            <Row 
+              gap="8"
+              onBackground={pathname === '/changelog' ? "neutral-strong" : "neutral-weak"}
+              textVariant={pathname === '/changelog' ? "label-strong-s" : "label-default-s"}>
+              <Icon size="xs" name="changelog"/>
+              Changelog
+            </Row>
+          </ToggleButton>
+        )}
+      </Column>
+    );
+  }, [pathname]);
 
   return (
     <Column maxWidth={layout.sidebar.width} position="sticky" top="64" fitHeight gap="2" as="nav" overflowY="auto" paddingRight="8" style={{maxHeight: "calc(100vh - var(--static-space-80))"}} {...rest}>
-        {renderNavigation(navigation)}
-        {(routes['/roadmap'] || routes['/changelog']) && (
-          <Column gap="2" marginTop="32" paddingLeft="4">
-            <Row textVariant="label-strong-s" onBackground="brand-strong" paddingLeft="8" paddingY="12">
-              Resources
-            </Row>
-            {routes['/roadmap'] && (
-              <ToggleButton
-                fillWidth
-                justifyContent="space-between"
-                selected={pathname === '/roadmap'}
-                className={styles.navigation}
-                href="/roadmap">
-                <Row 
-                  gap="8"
-                  onBackground={pathname === '/roadmap' ? "neutral-strong" : "neutral-weak"}
-                  textVariant={pathname === '/roadmap' ? "label-strong-s" : "label-default-s"}>
-                  <Icon size="xs" name="roadmap"/>
-                  Roadmap
-                </Row>
-              </ToggleButton>
-            )}
-            
-            {routes['/changelog'] && (
-              <ToggleButton
-                fillWidth
-                justifyContent="space-between"
-                selected={pathname === '/changelog'}
-                className={styles.navigation}
-                href="/changelog">
-                <Row 
-                  gap="8"
-                  onBackground={pathname === '/changelog' ? "neutral-strong" : "neutral-weak"}
-                  textVariant={pathname === '/changelog' ? "label-strong-s" : "label-default-s"}>
-                  <Icon size="xs" name="changelog"/>
-                  Changelog
-                </Row>
-              </ToggleButton>
-            )}
-          </Column>
-        )}
+        {memoizedNavigation}
+        {memoizedResources}
     </Column>
   );
 };
+
+export const MemoizedSidebar = React.memo(Sidebar);
+export { MemoizedSidebar as Sidebar };
