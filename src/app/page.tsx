@@ -9,8 +9,9 @@ export async function generateMetadata() {
   return Meta.generate({
     title: meta.home.title,
     description: meta.home.description,
-    baseURL,
-    path: "",
+    baseURL: baseURL,
+    path: meta.home.path,
+    image: meta.home.image
   });
 }
 
@@ -22,7 +23,7 @@ export default function Home() {
         title={meta.home.title}
         description={meta.home.description}
         baseURL={baseURL}
-        path=""
+        path={meta.home.path}
         author={{
           name: schema.name
         }}
@@ -31,7 +32,7 @@ export default function Home() {
         <Column maxWidth="s" gap="l">
           <Row fillWidth gap="l">
             <Column fillWidth gap="12">
-              <Heading variant="display-default-s">
+              <Heading variant="display-strong-s">
                 Magic Docs
               </Heading>
               <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">

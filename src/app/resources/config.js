@@ -1,10 +1,15 @@
-const baseURL = "https://once-ui.com";
+const baseURL = "https://docs.once-ui.com";
+
+const routes = {
+  '/changelog':  true,
+  '/roadmap':    true,
+}
 
 const style = {
   theme: "dark", // dark | light
   neutral: "gray", // sand | gray | slate
   brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "orange", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  accent: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
@@ -87,13 +92,28 @@ const schema = {
   name: "Magic Docs",
   description: "Magic Docs is a simple and beautiful documentation template built with Once UI.",
   email: "",
+  locale: "en_US"
 };
 
 const meta = {
   home: {
     title: `Docs – ${schema.name}`,
-    description: `Documentation`,
+    description: schema.description,
+    path: "/",
+    image: "/og?title=Docs"
+  },
+  roadmap: {
+    title: `Roadmap – ${schema.name}`,
+    description: schema.description,
+    path: "/roadmap",
+    image: "/og?title=Roadmap"
+  },
+  changelog: {
+    title: `Changelog – ${schema.name}`,
+    description: schema.description,
+    path: "/changelog",
+    image: "/og?title=Changelog"
   }
 };
 
-export { effects, style, layout, baseURL, social, schema, meta };
+export { effects, style, layout, baseURL, social, schema, meta, routes };
