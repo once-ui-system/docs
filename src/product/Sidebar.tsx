@@ -37,12 +37,12 @@ const toTitleCase = (str: string) => {
 };
 
 // Memoized navigation item component to prevent re-renders
-const NavigationItem: React.FC<{
+const NavigationItemComponent: React.FC<{
   item: NavigationItem;
   depth: number;
   pathname: string;
   renderNavigation: (items: NavigationItem[], depth: number) => React.ReactNode;
-}> = React.memo(({ item, depth, pathname, renderNavigation }) => {
+}> = ({ item, depth, pathname, renderNavigation }) => {
   const correctedSlug = item.slug;
   const isSelected = pathname.startsWith(`/docs/${correctedSlug}`);
 
@@ -114,22 +114,28 @@ const NavigationItem: React.FC<{
       </Row>
     </ToggleButton>
   );
-}, (prevProps, nextProps) => {
-  // Custom comparison function to prevent unnecessary re-renders
-  // Only re-render if the item changes or if the selection state changes
-  const prevSelected = prevProps.pathname.startsWith(`/docs/${prevProps.item.slug}`);
-  const nextSelected = nextProps.pathname.startsWith(`/docs/${nextProps.item.slug}`);
+};
+
+// Add display name and memoize with a less aggressive comparison function
+const NavigationItem = React.memo(NavigationItemComponent, (prevProps, nextProps) => {
+  // Always re-render if the pathname changes - this is critical for active state updates
+  if (prevProps.pathname !== nextProps.pathname) {
+    return false; // Different pathname means we should re-render
+  }
   
-  return prevProps.item === nextProps.item && prevSelected === nextSelected;
+  // Otherwise, only re-render if the item itself changes
+  return prevProps.item === nextProps.item;
 });
 
+NavigationItem.displayName = 'NavigationItem';
+
 // Memoized resource link component
-const ResourceLink: React.FC<{
+const ResourceLinkComponent: React.FC<{
   href: string;
   icon: string;
   label: string;
   pathname: string;
-}> = React.memo(({ href, icon, label, pathname }) => {
+}> = ({ href, icon, label, pathname }) => {
   const isSelected = pathname === href;
   
   return (
@@ -148,10 +154,20 @@ const ResourceLink: React.FC<{
       </Row>
     </ToggleButton>
   );
-}, (prevProps, nextProps) => {
-  // Only re-render if the selection state changes
-  return (prevProps.pathname === prevProps.href) === (nextProps.pathname === nextProps.href);
+};
+
+// Add display name and memoize with a less aggressive comparison function
+const ResourceLink = React.memo(ResourceLinkComponent, (prevProps, nextProps) => {
+  // Always re-render if the pathname changes - this is critical for active state updates
+  if (prevProps.pathname !== nextProps.pathname) {
+    return false; // Different pathname means we should re-render
+  }
+  
+  // Otherwise, only re-render if the href or icon changes
+  return prevProps.href === nextProps.href && prevProps.icon === nextProps.icon;
 });
+
+ResourceLink.displayName = 'ResourceLink';
 
 const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
   const [navigation, setNavigation] = useState<NavigationItem[]>(initialNavigation || []);
@@ -180,7 +196,7 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
     }
   }, [initialNavigation, hasLoaded]);
   
-  // Create a stable renderNavigation function that doesn't depend on pathname
+  // Create a stable renderNavigation function that depends on pathname for active state updates
   const renderNavigation = useCallback((items: NavigationItem[], depth = 0) => {
     return (
       <>
@@ -197,10 +213,10 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
     );
   }, [pathname]);
 
-  // Memoize the entire navigation tree
-  const memoizedNavigation = useMemo(() => renderNavigation(navigation), [navigation, renderNavigation]);
+  // Memoize the entire navigation tree, but ensure it updates when pathname changes
+  const memoizedNavigation = useMemo(() => renderNavigation(navigation), [navigation, renderNavigation, pathname]);
 
-  // Memoize the resources section
+  // Memoize the resources section, but ensure it updates when pathname changes
   const memoizedResources = useMemo(() => {
     if (!(routes['/roadmap'] || routes['/changelog'])) {
       return null;
@@ -241,10 +257,13 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
 };
 
 // Use a custom comparison function for the entire Sidebar component
+// Allow re-renders when pathname changes to ensure active state updates
 const MemoizedSidebar = React.memo(Sidebar, (prevProps, nextProps) => {
   // Only re-render if the initialNavigation changes
-  // This is a very aggressive optimization that prevents re-renders when navigating
+  // We don't need to check pathname here since the internal components handle that
   return prevProps.initialNavigation === nextProps.initialNavigation;
 });
+
+MemoizedSidebar.displayName = 'MemoizedSidebar';
 
 export { MemoizedSidebar as Sidebar };
