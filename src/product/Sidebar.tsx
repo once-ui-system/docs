@@ -36,11 +36,129 @@ const toTitleCase = (str: string) => {
     .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 };
 
+// Memoized navigation item component to prevent re-renders
+const NavigationItem: React.FC<{
+  item: NavigationItem;
+  depth: number;
+  pathname: string;
+  renderNavigation: (items: NavigationItem[], depth: number) => React.ReactNode;
+}> = React.memo(({ item, depth, pathname, renderNavigation }) => {
+  const correctedSlug = item.slug;
+  const isSelected = pathname.startsWith(`/docs/${correctedSlug}`);
+
+  if (item.children) {
+    return (
+      <Row
+        fillWidth 
+        style={{paddingLeft: `calc(${depth} * var(--static-space-8))`}}>
+        <Column
+          fillWidth
+          marginTop="2">
+          {layout.sidebar.collapsible ? (
+          <Accordion
+            gap="2"
+            icon="chevronRight"
+            iconRotation={90}
+            size="s"
+            radius="s"
+            paddingX={undefined}
+            paddingBottom={undefined}
+            paddingLeft="4"
+            paddingTop="4"
+            title={
+              <Row textVariant="label-strong-s" onBackground="brand-strong">
+                {toTitleCase(item.title)}
+              </Row>
+            }>
+              {renderNavigation(item.children, depth + 1)}
+          </Accordion>
+          ) : (
+            <Column
+              gap="2"
+              paddingLeft="4"
+              paddingTop="4">
+                <Row 
+                  paddingY="12" paddingLeft="8" textVariant="label-strong-s" onBackground="brand-strong">
+                  {toTitleCase(item.title)}
+                </Row>
+                {renderNavigation(item.children, depth + 1)}
+            </Column>
+          )}
+        </Column>
+      </Row>
+    );
+  }
+
+  return (
+    <ToggleButton
+      fillWidth
+      justifyContent="space-between"
+      selected={isSelected}
+      className={depth === 0 ? styles.navigation : undefined}
+      href={`/docs/${correctedSlug}`}>
+      <Row fillWidth horizontal="space-between" vertical="center">
+          <Row
+            overflow="hidden"
+            gap="8"
+            onBackground={isSelected ? "neutral-strong" : "neutral-weak"}
+            textVariant={isSelected ? "label-strong-s" : "label-default-s"}
+            style={{ textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+              {item.navIcon && <Icon size="xs" name={item.navIcon}/>}
+              {item.label || item.title}
+          </Row>
+          {item.navTag && (
+            <Tag data-theme="dark" data-brand={item.navTagVariant} style={{marginRight: "-0.5rem", transform: "scale(0.8)", transformOrigin: "right center"}} variant="brand" size="s">
+                {item.navTag}
+            </Tag>
+          )}
+      </Row>
+    </ToggleButton>
+  );
+}, (prevProps, nextProps) => {
+  // Custom comparison function to prevent unnecessary re-renders
+  // Only re-render if the item changes or if the selection state changes
+  const prevSelected = prevProps.pathname.startsWith(`/docs/${prevProps.item.slug}`);
+  const nextSelected = nextProps.pathname.startsWith(`/docs/${nextProps.item.slug}`);
+  
+  return prevProps.item === nextProps.item && prevSelected === nextSelected;
+});
+
+// Memoized resource link component
+const ResourceLink: React.FC<{
+  href: string;
+  icon: string;
+  label: string;
+  pathname: string;
+}> = React.memo(({ href, icon, label, pathname }) => {
+  const isSelected = pathname === href;
+  
+  return (
+    <ToggleButton
+      fillWidth
+      justifyContent="space-between"
+      selected={isSelected}
+      className={styles.navigation}
+      href={href}>
+      <Row 
+        gap="8"
+        onBackground={isSelected ? "neutral-strong" : "neutral-weak"}
+        textVariant={isSelected ? "label-strong-s" : "label-default-s"}>
+        <Icon size="xs" name={icon}/>
+        {label}
+      </Row>
+    </ToggleButton>
+  );
+}, (prevProps, nextProps) => {
+  // Only re-render if the selection state changes
+  return (prevProps.pathname === prevProps.href) === (nextProps.pathname === nextProps.href);
+});
+
 const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
   const [navigation, setNavigation] = useState<NavigationItem[]>(initialNavigation || []);
   const [hasLoaded, setHasLoaded] = useState(false);
   const pathname = usePathname();
   
+  // Load navigation data only once
   useEffect(() => {
     if (initialNavigation && initialNavigation.length > 0) {
       setNavigation(initialNavigation);
@@ -62,88 +180,27 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
     }
   }, [initialNavigation, hasLoaded]);
   
+  // Create a stable renderNavigation function that doesn't depend on pathname
   const renderNavigation = useCallback((items: NavigationItem[], depth = 0) => {
     return (
       <>
-        {items.map((item) => {
-          const correctedSlug = item.slug;
-          const isSelected = pathname.startsWith(`/docs/${correctedSlug}`);
-  
-          return (
-            <React.Fragment key={item.slug}>
-              {item.children ? (
-                <Row
-                  fillWidth 
-                  style={{paddingLeft: `calc(${depth} * var(--static-space-8))`}}>
-                  <Column
-                    fillWidth
-                    marginTop="2">
-                    {layout.sidebar.collapsible ? (
-                    <Accordion
-                      gap="2"
-                      icon="chevronRight"
-                      iconRotation={90}
-                      size="s"
-                      radius="s"
-                      paddingX={undefined}
-                      paddingBottom={undefined}
-                      paddingLeft="4"
-                      paddingTop="4"
-                      title={
-                        <Row textVariant="label-strong-s" onBackground="brand-strong">
-                          {toTitleCase(item.title)}
-                        </Row>
-                      }>
-                        {renderNavigation(item.children, depth + 1)}
-                    </Accordion>
-                    ) : (
-                      <Column
-                        gap="2"
-                        paddingLeft="4"
-                        paddingTop="4">
-                          <Row 
-                            paddingY="12" paddingLeft="8" textVariant="label-strong-s" onBackground="brand-strong">
-                            {toTitleCase(item.title)}
-                          </Row>
-                          {renderNavigation(item.children, depth + 1)}
-                      </Column>
-                    )}
-                  </Column>
-                </Row>
-              ) : (
-                <ToggleButton
-                  fillWidth
-                  justifyContent="space-between"
-                  selected={isSelected}
-                  className={depth === 0 ? styles.navigation : undefined}
-                  href={`/docs/${correctedSlug}`}>
-                  <Row fillWidth horizontal="space-between" vertical="center">
-                      <Row
-                        overflow="hidden"
-                        gap="8"
-                        onBackground={isSelected ? "neutral-strong" : "neutral-weak"}
-                        textVariant={isSelected ? "label-strong-s" : "label-default-s"}
-                        style={{ textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
-                          {item.navIcon && <Icon size="xs" name={item.navIcon}/>}
-                          {item.label || item.title}
-                      </Row>
-                      {item.navTag && (
-                        <Tag data-theme="dark" data-brand={item.navTagVariant} style={{marginRight: "-0.5rem", transform: "scale(0.8)", transformOrigin: "right center"}} variant="brand" size="s">
-                            {item.navTag}
-                        </Tag>
-                      )}
-                  </Row>
-                </ToggleButton>
-              )}
-            </React.Fragment>
-          );
-        })}
+        {items.map((item) => (
+          <NavigationItem 
+            key={item.slug}
+            item={item}
+            depth={depth}
+            pathname={pathname}
+            renderNavigation={renderNavigation}
+          />
+        ))}
       </>
     );
   }, [pathname]);
 
+  // Memoize the entire navigation tree
   const memoizedNavigation = useMemo(() => renderNavigation(navigation), [navigation, renderNavigation]);
 
+  // Memoize the resources section
   const memoizedResources = useMemo(() => {
     if (!(routes['/roadmap'] || routes['/changelog'])) {
       return null;
@@ -155,37 +212,21 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
           Resources
         </Row>
         {routes['/roadmap'] && (
-          <ToggleButton
-            fillWidth
-            justifyContent="space-between"
-            selected={pathname === '/roadmap'}
-            className={styles.navigation}
-            href="/roadmap">
-            <Row 
-              gap="8"
-              onBackground={pathname === '/roadmap' ? "neutral-strong" : "neutral-weak"}
-              textVariant={pathname === '/roadmap' ? "label-strong-s" : "label-default-s"}>
-              <Icon size="xs" name="roadmap"/>
-              Roadmap
-            </Row>
-          </ToggleButton>
+          <ResourceLink 
+            href="/roadmap"
+            icon="roadmap"
+            label="Roadmap"
+            pathname={pathname}
+          />
         )}
         
         {routes['/changelog'] && (
-          <ToggleButton
-            fillWidth
-            justifyContent="space-between"
-            selected={pathname === '/changelog'}
-            className={styles.navigation}
-            href="/changelog">
-            <Row 
-              gap="8"
-              onBackground={pathname === '/changelog' ? "neutral-strong" : "neutral-weak"}
-              textVariant={pathname === '/changelog' ? "label-strong-s" : "label-default-s"}>
-              <Icon size="xs" name="changelog"/>
-              Changelog
-            </Row>
-          </ToggleButton>
+          <ResourceLink 
+            href="/changelog"
+            icon="changelog"
+            label="Changelog"
+            pathname={pathname}
+          />
         )}
       </Column>
     );
@@ -199,5 +240,11 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
   );
 };
 
-export const MemoizedSidebar = React.memo(Sidebar);
+// Use a custom comparison function for the entire Sidebar component
+const MemoizedSidebar = React.memo(Sidebar, (prevProps, nextProps) => {
+  // Only re-render if the initialNavigation changes
+  // This is a very aggressive optimization that prevents re-renders when navigating
+  return prevProps.initialNavigation === nextProps.initialNavigation;
+});
+
 export { MemoizedSidebar as Sidebar };
