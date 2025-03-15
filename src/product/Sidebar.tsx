@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
+import React, { useEffect, useState, useMemo, useRef } from "react";
 import { ToggleButton } from '@/once-ui/components/ToggleButton';
 import { Accordion, Column, Flex, Icon, Row, Tag } from "@/once-ui/components";
 import { usePathname } from 'next/navigation';
@@ -177,27 +177,22 @@ const SidebarContent: React.FC<{
   navigation: NavigationItem[];
   pathname: string;
 }> = React.memo(({ navigation, pathname }) => {
-  // Use refs to maintain stable function references across renders
-  const renderNavigationRef = useRef<any>(null);
-  
-  // Initialize the renderNavigation function only once
-  if (!renderNavigationRef.current) {
-    renderNavigationRef.current = (items: NavigationItem[], depth = 0) => {
-      return (
-        <>
-          {items.map((item) => (
-            <NavigationItem 
-              key={item.slug}
-              item={item}
-              depth={depth}
-              pathname={pathname}
-              renderNavigation={renderNavigationRef.current}
-            />
-          ))}
-        </>
-      );
-    };
-  }
+  // Create a render function that captures the current pathname
+  const renderNavigation = (items: NavigationItem[], depth = 0) => {
+    return (
+      <>
+        {items.map((item) => (
+          <NavigationItem 
+            key={item.slug}
+            item={item}
+            depth={depth}
+            pathname={pathname}
+            renderNavigation={renderNavigation}
+          />
+        ))}
+      </>
+    );
+  };
 
   // Create resources section
   const resourcesSection = (!(routes['/roadmap'] || routes['/changelog'])) ? null : (
@@ -227,13 +222,18 @@ const SidebarContent: React.FC<{
 
   return (
     <>
-      {renderNavigationRef.current(navigation, 0)}
+      {renderNavigation(navigation, 0)}
       {resourcesSection}
     </>
   );
 }, (prevProps, nextProps) => {
-  // Only re-render if pathname changes or navigation changes
-  return prevProps.pathname === nextProps.pathname && prevProps.navigation === nextProps.navigation;
+  // Re-render if pathname changes
+  if (prevProps.pathname !== nextProps.pathname) {
+    return false;
+  }
+  
+  // Otherwise, only re-render if navigation changes
+  return prevProps.navigation === nextProps.navigation;
 });
 
 SidebarContent.displayName = 'SidebarContent';
