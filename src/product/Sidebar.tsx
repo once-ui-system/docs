@@ -38,24 +38,29 @@ const toTitleCase = (str: string) => {
 
 const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
   const [navigation, setNavigation] = useState<NavigationItem[]>(initialNavigation || []);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const pathname = usePathname();
   
   useEffect(() => {
     if (initialNavigation && initialNavigation.length > 0) {
+      setNavigation(initialNavigation);
+      setHasLoaded(true);
       return;
     }
     
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    
-    if (isDevelopment) {
+    if (!hasLoaded) {
       fetch("/api/navigation")
         .then((res) => res.json())
         .then((data) => {
           setNavigation(data);
+          setHasLoaded(true);
         })
-        .catch((err) => console.error("Navigation fetch failed", err));
+        .catch((err) => {
+          console.error("Navigation fetch failed", err);
+          setHasLoaded(true);
+        });
     }
-  }, [initialNavigation]);
+  }, [initialNavigation, hasLoaded]);
   
   const renderNavigation = useCallback((items: NavigationItem[], depth = 0) => {
     return (
