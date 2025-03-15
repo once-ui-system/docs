@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useState, useMemo, useCallback, useRef } from "react";
 import { ToggleButton } from '@/once-ui/components/ToggleButton';
 import { Accordion, Column, Flex, Icon, Row, Tag } from "@/once-ui/components";
 import { usePathname } from 'next/navigation';
@@ -9,6 +9,9 @@ import { routes } from "@/app/resources";
 import { Schemes } from "@/once-ui/types";
 
 import styles from './Sidebar.module.scss';
+
+// Global navigation cache to prevent refetching
+let globalNavigationCache: any = null;
 
 export interface NavigationItem extends Omit<React.ComponentProps<typeof Flex>, "title" | "label" | "children">{
   slug: string;
@@ -169,24 +172,101 @@ const ResourceLink = React.memo(ResourceLinkComponent, (prevProps, nextProps) =>
 
 ResourceLink.displayName = 'ResourceLink';
 
+// Create a stable version of the sidebar that doesn't re-render
+const SidebarContent: React.FC<{
+  navigation: NavigationItem[];
+  pathname: string;
+}> = React.memo(({ navigation, pathname }) => {
+  // Use refs to maintain stable function references across renders
+  const renderNavigationRef = useRef<any>(null);
+  
+  // Initialize the renderNavigation function only once
+  if (!renderNavigationRef.current) {
+    renderNavigationRef.current = (items: NavigationItem[], depth = 0) => {
+      return (
+        <>
+          {items.map((item) => (
+            <NavigationItem 
+              key={item.slug}
+              item={item}
+              depth={depth}
+              pathname={pathname}
+              renderNavigation={renderNavigationRef.current}
+            />
+          ))}
+        </>
+      );
+    };
+  }
+
+  // Create resources section
+  const resourcesSection = (!(routes['/roadmap'] || routes['/changelog'])) ? null : (
+    <Column gap="2" marginTop="32" paddingLeft="4">
+      <Row textVariant="label-strong-s" onBackground="brand-strong" paddingLeft="8" paddingY="12">
+        Resources
+      </Row>
+      {routes['/roadmap'] && (
+        <ResourceLink 
+          href="/roadmap"
+          icon="roadmap"
+          label="Roadmap"
+          pathname={pathname}
+        />
+      )}
+      
+      {routes['/changelog'] && (
+        <ResourceLink 
+          href="/changelog"
+          icon="changelog"
+          label="Changelog"
+          pathname={pathname}
+        />
+      )}
+    </Column>
+  );
+
+  return (
+    <>
+      {renderNavigationRef.current(navigation, 0)}
+      {resourcesSection}
+    </>
+  );
+}, (prevProps, nextProps) => {
+  // Only re-render if pathname changes or navigation changes
+  return prevProps.pathname === nextProps.pathname && prevProps.navigation === nextProps.navigation;
+});
+
+SidebarContent.displayName = 'SidebarContent';
+
 const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
   const [navigation, setNavigation] = useState<NavigationItem[]>(initialNavigation || []);
   const [hasLoaded, setHasLoaded] = useState(false);
   const pathname = usePathname();
   
-  // Load navigation data only once
+  // Load navigation data only once, using global cache
   useEffect(() => {
+    // Use initialNavigation if provided
     if (initialNavigation && initialNavigation.length > 0) {
       setNavigation(initialNavigation);
+      globalNavigationCache = initialNavigation;
       setHasLoaded(true);
       return;
     }
     
+    // Use global cache if available
+    if (globalNavigationCache) {
+      setNavigation(globalNavigationCache);
+      setHasLoaded(true);
+      return;
+    }
+    
+    // Fetch only if not loaded and no global cache
     if (!hasLoaded) {
       fetch("/api/navigation")
         .then((res) => res.json())
         .then((data) => {
           setNavigation(data);
+          globalNavigationCache = data; // Cache globally
           setHasLoaded(true);
         })
         .catch((err) => {
@@ -195,72 +275,33 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
         });
     }
   }, [initialNavigation, hasLoaded]);
-  
-  // Create a stable renderNavigation function that depends on pathname for active state updates
-  const renderNavigation = useCallback((items: NavigationItem[], depth = 0) => {
-    return (
-      <>
-        {items.map((item) => (
-          <NavigationItem 
-            key={item.slug}
-            item={item}
-            depth={depth}
-            pathname={pathname}
-            renderNavigation={renderNavigation}
-          />
-        ))}
-      </>
-    );
-  }, [pathname]);
 
-  // Memoize the entire navigation tree, but ensure it updates when pathname changes
-  const memoizedNavigation = useMemo(() => renderNavigation(navigation), [navigation, renderNavigation, pathname]);
-
-  // Memoize the resources section, but ensure it updates when pathname changes
-  const memoizedResources = useMemo(() => {
-    if (!(routes['/roadmap'] || routes['/changelog'])) {
-      return null;
-    }
-
-    return (
-      <Column gap="2" marginTop="32" paddingLeft="4">
-        <Row textVariant="label-strong-s" onBackground="brand-strong" paddingLeft="8" paddingY="12">
-          Resources
-        </Row>
-        {routes['/roadmap'] && (
-          <ResourceLink 
-            href="/roadmap"
-            icon="roadmap"
-            label="Roadmap"
-            pathname={pathname}
-          />
-        )}
-        
-        {routes['/changelog'] && (
-          <ResourceLink 
-            href="/changelog"
-            icon="changelog"
-            label="Changelog"
-            pathname={pathname}
-          />
-        )}
-      </Column>
-    );
-  }, [pathname]);
+  // Create a stable container that doesn't change
+  const containerStyle = useMemo(() => ({
+    maxHeight: "calc(100vh - var(--static-space-80))"
+  }), []);
 
   return (
-    <Column maxWidth={layout.sidebar.width} position="sticky" top="64" fitHeight gap="2" as="nav" overflowY="auto" paddingRight="8" style={{maxHeight: "calc(100vh - var(--static-space-80))"}} {...rest}>
-        {memoizedNavigation}
-        {memoizedResources}
+    <Column 
+      maxWidth={layout.sidebar.width} 
+      position="sticky" 
+      top="64" 
+      fitHeight 
+      gap="2" 
+      as="nav" 
+      overflowY="auto" 
+      paddingRight="8" 
+      style={containerStyle} 
+      {...rest}
+    >
+      {hasLoaded && <SidebarContent navigation={navigation} pathname={pathname} />}
     </Column>
   );
 };
 
 // Use a custom comparison function for the entire Sidebar component
-// Allow re-renders when pathname changes to ensure active state updates
 const MemoizedSidebar = React.memo(Sidebar, (prevProps, nextProps) => {
   // Only re-render if the initialNavigation changes
-  // We don't need to check pathname here since the internal components handle that
   return prevProps.initialNavigation === nextProps.initialNavigation;
 });
 
