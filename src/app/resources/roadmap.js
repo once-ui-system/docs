@@ -1,0 +1,209 @@
+const roadmap = [
+  {
+    product: "Once UI OSS",
+    brand: "blue",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Data visualization module",
+            description: "Data components built on top of Recharts.",
+            type: "feature"
+          },
+        ]
+      },
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Cursor card",
+            description: "A card component that pops up when hovering a trigger element.",
+            type: "feature"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+          {
+            title: "0.6 release",
+            description: "Simplified SEO with Meta and Schema components. Command Palette component. Minor styling improvements.",
+            type: "feature"
+          }
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+        ]
+      }
+    ]
+  },
+  {
+    product: "Once UI Pro",
+    brand: "indigo",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Module: Social media",
+            description: "Social components to power your indie social apps: posts, comments, OG card and more.",
+            type: "feature"
+          },
+          {
+            title: "Block: Price list",
+            description: "Service list with prices and details built with accordion.",
+            type: "feature"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+          {
+            title: "Template: Magic Store",
+            description: "New template for e-commerce stores powered by Fourthwall. Build a strong brand and monetize early with an out-of-the-box merch store.",
+            type: "feature"
+          }
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+          {
+            title: "Pages",
+            description: "Commonly used landing page examples: team, contact, about, pricing, blog.",
+            type: "feature"
+          },
+          {
+            title: "Blocks",
+            description: "Commonly used landing page blocks: features, testimonials, plans.",
+            type: "feature"
+          },
+        ]
+      },
+    ]
+  },
+  {
+    product: "Magic Docs",
+    brand: "magenta",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Tab navigation in MDX files",
+            description: "Expand the hierarchical structure of MDX files with optional tab navigation.",
+            type: "feature"
+          },
+          {
+            title: "Documentation version control",
+            description: "Ability to switch between documentation versions.",
+            type: "feature"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+          {
+            title: "Changelog",
+            description: "Changelog page with release notes and updates based on JSON.",
+            type: "feature"
+          },
+          {
+            title: "Roadmap",
+            description: "Roadmap page with auto-generated columns based on JSON.",
+            type: "feature"
+          },
+        ]
+      }
+    ]
+  },
+  {
+    product: "Magic Portfolio",
+    brand: "indigo",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "New gallery layout",
+            description: "Rework gallery with improved design and flexibility for artists and photographers.",
+            type: "feature"
+          },
+          {
+            title: "Improve Blog layout",
+            description: "Add pagination, featured read and a recent article block.",
+            type: "feature"
+          },
+          {
+            title: "Migrate to 0.6",
+            description: "Migrate to Once UI 0.6.",
+            type: "improvement"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+        ]
+      }
+    ]
+  },
+  
+  {
+    product: "Magic Bio",
+    brand: "emerald",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Email block",
+            description: "Add email block with Mailchimp integration.",
+            type: "feature"
+          },
+          {
+            title: "Migrate to 0.6",
+            description: "Migrate to Once UI 0.6.",
+            type: "improvement"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+        ]
+      }
+    ]
+  }
+];
+
+const task = {
+  bug: { label: "Bug", color: "red" },
+  feature: { label: "Feature", color: "green" },
+  improvement: { label: "Improvement", color: "blue" },
+  documentation: { label: "Docs", color: "magenta" },
+  performance: { label: "Performance", color: "orange" },
+  security: { label: "Security", color: "indigo" }
+};
+
+export { roadmap, task };

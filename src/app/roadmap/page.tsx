@@ -37,19 +37,21 @@ const RoadmapTask = ({ task: taskItem }: { task: Task }) => (
       </Text>
     )}
     
-    {taskItem.user && (
-      <Row marginTop="8" fillWidth vertical="center" horizontal="space-between">
-        <User
-          avatarProps={{ 
-            size: "s",
-            src: taskItem.user.avatar,
-            empty: !taskItem.user.avatar
-          }}
-        >
-          <Row paddingLeft="4" textVariant="label-default-s">
-            {taskItem.user.name}
-          </Row>
-        </User>
+    {(taskItem.user || taskItem.type) && (
+        <Row marginTop="8" fillWidth vertical="center" horizontal="space-between">
+          {taskItem.user && (
+            <User
+              avatarProps={{ 
+                size: "s",
+                src: taskItem.user.avatar,
+                empty: !taskItem.user.avatar
+            }}
+          >
+            <Row paddingLeft="4" textVariant="label-default-s">
+              {taskItem.user.name}
+            </Row>
+          </User>
+        )}
         {taskItem.type && (
           <Row vertical="center" gap="8">
             <StatusIndicator 
@@ -76,12 +78,12 @@ export default function RoadmapPage() {
           name: schema.name
         }}
       />
-      <Column fillWidth gap="12" paddingY="l">
+      <Column fillWidth gap="12" paddingBottom="l">
         <Heading variant="display-strong-s">
           Roadmap
         </Heading>
         <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
-          List of features and tasks that are planned for the next release.
+          List of features planned for Q2 2025
         </Text>
       </Column>
 
@@ -111,18 +113,24 @@ export default function RoadmapPage() {
                 </Row>
                 
                 <Column gap="4" fillWidth>
-                  {column.tasks.map((taskItem, taskIndex) => (
-                    taskItem.href ? (
+                  {column.tasks.map((taskItem, taskIndex) => {
+                    // Ensure the task item conforms to the Task interface
+                    const typedTask: Task = {
+                      ...taskItem,
+                      type: taskItem.type as keyof typeof task
+                    };
+                    
+                    return typedTask.href ? (
                       <Card
                         onBackground="neutral-strong"
                         border="neutral-alpha-weak"
                         fillWidth
                         radius="s"
                         key={taskIndex} 
-                        href={taskItem.href}
+                        href={typedTask.href}
                         padding="16"
                       >
-                        <RoadmapTask task={taskItem} />
+                        <RoadmapTask task={typedTask} />
                       </Card>
                     ) : (
                       <Column
@@ -134,10 +142,10 @@ export default function RoadmapPage() {
                         padding="16"
                         gap="8"
                       >
-                        <RoadmapTask task={taskItem} />
+                        <RoadmapTask task={typedTask} />
                       </Column>
-                    )
-                  ))}
+                    );
+                  })}
                 </Column>
               </Column>
             ))}

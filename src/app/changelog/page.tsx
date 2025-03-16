@@ -1,8 +1,7 @@
 import React from "react";
-import { Column, SmartLink, Row, Line, Text, Icon, Heading, SmartImage } from "@/once-ui/components";
+import { Column, SmartLink, Row, Line, Text, Heading, SmartImage } from "@/once-ui/components";
 import { HeadingLink } from "@/product";
-import { baseURL, meta, schema } from "@/app/resources";
-import { changelog } from "@/app/resources/content";
+import { baseURL, meta, schema, changelog } from "@/app/resources";
 import { Meta, Schema } from "@/once-ui/modules";
 import { formatDate } from "../utils/formatDate";
 
@@ -20,8 +19,7 @@ const Changelog: React.FC = () => {
   return (
     <Column
       maxWidth={56}
-      as="main"
-      gap="8">
+      as="main">
       <Schema
         as="webPage"
         title={meta.changelog.title}
@@ -32,12 +30,12 @@ const Changelog: React.FC = () => {
           name: schema.name
         }}
       />
-      <Column fillWidth gap="8" paddingY="l">
+      <Column fillWidth gap="8" paddingBottom="l">
         <Heading variant="display-strong-s">
           Changelog
         </Heading>
         <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
-          See what&apos;s new
+          See what&apos;s new in Once UI
         </Text>
       </Column>
 
@@ -49,7 +47,7 @@ const Changelog: React.FC = () => {
                 position="sticky" top="80"
                 fillWidth
                 minHeight="32" 
-                radius="full" 
+                radius="full"
                 center
                 paddingX="16"
                 paddingY="8"
@@ -117,7 +115,7 @@ const Changelog: React.FC = () => {
                   {section.link && (
                     <Row paddingY="8">
                       <SmartLink href={section.link} suffixIcon="chevronRight">
-                        View update <Icon name="chevronRight" size="xs" />
+                        View update
                       </SmartLink>
                     </Row>
                   )}

@@ -9,7 +9,6 @@ import {
   HiCheck,
   HiOutlineSun,
   HiOutlineMoon,
-  HiMiniQuestionMarkCircle,
   HiMiniMinus,
   HiOutlineEye,
   HiOutlineEyeSlash,
@@ -23,7 +22,6 @@ import {
   HiOutlineLink,
   HiExclamationTriangle,
   HiArrowUpRight,
-  HiInformationCircle,
   HiExclamationCircle,
   HiCheckCircle,
   HiOutlineShieldCheck,
@@ -40,6 +38,9 @@ import {
   HiOutlinePhoto,
   HiOutlineMap,
   HiOutlineClock,
+  HiOutlineLightBulb,
+  HiOutlineAdjustmentsVertical,
+  HiOutlineAdjustmentsHorizontal,
 } from "react-icons/hi2";
 
 import { RiVisaLine } from "react-icons/ri";
@@ -89,5 +90,7 @@ export const iconLibrary: Record<string, IconType> = {
   card: HiOutlineIdentification,
   image: HiOutlinePhoto,
   roadmap: HiOutlineMap,
-  changelog: HiOutlineClock
+  changelog: HiOutlineClock,
+  lightbulb: HiOutlineLightBulb,
+  config: HiOutlineAdjustmentsHorizontal
 };

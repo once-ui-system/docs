@@ -1,5 +1,8 @@
 { 
   "pages": {
-    "about": 1
+    "once-ui": 1,
+    "magic-portfolio": 2,
+    "magic-docs": 3,
+    "magic-bio": 4
   }
 }

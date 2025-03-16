@@ -1,0 +1,8 @@
+{
+  "title": "Magic Portfolio",
+  "order": 2,
+  "pages": {
+    "quick-start": 1,
+    "configuration": 2
+  }
+}

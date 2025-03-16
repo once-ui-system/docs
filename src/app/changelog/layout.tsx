@@ -2,7 +2,6 @@ import { Row } from "@/once-ui/components";
 import { Sidebar } from "@/product/Sidebar";
 import React, { memo } from "react";
 
-// Create a memoized layout component to prevent re-renders
 const DocsLayout = memo(({
   children,
 }: {

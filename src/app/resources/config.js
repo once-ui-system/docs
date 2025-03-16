@@ -83,15 +83,25 @@ const social = [
     name: "GitHub",
     icon: "github",
     link: "https://github.com/once-ui-system",
-  }
+  },
+  {
+    name: "LinkedIn",
+    icon: "linkedin",
+    link: "https://www.linkedin.com/company/once-ui/",
+  },
+  {
+    name: "Discord",
+    icon: "discord",
+    link: "https://discord.com/invite/5EyAQ4eNdS",
+  },
 ];
 
 const schema = {
   logo: "",
   type: "Organization",
-  name: "Magic Docs",
-  description: "Magic Docs is a simple and beautiful documentation template built with Once UI.",
-  email: "",
+  name: "Once UI",
+  description: "Once UI and Magic templates documentation.",
+  email: "lorant@once-ui.com",
   locale: "en_US"
 };
 
@@ -100,7 +110,7 @@ const meta = {
     title: `Docs – ${schema.name}`,
     description: schema.description,
     path: "/",
-    image: "/og?title=Docs"
+    image: "/og?title=Magic Templates&description=Documentation of the official Once UI templates"
   },
   roadmap: {
     title: `Roadmap – ${schema.name}`,
