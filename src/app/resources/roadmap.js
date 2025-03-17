@@ -11,11 +11,6 @@ const roadmap = [
             description: "Data components built on top of Recharts.",
             type: "feature"
           },
-        ]
-      },
-      {
-        title: "Planned",
-        tasks: [
           {
             title: "Cursor card",
             description: "A card component that pops up when hovering a trigger element.",
@@ -101,6 +96,11 @@ const roadmap = [
           {
             title: "Documentation version control",
             description: "Ability to switch between documentation versions.",
+            type: "feature"
+          },
+          {
+            title: "Hot reload",
+            description: "Automatically re-render documentation when changes are detected in MDX files.",
             type: "feature"
           },
         ]

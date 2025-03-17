@@ -67,7 +67,7 @@ const RoadmapTask = ({ task: taskItem }: { task: Task }) => (
 
 export default function RoadmapPage() {
   return (
-    <Column maxWidth={layout.body.width} gap="24" as="main">
+    <Column maxWidth={layout.body.width} minWidth={0} gap="24" as="main">
       <Schema
         as="webPage"
         title={meta.roadmap.title}
@@ -88,9 +88,9 @@ export default function RoadmapPage() {
       </Column>
 
       {roadmap.map((product, productIndex) => (
-        <Column key={productIndex} gap="24" marginTop={productIndex > 0 ? "48" : "0"}>
+        <Column key={productIndex} gap="24" marginTop={productIndex > 0 ? "48" : "0"} fillWidth>
           {product.product && (
-            <Row gap="16" marginBottom="16" vertical="center">
+            <Row gap="16" marginBottom="16" vertical="center" fillWidth>
               <Row minWidth="40" width="40" height="40" padding="8" vertical="center">
                 <Row radius="full" fillWidth minHeight="4" solid="brand-medium" data-brand={product.brand as Schemes} data-solid="inverse"/>
               </Row>

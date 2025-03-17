@@ -3,6 +3,13 @@
   "order": 2,
   "pages": {
     "quick-start": 1,
-    "configuration": 2
+    "pages": 2,
+    "styling": 3,
+    "content": 4,
+    "work": 5,
+    "blog": 6,
+    "mailchimp": 7,
+    "localization": 8,
+    "seo": 9
   }
 }

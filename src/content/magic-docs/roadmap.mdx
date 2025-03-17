@@ -1,58 +1,14 @@
 ---
-title: "Configuration"
-summary: "Magic Portfolio is a comprehensive, MDX-based, SEO-friendly, responsive portfolio template built with Once UI and Next.js."
-updatedAt: "2025-03-16"
-navLabel: "Configuration"
-navIcon: "config"
+title: "Roadmap"
+summary: "Magic Docs' roadmap."
+updatedAt: "2025-03-17"
+navLabel: "Roadmap"
+navIcon: "list"
 ---
 
-## Manage pages
+## Global style
 
-Magic Portfolio's `RouteGuard` component takes care of conditionally rendering pages based on the `routes` object.
-
-<CodeBlock
-    marginBottom="16"
-    highlight="6"
-    codeInstances={[
-  {
-    code:
-`const routes = {
-    '/':        true,
-    '/about':   true,
-    '/work':    true,
-    '/blog':    true,
-    '/gallery': false,
-};`,
-    language: "tsx",
-    label: "resources/config.js"
-  }
-]} />
-
-The code above will ensure that the `/gallery` page is not accessible and is not displayed in the navigation.
-
-## Password protection
-
-The `RouteGuard` component also takes care of conditionally rendering pages based on the `protectedRoutes` object.
-
-<CodeBlock
-    marginBottom="16"
-    highlight="2"
-    codeInstances={[
-  {
-    code:
-`const protectedRoutes = {
-  '/work/once-ui': true
-};`,
-    language: "tsx",
-    label: "resources/config.js"
-  }
-]} />
-
-The code above will ensure that the `/work/once-ui` page is only accessible after providing a password. The password can be set in the `.env.local` file for local development and as an [environment variable](https://vercel.com/docs/environment-variables) for production.
-
-## Styling
-
-Magic Portfolio's styling is based on Once UI's customization through data-attributes. You can generate a custom color palette for brand, accent and neutral colors on [Once UI](https://once-ui.com/customize) where you'll find instructions on how to apply it.
+Magic Docs' styling is based on Once UI's customization through data-attributes. You can generate a custom color palette for brand, accent and neutral colors on [Once UI](https://once-ui.com/customize) where you'll find instructions on how to apply it.
 
 <CodeBlock
     marginBottom="16"
@@ -74,7 +30,7 @@ scaling:     '100',          // 90 | 95 | 100 | 105 | 110`,
   }
 ]} />
 
-### Background effect
+## Background effect
 
 There's a pre-configured background in `layout.tsx` that you can modify in the config file. Set graphic elements such as gradient, dots, lines, and grid and configure their appearance.
 

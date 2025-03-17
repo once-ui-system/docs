@@ -1,0 +1,88 @@
+---
+title: "Components"
+summary: "Magic Docs' components."
+updatedAt: "2025-03-17"
+navLabel: "Components"
+navIcon: "list"
+---
+
+Since Magic Docs is based on Once UI, you can use all the components provided by Once UI in the `.mdx` files, but you need to import them first in the `src/product/mdx.tsx` file.
+
+<CodeBlock
+    marginBottom="16"
+    codeHeight={24}
+    codeInstances={[
+      {
+        code:
+`const components = {
+    p: createParagraph as any,
+    h1: createHeading("h1") as any,
+    h2: createHeading("h2") as any,
+    h3: createHeading("h3") as any,
+    h4: createHeading("h4") as any,
+    h5: createHeading("h5") as any,
+    h6: createHeading("h6") as any,
+    img: createImage as any,
+    a: CustomLink as any,
+    code: createInlineCode as any,
+    pre: createCodeBlock as any,
+    Heading,
+    Text,
+    Table,
+    CodeBlock,
+    InlineCode,
+    Accordion,
+    AccordionGroup,
+    Feedback: dynamic(() => import("@/once-ui/components").then(mod => mod.Feedback)),
+    Card: dynamic(() => import("@/once-ui/components").then(mod => mod.Card)),
+    PageList: dynamic(() => import("@/product/PageList").then(mod => mod.PageList)),
+    Grid: dynamic(() => import("@/once-ui/components").then(mod => mod.Grid)),
+    Row: dynamic(() => import("@/once-ui/components").then(mod => mod.Row)),
+    Column: dynamic(() => import("@/once-ui/components").then(mod => mod.Column)),
+    Icon: dynamic(() => import("@/once-ui/components").then(mod => mod.Icon)),
+    SmartImage: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartImage)),
+    SmartLink: dynamic(() => import("@/once-ui/components").then(mod => mod.SmartLink)),
+    // Add more components
+};`,
+        language: "tsx",
+        label: "src/product/mdx.tsx"
+      }
+    ]}
+/>
+
+Magic Docs will replace some default HTML elements to Once UI components to integrate better in the design and add additional functionality. Furthermore, many common Once UI components are already imported and available for use.
+
+## Feedback
+
+The feedback component is used to display critical information to visitors.
+
+<Feedback icon title="Feedback element" variant="success" description="Longer description of the feedback message." actionButtonProps={{ label: "Action button", size: "s" }} marginBottom="24"/>
+
+<Column fillWidth gap="-1" marginBottom="16">
+<CodeBlock
+    radius="none"
+    topRadius="l"
+    codeHeight={24}
+    codeInstances={[
+      {
+        code:
+`<Feedback
+    icon
+    variant="success"
+    title="Feedback element"
+    description="Longer description of the feedback message."
+>
+    <Button
+        label="Action button"
+        size="s"
+    />
+</Feedback>`,
+        language: "tsx",
+        label: "Feedback"
+      }
+    ]}
+/>
+<Row fillWidth bottomRadius="l" padding="4" border="neutral-medium" background="surface">
+    <Button href="https://once-ui.com/docs/feedback" weight="default" label="View on Once UI" size="s" variant="tertiary" suffixIcon="chevronRight"/>
+</Row>
+</Column>

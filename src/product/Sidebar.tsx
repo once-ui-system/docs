@@ -277,7 +277,8 @@ const Sidebar: React.FC<SidebarProps> = ({ initialNavigation, ...rest }) => {
 
   return (
     <Column 
-      maxWidth={layout.sidebar.width} 
+      width={layout.sidebar.width} 
+      minWidth={layout.sidebar.width} 
       position="sticky" 
       top="64" 
       fitHeight 

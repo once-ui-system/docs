@@ -23,7 +23,6 @@ import {
   HiExclamationTriangle,
   HiArrowUpRight,
   HiExclamationCircle,
-  HiCheckCircle,
   HiOutlineShieldCheck,
   HiOutlineSparkles,
   HiOutlineBars3BottomLeft,
@@ -39,13 +38,18 @@ import {
   HiOutlineMap,
   HiOutlineClock,
   HiOutlineLightBulb,
-  HiOutlineAdjustmentsVertical,
   HiOutlineAdjustmentsHorizontal,
+  HiOutlinePaintBrush,
+  HiOutlineDocumentDuplicate,
+  HiOutlineDocumentText,
+  HiOutlineSquare3Stack3D,
+  HiOutlineLanguage,
+  HiOutlineCheckCircle,
 } from "react-icons/hi2";
 
 import { RiVisaLine } from "react-icons/ri";
 
-import { FaDiscord, FaGithub, FaGoogle, FaLinkedin, FaThreads } from "react-icons/fa6";
+import { FaDiscord, FaGithub, FaGoogle, FaLinkedin, FaMailchimp, FaThreads } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
@@ -61,7 +65,7 @@ export const iconLibrary: Record<string, IconType> = {
   infoCircle: HiOutlineInformationCircle,
   warningTriangle: HiExclamationTriangle,
   errorCircle: HiExclamationCircle,
-  checkCircle: HiCheckCircle,
+  checkCircle: HiOutlineCheckCircle,
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
   person: HiMiniUser,
@@ -92,5 +96,13 @@ export const iconLibrary: Record<string, IconType> = {
   roadmap: HiOutlineMap,
   changelog: HiOutlineClock,
   lightbulb: HiOutlineLightBulb,
-  config: HiOutlineAdjustmentsHorizontal
+  config: HiOutlineAdjustmentsHorizontal,
+  mailchimp: FaMailchimp,
+  style: HiOutlinePaintBrush,
+  pages: HiOutlineDocumentDuplicate,
+  learn: HiOutlineAcademicCap,
+  page: HiOutlineDocumentText,
+  project: HiOutlineSquare3Stack3D,
+  article: HiOutlineQueueList,
+  language: HiOutlineLanguage
 };

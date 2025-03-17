@@ -10,7 +10,8 @@ import {
   Text,
   InlineCode, 
   Accordion, 
-  AccordionGroup 
+  AccordionGroup, 
+  Button
 } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
@@ -207,6 +208,7 @@ const components = {
   Accordion,
   AccordionGroup,
   Feedback: dynamic(() => import("@/once-ui/components").then(mod => mod.Feedback)),
+  Button: dynamic(() => import("@/once-ui/components").then(mod => mod.Button)),
   Card: dynamic(() => import("@/once-ui/components").then(mod => mod.Card)),
   PageList: dynamic(() => import("@/product/PageList").then(mod => mod.PageList)),
   Grid: dynamic(() => import("@/once-ui/components").then(mod => mod.Grid)),
