@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, forwardRef, useImperativeHandle } from "react";
+import React, { useState, forwardRef, useImperativeHandle, useEffect } from "react";
 import { Flex, Icon, Text, Column, Grid } from ".";
 import styles from "./Accordion.module.scss";
 
@@ -23,6 +23,11 @@ interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, "title"
 const Accordion = forwardRef<AccordionHandle, AccordionProps>(
   ({ title, children, open = false, iconRotation = 180, radius, icon = "chevronDown", size = "m", ...rest }, ref) => {
     const [isOpen, setIsOpen] = useState(open);
+
+    // Update isOpen state when open prop changes
+    useEffect(() => {
+      setIsOpen(open);
+    }, [open]);
 
     const toggleAccordion = () => {
       setIsOpen(!isOpen);
