@@ -119,10 +119,66 @@ export default function Home() {
           </Column>
         </Row>
       </Column>
+
+      <Column fillWidth>
+      <Column fillWidth gap="4">
+        <Text 
+          variant="display-default-s" 
+          onBackground="neutral-strong"
+        >
+          Templates
+        </Text>
+        <Text
+          variant="label-default-s" 
+          onBackground="neutral-weak"
+          marginTop="8"
+          marginBottom="16"
+        >
+          Deploy fully functional apps in minutes
+        </Text>
+      </Column>
+      <Grid fillWidth columns="2" mobileColumns="1" gap="8" marginTop="16">
+          {templates.map((template, index) => (
+            <Card
+              key={index}
+              href={template.href}
+              fillWidth
+              radius="l-4"
+              border="neutral-alpha-medium"
+              direction="column"
+              padding="4"
+              gap="4"
+            >
+              <SmartImage 
+                src={template.image} 
+                aspectRatio="16/9" 
+                radius="l" 
+                sizes="400px" 
+              />
+              <Column fillWidth padding="20" gap="8" horizontal="start">
+                <Text 
+                  variant="heading-strong-m" 
+                  onBackground="neutral-strong" 
+                  align="left"
+                >
+                  {template.title}
+                </Text>
+                <Text 
+                  variant="body-default-s" 
+                  onBackground="neutral-weak" 
+                  align="left"
+                >
+                  {template.description}
+                </Text>
+              </Column>
+            </Card>
+          ))}
+        </Grid>
+      </Column>
       
       {/* Latest Update Section */}
       <Column 
-        fillWidth
+        maxWidth={56}
         gap="20" 
         padding="32"
         background="overlay"
@@ -175,7 +231,7 @@ export default function Home() {
       
       {/* Roadmap Progress Section */}
       <Column 
-        fillWidth
+        maxWidth={56}
         gap="20" 
         padding="32"
         background="overlay"
@@ -201,9 +257,9 @@ export default function Home() {
         <Row fillWidth gap="20" position="relative" mobileDirection="column">
           <Row fillWidth gap="12">
             {/* Overall Progress */}
-            <Column fillWidth gap="8" paddingX="16" paddingTop="8">
+            <Column fillWidth gap="8" paddingTop="8">
               <Column fillWidth gap="20">
-                <Column fillWidth>
+                <Column fillWidth horizontal="center" gap="4">
                   <Text 
                     variant="display-strong-l" 
                     onBackground="neutral-strong"
@@ -211,6 +267,7 @@ export default function Home() {
                     {roadmapStats.progressPercentage}%
                   </Text>
                   <Text 
+                    align="center"
                     variant="label-default-s" 
                     onBackground="neutral-weak"
                     marginTop="8"
@@ -240,7 +297,7 @@ export default function Home() {
               
               {/* Task Status */}
               <Grid fillWidth columns="3" mobileColumns="1" gap="8" marginTop="24">
-                {/* Completed Tasks */}
+                {/* Planned Tasks */}
                 <Column 
                   padding="l" 
                   horizontal="center"
@@ -253,15 +310,15 @@ export default function Home() {
                     variant="display-default-m" 
                     onBackground="neutral-strong"
                   >
-                    {roadmapStats.completedTasks}
+                    {roadmapStats.totalTasks - roadmapStats.completedTasks - roadmapStats.inProgressTasks}
                   </Text>
                   <Row vertical="center" gap="8">
-                    <StatusIndicator color="green" />
+                    <StatusIndicator color="blue" />
                     <Text 
                       variant="label-default-s" 
                       onBackground="neutral-weak"
                     >
-                      Completed
+                      Planned
                     </Text>
                   </Row>
                 </Column>
@@ -291,8 +348,8 @@ export default function Home() {
                     </Text>
                   </Row>
                 </Column>
-                
-                {/* Planned Tasks */}
+
+                {/* Completed Tasks */}
                 <Column 
                   padding="l" 
                   horizontal="center"
@@ -305,15 +362,15 @@ export default function Home() {
                     variant="display-default-m" 
                     onBackground="neutral-strong"
                   >
-                    {roadmapStats.totalTasks - roadmapStats.completedTasks - roadmapStats.inProgressTasks}
+                    {roadmapStats.completedTasks}
                   </Text>
                   <Row vertical="center" gap="8">
-                    <StatusIndicator color="blue" />
+                    <StatusIndicator color="green" />
                     <Text 
                       variant="label-default-s" 
                       onBackground="neutral-weak"
                     >
-                      Planned
+                      Completed
                     </Text>
                   </Row>
                 </Column>
@@ -321,54 +378,6 @@ export default function Home() {
             </Column>
           </Row>
         </Row>
-      </Column>
-      
-      {/* Templates Section */}
-      <Column 
-        fillWidth
-        gap="24"
-      >
-        <Heading as="h2" variant="display-default-xs">
-          Templates
-        </Heading>
-        
-        <Grid fillWidth columns="2" mobileColumns="1" gap="8" marginTop="16">
-          {templates.map((template, index) => (
-            <Card
-              key={index}
-              href={template.href}
-              fillWidth
-              radius="l-4"
-              border="neutral-alpha-medium"
-              direction="column"
-              padding="4"
-              gap="4"
-            >
-              <SmartImage 
-                src={template.image} 
-                aspectRatio="16/9" 
-                radius="l" 
-                sizes="400px" 
-              />
-              <Column fillWidth padding="20" gap="8" horizontal="start">
-                <Text 
-                  variant="heading-strong-m" 
-                  onBackground="neutral-strong" 
-                  align="left"
-                >
-                  {template.title}
-                </Text>
-                <Text 
-                  variant="body-default-s" 
-                  onBackground="neutral-weak" 
-                  align="left"
-                >
-                  {template.description}
-                </Text>
-              </Column>
-            </Card>
-          ))}
-        </Grid>
       </Column>
     </Column>
   );
