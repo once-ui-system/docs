@@ -3,6 +3,7 @@ const changelog = [
     date: "2025-03-09",
     image: "/images/changelog/magic-docs.jpg",
     title: "Magic Docs",
+    description: "The simplest, most beautiful documentation for your awesome product.",
     sections: [
       {
         title: "Features",

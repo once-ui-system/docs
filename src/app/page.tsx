@@ -1,9 +1,22 @@
 import React from "react";
-import { Heading, Text, Column, Button, Row, Grid } from "@/once-ui/components";
-import { Meta, Schema } from "@/once-ui/modules";
-import { baseURL, layout } from "@/app/resources";
-import { meta, schema } from "@/app/resources";
+import { 
+  Column, 
+  Row, 
+  Heading, 
+  Text, 
+  Button, 
+  Grid, 
+  Card, 
+  SmartImage, 
+  Flex, 
+  Line, 
+  StatusIndicator
+} from "@/once-ui/components";
 import { PageList } from "@/product/PageList";
+import { baseURL, meta, schema, changelog, roadmap, task, layout } from "@/app/resources";
+import { Meta, Schema } from "@/once-ui/modules";
+import { formatDate } from "./utils/formatDate";
+import { Schemes } from "@/once-ui/types";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -15,9 +28,72 @@ export async function generateMetadata() {
   });
 }
 
+// Calculate roadmap progress stats
+const calculateRoadmapStats = () => {
+  let totalTasks = 0;
+  let inProgressTasks = 0;
+  let completedTasks = 0;
+  
+  roadmap.forEach(product => {
+    product.columns.forEach(column => {
+      totalTasks += column.tasks.length;
+      
+      if (column.title === "In Progress") {
+        inProgressTasks += column.tasks.length;
+      }
+      
+      if (column.title === "Done") {
+        completedTasks += column.tasks.length;
+      }
+    });
+  });
+  
+  const progressPercentage = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+  
+  return {
+    totalTasks,
+    inProgressTasks,
+    completedTasks,
+    progressPercentage
+  };
+};
+
+const roadmapStats = calculateRoadmapStats();
+
+// Get the latest changelog entry
+const latestChangelogEntry = changelog[0];
+
+// Template data
+const templates = [
+  {
+    title: "Once UI",
+    description: "The original starter template with all components.",
+    image: "/images/docs/once-ui.jpg",
+    href: "/docs/once-ui/quick-start"
+  },
+  {
+    title: "Magic Portfolio",
+    description: "Showcase your work with this beautiful portfolio.",
+    image: "/images/docs/magic-portfolio.jpg",
+    href: "/docs/magic-portfolio/quick-start"
+  },
+  {
+    title: "Magic Docs",
+    description: "Create beautiful documentation like this site.",
+    image: "/images/docs/magic-docs.jpg",
+    href: "/docs/magic-docs/quick-start"
+  },
+  {
+    title: "Magic Bio",
+    description: "A modern link-in-bio solution for creators.",
+    image: "/images/docs/magic-bio.jpg",
+    href: "/docs/magic-bio/quick-start"
+  }
+];
+
 export default function Home() {
   return (
-    <Column maxWidth={layout.content.width} gap="xl" horizontal="center">
+    <Column maxWidth={56} gap="xl">
       <Schema
         as="webPage"
         title={meta.home.title}
@@ -28,26 +104,268 @@ export default function Home() {
           name: schema.name
         }}
       />
-      <Column fillWidth paddingY="l" gap="m">
-        <Column maxWidth="s" gap="l">
-          <Row fillWidth gap="l">
-            <Column fillWidth gap="12">
-              <Heading variant="display-strong-s">
-                Magic Docs
+      
+      {/* Hero Section */}
+      <Column fillWidth gap="l" paddingTop="l">
+        <Row fillWidth gap="l">
+          <Column maxWidth="xs" gap="12">
+            <Heading variant="display-strong-s">
+              Magic Docs
+            </Heading>
+            <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
+              Get started with premium templates and resources for your creative journey
+            </Text>
+            <Button data-border="rounded" size="s" href="/docs/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
+          </Column>
+        </Row>
+      </Column>
+      
+      {/* Latest Update Section */}
+      <Column 
+        fillWidth
+        gap="20" 
+        padding="32"
+        background="overlay"
+        radius="l"
+        border="neutral-alpha-weak"
+      >
+        <Row fillWidth horizontal="space-between" mobileDirection="column" gap="20">
+          <Column gap="8" fillWidth>
+            <Heading as="h2" variant="display-default-xs">
+              Latest Update
+            </Heading>
+            <Text variant="label-default-s" onBackground="neutral-weak">
+              {formatDate(latestChangelogEntry.date)}
+            </Text>
+          </Column>
+          <Button variant="secondary" href="/changelog" size="s" suffixIcon="chevronRight">
+            View Changelog
+          </Button>
+        </Row>
+        
+        <Line background="neutral-alpha-weak" />
+        
+        <Row fillWidth gap="20" position="relative" mobileDirection="column">
+          <Column fillWidth gap="12">
+            {latestChangelogEntry.image && (
+              <SmartImage
+                priority
+                sizes="(max-width: 768px) 100vw, 768px"
+                radius="l"
+                src={latestChangelogEntry.image} 
+                alt={`Illustration for ${latestChangelogEntry.title}`}
+                border="neutral-alpha-weak"
+                aspectRatio="16 / 9"
+              />
+            )}
+            <Column fillWidth gap="8" paddingX="16" paddingTop="8">
+              <Heading as="h3">
+                {latestChangelogEntry.title}
               </Heading>
-              <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
-                Set up your simple, responsive product documentation with Magic Docs without hassle.
-              </Text>
-              <Button data-border="rounded" size="s" href="/docs/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
+
+              {latestChangelogEntry.description && (
+                <Text variant="body-default-m" onBackground="neutral-weak">
+                  {latestChangelogEntry.description}
+                </Text>
+              )}
+            </Column>
+          </Column>
+        </Row>
+      </Column>
+      
+      {/* Roadmap Progress Section */}
+      <Column 
+        fillWidth
+        gap="20" 
+        padding="32"
+        background="overlay"
+        radius="l"
+        border="neutral-alpha-weak"
+      >
+        <Row fillWidth horizontal="space-between" mobileDirection="column" gap="20">
+          <Column gap="8" fillWidth>
+            <Heading as="h2" variant="display-default-xs">
+              Q2 2025 Roadmap
+            </Heading>
+            <Text variant="label-default-s" onBackground="neutral-weak">
+              Progress and task status
+            </Text>
+          </Column>
+          <Button variant="secondary" href="/roadmap" size="s" suffixIcon="chevronRight">
+            View Roadmap
+          </Button>
+        </Row>
+        
+        <Line background="neutral-alpha-weak" />
+        
+        <Row fillWidth gap="20" position="relative" mobileDirection="column">
+          <Row fillWidth gap="12">
+            {/* Overall Progress */}
+            <Column fillWidth gap="8" paddingX="16" paddingTop="8">
+              <Row horizontal="space-between" vertical="center">
+                <Column>
+                  <Text 
+                    variant="display-strong-l" 
+                    onBackground="neutral-strong"
+                    style={{ fontSize: '4rem', lineHeight: '1' }}
+                  >
+                    {roadmapStats.progressPercentage}%
+                  </Text>
+                  <Text 
+                    variant="label-default-s" 
+                    onBackground="neutral-weak"
+                    marginTop="8"
+                  >
+                    OVERALL PROGRESS
+                  </Text>
+                </Column>
+                
+                <div className="progress-bar" style={{ 
+                  height: '8px', 
+                  width: '50%', 
+                  backgroundColor: 'var(--color-neutral-alpha-weak)',
+                  borderRadius: '4px',
+                  overflow: 'hidden'
+                }}>
+                  <div style={{ 
+                    height: '100%', 
+                    width: `${roadmapStats.progressPercentage}%`,
+                    backgroundColor: 'var(--color-brand-medium)',
+                    transition: 'width 0.3s ease'
+                  }} />
+                </div>
+              </Row>
+              
+              {/* Task Status */}
+              <Grid fillWidth columns="3" mobileColumns="1" gap="m" marginTop="24">
+                {/* Completed Tasks */}
+                <Column 
+                  padding="l" 
+                  radius="m" 
+                  border="neutral-alpha-weak" 
+                  background="overlay"
+                  gap="s"
+                >
+                  <Row vertical="center" gap="8">
+                    <StatusIndicator color="green" />
+                    <Text 
+                      variant="label-default-s" 
+                      onBackground="neutral-weak"
+                    >
+                      COMPLETED
+                    </Text>
+                  </Row>
+                  <Text 
+                    variant="display-strong-m" 
+                    onBackground="neutral-strong"
+                    style={{ fontSize: '2.5rem', lineHeight: '1' }}
+                  >
+                    {roadmapStats.completedTasks}
+                  </Text>
+                </Column>
+                
+                {/* In Progress Tasks */}
+                <Column 
+                  padding="l" 
+                  radius="m" 
+                  border="neutral-alpha-weak" 
+                  background="overlay"
+                  gap="s"
+                >
+                  <Row vertical="center" gap="8">
+                    <StatusIndicator color="yellow" />
+                    <Text 
+                      variant="label-default-s" 
+                      onBackground="neutral-weak"
+                    >
+                      IN PROGRESS
+                    </Text>
+                  </Row>
+                  <Text 
+                    variant="display-strong-m" 
+                    onBackground="neutral-strong"
+                    style={{ fontSize: '2.5rem', lineHeight: '1' }}
+                  >
+                    {roadmapStats.inProgressTasks}
+                  </Text>
+                </Column>
+                
+                {/* Planned Tasks */}
+                <Column 
+                  padding="l" 
+                  radius="m" 
+                  border="neutral-alpha-weak" 
+                  background="overlay"
+                  gap="s"
+                >
+                  <Row vertical="center" gap="8">
+                    <StatusIndicator color="blue" />
+                    <Text 
+                      variant="label-default-s" 
+                      onBackground="neutral-weak"
+                    >
+                      PLANNED
+                    </Text>
+                  </Row>
+                  <Text 
+                    variant="display-strong-m" 
+                    onBackground="neutral-strong"
+                    style={{ fontSize: '2.5rem', lineHeight: '1' }}
+                  >
+                    {roadmapStats.totalTasks - roadmapStats.completedTasks - roadmapStats.inProgressTasks}
+                  </Text>
+                </Column>
+              </Grid>
             </Column>
           </Row>
-        </Column>
-        <PageList depth={1} thumbnail={true} marginTop="40" minHeight={14}/>
-        <Heading as="h2" variant="display-default-xs" marginTop="24">
-          Components
+        </Row>
+      </Column>
+      
+      {/* Templates Section */}
+      <Column 
+        fillWidth
+        gap="24"
+      >
+        <Heading as="h2" variant="display-default-xs">
+          Templates
         </Heading>
-        <Grid fillWidth columns="2" mobileColumns="1" gap="8">
-          <PageList path={["components"]} description={false}/>
+        
+        <Grid fillWidth columns="2" mobileColumns="1" gap="8" marginTop="16">
+          {templates.map((template, index) => (
+            <Card
+              key={index}
+              href={template.href}
+              fillWidth
+              radius="l-4"
+              border="neutral-alpha-medium"
+              direction="column"
+              padding="4"
+              gap="4"
+            >
+              <SmartImage 
+                src={template.image} 
+                aspectRatio="16/9" 
+                radius="l" 
+                sizes="400px" 
+              />
+              <Column fillWidth padding="20" gap="8" horizontal="start">
+                <Text 
+                  variant="heading-strong-m" 
+                  onBackground="neutral-strong" 
+                  align="left"
+                >
+                  {template.title}
+                </Text>
+                <Text 
+                  variant="body-default-s" 
+                  onBackground="neutral-weak" 
+                  align="left"
+                >
+                  {template.description}
+                </Text>
+              </Column>
+            </Card>
+          ))}
         </Grid>
       </Column>
     </Column>

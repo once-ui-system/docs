@@ -221,7 +221,22 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'orde
     // Get the section from the current slug (first part of the path)
     const currentSection = currentSlug.split('/')[0];
     
-    // Filter pages to only include those in the same section
+    // First, sort all pages by section and then by order within section
+    // This gives us a global ordering of all pages across all sections
+    const allSortedPages = sortPages(allPages, 'section');
+    
+    // Find current page index in the global ordering
+    const globalCurrentIndex = allSortedPages.findIndex(page => page.slug === currentSlug);
+    
+    if (globalCurrentIndex === -1) {
+      return { prevPage: null, nextPage: null };
+    }
+    
+    // Get global previous and next pages (across all sections)
+    const globalPrevPage = globalCurrentIndex > 0 ? allSortedPages[globalCurrentIndex - 1] : null;
+    const globalNextPage = globalCurrentIndex < allSortedPages.length - 1 ? allSortedPages[globalCurrentIndex + 1] : null;
+    
+    // Filter pages to only include those in the same section for section-specific navigation
     const sectionPages = allPages.filter(page => {
       const pageSection = page.slug.split('/')[0];
       return pageSection === currentSection;
@@ -233,14 +248,19 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'orde
     // Find current page index within the section
     const sectionCurrentIndex = sortedSectionPages.findIndex(page => page.slug === currentSlug);
     
-    if (sectionCurrentIndex === -1) {
-      return { prevPage: null, nextPage: null };
-    }
+    // Determine if we're at section boundaries
+    const isFirstInSection = sectionCurrentIndex === 0;
+    const isLastInSection = sectionCurrentIndex === sortedSectionPages.length - 1;
     
     // Get section-specific previous and next pages
-    // First and last pages in a section will have null prev/next respectively
-    const prevPage = sectionCurrentIndex > 0 ? sortedSectionPages[sectionCurrentIndex - 1] : null;
-    const nextPage = sectionCurrentIndex < sortedSectionPages.length - 1 ? sortedSectionPages[sectionCurrentIndex + 1] : null;
+    const sectionPrevPage = sectionCurrentIndex > 0 ? sortedSectionPages[sectionCurrentIndex - 1] : null;
+    const sectionNextPage = sectionCurrentIndex < sortedSectionPages.length - 1 ? sortedSectionPages[sectionCurrentIndex + 1] : null;
+    
+    // Logic for cross-section navigation:
+    // If we're at the first page of a section and there's a global previous page from another section, use that
+    // If we're at the last page of a section and there's a global next page from another section, use that
+    const prevPage = isFirstInSection ? globalPrevPage : sectionPrevPage;
+    const nextPage = isLastInSection ? globalNextPage : sectionNextPage;
     
     return { prevPage, nextPage };
   } catch (error) {

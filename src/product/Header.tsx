@@ -184,10 +184,11 @@ export function Header() {
       {sidebarVisible && (
         <Sidebar 
           maxWidth={100}
-          style={{height: "calc(100vh - var(--static-space-64))"}} 
+          style={{height: "calc(100vh - var(--static-space-64))", backdropFilter: "blur(2rem)"}} 
           padding="8" 
-          background="page" 
-          position="absolute" 
+          background="overlay" 
+          position="fixed"
+          borderTop="neutral-alpha-weak"
           left="0" 
           top="64"
           zIndex={9}
