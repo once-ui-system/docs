@@ -48,6 +48,11 @@ const roadmap = [
             type: "feature"
           },
           {
+            title: "Page: Dashboard",
+            description: "A dashboard page with analytics and metrics based on the data visualization module.",
+            type: "feature"
+          },
+          {
             title: "Block: Price list",
             description: "Service list with prices and details built with accordion.",
             type: "feature"
