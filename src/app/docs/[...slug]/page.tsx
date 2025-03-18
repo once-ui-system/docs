@@ -99,7 +99,11 @@ export default async function Docs({
                 >
                   <Icon name="chevronLeft" size="s" onBackground="neutral-weak" />
                   <Column gap="4" vertical="center" paddingX="16" paddingY="12">
-                    <Text variant="label-default-s" onBackground="neutral-weak">Previous</Text>
+                    <Text variant="label-default-s" onBackground="neutral-weak">
+                      {prevPage.slug.includes('/') ? 
+                        `${prevPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
+                        'page'}
+                    </Text>
                     <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
                       {prevPage.metadata.title}
                     </Text>
@@ -118,7 +122,11 @@ export default async function Docs({
                     paddingX="16"
                   >
                     <Column horizontal="end" gap="4" vertical="center" paddingX="16" paddingY="12">
-                      <Text variant="label-default-s" onBackground="neutral-weak">Next</Text>
+                      <Text variant="label-default-s" onBackground="neutral-weak">
+                        {nextPage.slug.includes('/') ? 
+                          `${nextPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
+                          'page'}
+                      </Text>
                       <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
                         {nextPage.metadata.title}
                       </Text>
@@ -127,7 +135,7 @@ export default async function Docs({
                   </Card>
                 </Row>
               ) : <Row/>}
-          </Row>
+            </Row>
         </Column>
       </Row>
       <Column gap="16" maxWidth={layout.sideNav.width} hide="s" position="sticky" top="80" fitHeight>

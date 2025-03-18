@@ -79,14 +79,6 @@ const NavigationItemComponent: React.FC<{
     return false;
   });
 
-  // Debug output for navigation structure
-  if (depth === 0) {
-    console.log(`Top level item: ${item.title}, slug: ${correctedSlug}, isSelected: ${isSelected}, hasActiveChild: ${hasActiveChild}, pathname: ${pathname}`);
-    if (item.children) {
-      console.log(`Children of ${item.title}:`, item.children.map(child => child.slug));
-    }
-  }
-
   if (item.children) {
     return (
       <Row

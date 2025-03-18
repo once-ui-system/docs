@@ -24,7 +24,6 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
   ({ title, children, open = false, iconRotation = 180, radius, icon = "chevronDown", size = "m", ...rest }, ref) => {
     const [isOpen, setIsOpen] = useState(open);
 
-    // Update isOpen state when open prop changes
     useEffect(() => {
       setIsOpen(open);
     }, [open]);
