@@ -202,12 +202,11 @@ export default function Home() {
           <Row fillWidth gap="12">
             {/* Overall Progress */}
             <Column fillWidth gap="8" paddingX="16" paddingTop="8">
-              <Row horizontal="space-between" vertical="center">
-                <Column>
+              <Column fillWidth gap="20">
+                <Column fillWidth>
                   <Text 
                     variant="display-strong-l" 
                     onBackground="neutral-strong"
-                    style={{ fontSize: '4rem', lineHeight: '1' }}
                   >
                     {roadmapStats.progressPercentage}%
                   </Text>
@@ -216,104 +215,107 @@ export default function Home() {
                     onBackground="neutral-weak"
                     marginTop="8"
                   >
-                    OVERALL PROGRESS
+                    Overall progress
                   </Text>
                 </Column>
                 
-                <div className="progress-bar" style={{ 
-                  height: '8px', 
-                  width: '50%', 
-                  backgroundColor: 'var(--color-neutral-alpha-weak)',
-                  borderRadius: '4px',
-                  overflow: 'hidden'
-                }}>
-                  <div style={{ 
-                    height: '100%', 
+                <Row
+                  height="8"
+                  fillWidth
+                  overflow="hidden"
+                  radius="full"
+                  background="neutral-alpha-weak"
+                  border="neutral-alpha-weak"
+                >
+                  <Row
+                    fillHeight
+                    radius="full"
+                    transition="micro-medium"
+                    solid="brand-strong"
+                    style={{ 
                     width: `${roadmapStats.progressPercentage}%`,
-                    backgroundColor: 'var(--color-brand-medium)',
-                    transition: 'width 0.3s ease'
                   }} />
-                </div>
-              </Row>
+                </Row>
+              </Column>
               
               {/* Task Status */}
-              <Grid fillWidth columns="3" mobileColumns="1" gap="m" marginTop="24">
+              <Grid fillWidth columns="3" mobileColumns="1" gap="8" marginTop="24">
                 {/* Completed Tasks */}
                 <Column 
                   padding="l" 
+                  horizontal="center"
                   radius="m" 
                   border="neutral-alpha-weak" 
                   background="overlay"
                   gap="s"
                 >
+                  <Text 
+                    variant="display-default-m" 
+                    onBackground="neutral-strong"
+                  >
+                    {roadmapStats.completedTasks}
+                  </Text>
                   <Row vertical="center" gap="8">
                     <StatusIndicator color="green" />
                     <Text 
                       variant="label-default-s" 
                       onBackground="neutral-weak"
                     >
-                      COMPLETED
+                      Completed
                     </Text>
                   </Row>
-                  <Text 
-                    variant="display-strong-m" 
-                    onBackground="neutral-strong"
-                    style={{ fontSize: '2.5rem', lineHeight: '1' }}
-                  >
-                    {roadmapStats.completedTasks}
-                  </Text>
                 </Column>
                 
                 {/* In Progress Tasks */}
                 <Column 
                   padding="l" 
+                  horizontal="center"
                   radius="m" 
                   border="neutral-alpha-weak" 
                   background="overlay"
                   gap="s"
                 >
+                  <Text 
+                    variant="display-default-m" 
+                    onBackground="neutral-strong"
+                  >
+                    {roadmapStats.inProgressTasks}
+                  </Text>
                   <Row vertical="center" gap="8">
                     <StatusIndicator color="yellow" />
                     <Text 
                       variant="label-default-s" 
                       onBackground="neutral-weak"
                     >
-                      IN PROGRESS
+                      In progress
                     </Text>
                   </Row>
-                  <Text 
-                    variant="display-strong-m" 
-                    onBackground="neutral-strong"
-                    style={{ fontSize: '2.5rem', lineHeight: '1' }}
-                  >
-                    {roadmapStats.inProgressTasks}
-                  </Text>
                 </Column>
                 
                 {/* Planned Tasks */}
                 <Column 
                   padding="l" 
+                  horizontal="center"
                   radius="m" 
                   border="neutral-alpha-weak" 
                   background="overlay"
                   gap="s"
                 >
+                  <Text 
+                    variant="display-default-m" 
+                    onBackground="neutral-strong"
+                  >
+                    {roadmapStats.totalTasks - roadmapStats.completedTasks - roadmapStats.inProgressTasks}
+                  </Text>
                   <Row vertical="center" gap="8">
                     <StatusIndicator color="blue" />
                     <Text 
                       variant="label-default-s" 
                       onBackground="neutral-weak"
                     >
-                      PLANNED
+                      Planned
                     </Text>
                   </Row>
-                  <Text 
-                    variant="display-strong-m" 
-                    onBackground="neutral-strong"
-                    style={{ fontSize: '2.5rem', lineHeight: '1' }}
-                  >
-                    {roadmapStats.totalTasks - roadmapStats.completedTasks - roadmapStats.inProgressTasks}
-                  </Text>
                 </Column>
               </Grid>
             </Column>
