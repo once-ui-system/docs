@@ -1,37 +1,78 @@
 ---
 title: "Get Started"
 updatedAt: "2025-03-16"
-summary: "Magic Docs is a modern, MDX-based documentation system built with Once UI."
+summary: "Once UI template documentation."
 image: "/images/cover.jpg"
 navIcon: "rocket"
 ---
 
-<Feedback
-  icon
-  vertical="center"
-  marginBottom="24"
-  description={<>This is just an example. For the complete documentation, visit <SmartLink href="https://docs.once-ui.com">Once UI</SmartLink>.</>}
-/>
+## About
 
-Magic Docs is a modern, MDX-based documentation system built with Once UI, providing a seamless and intuitive way to create, organize, and present technical documentation. Designed with both developers and end-users in mind, Magic Docs combines the flexibility of Markdown with the power of React components to deliver a rich documentation experience.
+Once UI is the ultimate toolbox for indie creators. We equip creatives to race against giants with out-of-the-box solutions and a vibrant community. We have extensive design and development experience, and a deep understanding of modern technologies and AI.
 
-## Key Features
+## Products
 
-Magic Docs offers a comprehensive set of features that make documentation creation and consumption a breeze:
+Our core product is Once UI, an open-source design system built to fuel the next generation of web applications. We also offer high quality components and page examples as part of our Pro plan, and premium templates to let you start with solid foundations in minutes.
 
-- **MDX Integration**: Write content in Markdown and seamlessly embed React components
-- **Hierarchical Navigation**: Intuitive section-based navigation with custom ordering
-- **Component Showcase**: Interactive examples of Once UI components
-- **Responsive Design**: Perfect viewing experience across all devices
-- **Dark/Light Mode**: Automatic theme switching based on system preferences
-- **Search Functionality**: Powerful command palette for quick content access
-- **SEO Optimization**: Built-in metadata generation for better search engine visibility
-- **Custom Ordering**: Control the exact order of pages using meta.json files
+## Templates
 
-## Built with Once UI
+Since our templates are not just static page examples, but functional, production-ready apps, there are a few things you need to know. Please read the documentation for more details, and if you need further help, reach out on [Discord](https://discord.com/invite/5EyAQ4eNdS).
 
-Magic Docs leverages the Once UI component system, providing a consistent, accessible, and beautiful interface. The documentation itself serves as both a guide and a showcase of what's possible with Once UI components.
-
-<Grid fillWidth gap="8" columns="2" mobileColumns="1" marginTop="20">
-<PageList path={["components"]} padding="16"/>
+<Grid fillWidth columns={2} gap="8" marginTop="16">
+  <Card
+    href="/docs/once-ui/quick-start"
+    fillWidth
+    radius="l-4"
+    direction="column"
+    padding="4"
+    gap="4"
+  >
+    <SmartImage src="/images/docs/once-ui.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
+    <Column fillWidth padding="20" gap="8" horizontal="start">
+      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Once UI</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Get started with the original starter template.</Text>
+    </Column>
+  </Card>
+  <Card
+    href="/docs/magic-portfolio/quick-start"
+    fillWidth
+    radius="l-4"
+    direction="column"
+    padding="4"
+    gap="4"
+  >
+    <SmartImage src="/images/docs/magic-portfolio.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
+    <Column fillWidth padding="20" gap="8" horizontal="start">
+      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Portfolio</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Quick start with the portfolio template.</Text>
+    </Column>
+  </Card>
+  <Card
+    href="/docs/magic-docs/quick-start"
+    fillWidth
+    radius="l-4"
+    direction="column"
+    padding="4"
+    gap="4"
+  >
+    <SmartImage src="/images/docs/magic-docs.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
+    <Column fillWidth padding="20" gap="8" horizontal="start">
+      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Docs</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Quick start with the documentation template.</Text>
+    </Column>
+  </Card>
+  <Card
+    href="/docs/magic-bio/quick-start"
+    fillWidth
+    radius="l-4"
+    direction="column"
+    padding="4"
+    gap="4"
+  >
+    <SmartImage src="/images/docs/magic-bio.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
+    <Column fillWidth padding="20" gap="8" horizontal="start">
+      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Bio</Text>
+      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Quick start with the link in bio template.</Text>
+    </Column>
+  </Card>
 </Grid>

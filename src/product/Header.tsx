@@ -170,7 +170,7 @@ export function Header() {
           </Kbar>
           <Row gap="8">
             <Row hide="s">
-              <Button size="s" variant="secondary" href="https://docs.once-ui.com">
+              <Button size="s" variant="secondary" href="https://once-ui.com">
                 Get started
               </Button>
             </Row>

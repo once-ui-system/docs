@@ -137,11 +137,42 @@ const roadmap = [
           {
             title: "New gallery layout",
             description: "Rework gallery with improved design and flexibility for artists and photographers.",
-            type: "feature"
+            type: "improvement"
           },
           {
             title: "Improve Blog layout",
             description: "Add pagination, featured read and a recent article block.",
+            type: "improvement"
+          },
+          {
+            title: "Migrate to 0.6",
+            description: "Migrate to Once UI 0.6.",
+            type: "improvement"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+        ]
+      }
+    ]
+  },
+  {
+    product: "Magic Bio",
+    brand: "emerald",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Email block",
+            description: "Add email block with Mailchimp integration.",
             type: "feature"
           },
           {
@@ -163,23 +194,22 @@ const roadmap = [
       }
     ]
   },
-  
   {
-    product: "Magic Bio",
-    brand: "emerald",
+    product: "Design Engineers Club",
+    brand: "aqua",
     columns: [
       {
         title: "Planned",
         tasks: [
           {
-            title: "Email block",
-            description: "Add email block with Mailchimp integration.",
+            title: "New landing page",
+            description: "Create a new home for our community.",
             type: "feature"
           },
           {
-            title: "Migrate to 0.6",
-            description: "Migrate to Once UI 0.6.",
-            type: "improvement"
+            title: "Merch drop",
+            description: "Design and drop new merch.",
+            type: "feature"
           },
         ]
       },

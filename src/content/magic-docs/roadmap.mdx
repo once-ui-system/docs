@@ -3,81 +3,111 @@ title: "Roadmap"
 summary: "Magic Docs' roadmap."
 updatedAt: "2025-03-17"
 navLabel: "Roadmap"
-navIcon: "list"
+navIcon: "roadmap"
 ---
 
-## Global style
-
-Magic Docs' styling is based on Once UI's customization through data-attributes. You can generate a custom color palette for brand, accent and neutral colors on [Once UI](https://once-ui.com/customize) where you'll find instructions on how to apply it.
+Keep your customers informed about the features and updates you plan to add to your product. Simply edit the `roadmap.js` file.
 
 <CodeBlock
+    marginTop="8"
     marginBottom="16"
+    codeHeight={32}
     codeInstances={[
   {
     code:
-`theme:       'dark',         // dark | light
-neutral:     'gray',         // sand | gray | slate
-brand:       'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-accent:      'indigo',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-solid:       'contrast',     // color | contrast
-solidStyle:  'flat',         // flat | plastic
-border:      'playful',      // rounded | playful | conservative
-surface:     'translucent',  // filled | translucent
-transition:  'all',          // all | micro | macro
-scaling:     '100',          // 90 | 95 | 100 | 105 | 110`, 
+`const roadmap = [
+    {
+      // optional: product name
+      product: "Once UI OSS",
+      // colors: blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+      brand: "blue",
+      columns: [
+        {
+          title: "Planned",
+          tasks: [
+            {
+              title: "Data visualization module",
+              // optional: description
+              description: "Data components built on top of Recharts.",
+              // optional: type
+              type: "feature",
+              // optional: link
+              href: "https://once-ui.com"
+              // optional: user
+              user: {
+                name: "Lorant One",
+                avatar: "/images/avatar.jpg"
+              }
+            },
+            {
+              title: "Cursor card",
+              description: "A card component that pops up when hovering a trigger element.",
+              type: "feature"
+            },
+          ]
+        },
+        {
+          title: "In Progress",
+          tasks: [
+            {
+              title: "0.6 release",
+              description: "Simplified SEO with Meta and Schema components. Command Palette component. Minor styling improvements.",
+              type: "feature"
+            }
+          ]
+        },
+        {
+          title: "Done",
+          tasks: [
+          ]
+        }
+      ]
+    },
+    {
+      ...
+    }
+];`, 
     language: "tsx",
-    label: "src/app/resources/config.js"
+    label: "src/app/resources/roadmap.js"
   }
 ]} />
 
-## Background effect
-
-There's a pre-configured background in `layout.tsx` that you can modify in the config file. Set graphic elements such as gradient, dots, lines, and grid and configure their appearance.
+You can change the available task types in the `task` object in the `roadmap.js` file.
 
 <CodeBlock
-    codeHeight={24}
+    marginTop="8"
     marginBottom="16"
+    codeHeight={32}
     codeInstances={[
   {
     code:
-`const effects = {
-    mask: {
-      cursor: false,
-      x: 50,
-      y: 0,
-      radius: 100
+`const task = {
+    bug: { 
+      label: "Bug", 
+      color: "red" 
     },
-    gradient: {
-      display: true,
-      x: 50,
-      y: -25,
-      width: 100,
-      height: 100,
-      tilt: 0,
-      colorStart: 'accent-background-strong',
-      colorEnd: 'static-transparent',
-      opacity: 50
+    feature: { 
+      label: "Feature", 
+      color: "green" 
     },
-    dots: {
-      display: true,
-      size: 2,
-      color: 'brand-on-background-weak',
-      opacity: 20
+    improvement: { 
+      label: "Improvement", 
+      color: "blue" 
     },
-    lines: {
-      display: false,
-      color: 'neutral-alpha-weak',
-      opacity: 100
+    documentation: { 
+      label: "Docs", 
+      color: "magenta" 
     },
-    grid: {
-      display: false,
-      color: 'neutral-alpha-weak',
-      opacity: 100,
-      width: 'var(--static-space-32)',
-      height: 'var(--static-space-32)'
+    performance: { 
+      label: "Performance", 
+      color: "orange" 
+    },
+    security: { 
+      label: "Security", 
+      color: "indigo" 
     }
-}`, 
+};`, 
     language: "tsx",
-    label: "src/app/resources/config.js"
+    label: "src/app/resources/roadmap.js"
   }
 ]} />

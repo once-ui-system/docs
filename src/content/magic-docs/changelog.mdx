@@ -3,81 +3,47 @@ title: "Changelog"
 summary: "Magic Docs' changelog."
 updatedAt: "2025-03-17"
 navLabel: "Changelog"
-navIcon: "list"
+navIcon: "changelog"
 ---
 
-## Global style
-
-Magic Docs' styling is based on Once UI's customization through data-attributes. You can generate a custom color palette for brand, accent and neutral colors on [Once UI](https://once-ui.com/customize) where you'll find instructions on how to apply it.
+Keep your customers informed with the latest updates and changes to your product with the changelog page. Simply edit the `changelog.js` file.
 
 <CodeBlock
+    marginTop="8"
     marginBottom="16"
     codeInstances={[
   {
     code:
-`theme:       'dark',         // dark | light
-neutral:     'gray',         // sand | gray | slate
-brand:       'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-accent:      'indigo',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-solid:       'contrast',     // color | contrast
-solidStyle:  'flat',         // flat | plastic
-border:      'playful',      // rounded | playful | conservative
-surface:     'translucent',  // filled | translucent
-transition:  'all',          // all | micro | macro
-scaling:     '100',          // 90 | 95 | 100 | 105 | 110`, 
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
-
-## Background effect
-
-There's a pre-configured background in `layout.tsx` that you can modify in the config file. Set graphic elements such as gradient, dots, lines, and grid and configure their appearance.
-
-<CodeBlock
-    codeHeight={24}
-    marginBottom="16"
-    codeInstances={[
-  {
-    code:
-`const effects = {
-    mask: {
-      cursor: false,
-      x: 50,
-      y: 0,
-      radius: 100
+`const changelog = [
+    {
+      date: "2025-03-09",
+      title: "Magic Docs",
+      // optional description
+      description: "A powerful documentation template",
+      // optional image
+      image: "/images/changelog/magic-docs.jpg",
+      // optional sections
+      sections: [
+        {
+          title: "Features",
+          // optional description
+          description: "Built with flexibility in mind",
+          // optional bullets
+          bullets: [
+            "Automatic structure based on MDX files",
+            "Automatic table of contents",
+            "Advanced SEO through a simplified metadata + schema system"
+          ],
+          // optional link
+          link: "https://once-ui.com/templates/magic-docs"
+        }
+      ]
     },
-    gradient: {
-      display: true,
-      x: 50,
-      y: -25,
-      width: 100,
-      height: 100,
-      tilt: 0,
-      colorStart: 'accent-background-strong',
-      colorEnd: 'static-transparent',
-      opacity: 50
-    },
-    dots: {
-      display: true,
-      size: 2,
-      color: 'brand-on-background-weak',
-      opacity: 20
-    },
-    lines: {
-      display: false,
-      color: 'neutral-alpha-weak',
-      opacity: 100
-    },
-    grid: {
-      display: false,
-      color: 'neutral-alpha-weak',
-      opacity: 100,
-      width: 'var(--static-space-32)',
-      height: 'var(--static-space-32)'
+    {
+      ...
     }
-}`, 
+];`, 
     language: "tsx",
-    label: "src/app/resources/config.js"
+    label: "src/app/resources/changelog.js"
   }
 ]} />

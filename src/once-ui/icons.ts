@@ -45,6 +45,10 @@ import {
   HiOutlineSquare3Stack3D,
   HiOutlineLanguage,
   HiOutlineCheckCircle,
+  HiOutlineCube,
+  HiOutlineBars3,
+  HiOutlineExclamationTriangle,
+  HiOutlineExclamationCircle,
 } from "react-icons/hi2";
 
 import { RiVisaLine } from "react-icons/ri";
@@ -63,8 +67,8 @@ export const iconLibrary: Record<string, IconType> = {
   computer: HiOutlineComputerDesktop,
   helpCircle: HiOutlineQuestionMarkCircle,
   infoCircle: HiOutlineInformationCircle,
-  warningTriangle: HiExclamationTriangle,
-  errorCircle: HiExclamationCircle,
+  warningTriangle: HiOutlineExclamationTriangle,
+  errorCircle: HiOutlineExclamationCircle,
   checkCircle: HiOutlineCheckCircle,
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
@@ -104,5 +108,7 @@ export const iconLibrary: Record<string, IconType> = {
   page: HiOutlineDocumentText,
   project: HiOutlineSquare3Stack3D,
   article: HiOutlineQueueList,
-  language: HiOutlineLanguage
+  language: HiOutlineLanguage,
+  components: HiOutlineCube,
+  sidebar: HiOutlineBars3,
 };

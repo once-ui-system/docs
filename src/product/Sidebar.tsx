@@ -42,6 +42,12 @@ const NavigationItemComponent: React.FC<{
 }> = ({ item, depth, pathname, renderNavigation }) => {
   const correctedSlug = item.slug;
   const isSelected = pathname.startsWith(`/docs/${correctedSlug}`);
+  
+  // Check if any child route is active to determine if accordion should be open
+  const hasActiveChild = item.children?.some(child => {
+    const childSlug = child.slug;
+    return pathname.startsWith(`/docs/${childSlug}`);
+  });
 
   if (item.children) {
     return (
@@ -62,6 +68,7 @@ const NavigationItemComponent: React.FC<{
             paddingBottom={undefined}
             paddingLeft="4"
             paddingTop="4"
+            open={hasActiveChild} // Set accordion to open if it contains the active route
             title={
               <Row textVariant="label-strong-s" onBackground="brand-strong">
                 {item.title}
