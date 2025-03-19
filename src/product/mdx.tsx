@@ -3,19 +3,18 @@ import React, { ReactNode } from "react";
 import dynamic from "next/dynamic";
 
 import { 
-  Heading, 
-  Row, 
-  SmartImage, 
-  SmartLink, 
+  Heading,
+  HeadingLink,
+  Row,
+  SmartImage,
+  SmartLink,
   Text,
-  InlineCode, 
-  Accordion, 
-  AccordionGroup, 
-  Button
+  InlineCode,
+  Accordion,
+  AccordionGroup
 } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
-import { HeadingLink } from "./HeadingLink";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 
 type TableProps = {

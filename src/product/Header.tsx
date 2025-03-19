@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Button, Flex, Logo, NavIcon, Row, ToggleButton, Kbar, Kbd } from "@/once-ui/components";
+import { Button, Flex, Logo, NavIcon, Row, Kbar } from "@/once-ui/components";
 import { layout, routes } from "@/app/resources/config";
 import { Sidebar, NavigationItem } from "./Sidebar";
 import { useTheme } from "@/once-ui/components/ThemeProvider";
