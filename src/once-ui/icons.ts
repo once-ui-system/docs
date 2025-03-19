@@ -49,6 +49,7 @@ import {
   HiOutlineBars3,
   HiOutlineExclamationTriangle,
   HiOutlineExclamationCircle,
+  HiOutlineKey
 } from "react-icons/hi2";
 
 import { RiVisaLine } from "react-icons/ri";
@@ -111,4 +112,5 @@ export const iconLibrary: Record<string, IconType> = {
   language: HiOutlineLanguage,
   components: HiOutlineCube,
   sidebar: HiOutlineBars3,
+  password: HiOutlineKey,
 };

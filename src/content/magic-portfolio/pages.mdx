@@ -6,9 +6,9 @@ navLabel: "Pages"
 navIcon: "pages"
 ---
 
-## Disable pages
+## Enable or disable pages
 
-Magic Portfolio's `RouteGuard` component takes care of conditionally rendering pages based on the `routes` object.
+Magic Portfolio's `RouteGuard` component takes care of conditionally rendering pages based on the `routes` object in the `resources/config.js` file.
 
 <CodeBlock
     marginBottom="16"
@@ -24,28 +24,33 @@ Magic Portfolio's `RouteGuard` component takes care of conditionally rendering p
     '/gallery': false,
 };`,
     language: "tsx",
-    label: "resources/config.js"
+    label: "src/app/resources/config.js"
   }
 ]} />
 
 The code above will ensure that the `/gallery` page is not accessible and is not displayed in the navigation.
 
-## Password protection
+## Add new pages
 
-The `RouteGuard` component also takes care of conditionally rendering pages based on the `protectedRoutes` object.
+When creating a new page, it needs to be added to the `routes` object in the `resources/config.js` file.
 
 <CodeBlock
     marginBottom="16"
-    highlight="2"
+    highlight="6"
     codeInstances={[
   {
     code:
-`const protectedRoutes = {
-  '/work/once-ui': true
+`const routes = {
+    '/':        true,
+    '/about':   true,
+    '/work':    true,
+    '/blog':    true,
+    '/gallery': false,
+    '/music': true,
 };`,
     language: "tsx",
-    label: "resources/config.js"
+    label: "src/app/resources/config.js"
   }
 ]} />
 
-The code above will ensure that the `/work/once-ui` page is only accessible after providing a password. The password can be set in the `.env.local` file for local development and as an [environment variable](https://vercel.com/docs/environment-variables) for production.
+The code above will ensure that the `/music` page is accessible. Users will be able to navigate to it after adding it to the navigation menu in the `components/Header.tsx` file.

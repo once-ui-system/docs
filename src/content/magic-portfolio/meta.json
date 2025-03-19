@@ -8,8 +8,9 @@
     "content": 4,
     "work": 5,
     "blog": 6,
-    "mailchimp": 7,
-    "localization": 8,
-    "seo": 9
+    "password": 7,
+    "mailchimp": 8,
+    "localization": 9,
+    "seo": 10
   }
 }
