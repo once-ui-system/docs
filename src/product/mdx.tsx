@@ -5,61 +5,15 @@ import dynamic from "next/dynamic";
 import { 
   Heading,
   HeadingLink,
-  Row,
   SmartImage,
   SmartLink,
   Text,
   InlineCode,
   Accordion,
-  AccordionGroup
 } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
-
-type TableProps = {
-  data: {
-    headers: string[];
-    rows: string[][];
-  };
-};
-
-function Table({ data }: TableProps) {
-  const headers = data.headers.map((header, index) => (
-    <th style={{textAlign: "left", borderBottom: "1px solid var(--neutral-alpha-medium)"}} className="px-16 py-12 font-label font-default font-s" key={index}>
-      {header}
-    </th>
-  ));
-  
-  const rows = data.rows.map((row, index) => (
-    <tr key={index}>
-      {row.map((cell, cellIndex) => (
-        <td className="px-16 py-12 font-body font-default font-s" key={cellIndex}>{cell}</td>
-      ))}
-    </tr>
-  ));
-
-  return (
-    <Row fillWidth radius="m" overflowY="hidden" border="neutral-alpha-medium" overflowX="auto" 
-      marginTop="8"
-      marginBottom="16">
-      <table className="fill-width surface-background" style={{borderSpacing: 0, borderCollapse: "collapse", minWidth: "32rem"}}>
-        <thead className="neutral-on-background-strong">
-          <tr>{headers}</tr>
-        </thead>
-        <tbody className="neutral-on-background-medium">
-          {rows.length > 0 ? (
-            rows
-          ) : (
-            <tr>
-              <td colSpan={headers.length} className="px-24 py-12 font-body font-default font-s">No data available</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-    </Row>
-  );
-}
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -201,11 +155,11 @@ const components = {
   pre: createCodeBlock as any,
   Heading,
   Text,
-  Table,
   CodeBlock,
   InlineCode,
-  Accordion,
-  AccordionGroup,
+  Accordion: dynamic(() => import("@/once-ui/components").then(mod => mod.Accordion)),
+  AccordionGroup: dynamic(() => import("@/once-ui/components").then(mod => mod.AccordionGroup)),
+  Table: dynamic(() => import("@/once-ui/components").then(mod => mod.Table)),
   Feedback: dynamic(() => import("@/once-ui/components").then(mod => mod.Feedback)),
   Button: dynamic(() => import("@/once-ui/components").then(mod => mod.Button)),
   Card: dynamic(() => import("@/once-ui/components").then(mod => mod.Card)),

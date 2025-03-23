@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Button, Flex, Logo, NavIcon, Row, Kbar } from "@/once-ui/components";
 import { layout, routes } from "@/app/resources/config";
@@ -11,7 +11,6 @@ export function Header() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
   const [isMac, setIsMac] = useState(false);
   const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     setSidebarVisible(false);

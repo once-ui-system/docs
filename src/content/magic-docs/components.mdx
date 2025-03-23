@@ -45,11 +45,14 @@ Tables are used to display data in a structured format.
 <CodeBlock
     radius="none"
     topRadius="l"
-    codeHeight={24}
     codePreview={
     <Table 
       data={{
-        headers: ["Name", "Type", "Description"],
+        headers: [
+          { content: "Name", key: "name", sortable: true },
+          { content: "Type", key: "type", sortable: true },
+          { content: "Description", key: "description" }
+        ],
         rows: [
           ["title", "string", "The title of the document"],
           ["summary", "string", "A brief summary of the document content"],
@@ -63,7 +66,11 @@ Tables are used to display data in a structured format.
         code:
 `<Table 
     data={{
-      headers: ["Name", "Type", "Description"],
+      headers: [
+        { content: "Name", key: "name", sortable: true },
+        { content: "Type", key: "type", sortable: true },
+        { content: "Description", key: "description" }
+      ],
       rows: [
         ["title", "string", "The title of the document"],
         ["summary", "string", "A brief summary of the document content"],
