@@ -1,5 +1,21 @@
 const changelog = [
   {
+    date: "2025-03-29",
+    title: "Once UI v0.6",
+    description: "Once UI v0.6 is here with new components and features to help you build faster with world-class UI.",
+    sections: [
+      {
+        title: "Features",
+        bullets: [
+          "Low-code components: Kbar, MegaMenu, HeadingNav",
+          "SEO tools: Schema, Meta",
+          "New components: CompareImage, ThemeSwitcher"
+        ],
+        link: "https://once-ui.com"
+      }
+    ]
+  },
+  {
     date: "2025-03-09",
     image: "/images/changelog/magic-docs.jpg",
     title: "Magic Docs",
