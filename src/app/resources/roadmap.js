@@ -7,11 +7,6 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Data visualization module",
-            description: "Data components built on top of Recharts.",
-            type: "feature"
-          },
-          {
             title: "Cursor card",
             description: "A card component that pops up when hovering a trigger element.",
             type: "feature"
@@ -22,8 +17,8 @@ const roadmap = [
         title: "In Progress",
         tasks: [
           {
-            title: "0.6 release",
-            description: "Simplified SEO with Meta and Schema components. Command Palette component. Minor styling improvements.",
+            title: "Data visualization module",
+            description: "Data components built on top of Recharts.",
             type: "feature"
           }
         ]
@@ -31,6 +26,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "0.6 release",
+            description: "Simplified SEO with Meta and Schema components. Command Palette component. Minor styling improvements.",
+            type: "feature"
+          },
         ]
       }
     ]
@@ -211,11 +211,6 @@ const roadmap = [
             description: "Create a new home for our community.",
             type: "feature"
           },
-          {
-            title: "Merch drop",
-            description: "Design and drop new merch.",
-            type: "feature"
-          },
         ]
       },
       {
@@ -226,6 +221,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Merch drop",
+            description: 'Design and drop the "Stay Human" line.',
+            type: "feature"
+          },
         ]
       }
     ]
