@@ -49,11 +49,12 @@ import {
   HiOutlineBars3,
   HiOutlineExclamationTriangle,
   HiOutlineExclamationCircle,
-  HiOutlineKey
+  HiOutlineKey,
+  HiOutlineShoppingCart
 } from "react-icons/hi2";
 
-import { RiVisaLine } from "react-icons/ri";
-
+import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
+import { PiRuler, PiTShirt } from "react-icons/pi";
 import { FaDiscord, FaGithub, FaGoogle, FaLinkedin, FaMailchimp, FaThreads } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -113,4 +114,8 @@ export const iconLibrary: Record<string, IconType> = {
   components: HiOutlineCube,
   sidebar: HiOutlineBars3,
   password: HiOutlineKey,
+  tshirt: PiTShirt,
+  cart: HiOutlineShoppingCart,
+  ruler: PiRuler,
+  discount: RiDiscountPercentLine
 };

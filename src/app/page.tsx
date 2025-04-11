@@ -113,7 +113,7 @@ export default function Home() {
               Magic Docs
             </Heading>
             <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
-              Get started with premium templates and resources for your creative journey
+              Get started with premium, plug-and-play solutions as an independent creator
             </Text>
             <Button data-border="rounded" size="s" href="/docs/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
           </Column>
@@ -126,7 +126,7 @@ export default function Home() {
           variant="display-default-s" 
           onBackground="neutral-strong"
         >
-          Templates
+          Products
         </Text>
         <Text
           variant="label-default-s" 

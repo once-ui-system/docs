@@ -28,7 +28,7 @@ const roadmap = [
         tasks: [
           {
             title: "0.6 release",
-            description: "Simplified SEO with Meta and Schema components. Command Palette component. Minor styling improvements.",
+            description: "Simplified SEO with the new Meta and Schema. Better navigations with Command Palette, HeadingNav, MegaMenu. Minor styling improvements.",
             type: "feature"
           },
         ]
@@ -62,16 +62,16 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
-          {
-            title: "Template: Magic Store",
-            description: "New template for e-commerce stores powered by Fourthwall. Build a strong brand and monetize early with an out-of-the-box merch store.",
-            type: "feature"
-          }
         ]
       },
       {
         title: "Done",
         tasks: [
+          {
+            title: "Product: Magic Store",
+            description: "New solution for e-commerce stores powered by Fourthwall. Build a strong brand and monetize early with an out-of-the-box merch store.",
+            type: "feature"
+          },
           {
             title: "Pages",
             description: "Commonly used landing page examples: team, contact, about, pricing, blog.",
