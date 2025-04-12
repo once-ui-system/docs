@@ -169,8 +169,8 @@ export function Header() {
           </Kbar>
           <Row gap="8">
             <Row hide="s">
-              <Button size="s" variant="secondary" href="https://once-ui.com">
-                Get started
+              <Button size="s" variant="secondary" href="https://once-ui.com/products">
+                Start building
               </Button>
             </Row>
             <Button href="https://once-ui.com/auth" size="s">
