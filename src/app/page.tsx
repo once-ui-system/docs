@@ -69,25 +69,25 @@ const templates = [
     title: "Once UI",
     description: "The original starter template with all components.",
     image: "/images/docs/once-ui.jpg",
-    href: "/docs/once-ui/quick-start"
+    href: "/once-ui/quick-start"
   },
   {
     title: "Magic Portfolio",
     description: "Showcase your work with this beautiful portfolio.",
     image: "/images/docs/magic-portfolio.jpg",
-    href: "/docs/magic-portfolio/quick-start"
+    href: "/magic-portfolio/quick-start"
   },
   {
     title: "Magic Docs",
     description: "Create beautiful documentation like this site.",
     image: "/images/docs/magic-docs.jpg",
-    href: "/docs/magic-docs/quick-start"
+    href: "/magic-docs/quick-start"
   },
   {
     title: "Magic Bio",
     description: "A modern link-in-bio solution for creators.",
     image: "/images/docs/magic-bio.jpg",
-    href: "/docs/magic-bio/quick-start"
+    href: "/magic-bio/quick-start"
   }
 ];
 
@@ -115,7 +115,7 @@ export default function Home() {
             <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
               Get started with premium, plug-and-play solutions as an independent creator
             </Text>
-            <Button data-border="rounded" size="s" href="/docs/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
+            <Button data-border="rounded" size="s" href="/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
           </Column>
         </Row>
       </Column>

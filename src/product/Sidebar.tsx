@@ -46,15 +46,15 @@ const NavigationItemComponent: React.FC<{
   const pathSegments = pathname.split('/').filter(Boolean);
   
   // For top-level directories, check if their name is in the pathname segments
-  // This will match routes like "/docs/once-ui/quick-start" for the "once-ui" parent
+  // This will match routes like "/once-ui/quick-start" for the "once-ui" parent
   const isTopLevelMatch = depth === 0 && 
                           pathSegments.length >= 2 && 
                           pathSegments[0] === 'docs' && 
                           correctedSlug.split('/')[0] === pathSegments[1];
   
   // For deeper items, check for exact match or if it's a parent path
-  const isExactMatch = pathname === `/docs/${correctedSlug}`;
-  const isParentPath = pathname.startsWith(`/docs/${correctedSlug}/`);
+  const isExactMatch = pathname === `/${correctedSlug}`;
+  const isParentPath = pathname.startsWith(`/${correctedSlug}/`);
   
   // Combine all checks
   const isSelected = isExactMatch || isParentPath || isTopLevelMatch;
@@ -65,11 +65,10 @@ const NavigationItemComponent: React.FC<{
     const childSegments = childSlug.split('/');
     
     // Check if the pathname segments match this child's segments
-    // This handles nested paths like "/docs/once-ui/quick-start" for the "once-ui" parent
+    // This handles nested paths like "/once-ui/quick-start" for the "once-ui" parent
     if (pathSegments.length >= childSegments.length + 1) {
-      // +1 for the "docs" segment
       for (let i = 0; i < childSegments.length; i++) {
-        if (pathSegments[i + 1] !== childSegments[i]) {
+        if (pathSegments[i] !== childSegments[i]) {
           return false;
         }
       }
@@ -78,6 +77,10 @@ const NavigationItemComponent: React.FC<{
     
     return false;
   });
+  
+  // Check if current section should be open based on path matching
+  // This ensures the section is open when arriving at a page within this section
+  const shouldBeOpen = isSelected || hasActiveChild || isParentPath;
 
   if (item.children) {
     return (
@@ -98,7 +101,7 @@ const NavigationItemComponent: React.FC<{
             paddingBottom={undefined}
             paddingLeft="4"
             paddingTop="4"
-            open={hasActiveChild} // Set accordion to open if it contains the active route
+            open={shouldBeOpen} // Open if section is selected, contains active route, or is a parent of current path
             title={
               <Row textVariant="label-strong-s" onBackground="brand-strong">
                 {item.title}
@@ -129,7 +132,7 @@ const NavigationItemComponent: React.FC<{
       justifyContent="space-between"
       selected={isSelected}
       className={depth === 0 ? styles.navigation : undefined}
-      href={`/docs/${correctedSlug}`}>
+      href={`/${correctedSlug}`}>
       <Row fillWidth horizontal="space-between" vertical="center">
           <Row
             overflow="hidden"

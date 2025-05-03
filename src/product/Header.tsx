@@ -60,7 +60,7 @@ export function Header() {
           section: "Documentation",
           shortcut: [],
           keywords: keywords,
-          href: `/docs/${correctedSlug}`,
+          href: `/${correctedSlug}`,
           icon: item.navIcon || "document",
         });
       }
@@ -167,7 +167,7 @@ export function Header() {
               </Row>
             </Button>
           </Kbar>
-          <Row gap="8">
+          <Row gap="8" data-border="rounded">
             <Row hide="s">
               <Button size="s" variant="secondary" href="https://once-ui.com/products">
                 Start building

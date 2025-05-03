@@ -25,7 +25,7 @@ export async function generateMetadata({
     title: doc.metadata.title + " – " + schema.name,
     description: doc.metadata.summary,
     baseURL,
-    path: `/docs/${doc.slug}`,
+    path: `/${doc.slug}`,
     type: "article",
     publishedTime: doc.metadata.updatedAt,
     image: doc.metadata.image,
@@ -63,7 +63,7 @@ export default async function Docs({
             title={doc.metadata.title + " – " + schema.name}
             description={doc.metadata.summary}
             baseURL={baseURL}
-            path={`/docs/${doc.slug}`}
+            path={`/${doc.slug}`}
             datePublished={doc.metadata.updatedAt}
             dateModified={doc.metadata.updatedAt}
             image={doc.metadata.image}
@@ -92,7 +92,7 @@ export default async function Docs({
                   fillWidth
                   border="neutral-alpha-medium"
                   vertical="center" gap="4"
-                  href={`/docs/${prevPage.slug}`} 
+                  href={`/${prevPage.slug}`} 
                   radius="l" 
                   paddingX="16"
                 >
@@ -116,7 +116,7 @@ export default async function Docs({
                     fillWidth
                     border="neutral-alpha-medium"
                     horizontal="end" vertical="center" gap="4"
-                    href={`/docs/${nextPage.slug}`} 
+                    href={`/${nextPage.slug}`} 
                     radius="l" 
                     paddingX="16"
                   >

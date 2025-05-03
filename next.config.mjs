@@ -1,11 +1,3 @@
-import mdx from "@next/mdx";
-import path from 'path';
-
-const withMDX = mdx({
-  extension: /\.mdx?$/,
-  options: {},
-});
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   sassOptions: {
@@ -13,6 +5,7 @@ const nextConfig = {
     silenceDeprecations: ["legacy-js-api"],
   },
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+  transpilePackages: ["next-mdx-remote"],
   output: 'standalone',
   experimental: {
     serverMinification: true,
@@ -56,6 +49,17 @@ const nextConfig = {
   generateBuildId: async () => {
     return `build-${Date.now()}`;
   },
+  
+  // Add redirects from /docs/slug to /slug
+  async redirects() {
+    return [
+      {
+        source: '/docs/:slug*',
+        destination: '/:slug*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
-export default withMDX(nextConfig);
+export default nextConfig;

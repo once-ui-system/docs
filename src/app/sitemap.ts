@@ -3,7 +3,7 @@ import { baseURL } from "@/app/resources";
 
 export default async function sitemap() {
   const pages = getPages(["src", "content"]).map((post) => ({
-    url: `${baseURL}/docs/${post.slug}`,
+    url: `${baseURL}/${post.slug}`,
     lastModified: post.metadata.updatedAt,
   }));
 

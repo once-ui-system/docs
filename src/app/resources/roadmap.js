@@ -134,7 +134,7 @@ const roadmap = [
   },
   {
     product: "Magic Portfolio",
-    brand: "indigo",
+    brand: "orange",
     columns: [
       {
         title: "Planned",
@@ -195,6 +195,70 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+        ]
+      }
+    ]
+  },
+  {
+    product: "Once UI Hub",
+    brand: "cyan",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Comments",
+            description: "Comment section for projects with reply and mentions.",
+            type: "feature"
+          },
+          {
+            title: "Notifications",
+            description: "Notification center for project updates and comments.",
+            type: "feature"
+          },
+          {
+            title: "Post formats",
+            description: "Support for different post formats.",
+            type: "feature"
+          }
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+          {
+
+          }
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+          {
+            title: "Profile page",
+            description: "Profile page with user information and settings.",
+            type: "feature"
+          },
+          {
+            title: "Feed pages",
+            description: "Feed pages with project posts.",
+            type: "feature"
+          },
+          {
+            title: "Project upload",
+            description: "Project upload with image gallery and project details.",
+            type: "feature"
+          },
+          {
+            title: "Showcase",
+            description: "Dynamically display projects on related marketing pages.",
+            type: "feature"
+          },
+          {
+            title: "Feature project",
+            description: "Highlight projects with a note and badge.",
+            type: "feature"
+          }
         ]
       }
     ]

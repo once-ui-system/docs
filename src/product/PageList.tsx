@@ -87,7 +87,7 @@ export function PageList({
   return (
     <>
       {displayedPages.length > 0 && displayedPages.map((page) => (
-        <Card href={`/docs/${page.slug}`} key={page.slug} radius="l" padding="2" gap="16" mobileDirection="column" fillWidth {...rest}>
+        <Card href={`/${page.slug}`} key={page.slug} radius="l" padding="2" gap="16" mobileDirection="column" fillWidth {...rest}>
           {page.metadata.image && thumbnail && (
             <SmartImage
               priority

@@ -33,10 +33,19 @@ export const Footer = () => {
             Products
           </Row>
           <Row>
-            <SmartLink href="https://once-ui.com">Once UI</SmartLink>
+            <SmartLink href="https://once-ui.com/products/once-ui-core">Once UI</SmartLink>
           </Row>
           <Row>
-            <SmartLink href="https://magic-portfolio.com">Magic Portfolio</SmartLink>
+            <SmartLink href="https://once-ui.com/products/magic-portfolio">Magic Portfolio</SmartLink>
+          </Row>
+          <Row>
+            <SmartLink href="https://once-ui.com/products/magic-store">Magic Store</SmartLink>
+          </Row>
+          <Row>
+            <SmartLink href="https://once-ui.com/products/magic-docs">Magic Docs</SmartLink>
+          </Row>
+          <Row>
+            <SmartLink href="https://once-ui.com/products/magic-bio">Magic Bio</SmartLink>
           </Row>
         </Column>
         <Column gap="12" textVariant="label-default-m">
