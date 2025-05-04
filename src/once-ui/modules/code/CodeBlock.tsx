@@ -80,9 +80,23 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
   useEffect(() => {
     if (isFullscreen) {
       document.body.style.overflow = "hidden";
+      
+      const handleEscKey = (event: KeyboardEvent) => {
+        if (event.key === "Escape") {
+          setIsFullscreen(false);
+        }
+      };
+      
+      document.addEventListener("keydown", handleEscKey);
+      
+      return () => {
+        document.body.style.overflow = "";
+        document.removeEventListener("keydown", handleEscKey);
+      };
     } else {
       document.body.style.overflow = "";
     }
+    
     return () => {
       document.body.style.overflow = "";
     };
@@ -144,6 +158,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         <Flex
           borderBottom="neutral-medium"
           zIndex={2}
+          position="static"
           fillWidth
           horizontal="space-between"
           gap="16"
@@ -178,7 +193,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             </Row>
           )}
           {!compact && (
-            <Flex padding="4" gap="2">
+            <Flex padding="4" gap="2" position="static">
               {reloadButton && (
                 <IconButton
                   size="m"
@@ -224,7 +239,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       {codePreview && (
         <Flex
           key={refreshKey}
-          position="relative"
           padding={previewPadding}
           fillHeight
           horizontal="center"
@@ -240,16 +254,20 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
           borderTop={!compact && codePreview ? "neutral-medium" : undefined}
           fillWidth
           fillHeight={fillHeight}
-          position="relative"
         >
           <Flex overflowX="auto" fillWidth>
             <pre
               style={{ maxHeight: `${codeHeight}rem` }}
               data-line={highlight}
               ref={preRef}
-              className={classNames(lineNumbers ? styles.lineNumberPadding : styles.padding, styles.pre, `language-${language}`, {
-                "line-numbers": lineNumbers,
-              })}
+              className={classNames(
+                lineNumbers ? styles.lineNumberPadding : styles.padding,
+                styles.pre,
+                `language-${language}`,
+                {
+                  "line-numbers": lineNumbers,
+                },
+              )}
               tabIndex={-1}
             >
               <code ref={codeRef} className={classNames(styles.code, `language-${language}`)}>

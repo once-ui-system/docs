@@ -26,13 +26,13 @@ export function generateMetadata({
 }: MetaProps): NextMetadata {
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  
-  const ogImage = image 
-    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}` 
+
+  const ogImage = image
+    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}`
     : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
-  
+
   const url = `${normalizedBaseURL}${normalizedPath}`;
-  
+
   return {
     title,
     description,

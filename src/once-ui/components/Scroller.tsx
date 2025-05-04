@@ -4,11 +4,12 @@ import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { Flex, IconButton } from ".";
 import styles from "./Scroller.module.scss";
-import { Fade } from "./Fade";
+import { BaseColor, Fade } from "./Fade";
 
 interface ScrollerProps extends React.ComponentProps<typeof Flex> {
   children?: React.ReactNode;
   direction?: "row" | "column";
+  fadeColor?: BaseColor;
   onItemClick?: (index: number) => void;
 }
 
@@ -20,6 +21,7 @@ interface ScrollableChildProps {
 const Scroller: React.FC<ScrollerProps> = ({
   children,
   direction = "row",
+  fadeColor,
   className,
   style,
   onItemClick,
@@ -29,31 +31,49 @@ const Scroller: React.FC<ScrollerProps> = ({
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);
   const [showNextButton, setShowNextButton] = useState<boolean>(false);
 
+  // Function to check and update scroll buttons visibility
+  const updateScrollButtonsVisibility = () => {
+    const scroller = scrollerRef.current;
+    if (scroller) {
+      const scrollPosition = direction === "row" ? scroller.scrollLeft : scroller.scrollTop;
+      const maxScrollPosition =
+        direction === "row"
+          ? scroller.scrollWidth - scroller.clientWidth
+          : scroller.scrollHeight - scroller.clientHeight;
+
+      // Check if content is scrollable
+      const isScrollable =
+        direction === "row"
+          ? scroller.scrollWidth > scroller.clientWidth
+          : scroller.scrollHeight > scroller.clientHeight;
+
+      setShowPrevButton(isScrollable && scrollPosition > 0);
+      setShowNextButton(isScrollable && scrollPosition < maxScrollPosition - 1);
+    }
+  };
+
+  // Handle scroll events
   useEffect(() => {
     const scroller = scrollerRef.current;
-    const handleScroll = () => {
-      if (scroller) {
-        const scrollPosition = direction === "row" ? scroller.scrollLeft : scroller.scrollTop;
-        const maxScrollPosition =
-          direction === "row"
-            ? scroller.scrollWidth - scroller.clientWidth
-            : scroller.scrollHeight - scroller.clientHeight;
-        setShowPrevButton(scrollPosition > 0);
-        setShowNextButton(scrollPosition < maxScrollPosition - 1);
-      }
-    };
+    if (scroller) {
+      // Initial check
+      updateScrollButtonsVisibility();
 
-    if (
-      scroller &&
-      (direction === "row"
-        ? scroller.scrollWidth > scroller.clientWidth
-        : scroller.scrollHeight > scroller.clientHeight)
-    ) {
-      handleScroll();
-      scroller.addEventListener("scroll", handleScroll);
-      return () => scroller.removeEventListener("scroll", handleScroll);
+      // Add scroll event listener
+      scroller.addEventListener("scroll", updateScrollButtonsVisibility);
+      return () => scroller.removeEventListener("scroll", updateScrollButtonsVisibility);
     }
   }, [direction]);
+
+  // Re-check when children change
+  useEffect(() => {
+    // Use setTimeout to ensure DOM has updated
+    const timer = setTimeout(() => {
+      updateScrollButtonsVisibility();
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [children]);
 
   const handleScrollNext = () => {
     const scroller = scrollerRef.current;
@@ -102,15 +122,17 @@ const Scroller: React.FC<ScrollerProps> = ({
   });
 
   return (
-    <Flex
-      fillWidth
-      position="relative"
-      className={classNames(styles.container, className)}
-      style={style}
-      {...rest}
-    >
+    <Flex fillWidth className={classNames(styles.container, className)} style={style} {...rest}>
       {showPrevButton && (
-        <Fade to="right" width={4} fillHeight position="absolute" left="0" zIndex={1}>
+        <Fade 
+          base={fadeColor}
+          to="right"
+          width={4}
+          fillHeight
+          position="absolute"
+          left="0"
+          zIndex={1}
+        >
           <IconButton
             icon={direction === "row" ? "chevronLeft" : "chevronUp"}
             onClick={handleScrollPrev}
@@ -130,7 +152,6 @@ const Scroller: React.FC<ScrollerProps> = ({
       <Flex
         fillWidth
         zIndex={0}
-        position="relative"
         radius="m"
         direction={direction}
         className={classNames(styles.scroller, styles[direction])}
@@ -139,7 +160,15 @@ const Scroller: React.FC<ScrollerProps> = ({
         {wrappedChildren}
       </Flex>
       {showNextButton && (
-        <Fade to="left" width={4} fillHeight position="absolute" right="0" zIndex={1}>
+        <Fade
+          base={fadeColor}
+          to="left"
+          width={4}
+          fillHeight
+          position="absolute"
+          right="0"
+          zIndex={1}
+        >
           <IconButton
             icon={direction === "row" ? "chevronRight" : "chevronDown"}
             onClick={handleScrollNext}

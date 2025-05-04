@@ -17,9 +17,9 @@ import styles from "./Dialog.module.scss";
 interface DialogProps extends Omit<React.ComponentProps<typeof Flex>, "title"> {
   isOpen: boolean;
   onClose: () => void;
-  title: ReactNode;
+  title: ReactNode | string;
   description?: ReactNode;
-  children: ReactNode;
+  children?: ReactNode;
   footer?: ReactNode;
   base?: boolean;
   stack?: boolean;
@@ -235,6 +235,7 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
           }}
         >
           <Flex
+            position="unset"
             className={classNames(styles.dialog, {
               [styles.open]: isAnimating,
             })}
@@ -283,9 +284,13 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
               gap="4"
             >
               <Flex fillWidth horizontal="space-between" gap="8">
-                <Heading id="dialog-title" variant="heading-strong-l">
-                  {title}
-                </Heading>
+                {typeof title === "string" ? (
+                  <Heading id="dialog-title" variant="heading-strong-l">
+                    {title}
+                  </Heading>
+                ) : (
+                  title
+                )}
                 <IconButton
                   icon="close"
                   size="m"

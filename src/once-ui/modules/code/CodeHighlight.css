@@ -79,6 +79,7 @@
 .line-highlight {
   position: absolute;
   background-color: var(--brand-alpha-weak);
+  border-left: 2px solid var(--brand-alpha-strong);
   width: 100%;
   left: 0;
   margin-top: var(--static-space-8);

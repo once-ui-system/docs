@@ -48,7 +48,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
           <User {...userProps} />
         </Flex>
       }
-      dropdown={<>{dropdown}</>}
+      dropdown={dropdown}
     />
   );
 };

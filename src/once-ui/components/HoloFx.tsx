@@ -66,7 +66,8 @@ const HoloFx: React.FC<HoloFxProps> = ({ children, shine, burn, texture, ...rest
   const textureDefaults = {
     opacity: 10,
     blending: "color-dodge" as CSSProperties["mixBlendMode"],
-    image: "repeating-linear-gradient(-45deg, var(--static-white) 0, var(--static-white) 1px, transparent 3px, transparent 2px)",
+    image:
+      "repeating-linear-gradient(-45deg, var(--static-white) 0, var(--static-white) 1px, transparent 3px, transparent 2px)",
     mask: getMaskStyle(texture?.mask),
     ...texture,
   };
@@ -102,7 +103,7 @@ const HoloFx: React.FC<HoloFxProps> = ({ children, shine, burn, texture, ...rest
   }, []);
 
   return (
-    <Flex position="relative" overflow="hidden" className={styles.holoFx} ref={ref} {...rest}>
+    <Flex overflow="hidden" className={styles.holoFx} ref={ref} {...rest}>
       <Flex fill className={styles.base}>
         {children}
       </Flex>

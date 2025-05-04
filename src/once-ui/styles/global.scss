@@ -1,4 +1,3 @@
-/* BOX-SIZING */
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -30,6 +29,7 @@ ol {
 }
 
 li {
+    list-style-position: inside;
     padding: 0;
     line-height: 175%;
     font-size: inherit;

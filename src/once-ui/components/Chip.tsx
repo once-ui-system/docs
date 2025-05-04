@@ -4,11 +4,12 @@ import React, { ReactNode, MouseEventHandler, forwardRef } from "react";
 import classNames from "classnames";
 import { Text, Icon, IconButton, IconButtonProps, Flex } from ".";
 import styles from "./Chip.module.scss";
+import { IconName } from "../icons";
 
 interface ChipProps extends React.ComponentProps<typeof Flex> {
   label: string;
   selected?: boolean;
-  prefixIcon?: string;
+  prefixIcon?: IconName;
   onRemove?: () => void;
   onClick?: MouseEventHandler<HTMLDivElement>;
   children?: ReactNode;

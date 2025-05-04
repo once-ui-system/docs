@@ -6,9 +6,10 @@ import { Flex, Icon, Tooltip } from ".";
 import buttonStyles from "./Button.module.scss";
 import iconStyles from "./IconButton.module.scss";
 import classNames from "classnames";
+import { IconName } from "../icons";
 
 interface CommonProps {
-  icon?: string;
+  icon?: IconName;
   id?: string;
   size?: "s" | "m" | "l";
   radius?:

@@ -30,7 +30,7 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
       inline,
       columns,
       gap,
-      position,
+      position = "relative",
       aspectRatio,
       align,
       textVariant,
@@ -123,7 +123,7 @@ const Grid = forwardRef<HTMLDivElement, ComponentProps>(
         const [scheme, , weight] = parts;
         return `${scheme}-${type}-alpha-${weight}`;
       }
-      
+
       const [scheme, weight] = value.split("-") as [ColorScheme, ColorWeight];
       return `${scheme}-${type}-${weight}`;
     };

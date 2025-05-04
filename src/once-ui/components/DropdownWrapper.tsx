@@ -7,6 +7,7 @@ import React, {
   ReactNode,
   forwardRef,
   useImperativeHandle,
+  useCallback,
 } from "react";
 import {
   useFloating,
@@ -32,6 +33,7 @@ export interface DropdownWrapperProps {
   style?: React.CSSProperties;
   className?: string;
   onSelect?: (value: string) => void;
+  closeAfterClick?: boolean;
   isOpen?: boolean;
   onOpenChange?: (isOpen: boolean) => void;
 }
@@ -44,6 +46,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
       selectedOption,
       minHeight,
       onSelect,
+      closeAfterClick = true,
       isOpen: controlledIsOpen,
       onOpenChange,
       minWidth,
@@ -63,19 +66,22 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
     const isControlled = controlledIsOpen !== undefined;
     const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
 
-    const handleOpenChange = (newIsOpen: boolean) => {
-      if (!isControlled) {
-        setInternalIsOpen(newIsOpen);
-      }
-      onOpenChange?.(newIsOpen);
-    };
+    const handleOpenChange = useCallback(
+      (newIsOpen: boolean) => {
+        if (!isControlled) {
+          setInternalIsOpen(newIsOpen);
+        }
+        onOpenChange?.(newIsOpen);
+      },
+      [onOpenChange, isControlled],
+    );
 
     const { x, y, strategy, refs, update } = useFloating({
       placement: floatingPlacement,
       open: isOpen,
       middleware: [
         offset(4),
-        minHeight ?  undefined : flip(),
+        minHeight ? undefined : flip(),
         shift(),
         size({
           apply({ availableWidth, availableHeight, elements }) {
@@ -117,24 +123,30 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
       }
     }, [isOpen, mounted, refs, update]);
 
-    const handleClickOutside = (event: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
-        handleOpenChange(false);
-      }
-    };
+    const handleClickOutside = useCallback(
+      (event: MouseEvent) => {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+          handleOpenChange(false);
+        }
+      },
+      [handleOpenChange, wrapperRef],
+    );
 
-    const handleFocusOut = (event: FocusEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.relatedTarget as Node)) {
-        handleOpenChange(false);
-      }
-    };
+    const handleFocusOut = useCallback(
+      (event: FocusEvent) => {
+        if (wrapperRef.current && !wrapperRef.current.contains(event.relatedTarget as Node)) {
+          handleOpenChange(false);
+        }
+      },
+      [handleOpenChange, wrapperRef],
+    );
 
     useEffect(() => {
       const currentWrapperRef = wrapperRef.current;
-      
+
       document.addEventListener("mousedown", handleClickOutside);
       currentWrapperRef?.addEventListener("focusout", handleFocusOut);
-      
+
       return () => {
         document.removeEventListener("mousedown", handleClickOutside);
         currentWrapperRef?.removeEventListener("focusout", handleFocusOut);
@@ -155,9 +167,21 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
           ...style,
         }}
         className={className}
-        position="relative"
         ref={wrapperRef}
-        onClick={() => handleOpenChange(!isOpen)}
+        onClick={(e) => {
+          if (!isOpen) {
+            handleOpenChange(true);
+            return;
+          }
+
+          if (
+            closeAfterClick &&
+            dropdownRef.current &&
+            !dropdownRef.current.contains(e.target as Node)
+          ) {
+            handleOpenChange(false);
+          }
+        }}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
@@ -170,7 +194,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
         aria-expanded={isOpen}
       >
         {trigger}
-        {isOpen && (
+        {isOpen && dropdown && (
           <Flex
             zIndex={1}
             className={styles.fadeIn}
@@ -179,12 +203,16 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
             style={{
               position: strategy,
               top: y ?? 0,
-              offset: 4,
               left: x ?? 0,
             }}
             role="listbox"
           >
-            <Dropdown minWidth={minWidth} radius="l" selectedOption={selectedOption} onSelect={onSelect}>
+            <Dropdown
+              minWidth={minWidth}
+              radius="l"
+              selectedOption={selectedOption}
+              onSelect={onSelect}
+            >
               {dropdown}
             </Dropdown>
           </Flex>

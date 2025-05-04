@@ -1,5 +1,6 @@
 import React from "react";
 import Script from "next/script";
+import { social } from "@/app/resources/config";
 
 export interface SchemaProps {
   as: "website" | "article" | "blogPosting" | "techArticle" | "webPage" | "organization";
@@ -39,21 +40,23 @@ export function Schema({
 }: SchemaProps) {
   const normalizedBaseURL = baseURL.endsWith("/") ? baseURL.slice(0, -1) : baseURL;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  
-  const imageUrl = image 
-    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}` 
+
+  const imageUrl = image
+    ? `${normalizedBaseURL}${image.startsWith("/") ? image : `/${image}`}`
     : `${normalizedBaseURL}/og?title=${encodeURIComponent(title)}`;
-  
+
   const url = `${normalizedBaseURL}${normalizedPath}`;
-  
+
   const schemaType = schemaTypeMap[as];
-  
+
   const schema: Record<string, any> = {
     "@context": "https://schema.org",
     "@type": schemaType,
     url,
   };
-  
+
+  schema.sameAs = Object.values(social).filter(Boolean);
+
   if (as === "website") {
     schema.name = title;
     schema.description = description;
@@ -66,27 +69,27 @@ export function Schema({
     schema.headline = title;
     schema.description = description;
     schema.image = imageUrl;
-    
+
     if (datePublished) {
       schema.datePublished = datePublished;
       schema.dateModified = dateModified || datePublished;
     }
   }
-  
+
   if (author) {
     schema.author = {
       "@type": "Person",
       name: author.name,
       ...(author.url && { url: author.url }),
-      ...(author.image && { 
+      ...(author.image && {
         image: {
           "@type": "ImageObject",
-          url: author.image
-        }
+          url: author.image,
+        },
       }),
     };
   }
-  
+
   return (
     <Script
       id={`schema-${as}-${path}`}

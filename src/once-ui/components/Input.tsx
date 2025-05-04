@@ -35,6 +35,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   hasPrefix?: ReactNode;
   hasSuffix?: ReactNode;
   labelAsPlaceholder?: boolean;
+  cursor?: undefined | "interactive";
   validate?: (value: ReactNode) => ReactNode | null;
 }
 
@@ -57,6 +58,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       onFocus,
       onBlur,
       validate,
+      cursor,
       ...props
     },
     ref,
@@ -109,19 +111,25 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
     const displayError = validationError || errorMessage;
 
-    const inputClassNames = classNames(styles.input, "font-body", "font-default", "font-m", {
-      [styles.filled]: isFilled,
-      [styles.focused]: isFocused,
-      [styles.withPrefix]: hasPrefix,
-      [styles.withSuffix]: hasSuffix,
-      [styles.labelAsPlaceholder]: labelAsPlaceholder,
-      [styles.hasChildren]: children,
-      [styles.error]: displayError && debouncedValue !== "",
-    });
+    const inputClassNames = classNames(
+      styles.input,
+      "font-body",
+      "font-default",
+      "font-m",
+      cursor === "interactive" ? "cursor-interactive" : undefined,
+      {
+        [styles.filled]: isFilled,
+        [styles.focused]: isFocused,
+        [styles.withPrefix]: hasPrefix,
+        [styles.withSuffix]: hasSuffix,
+        [styles.labelAsPlaceholder]: labelAsPlaceholder,
+        [styles.hasChildren]: children,
+        [styles.error]: displayError && debouncedValue !== "",
+      },
+    );
 
     return (
       <Flex
-        position="relative"
         direction="column"
         gap="8"
         style={style}
@@ -135,7 +143,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           transition="micro-medium"
           border="neutral-medium"
           background="neutral-alpha-weak"
-          position="relative"
           overflow="hidden"
           vertical="stretch"
           className={classNames(
@@ -150,11 +157,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         >
           {hasPrefix && (
-            <Flex paddingLeft="12" className={styles.prefix}>
+            <Flex paddingLeft="12" className={styles.prefix} position="static">
               {hasPrefix}
             </Flex>
           )}
-          <Flex fillWidth direction="column" position="relative">
+          <Flex fillWidth direction="column">
             <input
               {...props}
               ref={ref}
@@ -181,7 +188,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {children}
           </Flex>
           {hasSuffix && (
-            <Flex paddingRight="12" className={styles.suffix}>
+            <Flex paddingRight="12" className={styles.suffix} position="static">
               {hasSuffix}
             </Flex>
           )}
@@ -194,15 +201,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           </Flex>
         )}
         {description && (
-          <Flex paddingX="16">
-            <Text
-              as="span"
-              id={`${id}-description`}
-              variant="body-default-s"
-              onBackground="neutral-weak"
-            >
-              {description}
-            </Text>
+          <Flex
+            paddingX="16"
+            fillWidth
+            id={`${id}-description`}
+            textVariant="body-default-s"
+            onBackground="neutral-weak"
+          >
+            {description}
           </Flex>
         )}
       </Flex>

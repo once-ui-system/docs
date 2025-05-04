@@ -135,7 +135,7 @@ const Carousel: React.FC<CarouselProps> = ({
                   }}
                   cursor="interactive"
                   padding="4"
-                  width="80"
+                  aspectRatio={aspectRatio}
                   height="80"
                 >
                   <SmartImage

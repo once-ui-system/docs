@@ -5,7 +5,7 @@ import { Flex } from "./Flex";
 interface ElementTypeProps {
   href?: string;
   onClick?: () => void;
-  onLinkClick?: () => void; 
+  onLinkClick?: () => void;
   children: ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -72,7 +72,7 @@ const ElementType = forwardRef<HTMLElement, ElementTypeProps>(
         {children}
       </Flex>
     );
-  }
+  },
 );
 
 ElementType.displayName = "ElementType";

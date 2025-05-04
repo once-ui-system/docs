@@ -4,16 +4,15 @@ import dynamic from "next/dynamic";
 
 import { 
   Heading,
-  HeadingLink,
   SmartImage,
   SmartLink,
   Text,
   InlineCode,
-  Accordion,
 } from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import { HeadingLink } from "@/once-ui/modules";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;

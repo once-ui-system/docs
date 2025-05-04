@@ -4,11 +4,12 @@ import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
 
 import { Flex, Icon } from ".";
+import { IconName } from "../icons";
 
 type TooltipProps = {
   label: ReactNode;
-  prefixIcon?: string;
-  suffixIcon?: string;
+  prefixIcon?: IconName;
+  suffixIcon?: IconName;
   className?: string;
   style?: React.CSSProperties;
 };

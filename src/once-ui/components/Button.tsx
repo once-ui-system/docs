@@ -6,6 +6,7 @@ import classNames from "classnames";
 
 import { Spinner, Icon, Arrow, Flex } from ".";
 import styles from "./Button.module.scss";
+import { IconName } from "../icons";
 
 interface CommonProps {
   variant?: "primary" | "secondary" | "tertiary" | "danger";
@@ -22,11 +23,11 @@ interface CommonProps {
     | "bottom-left";
   label?: string;
   weight?: "default" | "strong";
-  prefixIcon?: string;
-  suffixIcon?: string;
+  prefixIcon?: IconName;
+  suffixIcon?: IconName;
   loading?: boolean;
   fillWidth?: boolean;
-  justifyContent?: "flex-start" | "center" | "flex-end" | "space-between";
+  justifyContent?: "start" | "center" | "end" | "space-between";
   children?: ReactNode;
   href?: string;
   className?: string;

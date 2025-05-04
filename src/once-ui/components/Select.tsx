@@ -123,6 +123,8 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
       }
     };
 
+    const selectedOption = options.find((opt) => opt.value === value);
+
     useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
         if (
@@ -168,11 +170,12 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
               textOverflow: "ellipsis",
               ...style,
             }}
-            value={value}
+            cursor="interactive"
+            value={typeof selectedOption?.label === "string" ? selectedOption.label : ""}
             onFocus={handleFocus}
             onKeyDown={handleKeyDown}
             readOnly
-            className={classNames("cursor-interactive", "fill-width", {
+            className={classNames("fill-width", {
               [inputStyles.filled]: isFilled,
               [inputStyles.focused]: isFocused,
               className,
@@ -184,7 +187,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
         dropdown={
           <>
             {searchable && (
-              <Flex fillWidth position="relative">
+              <Flex fillWidth>
                 <Input
                   data-scaling="90"
                   style={{
@@ -239,13 +242,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
                 options.filter((option) =>
                   option.label?.toString().toLowerCase().includes(searchQuery.toLowerCase()),
                 ).length === 0 && (
-                  <Flex
-                    fillWidth
-                    vertical="center"
-                    horizontal="center"
-                    paddingX="16"
-                    paddingY="32"
-                  >
+                  <Flex fillWidth vertical="center" horizontal="center" paddingX="16" paddingY="32">
                     {emptyState}
                   </Flex>
                 )}

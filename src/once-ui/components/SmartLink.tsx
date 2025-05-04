@@ -4,10 +4,11 @@ import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
 import { Icon } from ".";
 import { ElementType } from "./ElementType";
+import { IconName } from "../icons";
 
 interface CommonProps {
-  prefixIcon?: string;
-  suffixIcon?: string;
+  prefixIcon?: IconName;
+  suffixIcon?: IconName;
   fillWidth?: boolean;
   iconSize?: "xs" | "s" | "m" | "l" | "xl";
   selected?: boolean;

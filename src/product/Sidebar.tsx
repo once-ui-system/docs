@@ -59,14 +59,34 @@ const NavigationItemComponent: React.FC<{
   // Combine all checks
   const isSelected = isExactMatch || isParentPath || isTopLevelMatch;
   
+  // Check if the current path is within this section by comparing path segments
+  // This is more reliable for deeper nested routes
+  const isPathWithinSection = (() => {
+    // Skip this check for empty paths
+    if (!correctedSlug) return false;
+    
+    const sectionSegments = correctedSlug.split('/').filter(Boolean);
+    
+    // If there aren't enough segments in the path, it can't be within this section
+    if (pathSegments.length < sectionSegments.length) return false;
+    
+    // Check if all section segments match the corresponding path segments
+    for (let i = 0; i < sectionSegments.length; i++) {
+      if (pathSegments[i] !== sectionSegments[i]) {
+        return false;
+      }
+    }
+    
+    return true;
+  })();
+  
   // For accordion sections, check if any child's path is in the current URL
   const hasActiveChild = item.children?.some(child => {
     const childSlug = child.slug;
-    const childSegments = childSlug.split('/');
+    const childSegments = childSlug.split('/').filter(Boolean);
     
     // Check if the pathname segments match this child's segments
-    // This handles nested paths like "/once-ui/quick-start" for the "once-ui" parent
-    if (pathSegments.length >= childSegments.length + 1) {
+    if (pathSegments.length >= childSegments.length) {
       for (let i = 0; i < childSegments.length; i++) {
         if (pathSegments[i] !== childSegments[i]) {
           return false;
@@ -80,7 +100,7 @@ const NavigationItemComponent: React.FC<{
   
   // Check if current section should be open based on path matching
   // This ensures the section is open when arriving at a page within this section
-  const shouldBeOpen = isSelected || hasActiveChild || isParentPath;
+  const shouldBeOpen = isSelected || hasActiveChild || isParentPath || isPathWithinSection;
 
   if (item.children) {
     return (

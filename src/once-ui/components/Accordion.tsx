@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, forwardRef, useImperativeHandle, useEffect } from "react";
+import React, { useState, forwardRef, useImperativeHandle, useEffect, useCallback } from "react";
 import { Flex, Icon, Text, Column, Grid } from ".";
 import styles from "./Accordion.module.scss";
 
@@ -10,7 +10,7 @@ export interface AccordionHandle extends HTMLDivElement {
   close: () => void;
 }
 
-interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, "title">{
+interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, "title"> {
   title: React.ReactNode;
   children: React.ReactNode;
   icon?: string;
@@ -21,16 +21,28 @@ interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, "title"
 }
 
 const Accordion = forwardRef<AccordionHandle, AccordionProps>(
-  ({ title, children, open = false, iconRotation = 180, radius, icon = "chevronDown", size = "m", ...rest }, ref) => {
+  (
+    {
+      title,
+      children,
+      open = false,
+      iconRotation = 180,
+      radius,
+      icon = "chevronDown",
+      size = "m",
+      ...rest
+    },
+    ref,
+  ) => {
     const [isOpen, setIsOpen] = useState(open);
 
     useEffect(() => {
       setIsOpen(open);
     }, [open]);
 
-    const toggleAccordion = () => {
-      setIsOpen(!isOpen);
-    };
+    const toggleAccordion = useCallback(() => {
+      setIsOpen((prev) => !prev);
+    }, []);
 
     useImperativeHandle(
       ref,
@@ -40,10 +52,10 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           open: () => setIsOpen(true),
           close: () => setIsOpen(false),
         };
-        
-        return Object.assign(document.createElement('div'), methods) as unknown as AccordionHandle;
+
+        return Object.assign(document.createElement("div"), methods) as unknown as AccordionHandle;
       },
-      [toggleAccordion]
+      [toggleAccordion],
     );
 
     return (
@@ -59,7 +71,7 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           horizontal="space-between"
           onClick={toggleAccordion}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+            if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
               toggleAccordion();
             }
@@ -69,9 +81,7 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           radius={radius}
           role="button"
         >
-          <Text variant="heading-strong-s">
-            {title}
-          </Text>
+          <Text variant="heading-strong-s">{title}</Text>
           <Icon
             name={icon}
             size={size === "s" ? "xs" : "s"}
@@ -94,7 +104,7 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           aria-hidden={!isOpen}
         >
           <Flex fillWidth minHeight={0} overflow="hidden">
-            <Column fillWidth paddingX="20" paddingTop="8" paddingBottom="16"  {...rest}>
+            <Column fillWidth paddingX="20" paddingTop="8" paddingBottom="16" {...rest}>
               {children}
             </Column>
           </Flex>

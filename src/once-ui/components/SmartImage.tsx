@@ -55,7 +55,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
 
     document.addEventListener("keydown", handleEscape);
     window.addEventListener("wheel", handleWheel, { passive: true });
-    
+
     return () => {
       document.removeEventListener("keydown", handleEscape);
       window.removeEventListener("wheel", handleWheel);
@@ -118,7 +118,6 @@ const SmartImage: React.FC<SmartImageProps> = ({
         ref={imageRef}
         fillWidth
         overflow="hidden"
-        position="relative"
         zIndex={0}
         cursor={enlarge ? "interactive" : ""}
         style={{
@@ -132,7 +131,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
         onClick={handleClick}
         {...rest}
       >
-        {isLoading && <Skeleton shape="block"/>}
+        {isLoading && <Skeleton shape="block" />}
         {!isLoading && isVideo && (
           <video
             src={src}
@@ -196,7 +195,6 @@ const SmartImage: React.FC<SmartImageProps> = ({
           }}
         >
           <Flex
-            position="relative"
             style={{
               height: "100vh",
               transform: "translate(-50%, -50%)",
