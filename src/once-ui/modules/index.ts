@@ -1,5 +1,3 @@
-import { MegaMenu } from "./navigation";
-
 export { CodeBlock } from "./code/CodeBlock";
 export { MediaUpload } from "./media/MediaUpload";
 

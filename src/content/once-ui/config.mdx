@@ -6,6 +6,262 @@ navLabel: "Config"
 navIcon: "learn"
 ---
 
-## Title
+Once UI uses data attributes to set brand-, accent-, neutral color schemes, border radius
+style, and light- and dark mode. Data modes are inherited and can be applied to any
+semantic HTML element, providing easy customization and styling options to minimize the
+size of tokens and styles.
 
-Content
+## Default theme
+
+Set the default style of your application in the{" "}
+`resources/config.js` file.
+
+Add the `data-theme`, `data-neutral`, `data-brand`, `data-accent`, `data-border`, `data-surface`, `data-solid`, `data-solid-style`, `data-transition` or `data-scaling` attributes to any semantic HTML element to override the default style.
+
+<Feedback className="mb-24" variant="info" icon>
+    <Text>
+    You can include the `StylePanel` and{" "}
+    `StyleOverlay` components in your app to test and iterate between
+    different styles quickly.
+    </Text>
+</Feedback>
+
+<Flex marginBottom="l">
+    <StylePanel />
+</Flex>
+
+## Nested themes
+
+Data modes work with inheritance, meaning you can nest them inside one-another, allowing
+you to have a dark-mode app with a light-mode header for example, or use rounded buttons
+in particular places in a generally sharp interface.
+
+<CodeBlock
+    highlight="5-6,9-10"
+    codePreview={
+<Flex
+    overflow="hidden"
+    data-neutral="gray"
+    data-brand="violet"
+    data-accent="blue"
+    data-border="playful"
+    data-theme="dark"
+    background="page"
+    border="neutral-medium"
+    onBackground="neutral-medium"
+    radius="xl-8"
+    padding="8"
+    direction="column"
+    maxWidth={32}
+    maxHeight={44}
+  >
+    <Flex
+      style={{
+        width: "calc(100% - var(--static-space-16)",
+        bottom: "var(--static-space-8)",
+        left: "var(--static-space-8)",
+        right: "var(--static-space-8)",
+      }}
+      position="absolute"
+      zIndex={1}
+      as="nav"
+      data-theme="light"
+      data-border="rounded"
+      background="neutral-weak"
+      border="neutral-medium"
+      radius="l"
+      paddingY="8"
+      paddingLeft="24"
+      paddingRight="12"
+      vertical="center"
+      horizontal="space-between"
+    >
+      <IconButton
+        style={{ color: "var(--neutral-on-background-strong)" }}
+        variant="ghost"
+        tooltip="Home"
+        icon="HiMiniHome"
+      />
+      <IconButton variant="ghost" tooltip="Notifications" icon="HiOutlineBell" />
+      <IconButton variant="ghost" tooltip="Search" icon="HiMiniMagnifyingGlass" />
+      <UserMenu
+        avatarProps={{
+          empty: false,
+          value: "J",
+          statusIndicator: {
+            color: "green",
+          },
+        }}
+      />
+    </Flex>
+    <Flex direction="column" overflowY="auto" fillHeight padding="m" gap="16" flex={1}>
+      <Flex fillWidth>
+        <SegmentedControl
+          buttons={[
+            {
+              label: "For you",
+              value: "For you",
+            },
+            {
+              label: "Following",
+              value: "Following",
+            },
+            {
+              label: "Freelancing",
+              value: "Freelancing",
+            },
+            {
+              label: "Self",
+              value: "Self",
+            },
+            {
+              label: "Productivity",
+              value: "Productivity",
+            },
+            {
+              label: "Mental Health",
+              value: "Mental Health",
+            },
+            {
+              label: "Media",
+              value: "Media",
+            },
+          ]}
+          defaultSelected="For you"
+        />
+      </Flex>
+      <Flex direction="column" paddingX="8" paddingTop="20" paddingBottom="64" gap="48" flex={1}>
+        {[
+          {
+            name: "John Doe",
+            avatar: "/images/avatars/01.png",
+            title: "How to structure your Next.js application",
+            subtitle: "Best practices for consistency and collaboration",
+            date: "Jun 23",
+            likes: 48,
+            comments: 2,
+            topic: "Productivity",
+            topicLink: "",
+            imageSrc: "/images/docs/nextjs.png",
+          },
+          {
+            name: "Jane Smith",
+            avatar: "/images/avatars/02.png",
+            title: "How to design density-rich interfaces and turn them to code",
+            subtitle: "Get started with Once UI for Figma and Next.js",
+            date: "Jun 16",
+            likes: 31,
+            comments: 0,
+            topic: "Design",
+            topicLink: "",
+            imageSrc: "/images/docs/productivity-app-preview.png",
+          },
+          {
+            name: "Ava Blank",
+            avatar: "/images/avatars/03.png",
+            title: "Best practices for responsive design",
+            subtitle: "Build responsive interfaces without excessive code",
+            date: "Jun 14",
+            likes: 11,
+            comments: 4,
+            topic: "Design",
+            topicLink: "",
+            imageSrc: "/images/docs/imagine-dragons-warriors.png",
+          }
+        ].map((article, index) => (
+          <Flex key={index} direction="column" fillWidth gap="12">
+            <User
+              name={article.name}
+              avatarProps={{
+                empty: false,
+                size: "s",
+                src: article.avatar,
+              }}
+            />
+            <Flex fillWidth gap="24" mobileDirection="column">
+              <Flex direction="column" gap="12">
+                <Text variant="heading-strong-xl" onBackground="neutral-strong">
+                  {article.title}
+                </Text>
+                <Text variant="body-default-l" onBackground="neutral-medium">
+                  {article.subtitle}
+                </Text>
+              </Flex>
+              <Flex minWidth={8} overflow="hidden" radius="m" border="neutral-medium" fitHeight>
+                <SmartImage
+                  aspectRatio="3 / 2"
+                  alt="Image preview for article"
+                  sizes="120px"
+                  src={article.imageSrc}
+                />
+              </Flex>
+            </Flex>
+            <Flex gap="8" paddingTop="8" vertical="center">
+              <Icon size="xs" name="HiOutlineDocumentText" />
+              <Text variant="body-default-xs" onBackground="neutral-medium">
+                Because you follow{" "}
+                <SmartLink className="brand-on-background-weak" href={article.topicLink}>
+                  {article.topic}
+                </SmartLink>
+              </Text>
+            </Flex>
+            <Flex
+              vertical="center"
+              paddingTop="8"
+              textVariant="body-default-s"
+              onBackground="neutral-medium"
+            >
+              <Flex gap="32" fillWidth>
+                <Text>{article.date}</Text>
+                <Flex vertical="center" gap="8">
+                  <Icon size="s" name="HiOutlineHeart" />
+                  <Text>{article.likes}</Text>
+                </Flex>
+                <Flex vertical="center" gap="8">
+                  <Icon size="s" name="HiOutlineChatBubbleOvalLeft" />
+                  <Text>{article.comments}</Text>
+                </Flex>
+              </Flex>
+              <Flex gap="12">
+                <IconButton
+                  size="s"
+                  variant="ghost"
+                  icon="HiOutlineBookmark"
+                  tooltip="Save"
+                  tooltipPosition="top"
+                />
+                <IconButton
+                  size="s"
+                  variant="ghost"
+                  icon="HiMiniEllipsisVertical"
+                  tooltip="more"
+                  tooltipPosition="top"
+                />
+              </Flex>
+            </Flex>
+          </Flex>
+        ))}
+      </Flex>
+    </Flex>
+  </Flex>
+    }
+    codeInstances={[
+        {
+            code:
+`<Flex
+    data-theme="dark"
+    data-border="playful">
+    <Flex
+        data-theme="light"
+        data-border="rounded">
+        {children}
+    </Flex>
+    <Flex>
+        {children}
+    </Flex>
+</Flex>`,
+            language: "tsx",
+            label: "tsx"
+        }
+    ]}
+/>
