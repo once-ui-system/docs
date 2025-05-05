@@ -6,6 +6,41 @@ navLabel: "CodeBlock"
 navIcon: "learn"
 ---
 
-## Title
+component description
 
-Content
+<CodeBlock
+    codePreview={
+        <CodeBlock
+            codeInstances={[
+                {
+                    code: "console.log('Hello, World!');",
+                    language: "javascript",
+                    label: "Example"
+                }
+            ]}
+        />
+    }
+    codeInstances={[
+        {
+            code: "console.log('Hello, World!');",
+            language: "javascript",
+            label: "Example"
+        }
+    ]}
+/>
+
+## API reference
+
+<Table
+    data={{
+        headers: [
+            { content: "Prop", key: "prop", sortable: true },
+            { content: "Type", key: "type" },
+            { content: "Description", key: "description" }
+        ],
+        rows: [
+            ["codeInstances", "CodeInstance[]", "Array of code instances to display."]
+        ]
+    }}
+/>
+

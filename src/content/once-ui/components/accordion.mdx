@@ -6,6 +6,41 @@ navLabel: "Accordion"
 navIcon: "learn"
 ---
 
-## Title
+component description
 
-Content
+<CodeBlock
+    codePreview={
+        <Accordion title="Example" open>
+            <Text onBackground="neutral-weak">Example content</Text>
+        </Accordion>
+    }
+    codeInstances={[
+        {
+            code: "<Accordion title='Example' open><Text onBackground='neutral-weak'>Example content</Text></Accordion>",
+            language: "tsx",
+            label: "Example"
+        }
+    ]}
+/>
+
+```tsx live
+<Accordion title="Example" open>
+    <Text onBackground="neutral-weak">Example content</Text>
+</Accordion>
+```
+
+## API reference
+
+<Table
+    data={{
+        headers: [
+            { content: "Prop", key: "prop", sortable: true },
+            { content: "Type", key: "type" },
+            { content: "Description", key: "description" }
+        ],
+        rows: [
+            ["codeInstances", "CodeInstance[]", "Array of code instances to display."]
+        ]
+    }}
+/>
+
