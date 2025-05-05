@@ -19,7 +19,7 @@ export const Footer = () => {
           size="s"
           weight="default"
           variant="tertiary"
-          href="https://once-ui.com/templates"
+          href="https://once-ui.com/products"
         >
           <Row gap="12" vertical="center">
             Launch your app now

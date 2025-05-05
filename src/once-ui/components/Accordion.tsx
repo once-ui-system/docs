@@ -3,6 +3,7 @@
 import React, { useState, forwardRef, useImperativeHandle, useEffect, useCallback } from "react";
 import { Flex, Icon, Text, Column, Grid } from ".";
 import styles from "./Accordion.module.scss";
+import classNames from "classnames";
 
 export interface AccordionHandle extends HTMLDivElement {
   toggle: () => void;
@@ -18,6 +19,8 @@ interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, "title"
   size?: "s" | "m" | "l";
   radius?: "xs" | "s" | "m" | "l" | "full";
   open?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const Accordion = forwardRef<AccordionHandle, AccordionProps>(
@@ -30,6 +33,8 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
       radius,
       icon = "chevronDown",
       size = "m",
+      className,
+      style,
       ...rest
     },
     ref,
@@ -62,7 +67,8 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
       <Column fillWidth>
         <Flex
           tabIndex={0}
-          className={styles.accordion}
+          className={classNames(styles.accordion, className)}
+          style={style}
           cursor="pointer"
           transition="macro-medium"
           paddingY={size === "s" ? "8" : size === "m" ? "12" : "16"}

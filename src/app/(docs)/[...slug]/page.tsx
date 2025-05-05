@@ -85,8 +85,9 @@ export default async function Docs({
             <CustomMDX source={doc.content} />
           </Column>
           
-          <Row gap="16" fillWidth horizontal="space-between" wrap>              
+          <Row gap="16" fillWidth horizontal="space-between" mobileDirection="column">              
               {prevPage ? (
+                <Row fillWidth>
                 <Row maxWidth={20}>
                 <Card
                   fillWidth
@@ -109,29 +110,32 @@ export default async function Docs({
                   </Column>
                 </Card>
                 </Row>
+                </Row>
               ) : <Row/>}
               {nextPage ? (
-                <Row maxWidth={20}>
-                  <Card
-                    fillWidth
-                    border="neutral-alpha-medium"
-                    horizontal="end" vertical="center" gap="4"
-                    href={`/${nextPage.slug}`} 
-                    radius="l" 
-                    paddingX="16"
-                  >
-                    <Column horizontal="end" gap="4" vertical="center" paddingX="16" paddingY="12">
-                      <Text variant="label-default-s" onBackground="neutral-weak">
-                        {nextPage.slug.includes('/') ? 
-                          `${nextPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
-                          'page'}
-                      </Text>
-                      <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
-                        {nextPage.metadata.title}
-                      </Text>
-                    </Column>
-                    <Icon name="chevronRight" size="s" onBackground="neutral-weak" />
-                  </Card>
+                <Row fillWidth horizontal="end">
+                  <Row maxWidth={20}>
+                    <Card
+                      fillWidth
+                      border="neutral-alpha-medium"
+                      horizontal="end" vertical="center" gap="4"
+                      href={`/${nextPage.slug}`} 
+                      radius="l" 
+                      paddingX="16"
+                    >
+                      <Column horizontal="end" gap="4" vertical="center" paddingX="16" paddingY="12">
+                        <Text variant="label-default-s" onBackground="neutral-weak">
+                          {nextPage.slug.includes('/') ? 
+                            `${nextPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
+                            'page'}
+                        </Text>
+                        <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
+                          {nextPage.metadata.title}
+                        </Text>
+                      </Column>
+                      <Icon name="chevronRight" size="s" onBackground="neutral-weak" />
+                    </Card>
+                  </Row>
                 </Row>
               ) : <Row/>}
             </Row>

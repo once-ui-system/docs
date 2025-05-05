@@ -55,7 +55,6 @@ const Arrow: React.FC<ArrowProps> = ({
         ...style,
       }}
     >
-      <Flex className={classNames(styles.arrow, styles[color])} height={0.1} />
       <Flex
         position="absolute"
         className={classNames(styles.arrowHead, styles[color])}

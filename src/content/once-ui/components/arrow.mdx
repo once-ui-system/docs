@@ -1,11 +1,72 @@
 ---
 title: "Arrow"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
+summary: "The Arrow component provides an animated arrow that responds to hover events on specified trigger elements."
 updatedAt: "2025-05-04"
 navLabel: "Arrow"
 navIcon: "learn"
 ---
 
-## Title
+A decorative arrow component that animates when a specified trigger element is hovered. It's useful for creating visual cues and enhancing interactive elements with subtle animations.
 
-Content
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <>
+      <Row padding="16" fitWidth radius="m" id="arrow-trigger-1" variant="primary">
+        Hover me
+        <Arrow trigger="#arrow-trigger-1" scale={1} />
+      </Row>
+      <Row padding="16" fitWidth radius="m" solid="brand-medium" id="arrow-trigger-2" variant="secondary">
+        Custom color
+        <Arrow trigger="#arrow-trigger-2" color="onSolid" scale={1.2} />
+      </Row>
+    </>
+  }
+  codeInstances={[
+    {
+      code:
+`<Column fillWidth>
+  <Row horizontal="center" gap="16">
+    <Button id="arrow-trigger-1" variant="primary">Hover me</Button>
+    <Arrow trigger="#arrow-trigger-1" scale={1} />
+  </Row>
+  <Row horizontal="center" gap="16" marginTop="16">
+    <Button id="arrow-trigger-2" variant="secondary">Custom color</Button>
+    <Arrow trigger="#arrow-trigger-2" color="onSolid" scale={1.2} />
+  </Row>
+</Column>`,
+      language: "tsx",
+      label: "Arrow"
+    }
+  ]}
+/>
+
+## API reference
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { content: "Prop", key: "prop", sortable: true },
+      { content: "Type", key: "type" },
+      { content: "Default", key: "default" },
+      { content: "Description", key: "description" }
+    ],
+    rows: [
+      ["trigger", <InlineCode>string</InlineCode>, "-", "CSS selector for the element that triggers the arrow animation on hover"],
+      ["scale", <InlineCode>number</InlineCode>, <InlineCode>0.8</InlineCode>, "Scale factor to adjust the size of the arrow"],
+      ["color", <InlineCode>"onBackground" | "onSolid"</InlineCode>, <InlineCode>"onBackground"</InlineCode>, "Color theme for the arrow"],
+      ["style", <InlineCode>React.CSSProperties</InlineCode>, "-", "Additional CSS styles to apply to the arrow container"],
+      ["className", <InlineCode>string</InlineCode>, "-", "Additional CSS class names to apply to the arrow container"]
+    ]
+  }}
+/>
+
+## Usage Notes
+
+- The `trigger` prop must be a valid CSS selector (e.g., `#element-id`, `.element-class`)
+- The arrow will animate when the user hovers over the element specified by the trigger selector
+- Use the `scale` prop to adjust the size of the arrow to fit your design
+- The `color` prop allows you to choose between styles optimized for light or dark backgrounds

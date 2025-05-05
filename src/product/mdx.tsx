@@ -124,7 +124,6 @@ function createCodeBlock(props: any) {
       <CodeBlock
         marginTop="8"
         marginBottom="16"
-        codePreview={children}
         codeInstances={[
           {
             code: children,
