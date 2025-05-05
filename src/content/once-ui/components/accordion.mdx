@@ -1,46 +1,87 @@
 ---
 title: "Accordion"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
+summary: "The Accordion component provides a collapsible container to show and hide content, saving space and improving user experience."
 updatedAt: "2025-05-04"
 navLabel: "Accordion"
 navIcon: "learn"
 ---
 
-component description
+A collapsible container that allows users to expand and collapse sections of content, helping to organize information in a compact way. It's useful for FAQs, navigation menus, and any content that benefits from progressive disclosure.
 
 <CodeBlock
-    codePreview={
-        <Accordion title="Example" open>
-            <Text onBackground="neutral-weak">Example content</Text>
-        </Accordion>
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column fillWidth>
+      <Accordion title="Example" open>
+        <Text onBackground="neutral-weak">Example content</Text>
+      </Accordion>
+      <Accordion title="Example">
+        <Text onBackground="neutral-weak">Example content</Text>
+      </Accordion>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Column fillWidth>
+		<Accordion title="Example" open>
+			<Text onBackground="neutral-weak">
+				Example content
+			</Text>
+		</Accordion>
+		<Accordion title="Example">
+			<Text onBackground="neutral-weak">
+				Example content
+			</Text>
+		</Accordion>
+</Column>`,
+      language: "tsx",
+      label: "Accordion"
     }
-    codeInstances={[
-        {
-            code: "<Accordion title='Example' open><Text onBackground='neutral-weak'>Example content</Text></Accordion>",
-            language: "tsx",
-            label: "Example"
-        }
-    ]}
+  ]}
 />
-
-```tsx live
-<Accordion title="Example" open>
-    <Text onBackground="neutral-weak">Example content</Text>
-</Accordion>
-```
 
 ## API reference
 
 <Table
-    data={{
-        headers: [
-            { content: "Prop", key: "prop", sortable: true },
-            { content: "Type", key: "type" },
-            { content: "Description", key: "description" }
-        ],
-        rows: [
-            ["codeInstances", "CodeInstance[]", "Array of code instances to display."]
-        ]
-    }}
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { content: "Prop", key: "prop", sortable: true },
+      { content: "Type", key: "type" },
+      { content: "Default", key: "default" },
+    ],
+    rows: [
+      ["title", <InlineCode>ReactNode</InlineCode>, "-"],
+      ["children", <InlineCode>ReactNode</InlineCode>, "-"],
+      ["icon", <InlineCode>string</InlineCode>, <InlineCode>"chevronDown"</InlineCode>],
+      ["iconRotation", <InlineCode>number</InlineCode>, <InlineCode>180</InlineCode>],
+      ["size", <InlineCode>"s" | "m" | "l"</InlineCode>, <InlineCode>"m"</InlineCode>],
+      ["radius", <InlineCode>"xs" | "s" | "m" | "l" | "full"</InlineCode>, "-"],
+      ["open", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>]
+    ]
+  }}
+/>
+
+## Methods
+
+The Accordion component exposes the following methods through a ref:
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { content: "Method", key: "method", sortable: true },
+      { content: "Description", key: "description" }
+    ],
+    rows: [
+      ["toggle()", "Toggles the accordion between open and closed states"],
+      ["open()", "Opens the accordion, making its content visible"],
+      ["close()", "Closes the accordion, hiding its content"]
+    ]
+  }}
 />
 

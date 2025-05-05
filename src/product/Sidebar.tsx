@@ -56,8 +56,11 @@ const NavigationItemComponent: React.FC<{
   const isExactMatch = pathname === `/${correctedSlug}`;
   const isParentPath = pathname.startsWith(`/${correctedSlug}/`);
   
-  // Combine all checks
-  const isSelected = isExactMatch || isParentPath || isTopLevelMatch;
+  // Only consider exact matches for selection, not parent paths
+  const isSelected = isExactMatch;
+  
+  // Use this for accordion open state - if it's a parent or exact match
+  const isActive = isExactMatch || isParentPath || isTopLevelMatch;
   
   // Check if the current path is within this section by comparing path segments
   // This is more reliable for deeper nested routes

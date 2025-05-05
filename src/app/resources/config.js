@@ -20,13 +20,13 @@ const style = {
 const layout = {
   // units are set in REM
   header: {
-    width: 90, // max-width of the content inside the header
+    width: 200, // max-width of the content inside the header
   },
   body: {
-    width: 90, // max-width of the body
+    width: 200, // max-width of the body
   },
   sidebar: {
-    width: 16, // width of the sidebar
+    width: 18, // width of the sidebar
     collapsible: true, // accordion or static render
   },
   content: {

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Button, Flex, Logo, NavIcon, Row } from "@/once-ui/components";
+import { Button, Fade, Flex, Logo, NavIcon, Row } from "@/once-ui/components";
 import { layout, routes } from "@/app/resources/config";
 import { Sidebar, NavigationItem } from "./Sidebar";
 import { useTheme } from "@/once-ui/components/ThemeProvider";
@@ -154,9 +154,19 @@ export function Header() {
 
   return (
     <>
-      <Flex as="header" horizontal="center" position="sticky" top="0" zIndex={9} fillWidth vertical="center" background="surface" borderBottom="neutral-alpha-weak" paddingY="12" paddingX="l">
+      <Fade
+        pattern={{ display: true, size: "2" }}
+        zIndex={3}
+        pointerEvents="none"
+        height="64"
+        position="fixed"
+        fillWidth
+        top="0"
+        left="0"
+      />
+      <Flex as="header" horizontal="center" position="sticky" top="0" zIndex={9} fillWidth vertical="center" paddingY="12" paddingX="l">
         <Row maxWidth={layout.header.width} vertical="center" horizontal="space-between" gap="l">
-          <Row vertical="center" gap="8">
+          <Row fillWidth vertical="center" gap="8">
             <NavIcon show="m" onClick={toggleSidebar}/>
             <Logo icon={false} size="s" href="/"/>
           </Row>
@@ -168,7 +178,7 @@ export function Header() {
               </Row>
             </Button>
           </Kbar>
-          <Row gap="8" data-border="rounded">
+          <Row fillWidth horizontal="end" gap="8" data-border="rounded">
             <Row hide="s">
               <Button size="s" variant="secondary" href="https://once-ui.com/products">
                 Start building

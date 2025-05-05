@@ -59,7 +59,7 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
     );
 
     return (
-      <Column fillWidth className={styles.border}>
+      <Column fillWidth>
         <Flex
           tabIndex={0}
           className={styles.accordion}
@@ -104,7 +104,7 @@ const Accordion = forwardRef<AccordionHandle, AccordionProps>(
           aria-hidden={!isOpen}
         >
           <Flex fillWidth minHeight={0} overflow="hidden">
-            <Column fillWidth paddingX="20" paddingTop="8" paddingBottom="16" {...rest}>
+            <Column fillWidth paddingX={size === "s" ? "12" : size === "m" ? "16" : "20"} paddingTop="8" paddingBottom="16" {...rest}>
               {children}
             </Column>
           </Flex>

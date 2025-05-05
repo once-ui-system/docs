@@ -8,15 +8,12 @@ import {
   Grid, 
   Card, 
   SmartImage, 
-  Flex, 
   Line, 
   StatusIndicator
 } from "@/once-ui/components";
-import { PageList } from "@/product/PageList";
-import { baseURL, meta, schema, changelog, roadmap, task, layout } from "@/app/resources";
+import { baseURL, meta, schema, changelog, roadmap } from "@/app/resources";
 import { Meta, Schema } from "@/once-ui/modules";
 import { formatDate } from "./utils/formatDate";
-import { Schemes } from "@/once-ui/types";
 
 export async function generateMetadata() {
   return Meta.generate({
