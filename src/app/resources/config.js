@@ -5,6 +5,29 @@ const routes = {
   '/roadmap':    true,
 }
 
+// Import and set font for each variant
+import { Geist } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+
+const primaryFont = Geist({
+  variable: "--font-primary",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const monoFont = Geist_Mono({
+  variable: "--font-code",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const font = {
+  primary: primaryFont,
+  secondary: primaryFont,
+  tertiary: primaryFont,
+  code: monoFont,
+};
+
 const style = {
   theme: "dark", // dark | light
   neutral: "gray", // sand | gray | slate
@@ -126,4 +149,4 @@ const meta = {
   }
 };
 
-export { effects, style, layout, baseURL, social, schema, meta, routes };
+export { effects, style, layout, baseURL, social, schema, meta, routes, font };

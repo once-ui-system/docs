@@ -11,7 +11,7 @@ import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
 import { Background, Column, Flex, ToastProvider, ThemeProvider } from "@/once-ui/components";
-import { layout, schema } from "./resources/config";
+import { font, layout, schema } from "./resources/config";
 import { meta } from "@/app/resources";
 import { RouteGuard } from "@/product/RouteGuard";
 import { Meta } from "@/once-ui/modules";
@@ -68,29 +68,6 @@ export async function generateMetadata() {
   };
 }
 
-const primary = Geist({
-  variable: "--font-primary",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-type FontConfig = {
-  variable: string;
-};
-
-/**
- * Replace with code for secondary and tertiary fonts
- * from https://once-ui.com/customize
- */
-const secondary: FontConfig | undefined = undefined;
-const tertiary: FontConfig | undefined = undefined;
-
-const code = Geist_Mono({
-  variable: "--font-code",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 interface RootLayoutProps {
   children: React.ReactNode;
 }
@@ -101,7 +78,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider>
         <ToastProvider>
           <Flex
             as="html"
@@ -117,10 +94,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             data-surface={style.surface}
             data-transition={style.transition}
             className={classNames(
-              primary.variable,
-              secondary ? secondary.variable : "",
-              tertiary ? tertiary.variable : "",
-              code.variable,
+              font.primary.variable,
+              font.secondary.variable,
+              font.tertiary.variable,
+              font.code.variable,
             )}
           >
           <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">

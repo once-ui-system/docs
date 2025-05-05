@@ -12,16 +12,16 @@ A decorative arrow component that animates when a specified trigger element is h
   marginTop="8"
   marginBottom="16"
   codePreview={
-    <>
-      <Row padding="16" fitWidth radius="m" id="arrow-trigger-1" variant="primary">
-        Hover me
+    <Column gap="16">
+      <Row id="arrow-trigger-1" padding="16" fitWidth radius="m" vertical="center" variant="primary">
+        Simple usage
         <Arrow trigger="#arrow-trigger-1" scale={1} />
       </Row>
-      <Row padding="16" fitWidth radius="m" solid="brand-medium" id="arrow-trigger-2" variant="secondary">
-        Custom color
+      <Row id="arrow-trigger-2" padding="16" fitWidth radius="m" vertical="center" solid="brand-medium" onSolid="brand-strong" variant="secondary">
+        Customized usage
         <Arrow trigger="#arrow-trigger-2" color="onSolid" scale={1.2} />
       </Row>
-    </>
+    </Column >
   }
   codeInstances={[
     {
