@@ -56,11 +56,13 @@ const Arrow: React.FC<ArrowProps> = ({
       }}
     >
       <Flex
+        radius="full"
         position="absolute"
         className={classNames(styles.arrowHead, styles[color])}
         height={0.0875}
       />
       <Flex
+        radius="full"
         position="absolute"
         className={classNames(styles.arrowHead, styles[color])}
         height={0.0875}

@@ -119,3 +119,6 @@ export const iconLibrary: Record<string, IconType> = {
   ruler: PiRuler,
   discount: RiDiscountPercentLine
 };
+
+export type IconLibrary = typeof iconLibrary;
+export type IconName = keyof IconLibrary;
