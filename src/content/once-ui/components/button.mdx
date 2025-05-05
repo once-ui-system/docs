@@ -1,11 +1,396 @@
 ---
 title: "Button"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Button component provides interactive elements for user actions with various styles, sizes, and states."
+updatedAt: "2025-05-05"
 navLabel: "Button"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Title
+A versatile component for triggering actions or navigating to different pages. Buttons communicate interactivity and guide users through their journey in the application.
 
-Content
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button size="s" weight="default" prefixIcon="check">Primary</Button>
+      <Button size="s" weight="default" variant="secondary" prefixIcon="plus">Secondary</Button>
+      <Button size="s" weight="default" variant="tertiary" suffixIcon="chevronDown">Tertiary</Button>
+      <Button size="s" weight="default" variant="danger" prefixIcon="danger">Danger</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button size="s" weight="default">
+    Primary
+  </Button>
+  <Button size="s" weight="default" variant="secondary">
+    Secondary
+  </Button>
+  <Button size="s" weight="default" variant="tertiary">
+    Tertiary
+  </Button>
+  <Button size="s" weight="default" variant="danger">
+    Danger
+</Button>`,
+      language: "tsx",
+      label: "Variants"
+    }
+  ]}
+/>
+
+## Sizes
+
+Buttons come in different sizes to accommodate various use cases.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" vertical="center" horizontal="center">
+      <Button size="s">Small</Button>
+      <Button size="m">Medium</Button>
+      <Button size="l">Large</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button size="s">
+    Small
+  </Button>
+  <Button size="m">
+    Medium
+  </Button>
+  <Button size="l">
+    Large
+</Button>`,
+      language: "tsx",
+      label: "Sizes"
+    }
+  ]}
+/>
+
+## Text weight
+
+Control the font weight of button text.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button variant="secondary" size="s" weight="default">Default</Button>
+      <Button variant="secondary" size="s" weight="strong">Strong</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Button variant="secondary" size="s" weight="default">
+      Default
+    </Button>
+    <Button variant="secondary" size="s" weight="strong">
+      Strong
+    </Button>
+</Row>`,
+      language: "tsx",
+      label: "Text weight"
+    }
+  ]}
+/>
+
+## Fill width
+
+Control the width of button.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center" maxWidth={20}>
+      <Button size="s" weight="default">
+      Default
+      </Button>
+      <Button size="s" fillWidth weight="default">
+      Filled
+      </Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16" horizontal="center" maxWidth={20}>
+    <Button size="s" weight="default">
+      Default
+    </Button>
+    <Button size="s" fillWidth weight="default">
+      Filled
+    </Button>
+</Row>`,
+      language: "tsx",
+      label: "Width"
+    }
+  ]}
+/>
+
+## With icons
+
+Enhance buttons with icons to improve visual communication.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button prefixIcon="check">Confirm</Button>
+      <Button suffixIcon="chevronRight">Next</Button>
+      <Button prefixIcon="info" suffixIcon="chevronRight">Learn more</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button prefixIcon="check">
+    Confirm
+  </Button>
+  <Button suffixIcon="chevronRight">
+    Next
+  </Button>
+  <Button prefixIcon="info" suffixIcon="chevronRight">
+    Learn more
+</Button>`,
+      language: "tsx",
+      label: "With icon"
+    }
+  ]}
+/>
+
+## Loading state
+
+Display a loading spinner to indicate that an action is in progress.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button loading>Loading</Button>
+      <Button variant="secondary" loading>Processing</Button>
+      <Button variant="tertiary" loading>Saving</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button loading>
+    Loading
+  </Button>
+  <Button variant="secondary" loading>
+    Processing
+  </Button>
+  <Button variant="tertiary" loading>
+    Saving
+</Button>`,
+      language: "tsx",
+      label: "Loading buttons"
+    }
+  ]}
+/>
+
+## Custom radius
+
+Customize the corner radius of buttons for different design needs.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button weight="default" radius="top-left">Top left</Button>
+      <Button weight="default" radius="none">No radius</Button>
+      <Button weight="default" radius="bottom-right">Bottom right</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button weight="default" radius="none">
+    No radius
+  </Button>
+  <Button weight="default">
+    Default radius
+  </Button>
+  <Button weight="default" radius="top-left">
+    Top left
+  </Button>
+  <Button weight="default" radius="bottom-right">
+    Bottom right
+</Button>`,
+      language: "tsx",
+      label: "Button radius"
+    }
+  ]}
+/>
+
+## As links
+
+Buttons can function as links when provided with an `href` property.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button href="#">Link Button</Button>
+      <Button href="#" variant="secondary">Secondary Link</Button>
+      <Button href="#" variant="tertiary" suffixIcon="chevronRight">Learn More</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button href="#">
+    Link Button
+  </Button>
+  <Button href="#" variant="secondary">
+    Secondary Link
+  </Button>
+  <Button href="#" variant="tertiary" suffixIcon="chevronRight">
+    Learn More
+</Button>`,
+      language: "tsx",
+      label: "Button links"
+    }
+  ]}
+/>
+
+## With arrow animation
+
+Add an animated arrow that responds to hover events.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Button id="arrow-button-1" arrowIcon>Primary</Button>
+      <Button id="arrow-button-2" variant="secondary" arrowIcon>Secondary</Button>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button id="arrow-button-1" arrowIcon>
+    Primary
+  </Button>
+  <Button id="arrow-button-2" variant="secondary" arrowIcon>
+    Secondary
+</Button>`,
+      language: "tsx",
+      label: "Buttons with arrow"
+    }
+  ]}
+/>
+
+## Justified content
+
+Control the alignment of button content.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column gap="16" horizontal="center" maxWidth={20}>
+      <Button size="s" fillWidth horizontal="start" prefixIcon="check">Left Aligned</Button>
+      <Button size="s" fillWidth horizontal="center">Center Aligned</Button>
+      <Button size="s" fillWidth horizontal="end" suffixIcon="arrow-right">Right Aligned</Button>
+      <Button size="s" fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="arrow-right">Space Between</Button>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button fillWidth horizontal="start" prefixIcon="check">
+    Left Aligned
+  </Button>
+  <Button fillWidth horizontal="center">
+    Center Aligned
+  </Button>
+  <Button fillWidth horizontal="end" suffixIcon="arrow-right">
+    Right Aligned
+  </Button>
+  <Button fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="arrow-right">
+    Space Between
+</Button>`,
+      language: "tsx",
+      label: "Button content alignment"
+    }
+  ]}
+/>
+
+## Data attributes
+
+Override default styles with data attributes.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column gap="16" horizontal="center">
+      <Button border="rounded" size="s">Button</Button>
+      <Button border="rounded" solid-style="inverse" size="s">Button</Button>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Button fillWidth horizontal="start" prefixIcon="check">
+    Left Aligned
+  </Button>
+  <Button fillWidth horizontal="center">
+    Center Aligned
+  </Button>
+  <Button fillWidth horizontal="end" suffixIcon="arrow-right">
+    Right Aligned
+  </Button>
+  <Button fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="arrow-right">
+    Space Between
+</Button>`,
+      language: "tsx",
+      label: "Button content alignment"
+    }
+  ]}
+/>
+
+## API reference
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { content: "Prop" },
+      { content: "Type" },
+      { content: "Default" },
+    ],
+    rows: [
+      ["variant", <InlineCode>"primary" | "secondary" | "tertiary" | "danger"</InlineCode>, <InlineCode>"primary"</InlineCode>],
+      ["size", <InlineCode>"s" | "m" | "l"</InlineCode>, <InlineCode>"m"</InlineCode>],
+      ["radius", <InlineCode>"none" | "top" | "right" | "bottom" | "left" | "top-left" | "top-right" | "bottom-right" | "bottom-left"</InlineCode>, "-"],
+      ["label", <InlineCode>string</InlineCode>, "-"],
+      ["weight", <InlineCode>"default" | "strong"</InlineCode>, <InlineCode>"strong"</InlineCode>],
+      ["prefixIcon", <InlineCode>IconName</InlineCode>, "-"],
+      ["suffixIcon", <InlineCode>IconName</InlineCode>, "-"],
+      ["loading", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
+      ["fillWidth", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
+      ["horizontal", <InlineCode>"start" | "center" | "end" | "space-between"</InlineCode>, <InlineCode>"center"</InlineCode>],
+      ["children", <InlineCode>ReactNode</InlineCode>, "-"],
+      ["href", <InlineCode>string</InlineCode>, "-"],
+      ["arrowIcon", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
+      ["...Flex", <InlineCode>Flex props</InlineCode>, "-"]
+    ]
+  }}
+/>

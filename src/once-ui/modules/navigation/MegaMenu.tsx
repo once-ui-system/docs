@@ -206,7 +206,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ menuGroups, className, ...re
                             key={`link-${linkIndex}`}
                             className="fit-height p-4 pr-12"
                             fillWidth
-                            justifyContent="start"
+                            horizontal="start"
                             href={link.href}
                             onClick={() => handleLinkClick(link.href)}
                           >

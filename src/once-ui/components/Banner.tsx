@@ -13,7 +13,6 @@ const Banner = forwardRef<HTMLDivElement, BannerProps>(({ children, ...flex }, r
     onSolid="brand-strong"
     textVariant="label-default-s"
     align="center"
-    style={{ display: "inline" }}
     center
     gap="12"
     ref={ref}

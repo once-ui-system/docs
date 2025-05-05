@@ -1,4 +1,14 @@
 /** @type {import('next').NextConfig} */
+import withMDX from '@next/mdx'
+
+const withMDXConfig = withMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
+
 const nextConfig = {
   sassOptions: {
     compiler: "modern",
@@ -62,4 +72,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withMDXConfig(nextConfig);

@@ -12,15 +12,21 @@ A simple component for displaying important announcements, notifications, or sta
   marginTop="8"
   marginBottom="16"
   codePreview={
-    <Banner>
-      This site uses cookies to improve your experience.
-    </Banner>
+    <Column fillWidth>
+      <Banner>
+        Free shipping on orders over $50
+      </Banner>
+      <Row fillWidth padding="8">
+        <Background height="64" fillWidth radius="m" border="neutral-alpha-medium" lines={{display: true, angle: -45, color: "neutral-alpha-weak", size: "8", thickness: 1}}/>
+      </Row>
+    </Column>
   }
+  previewPadding="0"
   codeInstances={[
     {
       code:
 `<Banner>
-    This site uses cookies to improve your experience.
+    Free shipping on orders over $50
 </Banner>`,
       language: "tsx",
       label: "Banner"
@@ -35,35 +41,30 @@ Add icons to enhance visual communication.
 <CodeBlock
   marginTop="8"
   marginBottom="16"
+  previewPadding="8"
   codePreview={
-    <Column gap="16">
-      <Banner>
-        <Icon name="info" size="s" /> Important information for users.
+    <Column fillWidth gap="8">
+      <Banner radius="s">
+        <Icon name="check" size="s" /> Claim your free credits.
       </Banner>
-      <Banner>
-        <Icon name="warning" size="s" /> System maintenance scheduled for tonight.
-      </Banner>
-      <Banner>
-        <Icon name="check" size="s" /> Your settings have been saved successfully.
-      </Banner>
+      <Row fillWidth padding="8">
+        <Background height="64" fillWidth radius="m" border="neutral-alpha-medium" lines={{display: true, angle: -45, color: "neutral-alpha-weak", size: "8", thickness: 1}}/>
+      </Row>
     </Column>
   }
   codeInstances={[
     {
       code:
-`<Banner>
-    <Icon name="info" size="s" /> Important information for users.
+`<Banner radius="s">
+    <Icon name="check" size="s" />
+    Claim your free credits.
 </Banner>
 
-<Banner>
-    <Icon name="warning" size="s" /> System maintenance scheduled for tonight.
-</Banner>
-
-<Banner>
-    <Icon name="check" size="s" /> Your settings have been saved successfully.
-</Banner>`,
+<Row fillWidth padding="8">
+    <Background height="64" fillWidth radius="m" border="neutral-alpha-medium" lines={{display: true, angle: -45, color: "neutral-alpha-weak", size: "8", thickness: 1}}/>
+</Row>`,
       language: "tsx",
-      label: "Banners with icons"
+      label: "Banner with icon"
     }
   ]}
 />
@@ -76,15 +77,18 @@ Customize the appearance of banners using Flex props.
   marginTop="8"
   marginBottom="16"
   codePreview={
-    <Column gap="16">
-      <Banner solid="success-medium" onSolid="success-strong">
-        <Icon name="check" size="s" /> Operation completed successfully.
+    <Column gap="16" fillWidth>
+      <Banner radius="s" border="success-medium" background="success-weak" onBackground="success-medium">
+        <Icon name="check" size="s" />
+        Operation completed successfully.
       </Banner>
-      <Banner solid="warning-medium" onSolid="warning-strong">
-        <Icon name="warning" size="s" /> Please review your information before proceeding.
+      <Banner radius="s" border="warning-medium" background="warning-weak" onBackground="warning-medium">
+        <Icon name="warning" size="s" />
+        Please review your information before proceeding.
       </Banner>
-      <Banner solid="danger-medium" onSolid="danger-strong">
-        <Icon name="alert" size="s" /> Critical error detected in the system.
+      <Banner radius="s" border="danger-medium" background="danger-weak" onBackground="danger-medium">
+        <Icon name="danger" size="s" />
+        Critical error detected in the system.
       </Banner>
     </Column>
   }
@@ -92,15 +96,18 @@ Customize the appearance of banners using Flex props.
     {
       code:
 `<Banner solid="success-medium" onSolid="success-strong">
-    <Icon name="check" size="s" /> Operation completed successfully.
+    <Icon name="check" size="s" />
+    Operation completed successfully.
 </Banner>
 
 <Banner solid="warning-medium" onSolid="warning-strong">
-    <Icon name="warning" size="s" /> Please review your information before proceeding.
+    <Icon name="warning" size="s" />
+    Please review your information before proceeding.
 </Banner>
 
 <Banner solid="danger-medium" onSolid="danger-strong">
-    <Icon name="alert" size="s" /> Critical error detected in the system.
+    <Icon name="alert" size="s" />
+    Critical error detected in the system.
 </Banner>`,
       language: "tsx",
       label: "Custom styled banners"
@@ -115,28 +122,30 @@ Add interactive elements to banners.
 <CodeBlock
   marginTop="8"
   marginBottom="16"
+  previewPadding="0"
   codePreview={
-    <Banner>
-      <Flex fillWidth vertical="center" horizontal="between">
-        <Text>Accept our privacy policy to continue.</Text>
-        <Flex gap="8">
-          <Button size="s" variant="secondary">Decline</Button>
-          <Button size="s">Accept</Button>
-        </Flex>
-      </Flex>
-    </Banner>
+    <Column fillWidth>
+      <Banner horizontal="space-between">
+        Accept our privacy policy to continue.
+        <Row gap="8">
+          <Button size="s">Decline</Button>
+          <Button size="s" variant="secondary">Accept</Button>
+        </Row>
+      </Banner>
+      <Row fillWidth padding="8">
+        <Background height="64" fillWidth radius="m" border="neutral-alpha-medium" lines={{display: true, angle: -45, color: "neutral-alpha-weak", size: "8", thickness: 1}}/>
+      </Row>
+    </Column>
   }
   codeInstances={[
     {
       code:
-`<Banner>
-    <Flex fillWidth vertical="center" horizontal="between">
-        <Text>Accept our privacy policy to continue.</Text>
-        <Flex gap="8">
-            <Button size="s" variant="secondary">Decline</Button>
-            <Button size="s">Accept</Button>
-        </Flex>
-    </Flex>
+`<Banner horizontal="space-between">
+    Accept our privacy policy to continue.
+    <Row gap="8">
+      <Button size="s">Decline</Button>
+      <Button size="s" variant="secondary">Accept</Button>
+    </Row>
 </Banner>`,
       language: "tsx",
       label: "Banner with actions"
@@ -151,13 +160,13 @@ Add interactive elements to banners.
   marginBottom="16"
   data={{
     headers: [
-      { header: "Prop" },
-      { header: "Type" },
-      { header: "Default" },
+      { content: "Prop" },
+      { content: "Type" },
+      { content: "Default" },
     ],
     rows: [
       ["children", <InlineCode>ReactNode</InlineCode>, "-"],
-      ["...Flex props", <InlineCode>FlexProps</InlineCode>, "-"]
+      ["...Flex", <InlineCode>Flex props</InlineCode>, "-"]
     ]
   }}
 />

@@ -27,7 +27,7 @@ interface CommonProps {
   suffixIcon?: IconName;
   loading?: boolean;
   fillWidth?: boolean;
-  justifyContent?: "start" | "center" | "end" | "space-between";
+  horizontal?: "start" | "center" | "end" | "space-between";
   children?: ReactNode;
   href?: string;
   className?: string;
@@ -52,7 +52,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
       suffixIcon,
       loading = false,
       fillWidth = false,
-      justifyContent = "center",
+      horizontal = "center",
       href,
       id,
       arrowIcon = false,
@@ -85,7 +85,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
           {
             ["fill-width"]: fillWidth,
             ["fit-width"]: !fillWidth,
-            ["justify-" + justifyContent]: justifyContent,
+            ["justify-" + horizontal]: horizontal,
           },
           className,
         )}

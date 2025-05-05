@@ -152,7 +152,7 @@ const NavigationItemComponent: React.FC<{
   return (
     <ToggleButton
       fillWidth
-      justifyContent="space-between"
+      horizontal="space-between"
       selected={isSelected}
       className={depth === 0 ? styles.navigation : undefined}
       href={`/${correctedSlug}`}>
@@ -201,7 +201,7 @@ const ResourceLinkComponent: React.FC<{
   return (
     <ToggleButton
       fillWidth
-      justifyContent="space-between"
+      horizontal="space-between"
       selected={isSelected}
       className={styles.navigation}
       href={href}>

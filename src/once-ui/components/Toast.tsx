@@ -16,8 +16,8 @@ interface ToastProps {
 }
 
 const iconMap: { [key in ToastProps["variant"]]: IconName } = {
-  success: "checkCircle",
-  danger: "errorCircle",
+  success: "check",
+  danger: "danger",
 };
 
 const Toast = forwardRef<HTMLDivElement, ToastProps>(

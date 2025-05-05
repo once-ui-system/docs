@@ -17,10 +17,10 @@ interface FeedbackProps extends Omit<React.ComponentProps<typeof Flex>, "title">
 const variantIconMap: {
   [key in "info" | "danger" | "warning" | "success"]: string;
 } = {
-  info: "infoCircle",
-  danger: "errorCircle",
-  warning: "warningTriangle",
-  success: "checkCircle",
+  info: "info",
+  danger: "danger",
+  warning: "warning",
+  success: "check",
 };
 
 const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(

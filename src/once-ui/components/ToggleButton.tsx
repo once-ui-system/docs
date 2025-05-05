@@ -22,7 +22,7 @@ interface CommonProps {
     | "top-right"
     | "bottom-right"
     | "bottom-left";
-  justifyContent?: "start" | "center" | "end" | "space-between";
+  horizontal?: "start" | "center" | "end" | "space-between";
   fillWidth?: boolean;
   weight?: "default" | "strong";
   truncate?: boolean;
@@ -44,7 +44,7 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
       variant = "ghost",
       size = "m",
       radius,
-      justifyContent = "center",
+      horizontal = "center",
       fillWidth = false,
       weight = "default",
       truncate = false,
@@ -78,7 +78,7 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
           {
             ["fill-width"]: fillWidth,
             ["fit-width"]: !fillWidth,
-            ["justify-" + justifyContent]: justifyContent,
+            ["justify-" + horizontal]: horizontal,
           },
           className,
         )}
@@ -89,7 +89,7 @@ const ToggleButton = forwardRef<HTMLElement, ToggleButtonProps>(
         {(label || children) && (
           <Flex
             fillWidth={fillWidth}
-            horizontal={justifyContent}
+            horizontal={horizontal}
             padding={size === "s" ? "2" : "4"}
             textWeight={weight}
             textSize={size === "l" ? "m" : "s"}

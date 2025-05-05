@@ -24,7 +24,7 @@ const InteractiveDetails: React.FC<InteractiveDetailsProps> = forwardRef<
         </Text>
         {iconButtonProps?.tooltip && (
           <div onClick={(e) => e.stopPropagation()}>
-            <IconButton size="s" variant="ghost" icon="helpCircle" {...iconButtonProps} />
+            <IconButton size="s" variant="ghost" icon="help" {...iconButtonProps} />
           </div>
         )}
       </Flex>
