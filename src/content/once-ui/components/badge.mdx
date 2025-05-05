@@ -1,11 +1,201 @@
 ---
 title: "Badge"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Badge component displays highlighted information with optional icon and arrow in a pill-shaped container."
+updatedAt: "2025-05-05"
 navLabel: "Badge"
-navIcon: "learn"
+navIcon: "tag"
 ---
 
-## Title
+A versatile component for displaying highlighted information, labels, or interactive elements in a pill-shaped container. Commonly used to draw attention to important information or provide interactive links.
 
-Content
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Badge title="New Feature" />
+      <Badge title="Coming Soon" icon="calendar" />
+      <Badge title="Learn More" href="#" />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Badge title="New Feature" />
+    <Badge title="Coming Soon" icon="calendar" />
+    <Badge title="Learn More" href="#" />
+</Row>`,
+      language: "tsx",
+      label: "Badge"
+    }
+  ]}
+/>
+
+## With icon
+
+Add icons to badges to enhance visual communication.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Badge title="Settings" icon="settings" />
+      <Badge title="Notifications" icon="bell" />
+      <Badge title="Security" icon="shield" />
+      <Badge title="Updates" icon="refresh" />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Badge title="Settings" icon="settings" />
+    <Badge title="Notifications" icon="bell" />
+    <Badge title="Security" icon="shield" />
+    <Badge title="Updates" icon="refresh" />
+</Row>`,
+      language: "tsx",
+      label: "Badges with icons"
+    }
+  ]}
+/>
+
+## Interactive badges
+
+Badges can be made interactive by adding the `href` prop, turning them into links.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Badge title="Documentation" href="#" icon="book" />
+      <Badge title="Get Started" href="#" icon="play" />
+      <Badge title="View Demo" href="#" icon="eye" />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Badge title="Documentation" href="#" icon="book" />
+    <Badge title="Get Started" href="#" icon="play" />
+    <Badge title="View Demo" href="#" icon="eye" />
+</Row>`,
+      language: "tsx",
+      label: "Interactive badges"
+    }
+  ]}
+/>
+
+## Without arrow
+
+Badges can be displayed without the arrow indicator by setting the `arrow` prop to `false`.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Badge title="No Arrow" arrow={false} />
+      <Badge title="With Icon" icon="info" arrow={false} />
+      <Badge title="Link" href="#" arrow={false} />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Badge title="No Arrow" arrow={false} />
+    <Badge title="With Icon" icon="info" arrow={false} />
+    <Badge title="Link" href="#" arrow={false} />
+</Row>`,
+      language: "tsx",
+      label: "Badges without arrow"
+    }
+  ]}
+/>
+
+## Without animation
+
+Disable the hover animation effect by setting the `effect` prop to `false`.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Badge title="Static Badge" effect={false} />
+      <Badge title="No Animation" icon="pause" effect={false} />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Badge title="Static Badge" effect={false} />
+    <Badge title="No Animation" icon="pause" effect={false} />
+</Row>`,
+      language: "tsx",
+      label: "Static badges"
+    }
+  ]}
+/>
+
+## Custom content
+
+Badges can contain custom content using children instead of the `title` prop.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Badge>
+        <Flex gap="8" vertical="center">
+          <Icon name="star" size="s" onBackground="brand-medium" />
+          <Text onBackground="brand-strong" variant="label-strong-s">Custom Content</Text>
+          <Icon name="star" size="s" onBackground="brand-medium" />
+        </Flex>
+      </Badge>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Badge>
+    <Flex gap="8" vertical="center">
+      <Icon name="star" size="s" onBackground="brand-medium" />
+      <Text onBackground="brand-strong" variant="label-strong-s">Custom Content</Text>
+      <Icon name="star" size="s" onBackground="brand-medium" />
+    </Flex>
+</Badge>`,
+      language: "tsx",
+      label: "Custom badge content"
+    }
+  ]}
+/>
+
+## API reference
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { header: "Prop" },
+      { header: "Type" },
+      { header: "Default" },
+    ],
+    rows: [
+      ["title", <InlineCode>string</InlineCode>, "-"],
+      ["icon", <InlineCode>IconName</InlineCode>, "-"],
+      ["arrow", <InlineCode>boolean</InlineCode>, <InlineCode>true</InlineCode>],
+      ["href", <InlineCode>string</InlineCode>, "-"],
+      ["effect", <InlineCode>boolean</InlineCode>, <InlineCode>true</InlineCode>],
+      ["children", <InlineCode>React.ReactNode</InlineCode>, "-"]
+    ]
+  }}
+/>

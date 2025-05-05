@@ -1,11 +1,347 @@
 ---
 title: "AvatarGroup"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The AvatarGroup component displays multiple avatars in a horizontal stack with customizable appearance and overflow handling."
+updatedAt: "2025-05-05"
 navLabel: "AvatarGroup"
-navIcon: "learn"
+navIcon: "users"
 ---
 
-## Title
+A component for displaying multiple user avatars in a compact, horizontal stack. Commonly used in collaborative interfaces to show team members, participants, or contributors.
 
-Content
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <AvatarGroup
+      avatars={[
+        { src: "/images/avatar.jpg" },
+        { value: "B" },
+        { value: "C" },
+        { value: "D" },
+        { value: "E" }
+      ]}
+      size="m"
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<AvatarGroup
+  avatars={[
+    { src: "/images/avatar.jpg" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" },
+    { value: "E" }
+  ]}
+  size="m"
+/>`,
+      language: "tsx",
+      label: "AvatarGroup"
+    }
+  ]}
+/>
+
+## Sizes
+
+AvatarGroup supports the same T-shirt sizing model as Avatar.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column fillWidth gap="24">
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="xs"
+      />
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="s"
+      />
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="m"
+      />
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="l"
+      />
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="xl"
+      />
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="xs"
+/>
+
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="s"
+/>
+
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="m"
+/>
+
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="l"
+/>
+
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="xl"
+/>`,
+      language: "tsx",
+      label: "AvatarGroup sizes"
+    }
+  ]}
+/>
+
+## Limiting displayed avatars
+
+Use the `limit` prop to control how many avatars are displayed. Any additional avatars will be represented by a count indicator.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column fillWidth gap="24">
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" },
+          { value: "E" },
+          { value: "F" },
+          { value: "G" }
+        ]}
+        size="m"
+        limit={3}
+      />
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" },
+          { value: "E" }
+        ]}
+        size="m"
+        limit={4}
+      />
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" },
+    { value: "E" },
+    { value: "F" },
+    { value: "G" }
+  ]}
+  size="m"
+  limit={3}
+/>
+
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" },
+    { value: "E" }
+  ]}
+  size="m"
+  limit={4}
+/>`,
+      language: "tsx",
+      label: "Limited avatars"
+    }
+  ]}
+/>
+
+## Reverse order
+
+Use the `reverse` prop to change the stacking order of avatars.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column fillWidth gap="24">
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="m"
+        reverse={false}
+      />
+      <AvatarGroup
+        avatars={[
+          { value: "A" },
+          { value: "B" },
+          { value: "C" },
+          { value: "D" }
+        ]}
+        size="m"
+        reverse={true}
+      />
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`// Default order (first avatar on top)
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="m"
+  reverse={false}
+/>
+
+// Reversed order (last avatar on top)
+<AvatarGroup
+  avatars={[
+    { value: "A" },
+    { value: "B" },
+    { value: "C" },
+    { value: "D" }
+  ]}
+  size="m"
+  reverse={true}
+/>`,
+      language: "tsx",
+      label: "Reverse order"
+    }
+  ]}
+/>
+
+## Mixed avatar types
+
+AvatarGroup supports all the same avatar types as the Avatar component.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <AvatarGroup
+      avatars={[
+        { src: "/images/avatar.jpg" },
+        { value: "B" },
+        { empty: true },
+        { value: "D", statusIndicator: { color: "green" } }
+      ]}
+      size="m"
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<AvatarGroup
+  avatars={[
+    { src: "/images/avatar.jpg" },
+    { value: "B" },
+    { empty: true },
+    { value: "D", statusIndicator: { color: "green" } }
+  ]}
+  size="m"
+/>`,
+      language: "tsx",
+      label: "Mixed avatars"
+    }
+  ]}
+/>
+
+## API reference
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { header: "Prop" },
+      { header: "Type" },
+      { header: "Default" },
+    ],
+    rows: [
+      ["avatars", <InlineCode>AvatarProps[]</InlineCode>, "-"],
+      ["size", <InlineCode>"xs" | "s" | "m" | "l" | "xl"</InlineCode>, <InlineCode>"m"</InlineCode>],
+      ["reverse", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
+      ["limit", <InlineCode>number</InlineCode>, "-"],
+      ["style", <InlineCode>CSSProperties</InlineCode>, "-"],
+      ["className", <InlineCode>string</InlineCode>, "-"]
+    ]
+  }}
+/>

@@ -1,11 +1,159 @@
 ---
 title: "Avatar"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Avatar component displays a user's profile picture, initials, or fallback icon in a circular container."
+updatedAt: "2025-05-05"
 navLabel: "Avatar"
-navIcon: "learn"
+navIcon: "user"
 ---
 
-## Title
+A versatile component for displaying user profile images, initials, or fallback icons in a circular container. Commonly used in user interfaces to represent people.
 
-Content
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Avatar src="/images/avatar.jpg" size="l" />
+      <Avatar size="l" value="Q" />
+      <Avatar size="l" empty />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Avatar src="/images/avatar.jpg" size="l" />
+    <Avatar size="l" value="Q" />
+    <Avatar size="l" empty />
+</Row>`,
+      language: "tsx",
+      label: "Avatar"
+    }
+  ]}
+/>
+
+## Sizes
+
+Use the T-shirt size model or set sizes with numbers (REM).
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column fillWidth gap="24" center>
+      <Row gap="16" horizontal="center" vertical="center">
+        <Avatar size={1.5} value="A" />
+        <Avatar size={2.5} value="B" />
+        <Avatar size={3.5} value="C" />
+        <Avatar size={4.5} value="D" />
+        <Avatar size={5.5} value="E" />
+      </Row>
+      <Row gap="16" horizontal="center" vertical="center">
+        <Avatar size="xs" value="A" />
+        <Avatar size="s" value="B" />
+        <Avatar size="m" value="C" />
+        <Avatar size="l" value="D" />
+        <Avatar size="xl" value="E" />
+      </Row>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16" center>
+    <Avatar size={1.5} value="A" />
+    <Avatar size={2.5} value="B" />
+    <Avatar size={3.5} value="C" />
+    <Avatar size={4.5} value="D" />
+    <Avatar size={5.5} value="E" />
+  </Row>
+  <Row gap="16" center>
+    <Avatar size="xs" value="A" />
+    <Avatar size="s" value="B" />
+    <Avatar size="m" value="C" />
+    <Avatar size="l" value="D" />
+    <Avatar size="xl" value="E" />
+</Row>`,
+      language: "tsx",
+      label: "Avatar sizes"
+    }
+  ]}
+/>
+
+## Status indicator
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" horizontal="center">
+      <Avatar value="G" statusIndicator={{ color: "green" }} />
+      <Avatar value="Y" statusIndicator={{ color: "yellow" }} />
+      <Avatar value="R" statusIndicator={{ color: "red" }} />
+      <Avatar value="G" statusIndicator={{ color: "gray" }} />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Avatar value="G" statusIndicator={{ color: "green" }} />
+    <Avatar value="Y" statusIndicator={{ color: "yellow" }} />
+    <Avatar value="R" statusIndicator={{ color: "red" }} />
+    <Avatar value="G" statusIndicator={{ color: "gray" }} />
+</Row>`,
+      language: "tsx",
+      label: "Status indicator"
+    }
+  ]}
+/>
+
+## Loading state
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row gap="16" center>
+      <Avatar size="l" loading />
+      <Avatar size="m" loading />
+      <Avatar size="s" loading />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row gap="16">
+    <Avatar size="l" loading />
+    <Avatar size="m" loading />
+    <Avatar size="s" loading />
+</Row>`,
+      language: "tsx",
+      label: "Loading Avatar"
+    }
+  ]}
+/>
+
+## API reference
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { header: "Prop" },
+      { header: "Type" },
+      { header: "Default" },
+    ],
+    rows: [
+      ["size", <InlineCode>"xs" | "s" | "m" | "l" | "xl" | number</InlineCode>, <InlineCode>"m"</InlineCode>],
+      ["value", <InlineCode>string</InlineCode>, "-"],
+      ["src", <InlineCode>string</InlineCode>, "-"],
+      ["loading", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
+      ["empty", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
+      ["statusIndicator", <InlineCode>object</InlineCode>, "-"],
+      ["style", <InlineCode>CSSProperties</InlineCode>, "-"],
+      ["className", <InlineCode>string</InlineCode>, "-"]
+    ]
+  }}
+/>

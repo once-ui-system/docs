@@ -1,11 +1,163 @@
 ---
 title: "Banner"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Banner component displays important information in a highlighted horizontal bar across the interface."
+updatedAt: "2025-05-05"
 navLabel: "Banner"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Title
+A simple component for displaying important announcements, notifications, or status messages in a prominent horizontal bar. Commonly used to draw attention to critical information or updates.
 
-Content
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Banner>
+      This site uses cookies to improve your experience.
+    </Banner>
+  }
+  codeInstances={[
+    {
+      code:
+`<Banner>
+    This site uses cookies to improve your experience.
+</Banner>`,
+      language: "tsx",
+      label: "Banner"
+    }
+  ]}
+/>
+
+## With icons
+
+Add icons to enhance visual communication.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column gap="16">
+      <Banner>
+        <Icon name="info" size="s" /> Important information for users.
+      </Banner>
+      <Banner>
+        <Icon name="warning" size="s" /> System maintenance scheduled for tonight.
+      </Banner>
+      <Banner>
+        <Icon name="check" size="s" /> Your settings have been saved successfully.
+      </Banner>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Banner>
+    <Icon name="info" size="s" /> Important information for users.
+</Banner>
+
+<Banner>
+    <Icon name="warning" size="s" /> System maintenance scheduled for tonight.
+</Banner>
+
+<Banner>
+    <Icon name="check" size="s" /> Your settings have been saved successfully.
+</Banner>`,
+      language: "tsx",
+      label: "Banners with icons"
+    }
+  ]}
+/>
+
+## Custom styling
+
+Customize the appearance of banners using Flex props.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column gap="16">
+      <Banner solid="success-medium" onSolid="success-strong">
+        <Icon name="check" size="s" /> Operation completed successfully.
+      </Banner>
+      <Banner solid="warning-medium" onSolid="warning-strong">
+        <Icon name="warning" size="s" /> Please review your information before proceeding.
+      </Banner>
+      <Banner solid="danger-medium" onSolid="danger-strong">
+        <Icon name="alert" size="s" /> Critical error detected in the system.
+      </Banner>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Banner solid="success-medium" onSolid="success-strong">
+    <Icon name="check" size="s" /> Operation completed successfully.
+</Banner>
+
+<Banner solid="warning-medium" onSolid="warning-strong">
+    <Icon name="warning" size="s" /> Please review your information before proceeding.
+</Banner>
+
+<Banner solid="danger-medium" onSolid="danger-strong">
+    <Icon name="alert" size="s" /> Critical error detected in the system.
+</Banner>`,
+      language: "tsx",
+      label: "Custom styled banners"
+    }
+  ]}
+/>
+
+## With actions
+
+Add interactive elements to banners.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Banner>
+      <Flex fillWidth vertical="center" horizontal="between">
+        <Text>Accept our privacy policy to continue.</Text>
+        <Flex gap="8">
+          <Button size="s" variant="secondary">Decline</Button>
+          <Button size="s">Accept</Button>
+        </Flex>
+      </Flex>
+    </Banner>
+  }
+  codeInstances={[
+    {
+      code:
+`<Banner>
+    <Flex fillWidth vertical="center" horizontal="between">
+        <Text>Accept our privacy policy to continue.</Text>
+        <Flex gap="8">
+            <Button size="s" variant="secondary">Decline</Button>
+            <Button size="s">Accept</Button>
+        </Flex>
+    </Flex>
+</Banner>`,
+      language: "tsx",
+      label: "Banner with actions"
+    }
+  ]}
+/>
+
+## API reference
+
+<Table
+  marginTop="8"
+  marginBottom="16"
+  data={{
+    headers: [
+      { header: "Prop" },
+      { header: "Type" },
+      { header: "Default" },
+    ],
+    rows: [
+      ["children", <InlineCode>ReactNode</InlineCode>, "-"],
+      ["...Flex props", <InlineCode>FlexProps</InlineCode>, "-"]
+    ]
+  }}
+/>

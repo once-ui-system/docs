@@ -13,29 +13,26 @@ A decorative arrow component that animates when a specified trigger element is h
   marginBottom="16"
   codePreview={
     <Column gap="16" horizontal="center">
-      <Row id="arrow-trigger-1" padding="16" fitWidth radius="m" vertical="center" variant="primary">
+      <Row id="arrow-trigger-1" padding="16" fitWidth radius="m" vertical="center">
         Simple usage
         <Arrow trigger="#arrow-trigger-1" scale={1} />
       </Row>
-      <Row id="arrow-trigger-2" padding="16" fitWidth radius="m" vertical="center" solid="brand-medium" onSolid="brand-strong" variant="secondary">
+      <Row id="arrow-trigger-2" padding="16" fitWidth radius="m" vertical="center" solid="brand-medium" onSolid="brand-strong">
         Customized usage
         <Arrow trigger="#arrow-trigger-2" color="onSolid" scale={1.2} />
       </Row>
-    </Column >
-  }
+    </Column>  }
   codeInstances={[
     {
       code:
-`<Column fillWidth>
-  <Row horizontal="center" gap="16">
-    <Button id="arrow-trigger-1" variant="primary">Hover me</Button>
+`<Row id="arrow-trigger-1">
+    Simple usage
     <Arrow trigger="#arrow-trigger-1" scale={1} />
   </Row>
-  <Row horizontal="center" gap="16" marginTop="16">
-    <Button id="arrow-trigger-2" variant="secondary">Custom color</Button>
+  <Row id="arrow-trigger-2">
+    Customized usage
     <Arrow trigger="#arrow-trigger-2" color="onSolid" scale={1.2} />
-  </Row>
-</Column>`,
+</Row>`,
       language: "tsx",
       label: "Arrow"
     }
@@ -58,7 +55,7 @@ A decorative arrow component that animates when a specified trigger element is h
       ["trigger", <InlineCode>string</InlineCode>, "-", "CSS selector for the element that triggers the arrow animation on hover"],
       ["scale", <InlineCode>number</InlineCode>, <InlineCode>0.8</InlineCode>, "Scale factor to adjust the size of the arrow"],
       ["color", <InlineCode>"onBackground" | "onSolid"</InlineCode>, <InlineCode>"onBackground"</InlineCode>, "Color theme for the arrow"],
-      ["style", <InlineCode>React.CSSProperties</InlineCode>, "-", "Additional CSS styles to apply to the arrow container"],
+      ["style", <InlineCode>CSSProperties</InlineCode>, "-", "Additional CSS styles to apply to the arrow container"],
       ["className", <InlineCode>string</InlineCode>, "-", "Additional CSS class names to apply to the arrow container"]
     ]
   }}
