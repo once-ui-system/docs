@@ -47,7 +47,10 @@ import {
   HiOutlineExclamationTriangle,
   HiOutlineExclamationCircle,
   HiOutlineKey,
-  HiOutlineShoppingCart
+  HiOutlineShoppingCart,
+  HiOutlineBell,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineHeart
 } from "react-icons/hi2";
 
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
@@ -83,6 +86,7 @@ export const iconLibrary: Record<string, IconType> = {
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
   search: HiOutlineMagnifyingGlass,
+  notification: HiOutlineBell,
   visa: RiVisaLine,
   security: HiOutlineShieldCheck,
   sparkle: HiOutlineSparkles,
@@ -104,6 +108,8 @@ export const iconLibrary: Record<string, IconType> = {
   pages: HiOutlineDocumentDuplicate,
   learn: HiOutlineAcademicCap,
   page: HiOutlineDocumentText,
+  chat: HiOutlineChatBubbleLeftRight,
+  like: HiOutlineHeart,
   project: HiOutlineSquare3Stack3D,
   article: HiOutlineQueueList,
   language: HiOutlineLanguage,

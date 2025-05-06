@@ -6,96 +6,128 @@ navLabel: "Config"
 navIcon: "learn"
 ---
 
-Once UI uses data attributes to set brand-, accent-, neutral color schemes, border radius
-style, and light- and dark mode. Data modes are inherited and can be applied to any
-semantic HTML element, providing easy customization and styling options to minimize the
-size of tokens and styles.
+Once UI uses a config file to store app-level design configuration in a single place. You can change the fonts, colors, and more granular design preferences in the `app/resources/once-ui.config.js` file. This approach simplifies branding and help you maintain aeshetics between multiple Once UI apps.
 
-## Default theme
+## Set fonts
 
-Set the default style of your application in the{" "}
-`resources/config.js` file.
+Once UI imports Geist and Geist Mono by default with [Next/font](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts). To use a different font, simply change the imports and font declarations.
 
-Add the `data-theme`, `data-neutral`, `data-brand`, `data-accent`, `data-border`, `data-surface`, `data-solid`, `data-solid-style`, `data-transition` or `data-scaling` attributes to any semantic HTML element to override the default style.
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  highlight="1-2,4,10"
+  codeInstances={[
+    {
+      code:
+`import { Geist } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 
-<Feedback className="mb-24" variant="info" icon>
-    <Text>
-    You can include the `StylePanel` and{" "}
-    `StyleOverlay` components in your app to test and iterate between
-    different styles quickly.
-    </Text>
-</Feedback>
+const primaryFont = Geist({
+    variable: "--font-primary",
+    subsets: ["latin"],
+    display: "swap",
+});
 
-<Flex marginBottom="l">
-    <StylePanel />
-</Flex>
+const monoFont = Geist_Mono({
+    variable: "--font-code",
+    subsets: ["latin"],
+    display: "swap",
+});
 
-## Nested themes
+const font = {
+    primary: primaryFont,
+    secondary: primaryFont,
+    tertiary: primaryFont,
+    code: monoFont,
+}`,
+      language: "tsx",
+      label: "once-ui.config.js",
+    },
+  ]}
+/>
 
-Data modes work with inheritance, meaning you can nest them inside one-another, allowing
+## Style your app
+        
+Once UI uses data attributes to set color profiles, border radius style, themes, and other styling options. Data modes are inherited from the parent and can be applied to any
+semantic HTML element, providing simple, seamless style overrides.
+
+<CodeBlock
+    marginTop="8"
+    marginBottom="16"
+    codeInstances={[
+  {
+    code:
+`theme:       'dark',         // dark | light
+neutral:     'gray',         // sand | gray | slate
+brand:       'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+accent:      'indigo',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+solid:       'contrast',     // color | contrast
+solidStyle:  'flat',         // flat | plastic
+border:      'playful',      // rounded | playful | conservative
+surface:     'translucent',  // filled | translucent
+transition:  'all',          // all | micro | macro
+scaling:     '100',          // 90 | 95 | 100 | 105 | 110`, 
+    language: "tsx",
+    label: "src/app/resources/config.js"
+  }
+]} />
+
+<Feedback marginTop="16" marginBottom="24" icon
+  description={<>You can include the <InlineCode>StylePanel</InlineCode> and <InlineCode>StyleOverlay</InlineCode> components in your app to test and iterate between
+    different styles quickly.</>}/>
+
+<StylePanel marginBottom="40" />
+
+## Override styles
+
+Since data modes are inherited, it means you can nest them inside one-another, allowing
 you to have a dark-mode app with a light-mode header for example, or use rounded buttons
 in particular places in a generally sharp interface.
 
+Just add the `data-theme`, `data-neutral`, `data-brand`, `data-accent`, `data-border`, `data-surface`, `data-solid`, `data-solid-style`, `data-transition` or `data-scaling` attributes to any semantic HTML element to override its default style.
+
 <CodeBlock
-    highlight="5-6,9-10"
     codePreview={
-<Flex
+<Column
     overflow="hidden"
-    data-neutral="gray"
-    data-brand="violet"
-    data-accent="blue"
-    data-border="playful"
     data-theme="dark"
     background="page"
     border="neutral-medium"
-    onBackground="neutral-medium"
     radius="xl-8"
     padding="8"
-    direction="column"
     maxWidth={32}
     maxHeight={44}
   >
     <Flex
-      style={{
-        width: "calc(100% - var(--static-space-16)",
-        bottom: "var(--static-space-8)",
-        left: "var(--static-space-8)",
-        right: "var(--static-space-8)",
-      }}
+      fillWidth
+      horizontal="center"
       position="absolute"
+      bottom="8"
       zIndex={1}
-      as="nav"
       data-theme="light"
       data-border="rounded"
-      background="neutral-weak"
-      border="neutral-medium"
-      radius="l"
-      paddingY="8"
-      paddingLeft="24"
-      paddingRight="12"
-      vertical="center"
-      horizontal="space-between"
+      padding="8"
     >
-      <IconButton
-        style={{ color: "var(--neutral-on-background-strong)" }}
-        variant="ghost"
-        tooltip="Home"
-        icon="HiMiniHome"
-      />
-      <IconButton variant="ghost" tooltip="Notifications" icon="HiOutlineBell" />
-      <IconButton variant="ghost" tooltip="Search" icon="HiMiniMagnifyingGlass" />
-      <UserMenu
-        avatarProps={{
-          empty: false,
-          value: "J",
-          statusIndicator: {
-            color: "green",
-          },
-        }}
-      />
+      <Row maxWidth={20}
+        horizontal="space-between"
+        padding="8"
+        vertical="center"
+        background="neutral-weak"
+        border="neutral-medium"
+        radius="full">
+        <IconButton
+          variant="secondary"
+          tooltip="Home"
+          icon="home"
+        />
+        <IconButton variant="ghost" tooltip="Notifications" icon="notification" />
+        <IconButton variant="ghost" tooltip="Search" icon="search" />
+        <Avatar
+            src="/images/avatar.jpg"
+        />
+      </Row>
     </Flex>
-    <Flex direction="column" overflowY="auto" fillHeight padding="m" gap="16" flex={1}>
-      <Flex fillWidth>
+    <Column fillHeight padding="m" gap="16" flex={1}>
         <SegmentedControl
           buttons={[
             {
@@ -129,47 +161,34 @@ in particular places in a generally sharp interface.
           ]}
           defaultSelected="For you"
         />
-      </Flex>
-      <Flex direction="column" paddingX="8" paddingTop="20" paddingBottom="64" gap="48" flex={1}>
+      <Column paddingX="8" paddingTop="20" paddingBottom="64" gap="48" flex={1}>
         {[
           {
-            name: "John Doe",
-            avatar: "/images/avatars/01.png",
-            title: "How to structure your Next.js application",
-            subtitle: "Best practices for consistency and collaboration",
+            name: "Lorant",
+            avatar: "/images/avatar.jpg",
+            title: "Launch your fully functional ecommerce store in an hour",
+            subtitle: "With the power of Fourthwall and flexibility of Once UI.",
             date: "Jun 23",
             likes: 48,
             comments: 2,
             topic: "Productivity",
             topicLink: "",
-            imageSrc: "/images/docs/nextjs.png",
+            imageSrc: "/images/docs/magic-store.jpg",
           },
           {
-            name: "Jane Smith",
-            avatar: "/images/avatars/02.png",
-            title: "How to design density-rich interfaces and turn them to code",
-            subtitle: "Get started with Once UI for Figma and Next.js",
+            name: "Lorant",
+            avatar: "/images/avatar.jpg",
+            title: "Ship quality product docs without writing code",
+            subtitle: "Magic Docs is Once UI's mdx-based documentation template.",
             date: "Jun 16",
             likes: 31,
             comments: 0,
             topic: "Design",
             topicLink: "",
-            imageSrc: "/images/docs/productivity-app-preview.png",
+            imageSrc: "/images/docs/magic-docs.jpg",
           },
-          {
-            name: "Ava Blank",
-            avatar: "/images/avatars/03.png",
-            title: "Best practices for responsive design",
-            subtitle: "Build responsive interfaces without excessive code",
-            date: "Jun 14",
-            likes: 11,
-            comments: 4,
-            topic: "Design",
-            topicLink: "",
-            imageSrc: "/images/docs/imagine-dragons-warriors.png",
-          }
         ].map((article, index) => (
-          <Flex key={index} direction="column" fillWidth gap="12">
+          <Column key={index} fillWidth gap="12">
             <User
               name={article.name}
               avatarProps={{
@@ -179,14 +198,14 @@ in particular places in a generally sharp interface.
               }}
             />
             <Flex fillWidth gap="24" mobileDirection="column">
-              <Flex direction="column" gap="12">
-                <Text variant="heading-strong-xl" onBackground="neutral-strong">
+              <Column gap="12">
+                <Text variant="heading-strong-l" onBackground="neutral-strong">
                   {article.title}
                 </Text>
-                <Text variant="body-default-l" onBackground="neutral-medium">
+                <Text variant="body-default-m" onBackground="neutral-weak">
                   {article.subtitle}
                 </Text>
-              </Flex>
+              </Column>
               <Flex minWidth={8} overflow="hidden" radius="m" border="neutral-medium" fitHeight>
                 <SmartImage
                   aspectRatio="3 / 2"
@@ -214,11 +233,11 @@ in particular places in a generally sharp interface.
               <Flex gap="32" fillWidth>
                 <Text>{article.date}</Text>
                 <Flex vertical="center" gap="8">
-                  <Icon size="s" name="HiOutlineHeart" />
+                  <Icon size="s" name="like" />
                   <Text>{article.likes}</Text>
                 </Flex>
                 <Flex vertical="center" gap="8">
-                  <Icon size="s" name="HiOutlineChatBubbleOvalLeft" />
+                  <Icon size="s" name="chat" />
                   <Text>{article.comments}</Text>
                 </Flex>
               </Flex>
@@ -239,29 +258,30 @@ in particular places in a generally sharp interface.
                 />
               </Flex>
             </Flex>
-          </Flex>
+          </Column>
         ))}
-      </Flex>
-    </Flex>
-  </Flex>
+      </Column>
+    </Column>
+  </Column>
     }
+    highlight="2-3,5-6"
     codeInstances={[
         {
             code:
-`<Flex
+`<Column
     data-theme="dark"
     data-border="playful">
-    <Flex
+    <Row
         data-theme="light"
         data-border="rounded">
         {children}
-    </Flex>
-    <Flex>
+    </Row>
+    <Row>
         {children}
-    </Flex>
-</Flex>`,
+    </Row>
+</Column>`,
             language: "tsx",
-            label: "tsx"
+            label: "Example"
         }
     ]}
 />

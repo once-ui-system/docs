@@ -2,7 +2,7 @@
   "title": "Basics",
   "order": 1,
   "pages": {
-    "layout": 1,
+    "structure": 1,
     "color": 2,
     "spacing": 3,
     "typography": 4,

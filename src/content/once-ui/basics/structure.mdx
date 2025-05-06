@@ -1,0 +1,539 @@
+---
+title: "Stucture"
+summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
+updatedAt: "2025-05-04"
+navLabel: "Structure"
+navIcon: "learn"
+---
+
+## Flex
+
+Once UI layouts are built using `Flex` and `Grid`, prop-based abstractions over CSS flexbox and grid. These primitives are the foundation of the system, enabling layout logic through composition rather than CSS.
+
+### Syntax Basics
+
+We expose two convenience wrappers: `Row` and `Column`. These are semantically expressive `Flex` elements with pre-set directions. Use them instead of the `Flex` for better semantics and code quality.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codeInstances={[
+    {
+      code: `
+<Row gap="8" padding="12" background="surface">
+  <Avatar fallback="A" />
+  <Text variant="body-default-m">Username</Text>
+</Row>
+`,
+      language: "tsx",
+      label: "Row layout"
+    }
+  ]}
+/>
+
+
+### Alignment
+
+Rather than wrestling with `justifyContent` and `alignItems`, we use semantic `horizontal` and `vertical` props that auto-adjust based on direction.
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `
+<Column horizontal="center" vertical="end" fillHeight>
+  <Button variant="solid" color="brand">Continue</Button>
+</Column>
+`,
+      language: "tsx",
+      label: "Semantic alignment"
+    }
+  ]}
+/>
+
+The `center` prop is shorthand for both `horizontal="center"` and `vertical="center"`.
+
+
+### Background
+
+Use `background` and `solid` props to apply colors.
+
+- `background="brand-alpha-medium"` — soft, layered backgrounds
+- `solid="neutral-medium"` — solid fills for buttons, toggles, inputs
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+  <Flex fillWidth gap="l" mobileDirection="column">
+    <Column
+      data-theme="dark"
+      fillWidth
+      background="brand-medium"
+      border="brand-medium"
+      padding="l"
+      radius="m"
+      center
+      gap="16"
+      minHeight={8}
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Dark"
+      />
+      <Text variant="body-default-s" onBackground="brand-medium" align="center">
+        Text on background
+      </Text>
+    </Column>
+
+    <Column
+      data-theme="light"
+      fillWidth
+      background="brand-medium"
+      border="brand-medium"
+      padding="l"
+      radius="m"
+      center
+      gap="16"
+      minHeight={8}
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Light"
+      />
+      <Text variant="body-default-s" onBackground="brand-medium" align="center">
+        Text on background
+      </Text>
+    </Column>
+  </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row background="brand-medium">
+    <Text onBackground="brand-medium">
+      Text on background
+    </Text>
+</Row>`,
+      language: "tsx",
+      label: "Background + onBackground"
+    }
+  ]}
+/>
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+  <Flex fillWidth gap="l" mobileDirection="column">
+    <Column
+      data-theme="dark"
+      fillWidth
+      background="neutral-medium"
+      border="neutral-medium"
+      padding="l"
+      radius="m"
+      center
+      gap="16"
+      minHeight={8}
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Dark"
+        variant="neutral"
+      />
+      <Column
+        solid="accent-medium"
+        paddingY="8"
+        paddingX="16"
+        radius="m"
+        vertical="center"
+        gap="16"
+      >
+        <Text onSolid="neutral-strong" align="center" variant="label-default-s">
+          Text on solid
+        </Text>
+      </Column>
+    </Column>
+
+    <Column
+      data-theme="light"
+      fillWidth
+      background="neutral-medium"
+      padding="l"
+      radius="m"
+      center
+      gap="16"
+      minHeight={8}
+      border="neutral-medium"
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Light"
+        variant="neutral"
+      />
+      <Column
+        solid="accent-medium"
+        paddingY="8"
+        paddingX="16"
+        radius="m"
+        vertical="center"
+        gap="16"
+      >
+        <Text onSolid="neutral-strong" align="center" variant="label-default-s">
+          Text on solid
+        </Text>
+      </Column>
+    </Column>
+  </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row solid="accent-medium">
+    <Text onSolid="accent-strong">
+      Text on solid
+    </Text>
+</Row>`,
+      language: "tsx",
+      label: "Solid + onSolid"
+    }
+  ]}
+/>
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+  <Flex fillWidth gap="l" mobileDirection="column">
+    <Column
+      data-theme="dark"
+      fillWidth
+      background="neutral-medium"
+      border="neutral-medium"
+      padding="l"
+      radius="m"
+      center
+      gap="16"
+      minHeight={8}
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Dark"
+        variant="neutral"
+      />
+      <Column
+        background="success-alpha-weak"
+        border="success-alpha-weak"
+        paddingY="8"
+        paddingX="16"
+        radius="m"
+        vertical="center"
+        gap="16"
+      >
+        <Text onBackground="success-medium" align="center" variant="label-default-s">
+          Text on alpha
+        </Text>
+      </Column>
+    </Column>
+
+    <Column
+      data-theme="light"
+      fillWidth
+      background="neutral-medium"
+      padding="l"
+      radius="m"
+      center
+      gap="16"
+      minHeight={8}
+      border="neutral-medium"
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Light"
+        variant="neutral"
+      />
+      <Column
+        background="success-alpha-weak"
+        border="success-alpha-weak"
+        paddingY="8"
+        paddingX="16"
+        radius="m"
+        vertical="center"
+        gap="16"
+      >
+        <Text onBackground="success-medium" align="center" variant="label-default-s">
+          Text on alpha
+        </Text>
+      </Column>
+    </Column>
+  </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row background="success-alpha-weak" border="success-alpha-weak">
+    <Text onBackground="success-medium">
+      Text on alpha
+    </Text>
+</Row>`,
+      language: "tsx",
+      label: "Alpha + onBackground"
+    }
+  ]}
+/>
+
+The `surface` background and border property allows you to style elements differently in light- and dark mode. By default, the surface background is `neutral-medium` in dark mode and `neutral-weak` in light mode, and the border color is `transparent` in dark mode and `neutral-medium` in light mode.
+
+The surface properties are designed for large layout container elements such as the Header or Sidebar.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+  <Flex 
+    data-surface="filled" fillWidth gap="l" mobileDirection="column">
+    <Flex
+      data-theme="dark"
+      fillWidth
+      vertical="center"
+      background="neutral-weak"
+      paddingY="l"
+      paddingX="m"
+      radius="m"
+      gap="16"
+      minHeight={8}
+      border="neutral-medium"
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Dark"
+        variant="neutral"
+      />
+      <Flex
+        fillWidth
+        paddingX="16"
+        paddingY="8"
+        background="surface"
+        border="surface"
+        radius="m"
+        horizontal="space-between"
+        vertical="center"
+      >
+        <Logo size="xs" icon={false}/>
+        <Avatar
+          size="m"
+          src="/images/avatar.jpg"
+          statusIndicator={{
+            color: "green",
+          }}
+        />
+      </Flex>
+    </Flex>
+
+    <Flex
+      data-theme="light"
+      vertical="center"
+      fillWidth
+      background="neutral-weak"
+      paddingY="l"
+      paddingX="m"
+      radius="m"
+      gap="16"
+      minHeight={8}
+      border="neutral-medium"
+    >
+      <Tag
+        position="absolute"
+        left="8"
+        top="8"
+        label="Light"
+        variant="neutral"
+      />
+      <Flex
+        fillWidth
+        paddingX="16"
+        paddingY="8"
+        background="surface"
+        border="surface"
+        radius="m"
+        horizontal="space-between"
+        vertical="center"
+      >
+        <Logo size="xs" icon={false}/>
+        <Avatar
+          size="m"
+          src="/images/avatar.jpg"
+          statusIndicator={{
+            color: "green",
+          }}
+        />
+      </Flex>
+    </Flex>
+  </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row
+    background="surface"
+    border="surface">
+    <Logo/>
+    <Avatar/>
+</Row>`,
+      language: "tsx",
+      label: "Surface"
+    }
+  ]}
+/>
+
+### Spacing
+
+Use utility props to apply spacing consistently:
+
+- `padding`, `paddingX`, `marginTop`, etc.
+- Values can be spacing tokens (`"6"`, `"12"`) or numbers (converted to `rem`)
+- `gap` sets the internal spacing between children
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `
+<Column padding="8" gap="4">
+  <Text>Line 1</Text>
+  <Text>Line 2</Text>
+</Column>
+`,
+      language: "tsx",
+      label: "Padding and gap"
+    }
+  ]}
+/>
+
+
+### Size
+
+Use the `fillWidth`, `fillHeight`, or shorthand `fill` to apply `100%` dimensions.
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `
+<Flex fill background="overlay">
+  <Text variant="heading-strong-l">Fullscreen Section</Text>
+</Flex>
+`,
+      language: "tsx",
+      label: "Fill size"
+    }
+  ]}
+/>
+
+Use `fit`, `fitWidth`, `fitHeight` to apply `fit-content`.
+
+You can also use `maxWidth`, `minHeight`, and `aspectRatio`.
+
+
+### Border
+
+Apply borders using:
+
+- `border="neutral-medium"` or `brand-alpha-weak`
+- `borderWidth`, `borderStyle`
+- `border="transparent"` to reserve space for layout consistency
+
+Use `borderRadius` or individual props like `topLeftRadius`.
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `
+<Flex
+  border="neutral-medium"
+  borderRadius="xl"
+  padding="6"
+>
+  <Text>Bordered element</Text>
+</Flex>
+`,
+      language: "tsx",
+      label: "Border and radius"
+    }
+  ]}
+/>
+
+
+## Interactivity
+
+- `cursor="interactive"` uses a design tokenized pointer
+- `shadow="m"` applies a predefined elevation
+- `zIndex` is a scale from 0–10
+- `transition="micro-medium"` sets duration presets
+
+## Overflow & Opacity
+
+- `overflowX`, `overflowY`, or `overflow`
+- `opacity` from `0` to `100` in steps of `10`
+
+
+## Responsiveness
+
+Override layout flow with `mobileDirection` or `tabletDirection`.
+
+<CodeBlock
+  codeInstances={[
+    {
+      code: `
+<Column mobileDirection="row" gap="4">
+  <Avatar fallback="A" />
+  <Text>Mobile switches to horizontal</Text>
+</Column>
+`,
+      language: "tsx",
+      label: "Responsive direction"
+    }
+  ]}
+/>
+
+
+## Visibility
+
+Render conditionally with:
+
+- `hide="s"` or `hide="m"`
+- `show="l"` etc.
+- `dark` or `light` props to limit rendering by theme
+
+
+## Typography
+
+Use the `textVariant` prop to apply text styles directly:
+
+- `textVariant="body-default-s"`
+- Align text with `align="center"`
+
+
+## Composition
+
+All layout components:
+
+- Use `forwardRef`
+- Expose `className`, `style`, and full layout props
+- Spread props on the outermost `Flex` wrapper
+
+That’s the Once UI layout model — composable, prop-based, responsive by default, and production-oriented.
+
+You now have a low-code Figma-to-code framework — not just a design system, but a layout language.
