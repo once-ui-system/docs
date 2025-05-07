@@ -248,7 +248,7 @@ You can also use `maxWidth`, `minHeight`, and `aspectRatio`. `maxWidth` will als
 `<Column maxWidth={20}>
     maxWidth={20}
 </Column>
-<Column fillWidth aspecRatio="16/9>
+<Column fillWidth aspectRatio="16/9">
     aspectRatio="16 / 9"
 </Column>
 `,
@@ -258,9 +258,9 @@ You can also use `maxWidth`, `minHeight`, and `aspectRatio`. `maxWidth` will als
   ]}
 />
 
-### Background
+### Color
 
-Use the `background` and `solid` props to apply colors.
+Use the `background` and `solid` props to apply colors, and the `onBackground` and `onSolid` props respectively to apply text colors.
 
 <CodeBlock
   marginTop="8"
@@ -611,17 +611,34 @@ The surface properties are designed for large layout container elements such as 
 Use utility props to apply spacing consistently, such as the `padding`, `paddingX`, `marginTop`, etc. Values can be [spacing tokens](/once-ui/basics/spacing) or numbers (converted to `rem`). Use the `gap` to set the internal spacing between children.
 
 <CodeBlock
+  marginTop="8"
+  marginBottom="16"
   codePreview={
-    <></>
+    <Column fillWidth>
+      <Background fillWidth height="48"
+        border="neutral-alpha-medium" radius="m" padding="16"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Column fillWidth paddingX="xl" paddingY="24" gap="40" marginTop="40"
+        border="neutral-alpha-medium" radius="m">
+        <Background fillWidth height="64"
+          border="neutral-alpha-medium" radius="m" padding="16"
+          lines={{display: true, color: "neutral-alpha-weak"}}/>
+        <Background fillWidth height="64"
+          border="neutral-alpha-medium" radius="m" padding="16"
+          lines={{display: true, color: "neutral-alpha-weak"}}/>
+      </Column>
+    </Column>
   }
   codeInstances={[
     {
       code:
-`<Column padding="8" gap="4">
-  <Text>Line 1</Text>
-  <Text>Line 2</Text>
-</Column>
-`,
+`<Column fillWidth>
+    <Row fillWidth height="48" radius="m"/>
+    <Column fillWidth paddingX="xl" paddingY="24" gap="40" marginTop="40" radius="m">
+      <Row fillWidth height="64" radius="m" padding="16"/>
+      <Row fillWidth height="64" radius="m" padding="16"/>
+    </Column>
+</Column>`,
       language: "tsx",
       label: "Padding and gap"
     }
@@ -630,32 +647,305 @@ Use utility props to apply spacing consistently, such as the `padding`, `padding
 
 ### Border
 
-Apply borders using:
-
-- `border="neutral-medium"` or `brand-alpha-weak`
-- `borderWidth`, `borderStyle`
-- `border="transparent"` to reserve space for layout consistency
-
-Use `borderRadius` or individual props like `topLeftRadius`.
+Apply borders using the `border`, `borderWidth` and `borderStyle` props. Since most borders are 1px solid, this will be the default if not specified. Border naming follows the same color naming as `background` and `solid`.
 
 <CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row fillWidth gap="24" wrap horizontal="center">
+      <Background
+        lines={{display: true, color: "success-alpha-medium"}}
+        border="success-medium"
+        radius="full"
+        height="64"
+        width="64"
+      />
+      <Background
+        lines={{display: true, color: "warning-alpha-medium"}}
+        border="warning-medium"
+        borderWidth="2"
+        radius="full"
+        height="64"
+        width="64"
+      />
+      <Background
+        lines={{display: true, color: "danger-alpha-medium"}}
+        border="danger-medium"
+        borderWidth="2"
+        borderStyle="dashed"
+        radius="full"
+        height="64"
+        width="64"
+      />
+    </Row>
+  }
   codeInstances={[
     {
-      code: `
-<Flex
-  border="neutral-medium"
-  borderRadius="xl"
-  padding="6"
->
-  <Text>Bordered element</Text>
-</Flex>
-`,
+      code:
+`<Background
+    border="success-medium"
+  />
+  <Background
+    border="warning-medium"
+    borderWidth="2"
+  />
+  <Background
+    border="danger-medium"
+    borderWidth="2"
+    borderStyle="dashed"
+/>`,
       language: "tsx",
-      label: "Border and radius"
+      label: "Border"
     }
   ]}
 />
 
+### Radius
+
+Border radius convention follows the [extended T-shirt size model](/once-ui/basics/border).
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Flex fillWidth mobileDirection="column" gap="m">
+      <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="xs-8">
+        <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="xs-4">
+          <Background
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            fillWidth
+            height={4}
+            border="neutral-alpha-medium"
+            radius="xs"
+          />
+        </Flex>
+      </Flex>
+      <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="s-8">
+        <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="s-4">
+          <Background
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            fillWidth
+            height={4}
+            border="neutral-alpha-medium"
+            radius="s"
+          />
+        </Flex>
+      </Flex>
+      <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="m-8">
+        <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="m-4">
+          <Background
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            fillWidth
+            height={4}
+            border="neutral-alpha-medium"
+            radius="m"
+          />
+        </Flex>
+      </Flex>
+      <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="l-8">
+        <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="l-4">
+          <Background
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            fillWidth
+            height={4}
+            border="neutral-alpha-medium"
+            radius="l"
+          />
+        </Flex>
+      </Flex>
+      <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="xl-8">
+        <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="xl-4">
+          <Background
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            fillWidth
+            height={4}
+            border="neutral-alpha-medium"
+            radius="xl"
+          />
+        </Flex>
+      </Flex>
+    </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row radius="xs-8" padding="8">
+    <Row radius="xs-4" padding="4">
+      <Row
+        radius="xs"
+      />
+    </Row>
+  </Row>
+  <Row radius="s-8" padding="8">
+    <Row radius="s-4" padding="4">
+      <Row
+        radius="s"
+      />
+    </Row>
+  </Row>
+  <Row radius="m-8" padding="8">
+    <Row radius="m-4" padding="4">
+      <Row
+        radius="m"
+      />
+    </Row>
+  </Row>
+  <Row radius="l-8" padding="8">
+    <Row radius="l-4" padding="4">
+      <Row
+        radius="l"
+      />
+    </Row>
+  </Row>
+  <Row radius="xl-8" padding="8">
+    <Row radius="xl-4" padding="4">
+      <Row
+        radius="xl"
+      />
+    </Row>
+</Row>`,
+      language: "tsx",
+      label: "Radius"
+    }
+  ]}
+/>
+
+You can also apply radius to specific sides or corners of a `Flex`.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Row fillWidth horizontal="center" gap="4">
+      <Background fillWidth height={4}
+        border="neutral-alpha-medium" leftRadius="l" rightRadius="xs"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background fillWidth height={4}
+        border="neutral-alpha-medium" leftRadius="xs" rightRadius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row>
+    <Row leftRadius="l" rightRadius="xs"/>
+    <Row leftRadius="xs" rightRadius="l"/>
+</Row>`,
+      language: "tsx",
+      label: "Selective radius"
+    }
+  ]}
+/>
+
+We can define a `radius` and then override specific corners:
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <Column fillWidth gap="4">
+      <Row fillWidth horizontal="center" gap="4">
+        <Background fillWidth height={4}
+          border="neutral-alpha-medium" radius="xs" topLeftRadius="l"
+          lines={{display: true, color: "neutral-alpha-weak"}}/>
+        <Background fillWidth height={4}
+          border="neutral-alpha-medium" radius="xs" topRightRadius="l"
+          lines={{display: true, color: "neutral-alpha-weak"}}/>
+      </Row>
+      <Row fillWidth horizontal="center" gap="4">
+        <Background fillWidth height={4}
+          border="neutral-alpha-medium" radius="xs" bottomLeftRadius="l"
+          lines={{display: true, color: "neutral-alpha-weak"}}/>
+        <Background fillWidth height={4}
+          border="neutral-alpha-medium" radius="xs" bottomRightRadius="l"
+          lines={{display: true, color: "neutral-alpha-weak"}}/>
+      </Row>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row>
+    <Row radius="xs" topLeftRadius="l"/>
+    <Row radius="xs" topRightRadius="l"/>
+  </Row>
+  <Row>
+    <Row radius="xs" bottomLeftRadius="l"/>
+    <Row radius="xs" bottomRightRadius="l"/>
+</Row>`,
+      language: "tsx",
+      label: "Radius overrides"
+    }
+  ]}
+/>
+
+### Conditionals
+
+You can use the `hide` and `show` props to conditionally render elements based on breakpoint.
+
+<CodeBlock
+  marginTop="8"
+  marginBottom="16"
+  codePreview={
+    <>
+      <Background hide="m" fillWidth padding="24" center align="center" onBackground="neutral-weak" textVariant="label-default-s"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Hidden on / below the "m" breakpoint
+      </Background>
+      <Background show="m" fillWidth padding="24" center align="center" onBackground="neutral-weak" textVariant="label-default-s"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Shown on / above the "m" breakpoint
+      </Background>
+    </>
+  }
+  codeInstances={[
+    {
+      code:
+`<Row hide="s" hide="m">
+  <Text>Hidden on / below the "m" breakpoint</Text>
+</Row>
+<Row hide="l" show="m">
+  <Text>Shown on / above the "m" breakpoint</Text>
+</Row>`,
+      language: "tsx",
+      label: "Hide/show"
+    }
+  ]}
+/>
+
+You can also use the `dark` and `light` props to limit rendering by theme.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Column fillWidth gap="24" horizontal="center">
+      <SmartImage src="/images/docs/once-ui/vibe-coding-dark.jpg" alt="Dark theme" dark
+        sizes="(max-width: 1024px) 90vw, 640px"
+        aspectRatio="16/9"
+        border="neutral-alpha-medium" radius="l"/>
+      <SmartImage src="/images/docs/once-ui/vibe-coding-light.jpg" alt="Light theme" light
+        sizes="(max-width: 1024px) 90vw, 640px"
+        aspectRatio="16/9"
+        border="neutral-alpha-medium" radius="l"/>
+      <ThemeSwitcher/>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<SmartImage dark src="/image-dark.jpg"/>
+<SmartImage light src="/image-light.jpg"/>
+<ThemeSwitcher/>`,
+      language: "tsx",
+      label: "Hide / Show"
+    }
+  ]}
+/>
 
 ## Interactivity
 
