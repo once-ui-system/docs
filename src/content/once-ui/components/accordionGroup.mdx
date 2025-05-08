@@ -65,20 +65,14 @@ A container component that groups multiple Accordion components together with co
 
 ## API reference
 
-<Table
-  marginTop="16"
-  marginBottom="24"
-  data={{
-    headers: [
-      { content: "Prop", key: "prop", sortable: true },
-      { content: "Type", key: "type" },
-      { content: "Default", key: "default" },
-    ],
-    rows: [
-      ["items", <InlineCode>AccordionItem[]</InlineCode>, "-"],
-      ["size", <InlineCode>"s" | "m" | "l"</InlineCode>, <InlineCode>"m"</InlineCode>]
-    ]
-  }}
+<PropsTable
+  content={[
+    ["items", "AccordionItem[]"],
+    ["size", ["s", "m", "l"], "m"],
+    ["style", "CSSProperties"],
+    ["className", "string"]
+    ["...flex", "FlexProps"]
+  ]}
 />
 
 ## AccordionItem

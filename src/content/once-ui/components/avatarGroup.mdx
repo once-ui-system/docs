@@ -13,6 +13,8 @@ A component for displaying multiple user avatars in a compact, horizontal stack.
   marginBottom="24"
   codePreview={
     <AvatarGroup
+      size="l"
+      reverse
       avatars={[
         { src: "/images/avatar.jpg" },
         { value: "B" },
@@ -20,21 +22,20 @@ A component for displaying multiple user avatars in a compact, horizontal stack.
         { value: "D" },
         { value: "E" }
       ]}
-      size="m"
     />
   }
   codeInstances={[
     {
       code:
 `<AvatarGroup
-  avatars={[
-    { src: "/images/avatar.jpg" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" },
-    { value: "E" }
-  ]}
-  size="m"
+    size="l"
+    avatars={[
+      { src: "/images/avatar.jpg" },
+      { value: "B" },
+      { value: "C" },
+      { value: "D" },
+      { value: "E" }
+    ]}
 />`,
       language: "tsx",
       label: "AvatarGroup"
@@ -102,56 +103,16 @@ AvatarGroup supports the same T-shirt sizing model as Avatar.
     {
       code:
 `<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="xs"
-/>
-
-<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="s"
-/>
-
-<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="m"
-/>
-
-<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="l"
-/>
-
-<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="xl"
+    size="s"
+    avatars={[
+      { value: "A" },
+      { value: "B" },
+      { value: "C" },
+      { value: "D" }
+    ]}
 />`,
       language: "tsx",
-      label: "AvatarGroup sizes"
+      label: "Sizes"
     }
   ]}
 />
@@ -195,32 +156,20 @@ Use the `limit` prop to control how many avatars are displayed. Any additional a
     {
       code:
 `<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" },
-    { value: "E" },
-    { value: "F" },
-    { value: "G" }
-  ]}
-  size="m"
-  limit={3}
-/>
-
-<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" },
-    { value: "E" }
-  ]}
-  size="m"
-  limit={4}
+    size="m"
+    limit={3}
+    avatars={[
+      { value: "A" },
+      { value: "B" },
+      { value: "C" },
+      { value: "D" },
+      { value: "E" },
+      { value: "F" },
+      { value: "G" }
+    ]}
 />`,
       language: "tsx",
-      label: "Limited avatars"
+      label: "Limit"
     }
   ]}
 />
@@ -239,7 +188,6 @@ Use the `reverse` prop to change the stacking order of avatars.
           { value: "A" },
           { value: "B" },
           { value: "C" },
-          { value: "D" }
         ]}
         size="m"
         reverse={false}
@@ -249,7 +197,6 @@ Use the `reverse` prop to change the stacking order of avatars.
           { value: "A" },
           { value: "B" },
           { value: "C" },
-          { value: "D" }
         ]}
         size="m"
         reverse={true}
@@ -259,31 +206,26 @@ Use the `reverse` prop to change the stacking order of avatars.
   codeInstances={[
     {
       code:
-`// Default order (first avatar on top)
-<AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="m"
-  reverse={false}
+`<AvatarGroup
+    size="m"
+    avatars={[
+      { value: "A" },
+      { value: "B" },
+      { value: "C" },
+    ]}
 />
 
-// Reversed order (last avatar on top)
 <AvatarGroup
-  avatars={[
-    { value: "A" },
-    { value: "B" },
-    { value: "C" },
-    { value: "D" }
-  ]}
-  size="m"
-  reverse={true}
+    size="m"
+    reverse
+    avatars={[
+      { value: "A" },
+      { value: "B" },
+      { value: "C" },
+    ]}
 />`,
       language: "tsx",
-      label: "Reverse order"
+      label: "Reverse"
     }
   ]}
 />
@@ -310,38 +252,30 @@ AvatarGroup supports all the same avatar types as the Avatar component.
     {
       code:
 `<AvatarGroup
-  avatars={[
-    { src: "/images/avatar.jpg" },
-    { value: "B" },
-    { empty: true },
-    { value: "D", statusIndicator: { color: "green" } }
-  ]}
-  size="m"
+    size="m"
+    avatars={[
+      { src: "/images/avatar.jpg" },
+      { value: "B" },
+      { empty: true },
+      { value: "D", statusIndicator: { color: "green" } }
+    ]}
 />`,
       language: "tsx",
-      label: "Mixed avatars"
+      label: "Mixed"
     }
   ]}
 />
 
 ## API reference
 
-<Table
-  marginTop="16"
-  marginBottom="24"
-  data={{
-    headers: [
-      { header: "Prop" },
-      { header: "Type" },
-      { header: "Default" },
-    ],
-    rows: [
-      ["avatars", <InlineCode>AvatarProps[]</InlineCode>, "-"],
-      ["size", <InlineCode>"xs" | "s" | "m" | "l" | "xl"</InlineCode>, <InlineCode>"m"</InlineCode>],
-      ["reverse", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
-      ["limit", <InlineCode>number</InlineCode>, "-"],
-      ["style", <InlineCode>CSSProperties</InlineCode>, "-"],
-      ["className", <InlineCode>string</InlineCode>, "-"]
-    ]
-  }}
+<PropsTable
+  content={[
+    ["avatars", "AvatarProps[]"],
+    ["size", ["xs", "s", "m", "l", "xl"], "m"],
+    ["reverse", "boolean", "false"],
+    ["limit", "number"],
+    ["style", "CSSProperties"],
+    ["className", "string"]
+    ["...flex", "FlexProps"]
+  ]}
 />

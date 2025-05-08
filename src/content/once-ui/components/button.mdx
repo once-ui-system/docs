@@ -168,7 +168,7 @@ Enhance buttons with icons to improve visual communication.
   ]}
 />
 
-## Loading state
+## Loading
 
 Display a loading spinner to indicate that an action is in progress.
 
@@ -177,9 +177,9 @@ Display a loading spinner to indicate that an action is in progress.
   marginBottom="24"
   codePreview={
     <Row gap="16" horizontal="center">
-      <Button loading>Loading</Button>
-      <Button variant="secondary" loading>Processing</Button>
-      <Button variant="tertiary" loading>Saving</Button>
+      <Button weight="default" loading>Loading</Button>
+      <Button weight="default" variant="secondary" loading>Processing</Button>
+      <Button weight="default" variant="tertiary" loading>Saving</Button>
     </Row>
   }
   codeInstances={[
@@ -195,12 +195,12 @@ Display a loading spinner to indicate that an action is in progress.
     Saving
 </Button>`,
       language: "tsx",
-      label: "Loading buttons"
+      label: "Loading"
     }
   ]}
 />
 
-## Custom radius
+## Radius
 
 Customize the corner radius of buttons for different design needs.
 
@@ -230,12 +230,12 @@ Customize the corner radius of buttons for different design needs.
     Bottom right
 </Button>`,
       language: "tsx",
-      label: "Button radius"
+      label: "Radius"
     }
   ]}
 />
 
-## As links
+## As link
 
 Buttons can function as links when provided with an `href` property.
 
@@ -262,12 +262,12 @@ Buttons can function as links when provided with an `href` property.
     Learn More
 </Button>`,
       language: "tsx",
-      label: "Button links"
+      label: "Links"
     }
   ]}
 />
 
-## With arrow animation
+## Arrow animation
 
 Add an animated arrow that responds to hover events.
 
@@ -290,7 +290,7 @@ Add an animated arrow that responds to hover events.
     Secondary
 </Button>`,
       language: "tsx",
-      label: "Buttons with arrow"
+      label: "Arrow"
     }
   ]}
 />
@@ -306,8 +306,8 @@ Control the alignment of button content.
     <Column gap="16" horizontal="center" maxWidth={20}>
       <Button size="s" fillWidth horizontal="start" prefixIcon="check">Left Aligned</Button>
       <Button size="s" fillWidth horizontal="center">Center Aligned</Button>
-      <Button size="s" fillWidth horizontal="end" suffixIcon="arrow-right">Right Aligned</Button>
-      <Button size="s" fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="arrow-right">Space Between</Button>
+      <Button size="s" fillWidth horizontal="end" suffixIcon="chevronDown">Right Aligned</Button>
+      <Button size="s" fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="chevronDown">Space Between</Button>
     </Column>
   }
   codeInstances={[
@@ -319,14 +319,14 @@ Control the alignment of button content.
   <Button fillWidth horizontal="center">
     Center Aligned
   </Button>
-  <Button fillWidth horizontal="end" suffixIcon="arrow-right">
+  <Button fillWidth horizontal="end" suffixIcon="chevronDown">
     Right Aligned
   </Button>
-  <Button fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="arrow-right">
+  <Button fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="chevronDown">
     Space Between
 </Button>`,
       language: "tsx",
-      label: "Button content alignment"
+      label: "Alignment"
     }
   ]}
 />
@@ -339,58 +339,44 @@ Override default styles with data attributes.
   marginTop="16"
   marginBottom="24"
   codePreview={
-    <Column gap="16" horizontal="center">
-      <Button border="rounded" size="s">Button</Button>
-      <Button border="rounded" solid-style="inverse" size="s">Button</Button>
-    </Column>
+    <Row wrap gap="16" horizontal="center">
+      <Button data-border="rounded" size="s">Button</Button>
+      <Button data-border="rounded" data-solid="color" size="s">Button</Button>
+      <Button data-border="rounded" data-solid="inverse" data-brand="yellow" size="s">Button</Button>
+    </Row>
   }
   codeInstances={[
     {
       code:
-`<Button fillWidth horizontal="start" prefixIcon="check">
-    Left Aligned
-  </Button>
-  <Button fillWidth horizontal="center">
-    Center Aligned
-  </Button>
-  <Button fillWidth horizontal="end" suffixIcon="arrow-right">
-    Right Aligned
-  </Button>
-  <Button fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="arrow-right">
-    Space Between
-</Button>`,
+`<Row wrap gap="16" horizontal="center">
+    <Button data-border="rounded" size="s">Button</Button>
+    <Button data-border="rounded" data-solid="color" size="s">Button</Button>
+    <Button data-border="rounded" data-solid="inverse" data-brand="yellow" size="s">Button</Button>
+</Row>`,
       language: "tsx",
-      label: "Button content alignment"
+      label: "Data attributes"
     }
   ]}
 />
 
 ## API reference
 
-<Table
-  marginTop="16"
-  marginBottom="24"
-  data={{
-    headers: [
-      { content: "Prop" },
-      { content: "Type" },
-      { content: "Default" },
-    ],
-    rows: [
-      ["variant", <InlineCode>"primary" | "secondary" | "tertiary" | "danger"</InlineCode>, <InlineCode>"primary"</InlineCode>],
-      ["size", <InlineCode>"s" | "m" | "l"</InlineCode>, <InlineCode>"m"</InlineCode>],
-      ["radius", <InlineCode>"none" | "top" | "right" | "bottom" | "left" | "top-left" | "top-right" | "bottom-right" | "bottom-left"</InlineCode>, "-"],
-      ["label", <InlineCode>string</InlineCode>, "-"],
-      ["weight", <InlineCode>"default" | "strong"</InlineCode>, <InlineCode>"strong"</InlineCode>],
-      ["prefixIcon", <InlineCode>IconName</InlineCode>, "-"],
-      ["suffixIcon", <InlineCode>IconName</InlineCode>, "-"],
-      ["loading", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
-      ["fillWidth", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
-      ["horizontal", <InlineCode>"start" | "center" | "end" | "space-between"</InlineCode>, <InlineCode>"center"</InlineCode>],
-      ["children", <InlineCode>ReactNode</InlineCode>, "-"],
-      ["href", <InlineCode>string</InlineCode>, "-"],
-      ["arrowIcon", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
-      ["...Flex", <InlineCode>Flex props</InlineCode>, "-"]
-    ]
-  }}
+<PropsTable
+  content={[
+    ["variant", ["primary", "secondary", "tertiary", "danger"], "primary"],
+    ["size", ["s", "m", "l"], "m"],
+    ["radius", ["none", "top", "right", "bottom", "left", "top-left", "top-right", "bottom-right", "bottom-left"]],
+    ["label", "string"],
+    ["weight", ["default", "strong"], "strong"],
+    ["prefixIcon", "IconName"],
+    ["suffixIcon", "IconName"],
+    ["loading", "boolean", "false"],
+    ["fillWidth", "boolean", "false"],
+    ["horizontal", ["start", "center", "end", "space-between"], "center"],
+    ["children", "ReactNode"],
+    ["href", "string"],
+    ["arrowIcon", "boolean", "false"],
+    ["className", "string"],
+    ["style", "CSSProperties"],
+  ]}
 />

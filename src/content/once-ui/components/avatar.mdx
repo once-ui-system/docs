@@ -75,7 +75,7 @@ Use the T-shirt size model or set sizes with numbers (REM).
     <Avatar size="xl" value="E" />
 </Row>`,
       language: "tsx",
-      label: "Avatar sizes"
+      label: "Sizes"
     }
   ]}
 />
@@ -129,31 +129,23 @@ Use the T-shirt size model or set sizes with numbers (REM).
     <Avatar size="s" loading />
 </Row>`,
       language: "tsx",
-      label: "Loading Avatar"
+      label: "Loading"
     }
   ]}
 />
 
 ## API reference
 
-<Table
-  marginTop="16"
-  marginBottom="24"
-  data={{
-    headers: [
-      { header: "Prop" },
-      { header: "Type" },
-      { header: "Default" },
-    ],
-    rows: [
-      ["size", <InlineCode>"xs" | "s" | "m" | "l" | "xl" | number</InlineCode>, <InlineCode>"m"</InlineCode>],
-      ["value", <InlineCode>string</InlineCode>, "-"],
-      ["src", <InlineCode>string</InlineCode>, "-"],
-      ["loading", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
-      ["empty", <InlineCode>boolean</InlineCode>, <InlineCode>false</InlineCode>],
-      ["statusIndicator", <InlineCode>object</InlineCode>, "-"],
-      ["style", <InlineCode>CSSProperties</InlineCode>, "-"],
-      ["className", <InlineCode>string</InlineCode>, "-"]
-    ]
-  }}
+<PropsTable
+  content={[
+    ["size", ["xs", "s", "m", "l", "xl", "number"], "m"],
+    ["value", "string"],
+    ["src", "string"],
+    ["loading", "boolean", "false"],
+    ["empty", "boolean", "false"],
+    ["statusIndicator", "object"],
+    ["style", "CSSProperties"],
+    ["className", "string"]
+    ["...flex", "FlexProps"]
+  ]}
 />

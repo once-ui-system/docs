@@ -41,24 +41,15 @@ A decorative arrow component that animates when a specified trigger element is h
 
 ## API reference
 
-<Table
-  marginTop="16"
-  marginBottom="24"
-  data={{
-    headers: [
-      { content: "Prop", key: "prop", sortable: true },
-      { content: "Type", key: "type" },
-      { content: "Default", key: "default" },
-      { content: "Description", key: "description" }
-    ],
-    rows: [
-      ["trigger", <InlineCode>string</InlineCode>, "-", "CSS selector for the element that triggers the arrow animation on hover"],
-      ["scale", <InlineCode>number</InlineCode>, <InlineCode>0.8</InlineCode>, "Scale factor to adjust the size of the arrow"],
-      ["color", <InlineCode>"onBackground" | "onSolid"</InlineCode>, <InlineCode>"onBackground"</InlineCode>, "Color theme for the arrow"],
-      ["style", <InlineCode>CSSProperties</InlineCode>, "-", "Additional CSS styles to apply to the arrow container"],
-      ["className", <InlineCode>string</InlineCode>, "-", "Additional CSS class names to apply to the arrow container"]
-    ]
-  }}
+<PropsTable
+  content={[
+    ["trigger", "string"],
+    ["scale", "number", "0.8"],
+    ["color", ["onBackground", "onSolid"], "onBackground"],
+    ["style", "CSSProperties"],
+    ["className", "string"]
+    ["...flex", "FlexProps"]
+  ]}
 />
 
 ## Usage Notes

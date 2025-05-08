@@ -34,7 +34,7 @@ const renderContent = (content: SideContent, clipPath: string) => {
   );
 };
 
-export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImageProps) => {
+const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImageProps) => {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -117,3 +117,4 @@ export const CompareImage = ({ leftContent, rightContent, ...rest }: CompareImag
 };
 
 CompareImage.displayName = "CompareImage";
+export { CompareImage };

@@ -1,11 +1,199 @@
 ---
 title: "CursorCard"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The CursorCard component displays content that follows the cursor when hovering over a trigger element."
+updatedAt: "2025-05-08"
 navLabel: "CursorCard"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Title
+A component that displays floating content that follows the user's cursor when hovering over a trigger element. Useful for creating interactive tooltips, previews, or contextual information that enhances the user experience without requiring clicks.
 
-Content
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Flex fillWidth horizontal="center" padding="24">
+      <CursorCard
+        maxWidth={12}
+        trigger={
+          <Button variant="secondary">
+            Hover over me
+          </Button>
+        }
+        overlay={
+          <Row padding="16" radius="m">
+            <Text>This content follows your cursor!</Text>
+          </Row>
+        }
+        placement="bottom-left"
+      />
+    </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<CursorCard
+  trigger={
+    <Button variant="secondary">
+      Hover over me
+    </Button>
+  }
+  overlay={
+    <Card padding="16" radius="m" width="200px">
+      <Text>This content follows your cursor!</Text>
+    </Card>
+  }
+  placement="bottom-left"
+/>`,
+      language: "tsx",
+      label: "Basic CursorCard"
+    }
+  ]}
+/>
+
+## Placement Options
+
+The CursorCard component supports different placement options to control how the overlay content is positioned relative to the cursor.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Row fillWidth gap="16" wrap horizontal="center">
+      <CursorCard
+        trigger={
+          <Button variant="secondary">
+            Top-Left
+          </Button>
+        }
+        overlay={
+          <Card padding="16" radius="m" width="150px">
+            <Text>top-left</Text>
+          </Card>
+        }
+        placement="top-left"
+      />
+      <CursorCard
+        trigger={
+          <Button variant="secondary">
+            Top
+          </Button>
+        }
+        overlay={
+          <Card padding="16" radius="m" width="150px">
+            <Text>top</Text>
+          </Card>
+        }
+        placement="top"
+      />
+      <CursorCard
+        trigger={
+          <Button variant="secondary">
+            Top-Right
+          </Button>
+        }
+        overlay={
+          <Card padding="16" radius="m" width="150px">
+            <Text>top-right</Text>
+          </Card>
+        }
+        placement="top-right"
+      />
+    </Row>
+  }
+  codeInstances={[
+    {
+      code:
+`<CursorCard
+  trigger={<Button variant="secondary">Top-Left</Button>}
+  overlay={
+    <Card padding="16" radius="m" width="150px">
+      <Text>top-left</Text>
+    </Card>
+  }
+  placement="top-left"
+/>`,
+      language: "tsx",
+      label: "Placement Options"
+    }
+  ]}
+/>
+
+## Custom Styling
+
+You can customize the appearance of both the trigger and overlay content.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Flex fillWidth horizontal="center" padding="24">
+      <CursorCard
+        trigger={
+          <Card padding="16" radius="m" horizontal="center" background="brand-background-weak">
+            <Icon name="chevronsLeftRight" size="m" />
+            <Text>Interactive element</Text>
+          </Card>
+        }
+        overlay={
+          <Card padding="16" radius="m" width="250px" background="surface-strong" onBackground="surface-on-strong">
+            <Column gap="8">
+              <Text variant="heading-s">Custom Overlay</Text>
+              <Text>You can use any component as overlay content</Text>
+              <Row gap="8">
+                <Icon name="check" size="s" />
+                <Text>Fully customizable</Text>
+              </Row>
+            </Column>
+          </Card>
+        }
+        placement="bottom"
+      />
+    </Flex>
+  }
+  codeInstances={[
+    {
+      code:
+`<CursorCard
+  trigger={
+    <Card padding="16" radius="m" horizontal="center" background="brand-background-weak">
+      <Icon name="chevronsLeftRight" size="m" />
+      <Text>Interactive element</Text>
+    </Card>
+  }
+  overlay={
+    <Card padding="16" radius="m" width="250px" background="surface-strong" onBackground="surface-on-strong">
+      <Column gap="8">
+        <Text variant="heading-s">Custom Overlay</Text>
+        <Text>You can use any component as overlay content</Text>
+        <Row gap="8">
+          <Icon name="check" size="s" />
+          <Text>Fully customizable</Text>
+        </Row>
+      </Column>
+    </Card>
+  }
+  placement="bottom"
+/>`,
+      language: "tsx",
+      label: "Custom Styling"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["trigger", "ReactNode"],
+    ["overlay", "ReactNode"],
+    ["placement", ["top", "top-left", "top-right", "bottom", "bottom-left", "bottom-right", "left", "right"], "bottom-left"],
+    ["className", "string"],
+    ["style", "React.CSSProperties"],
+    ["...Flex", "FlexProps"]
+  ]}
+/>
+
+## Accessibility Considerations
+
+The CursorCard component is designed for desktop use and automatically disables its functionality on touch devices. For touch devices, consider providing alternative ways to access the same information, such as expandable sections or modal dialogs.

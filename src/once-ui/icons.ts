@@ -50,18 +50,20 @@ import {
   HiOutlineShoppingCart,
   HiOutlineBell,
   HiOutlineChatBubbleLeftRight,
-  HiOutlineHeart
+  HiOutlineHeart,
 } from "react-icons/hi2";
 
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
 import { PiRuler, PiTShirt } from "react-icons/pi";
 import { FaDiscord, FaGithub, FaGoogle, FaLinkedin, FaMailchimp, FaThreads } from "react-icons/fa6";
+import { LuChevronsLeftRight } from "react-icons/lu";
 
 export const iconLibrary: Record<string, IconType> = {
   chevronUp: HiChevronUp,
   chevronDown: HiChevronDown,
   chevronRight: HiChevronRight,
   chevronLeft: HiChevronLeft,
+  chevronsLeftRight: LuChevronsLeftRight,
   refresh: HiOutlineArrowPath,
   light: HiOutlineSun,
   dark: HiOutlineMoon,

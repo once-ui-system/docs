@@ -17,7 +17,7 @@ interface AccordionProps extends Omit<React.ComponentProps<typeof Flex>, "title"
   icon?: string;
   iconRotation?: number;
   size?: "s" | "m" | "l";
-  radius?: "xs" | "s" | "m" | "l" | "full";
+  radius?: "xs" | "s" | "m" | "l" | "xl" | "full";
   open?: boolean;
   className?: string;
   style?: React.CSSProperties;

@@ -6,6 +6,65 @@ navLabel: "CompareImage"
 navIcon: "learn"
 ---
 
-## Title
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <CompareImage
+      radius="xl"
+      border="neutral-alpha-weak"
+      overflow="hidden"
+      aspectRatio="16 / 9"
+      leftContent={{ src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Left image - Vibe Coding light" }}
+      rightContent={{ src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Right image - Vibe Coding dark" }}
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<CompareImage
+    radius="xl"
+    border="neutral-alpha-weak"
+    overflow="hidden"
+    aspectRatio="16 / 9"
+    leftContent={{ src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Left image - Vibe Coding light" }}
+    rightContent={{ src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Right image - Vibe Coding dark" }}
+/>`,
+      language: "tsx",
+      label: "Image"
+    }
+  ]}
+/>
 
-Content
+The `CompareImage` component supports `ReactNode` for the content.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <CompareImage
+      style={{isolation: "isolate"}}
+      radius="xl"
+      border="neutral-alpha-weak"
+      overflow="hidden"
+      aspectRatio="16 / 9"
+      leftContent={{src: <Background center fill gradient={{display: true, x: 0, y: 50, colorStart: "brand-background-strong", colorEnd: "accent-background-weak"}}><Row zIndex="1">Left</Row></Background>}}
+      rightContent={{src: <Background center fill gradient={{display: true, x: 0, y: 50, colorStart: "accent-background-strong", colorEnd: "brand-background-weak"}}><Row zIndex="1">Right</Row></Background>}}
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<CompareImage
+    radius="xl"
+    border="neutral-alpha-weak"
+    overflow="hidden"
+    aspectRatio="16 / 9"
+    leftContent={{ src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Left image - Vibe Coding light" }}
+    rightContent={{ src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Right image - Vibe Coding dark" }}
+/>`,
+      language: "tsx",
+      label: "ReactNode"
+    }
+  ]}
+/>

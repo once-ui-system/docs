@@ -324,6 +324,37 @@ You can also use `maxWidth`, `minHeight`, and `aspectRatio`. `maxWidth` will als
   ]}
 />
 
+### Position
+
+Override the default `relative` position with `absolute`, `fixed`, `sticky`, or `static`. Use `top`, `right`, `bottom`, and `left` to position the element. Set [SpacingToken](/once-ui/basics/spacing) values for `top`, `right`, `bottom`, and `left`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Column fillWidth height={12} padding="24" border="neutral-alpha-medium" radius="xl">
+      <Background
+        fill
+        background="neutral-alpha-weak"
+        center border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+      </Background>
+      <Icon width="40" height="40" position="absolute" top="12" right="12" center solid="brand-medium" radius="full" name="close" onSolid="brand-strong"/>
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Column padding="24">
+    <Row fill/>
+    <Icon position="absolute" top="12" right="12" name="close"/>
+</Column>`,
+      language: "tsx",
+      label: "Position"
+    }
+  ]}
+/>
+
 ### Color
 
 Use the `background` and `solid` props to apply colors, and the `onBackground` and `onSolid` props respectively to apply text colors.
@@ -1143,8 +1174,7 @@ Use the `dark` and `light` props to limit rendering by theme.
     {
       code:
 `<SmartImage dark src="/image-dark.jpg"/>
-<SmartImage light src="/image-light.jpg"/>
-<ThemeSwitcher/>`,
+<SmartImage light src="/image-light.jpg"/>`,
       language: "tsx",
       label: "Hide / Show"
     }
@@ -1339,14 +1369,74 @@ Use the `textVariant` prop to apply text styles to children elements. Use the `a
   codeInstances={[
     {
       code:
-`<Row zIndex="10"/>
-<Row zIndex="8"/>
-<Row zIndex="6"/>
-<Row zIndex="4"/>
-<Row zIndex="2"/>
-<Row zIndex="0"/>`,
+`<Row textVariant="display-strong-xs">
+    Display text
+</Row>
+<Row textVariant="heading-strong-l">
+    Heading text
+</Row>
+<Row textVariant="body-default-m" onBackground="neutral-weak">
+    Body text
+</Row>
+<Row textVariant="code-default-m" onBackground="success-weak">
+    Code text
+</Row>
+<Row textVariant="label-default-s" onBackground="brand-weak">
+    Label text
+</Row>`,
       language: "tsx",
       label: "Text"
+    }
+  ]}
+/>
+
+### Responsiveness
+
+Override layout flow with `mobileDirection` or `tabletDirection`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Row fillWidth gap="24" mobileDirection="Column">
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+    </Row>
+  }
+  codeInstances={[
+    {
+      code: `
+<Row mobileDirection="column">
+    <Row fillWidth height={6}/>
+    <Row fillWidth height={6}/>
+    <Row fillWidth height={6}/>
+    <Row fillWidth height={6}/>
+</Row>
+`,
+      language: "tsx",
+      label: "Responsive direction"
     }
   ]}
 />
@@ -1355,35 +1445,82 @@ Use the `textVariant` prop to apply text styles to children elements. Use the `a
 
 - `transition="micro-medium"` sets duration presets
 
+## Grid
 
-### Responsiveness
+All non-flex-specific properties of the `Flex` are also available on the `Grid`.
 
-Override layout flow with `mobileDirection` or `tabletDirection`.
+### Columns
+
+Use the `columns` prop to define the number of columns. use the `tabletColumns` and `mobileColumns` props to define the number of columns on tablet and mobile devices.
 
 <CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Grid fillWidth columns="3" tabletColumns="2" mobileColumns="1" gap="24">
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+      <Background
+        fillWidth
+        height={6}
+        background="neutral-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}/>
+    </Grid>
+  }
   codeInstances={[
     {
-      code: `
-<Column mobileDirection="row" gap="4">
-  <Avatar fallback="A" />
-  <Text>Mobile switches to horizontal</Text>
-</Column>
-`,
+      code:
+`<Grid fillWidth columns="4"/>
+    <Row fillWidth/>
+    <Row fillWidth/>
+    <Row fillWidth/>
+    <Row fillWidth/>
+    <Row fillWidth/>
+    <Row fillWidth/>
+</Grid>`,
       language: "tsx",
-      label: "Responsive direction"
+      label: "Columns"
     }
   ]}
 />
 
-
 ## Composition
 
-All layout components:
+Both `Flex` and `Grid` components:
 
 - Use `forwardRef`
 - Expose `className`, `style`, and full layout props
-- Spread props on the outermost `Flex` wrapper
+- Furthermore, Flex spreads props on the outermost `Flex` wrapper of components
 
 That’s the Once UI layout model — composable, prop-based, responsive by default, and production-oriented.
 
-You now have a low-code Figma-to-code framework — not just a design system, but a layout language.
+You now have a low-code layouting language.

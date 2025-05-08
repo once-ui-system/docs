@@ -19,6 +19,7 @@ import {
 } from "@/once-ui/components";
 import * as onceComponents from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
+import { PropsTable } from "@/product/PropsTable";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { HeadingLink } from "@/once-ui/modules";
@@ -177,6 +178,7 @@ const components = {
   Heading,
   Icon,
   Table,
+  PropsTable,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 
