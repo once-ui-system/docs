@@ -25,9 +25,10 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
   ({ logos, className, style, limit = 6, rotationInterval = ANIMATION_DURATION, ...rest }, ref) => {
     const [visibleLogos, setVisibleLogos] = useState<LogoProps[]>(() => logos.slice(0, limit));
     const [key, setKey] = useState(0);
+    const shouldRotate = logos.length > limit;
 
     useEffect(() => {
-      if (logos.length <= limit) {
+      if (!shouldRotate) {
         setVisibleLogos(logos);
         return;
       }
@@ -50,7 +51,7 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
       );
 
       return () => clearInterval(interval);
-    }, [logos, limit, rotationInterval]);
+    }, [logos, limit, rotationInterval, shouldRotate]);
 
     return (
       <Grid ref={ref} className={classNames(styles.container, className)} style={style} {...rest}>
@@ -64,7 +65,7 @@ const LogoCloud = forwardRef<HTMLDivElement, LogoCloudProps>(
             radius="l"
           >
             <Logo
-              className={styles.logo}
+              className={shouldRotate ? styles.logo : styles.staticLogo}
               style={{
                 ...logo.style,
                 animationDelay: `${index * STAGGER_DELAY}ms`,
