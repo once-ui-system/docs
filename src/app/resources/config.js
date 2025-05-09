@@ -49,14 +49,14 @@ const layout = {
     width: 200, // max-width of the body
   },
   sidebar: {
-    width: 18, // width of the sidebar
+    width: 17, // width of the sidebar
     collapsible: true, // accordion or static render
   },
   content: {
     width: 44, // width of the main content block
   },
   sideNav: {
-    width: 14, // width of the sideNav on document pages
+    width: 17, // width of the sideNav on document pages
   },
   footer: {
     width: 44, // width of the content inside the footer

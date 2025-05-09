@@ -24,6 +24,10 @@ import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { HeadingLink } from "@/once-ui/modules";
 
+import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "@/product/DialogExample";
+import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "@/product/DropdownWrapperExample";
+import { BasicRawDropdown, IconsRawDropdown, DescriptionRawDropdown, CustomStyledRawDropdown } from "@/product/DropdownExample";
+
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   children: ReactNode;
@@ -179,6 +183,18 @@ const components = {
   Icon,
   Table,
   PropsTable,
+  BasicDialog,
+  DialogWithFooter,
+  StackedDialogs,
+  CustomizedDialog,
+  BasicDropdown,
+  DropdownWithIcons,
+  CustomPositionDropdown,
+  SearchableDropdown,
+  BasicRawDropdown,
+  IconsRawDropdown,
+  DescriptionRawDropdown,
+  CustomStyledRawDropdown,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

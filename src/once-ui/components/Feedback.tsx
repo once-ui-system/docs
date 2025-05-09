@@ -27,7 +27,7 @@ const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(
   (
     {
       variant = "info",
-      icon,
+      icon = true,
       title,
       description,
       showCloseButton = false,

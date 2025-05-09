@@ -1,9 +1,211 @@
 ---
 title: "DropdownWrapper"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The DropdownWrapper component provides a floating container that appears when triggered, allowing for custom dropdown menus and selectors."
+updatedAt: "2025-05-09"
 navLabel: "DropdownWrapper"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+DropdownWrapper is a container component that handles the positioning and state management of dropdown menus. It provides a flexible way to create custom dropdown interfaces with various trigger elements and dropdown contents.
+
+## Basic usage
+
+A simple dropdown with a button trigger and custom content.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <BasicDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [isOpen, setIsOpen] = useState(false);
+const [selected, setSelected] = useState("");
+
+return (
+  <DropdownWrapper
+    isOpen={isOpen}
+    onOpenChange={setIsOpen}
+    trigger={
+      <Button 
+        variant="secondary" 
+        suffixIcon="chevronDown"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {selected || "Select an option"}
+      </Button>
+    }
+    dropdown={
+      <Flex fillWidth padding="4" direction="column" gap="2">
+        <Option
+          label="Option 1"
+          value="option1"
+          selected={selected === "option1"}
+          onClick={(value) => {
+            setSelected(value);
+            setIsOpen(false);
+          }}
+        />
+        <Option
+          label="Option 2"
+          value="option2"
+          selected={selected === "option2"}
+          onClick={(value) => {
+            setSelected(value);
+            setIsOpen(false);
+          }}
+        />
+        <Option
+          label="Option 3"
+          value="option3"
+          selected={selected === "option3"}
+          onClick={(value) => {
+            setSelected(value);
+            setIsOpen(false);
+          }}
+        />
+      </Flex>
+    }
+  />
+);`,
+      language: "tsx",
+      label: "Basic Usage"
+    }
+  ]}
+/>
+
+## Custom positioning
+
+Control the placement of the dropdown relative to its trigger element.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <CustomPositionDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [isOpen, setIsOpen] = useState(false);
+
+return (
+  <Flex horizontal="center">
+    <DropdownWrapper
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      floatingPlacement="top"
+      trigger={
+        <Button onClick={() => setIsOpen(!isOpen)}>
+          Open Upward
+        </Button>
+      }
+      dropdown={
+        <Flex fillWidth padding="4" direction="column" gap="2">
+          <Option
+            label="Top option"
+            value="top"
+            onClick={() => setIsOpen(false)}
+          />
+          <Option
+            label="Middle option"
+            value="middle"
+            onClick={() => setIsOpen(false)}
+          />
+          <Option
+            label="Bottom option"
+            value="bottom"
+            onClick={() => setIsOpen(false)}
+          />
+        </Flex>
+      }
+    />
+  </Flex>
+);`,
+      language: "tsx",
+      label: "Positioning"
+    }
+  ]}
+/>
+
+## Custom width and height
+
+Control the dimensions of the dropdown menu.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <SearchableDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [isOpen, setIsOpen] = useState(false);
+
+return (
+  <DropdownWrapper
+    isOpen={isOpen}
+    onOpenChange={setIsOpen}
+    minWidth={20}    // Set minimum width in rem
+    maxWidth={30}    // Set maximum width in rem
+    minHeight={100}  // Set minimum height in pixels
+    trigger={
+      <Button 
+        variant="secondary" 
+        suffixIcon="chevronDown"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        Custom Size Dropdown
+      </Button>
+    }
+    dropdown={
+      <Flex fillWidth padding="4" direction="column" gap="2">
+        <Input
+          id="search-dropdown"
+          label="Search"
+          hasPrefix={<Icon name="search" size="xs" />}
+        />
+        <Option
+          label="Option with description"
+          value="option1"
+          description="This is a description for the option"
+          onClick={() => setIsOpen(false)}
+        />
+        <Option
+          label="Another option"
+          value="option2"
+          onClick={() => setIsOpen(false)}
+        />
+      </Flex>
+    }
+  />
+);`,
+      language: "tsx",
+      label: "Custom Size"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["trigger", "ReactNode"],
+    ["dropdown", "ReactNode"],
+    ["isOpen", "boolean", "false"],
+    ["onOpenChange", "(isOpen: boolean) => void"],
+    ["floatingPlacement", "Placement", "bottom-start"],
+    ["minWidth", "number"],
+    ["maxWidth", "number"],
+    ["minHeight", "number"],
+    ["fillWidth", "boolean", "false"],
+    ["selectedOption", "string"],
+    ["onSelect", "(value: string) => void"],
+    ["closeAfterClick", "boolean", "true"],
+    ["style", "React.CSSProperties"],
+    ["className", "string"]
+  ]}
+/>
