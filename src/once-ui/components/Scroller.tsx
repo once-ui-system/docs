@@ -126,11 +126,17 @@ const Scroller: React.FC<ScrollerProps> = ({
       {showPrevButton && (
         <Fade 
           base={fadeColor}
-          to="right"
-          width={4}
-          fillHeight
           position="absolute"
-          left="0"
+          padding="4"
+          horizontal={direction === "column" ? "center" : undefined}
+          vertical={direction === "column" ? "start" : "center"}
+          to={direction === "row" ? "right" : "bottom"}
+          width={direction === "row" ? 4 : undefined}
+          height={direction === "column" ? 4 : undefined}
+          fillHeight={direction === "row"}
+          fillWidth={direction === "column"}
+          left={direction === "row" ? "0" : undefined}
+          top={direction === "column" ? "0" : undefined}
           zIndex={1}
         >
           <IconButton
@@ -144,7 +150,6 @@ const Scroller: React.FC<ScrollerProps> = ({
             }}
             size="s"
             variant="secondary"
-            className={classNames(styles.scrollButton, styles.scrollButtonPrev)}
             aria-label="Scroll Previous"
           />
         </Fade>
@@ -162,11 +167,17 @@ const Scroller: React.FC<ScrollerProps> = ({
       {showNextButton && (
         <Fade
           base={fadeColor}
-          to="left"
-          width={4}
-          fillHeight
+          padding="4"
           position="absolute"
-          right="0"
+          horizontal={direction === "column" ? "center" : "end"}
+          vertical={direction === "column" ? "end" : "center"}
+          to={direction === "row" ? "left" : "top"}
+          width={direction === "row" ? 4 : undefined}
+          height={direction === "column" ? 4 : undefined}
+          fillHeight={direction === "row"}
+          fillWidth={direction === "column"}
+          right={direction === "row" ? "0" : undefined}
+          bottom={direction === "column" ? "0" : undefined}
           zIndex={1}
         >
           <IconButton
@@ -180,7 +191,6 @@ const Scroller: React.FC<ScrollerProps> = ({
             }}
             size="s"
             variant="secondary"
-            className={classNames(styles.scrollButton, styles.scrollButtonNext)}
             aria-label="Scroll Next"
           />
         </Fade>

@@ -97,13 +97,14 @@ const SegmentedControl: React.FC<SegmentedControlProps> = ({
   return (
     <Scroller
       direction="row"
+      fillWidth={fillWidth}
       minWidth={0}
       {...scrollerProps}
       role="tablist"
       aria-orientation="horizontal"
       onKeyDown={handleKeyDown}
     >
-      <Flex fillWidth gap="-1">
+      <Flex fillWidth={fillWidth} gap="-1">
         {buttons.map((button, index) => {
           return (
             <ToggleButton

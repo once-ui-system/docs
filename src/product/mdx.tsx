@@ -23,6 +23,7 @@ import { PropsTable } from "@/product/PropsTable";
 import { TextProps } from "@/once-ui/interfaces";
 import { SmartImageProps } from "@/once-ui/components/SmartImage";
 import { HeadingLink } from "@/once-ui/modules";
+import { ClientOption } from "@/product/ClientOption";
 
 import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "@/product/DialogExample";
 import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "@/product/DropdownWrapperExample";
@@ -195,6 +196,7 @@ const components = {
   IconsRawDropdown,
   DescriptionRawDropdown,
   CustomStyledRawDropdown,
+  ClientOption,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

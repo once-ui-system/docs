@@ -1,9 +1,93 @@
 ---
 title: "ScrollToTop"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The ScrollToTop component reveals a floating button that appears after a scroll offset and returns the user to the top of the page when clicked."
+updatedAt: "2025-05-09"
 navLabel: "ScrollToTop"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+Use this utility to improve navigation for long-scrolling pages. It's customizable with positioning and visibility logic based on scroll offset.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <ScrollToTop offset={100} position="relative">
+      <Button size="s" prefixIcon="arrowUp">Top</Button>
+    </ScrollToTop>
+  }
+  codeInstances={[
+    {
+      code:
+`<ScrollToTop offset={100}>
+    <Button size="s" prefixIcon="arrowUp">
+      Top
+    </Button>
+</ScrollToTop>`,
+      language: "tsx",
+      label: "ScrollToTop"
+    }
+  ]}
+/>
+
+## Offset
+
+Define how far the user must scroll before the button becomes visible.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <ScrollToTop offset={400} position="relative">
+      <IconButton icon="chevronUp"/>
+    </ScrollToTop>
+  }
+  codeInstances={[
+    {
+      code:
+`<ScrollToTop offset={500}>
+    <IconButton icon="chevronUp"/>
+</ScrollToTop>`,
+      language: "tsx",
+      label: "Custom offset"
+    }
+  ]}
+/>
+
+## Custom style
+
+The button can be customized using `Flex` props and additional `className`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <ScrollToTop position="relative" offset={600} className="my-custom-style">
+      <Button size="s" variant="secondary" prefixIcon="arrowUp">Top</Button>
+    </ScrollToTop>
+  }
+  codeInstances={[
+    {
+      code:
+`<ScrollToTop position="relative" className="my-custom-style">
+  <Button size="s" variant="secondary" prefixIcon="chevronUp">
+    Top
+  </Button>
+</ScrollToTop>`,
+      language: "tsx",
+      label: "Custom style"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["offset", "number", "300"],
+    ["className"],
+    ["style"],
+    ["children"],
+    ["...FlexProps"]
+  ]}
+/>

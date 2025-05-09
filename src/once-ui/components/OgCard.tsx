@@ -7,6 +7,7 @@ import { useMemo } from "react";
 export interface OgData {
   title: string;
   description: string;
+  faviconUrl: string;
   image: string;
   url: string;
 }
@@ -72,8 +73,8 @@ const OgCard = ({ url, ogData: providedOgData, direction = "column", ...card }: 
   }, [data?.image]);
   
   const faviconUrl = useMemo(() => {
-    return getFaviconUrl(data?.url);
-  }, [data?.url]);
+    return data?.faviconUrl || getFaviconUrl(data?.url);
+  }, [data?.faviconUrl, data?.url]);
   
   if (!data || (!data.image && !data.title)) {
     return null;

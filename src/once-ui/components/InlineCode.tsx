@@ -7,8 +7,8 @@ import classNames from "classnames";
 
 interface InlineCodeProps extends React.ComponentProps<typeof Flex> {
   children: ReactNode;
-  className: string;
-  style: React.CSSProperties;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const InlineCode = forwardRef<HTMLDivElement, InlineCodeProps>(({ children, className, style, ...rest }, ref) => {

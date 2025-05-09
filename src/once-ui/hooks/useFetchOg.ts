@@ -5,6 +5,7 @@ interface OgData {
   description: string;
   image: string;
   url: string;
+  faviconUrl?: string;
 }
 
 export function useOgData(url: string | null) {
