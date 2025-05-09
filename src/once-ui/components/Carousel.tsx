@@ -108,6 +108,7 @@ const Carousel: React.FC<CarouselProps> = ({
             <Flex gap="4" paddingX="s" fillWidth horizontal="center">
               {images.map((_, index) => (
                 <Flex
+                  radius="full"
                   key={index}
                   onClick={() => handleControlClick(index)}
                   style={{

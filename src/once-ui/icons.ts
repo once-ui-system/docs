@@ -51,6 +51,10 @@ import {
   HiOutlineBell,
   HiOutlineChatBubbleLeftRight,
   HiOutlineHeart,
+  HiOutlinePlay,
+  HiOutlinePause,
+  HiOutlinePencil,
+  HiOutlineTrash,
 } from "react-icons/hi2";
 
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
@@ -73,6 +77,8 @@ export const iconLibrary: Record<string, IconType> = {
   warning: HiOutlineExclamationTriangle,
   danger: HiOutlineExclamationCircle,
   check: HiOutlineCheckCircle,
+  play: HiOutlinePlay,
+  pause: HiOutlinePause,
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
   person: HiMiniUser,
@@ -121,7 +127,10 @@ export const iconLibrary: Record<string, IconType> = {
   tshirt: PiTShirt,
   cart: HiOutlineShoppingCart,
   ruler: PiRuler,
-  discount: RiDiscountPercentLine
+  discount: RiDiscountPercentLine,
+  edit: HiOutlinePencil,
+  copy: HiOutlineDocumentDuplicate,
+  delete: HiOutlineTrash,
 };
 
 export type IconLibrary = typeof iconLibrary;

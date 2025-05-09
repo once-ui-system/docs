@@ -1,12 +1,120 @@
 ---
 title: "Carousel"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Carousel component displays a collection of images with navigation controls and transition effects."
+updatedAt: "2025-05-09"
 navLabel: "Carousel"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Title
+An interactive component for displaying a collection of images with smooth transitions and navigation controls. The Carousel supports both line and thumbnail indicators for navigation between images.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Carousel
+      radius="l"
+      images={[
+        { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+        { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+      ]}
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<Carousel
+    images={[
+      { src: "/images/1.jpg", alt: "Image 1" },
+      { src: "/images/2.jpg", alt: "Image 2" },
+    ]}
+/>`,
+      language: "tsx",
+      label: "Carousel"
+    }
+  ]}
+/>
+
+## Indicator
+
+The Carousel supports two types of indicators for navigation: line (default) and thumbnail.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Column gap="32" fillWidth>
+      <Carousel
+        indicator="line"
+        images={[
+          { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+          { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+        ]}
+      />
+      <Carousel
+        indicator="thumbnail"
+        images={[
+          { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+          { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+        ]}
+      />
+    </Column>
+  }
+  codeInstances={[
+    {
+      code:
+`<Carousel
+    indicator="line"
+    images={[
+      { src: "/images/1.jpg", alt: "Image 1" },
+      { src: "/images/2.jpg", alt: "Image 2" },
+    ]}
+/>
+
+<Carousel
+    indicator="thumbnail"
+    images={[
+      { src: "/images/1.jpg", alt: "Image 1" },
+      { src: "/images/2.jpg", alt: "Image 2" },
+    ]}
+/>`,
+      language: "tsx",
+      label: "Indicator"
+    }
+  ]}
+/>
+
+## Aspect ratio
+
+You can customize the aspect ratio of the carousel to fit your design needs.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Carousel
+      aspectRatio="4 / 3"
+      images={[
+        { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+        { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+      ]}
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<Carousel
+    aspectRatio="4 / 3"
+    images={[
+      { src: "/images/1.jpg", alt: "Image 1" },
+      { src: "/images/2.jpg", alt: "Image 2" },
+    ]}
+/>`,
+      language: "tsx",
+      label: "Aspect ratio"
+    }
+  ]}
+/>
 
 ## API reference
 
@@ -17,6 +125,6 @@ navIcon: "learn"
     ["aspectRatio", "string", "16 / 9"],
     ["sizes", "string"],
     ["revealedByDefault", "boolean", "false"],
-    ["...Flex", "FlexProps"]
+    ["...flex"]
   ]}
 />

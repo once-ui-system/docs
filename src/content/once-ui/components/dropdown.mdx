@@ -1,9 +1,229 @@
 ---
 title: "Dropdown"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Dropdown component provides a container for displaying selectable options in a dropdown menu."
+updatedAt: "2025-05-09"
 navLabel: "Dropdown"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+The Dropdown component is a container for displaying selectable options in a dropdown menu. It provides a way to present a list of selectable options with various styling and interaction capabilities.
+
+## Basic usage
+
+A simple dropdown container with options.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <BasicRawDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [selected, setSelected] = useState("");
+
+return (
+  <Dropdown
+    selectedOption={selected}
+    onSelect={(value) => setSelected(value)}
+    radius="m"
+    border="neutral-medium"
+    background="surface"
+  >
+    <Option
+      label="Option 1"
+      value="option1"
+      selected={selected === "option1"}
+    />
+    <Option
+      label="Option 2"
+      value="option2"
+      selected={selected === "option2"}
+    />
+    <Option
+      label="Option 3"
+      value="option3"
+      selected={selected === "option3"}
+    />
+  </Dropdown>
+);`,
+      language: "tsx",
+      label: "Basic Usage"
+    }
+  ]}
+/>
+
+## With icons
+
+Enhance dropdown options with icons for better visual communication.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <IconsRawDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [selected, setSelected] = useState("");
+
+return (
+  <Dropdown
+    selectedOption={selected}
+    onSelect={(value) => setSelected(value)}
+    radius="m"
+    border="neutral-medium"
+    background="surface"
+  >
+    <Option
+      label="Edit"
+      value="edit"
+      hasPrefix={<Icon name="edit" size="s" />}
+      selected={selected === "edit"}
+    />
+    <Option
+      label="Duplicate"
+      value="duplicate"
+      hasPrefix={<Icon name="copy" size="s" />}
+      selected={selected === "duplicate"}
+    />
+    <Option
+      label="Delete"
+      value="delete"
+      hasPrefix={<Icon name="trash" size="s" />}
+      danger
+      selected={selected === "delete"}
+    />
+  </Dropdown>
+);`,
+      language: "tsx",
+      label: "With Icons"
+    }
+  ]}
+/>
+
+## With descriptions
+
+Add descriptive text to dropdown options for additional context.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <DescriptionRawDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [selected, setSelected] = useState("");
+
+return (
+  <Dropdown
+    selectedOption={selected}
+    onSelect={(value) => setSelected(value)}
+    radius="m"
+    border="neutral-medium"
+    background="surface"
+  >
+    <Option
+      label="Apple"
+      value="apple"
+      description="A fruit that grows on trees"
+      selected={selected === "apple"}
+    />
+    <Option
+      label="Banana"
+      value="banana"
+      description="A curved yellow fruit"
+      selected={selected === "banana"}
+    />
+    <Option
+      label="Carrot"
+      value="carrot"
+      description="An orange root vegetable"
+      selected={selected === "carrot"}
+    />
+  </Dropdown>
+);`,
+      language: "tsx",
+      label: "With Descriptions"
+    }
+  ]}
+/>
+
+## Custom styling
+
+Customize the appearance of the dropdown with Flex props.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <CustomStyledRawDropdown />
+  }
+  codeInstances={[
+    {
+      code:
+`const [selected, setSelected] = useState("");
+
+return (
+  <Dropdown
+    selectedOption={selected}
+    onSelect={(value) => setSelected(value)}
+    radius="xl"
+    border="brand-medium"
+    background="brand-weak"
+    shadow="m"
+    padding="8"
+    gap="8"
+  >
+    <Option
+      label="Small"
+      value="small"
+      selected={selected === "small"}
+    />
+    <Option
+      label="Medium"
+      value="medium"
+      selected={selected === "medium"}
+    />
+    <Option
+      label="Large"
+      value="large"
+      selected={selected === "large"}
+    />
+  </Dropdown>
+);`,
+      language: "tsx",
+      label: "Custom Styling"
+    }
+  ]}
+/>
+
+## Accessibility
+
+The Dropdown component follows accessibility best practices:
+
+- Uses `role="listbox"` for the dropdown container
+- Provides `aria-selected` state for selected options
+- Supports keyboard navigation
+- Properly manages focus when opening and closing
+
+## API reference
+
+<PropsTable
+  content={[
+    ["selectedOption", "string"],
+    ["onSelect", "(value: string) => void"],
+    ["onEscape", "() => void"],
+    ["children", "ReactNode"],
+    ["...flex"]
+  ]}
+/>
+
+## Related components
+
+- [DropdownWrapper](/once-ui/components/dropdownWrapper) - A container for creating dropdown menus with positioning and state management
+- [Option](/once-ui/components/option) - Individual selectable items used within dropdowns

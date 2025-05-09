@@ -12,27 +12,25 @@ A versatile component for displaying highlighted information, labels, or interac
   marginTop="16"
   marginBottom="24"
   codePreview={
-    <Row gap="16" horizontal="center">
-      <Badge title="New Feature" />
-      <Badge title="Coming Soon" icon="calendar" />
-      <Badge title="Learn More" href="#" />
+    <Row gap="16" center>
+      <Badge id="badge-1" title="New feature" effect={false} arrow={false} paddingX="12" paddingY="8" onBackground="brand-medium" background="brand-alpha-weak" textVariant="label-default-s" />
+      <Badge id="badge-2" title="Coming soon" icon="calendar" arrow={false} paddingLeft="12" paddingRight="16" paddingY="8" onBackground="brand-medium" background="brand-medium" />
+      <Badge id="badge-3" title="Learn more" textVariant="code-default-s" href="#"/>
     </Row>
   }
   codeInstances={[
     {
       code:
-`<Row gap="16">
-    <Badge title="New Feature" />
-    <Badge title="Coming Soon" icon="calendar" />
-    <Badge title="Learn More" href="#" />
-</Row>`,
+`<Badge id="badge-1" title="New feature" effect={false} arrow={false} paddingX="12" paddingY="8" onBackground="brand-medium" background="brand-alpha-weak" textVariant="label-default-s" />
+<Badge id="badge-2" title="Coming soon" icon="calendar" arrow={false} paddingLeft="12" paddingRight="16" paddingY="8" onBackground="brand-medium" background="brand-medium" />
+<Badge id="badge-3" title="Learn more" href="#"/>`,
       language: "tsx",
       label: "Badge"
     }
   ]}
 />
 
-## With icon
+## Icon
 
 Add icons to badges to enhance visual communication.
 
@@ -41,28 +39,24 @@ Add icons to badges to enhance visual communication.
   marginBottom="24"
   codePreview={
     <Row gap="16" horizontal="center">
-      <Badge title="Settings" icon="settings" />
-      <Badge title="Notifications" icon="bell" />
-      <Badge title="Security" icon="shield" />
-      <Badge title="Updates" icon="refresh" />
+      <Badge title="New release" icon="rocket" arrow={false} effect={false}/>
+      <Badge title="Improved security" icon="check" arrow={false} effect={false}/>
+      <Badge title="New: Dark mode" icon="dark" arrow={false} effect={false}/>
     </Row>
   }
   codeInstances={[
     {
       code:
-`<Row gap="16">
-    <Badge title="Settings" icon="settings" />
-    <Badge title="Notifications" icon="bell" />
-    <Badge title="Security" icon="shield" />
-    <Badge title="Updates" icon="refresh" />
-</Row>`,
+`<Badge title="New release" icon="rocket" arrow={false} effect={false}/>
+<Badge title="Improved security" icon="check" arrow={false} effect={false}/>
+<Badge title="New: Dark mode" icon="dark" arrow={false} effect={false}/>`,
       language: "tsx",
-      label: "Badges with icons"
+      label: "Icon"
     }
   ]}
 />
 
-## Interactive badges
+## Link
 
 Badges can be made interactive by adding the `href` prop, turning them into links.
 
@@ -71,54 +65,44 @@ Badges can be made interactive by adding the `href` prop, turning them into link
   marginBottom="24"
   codePreview={
     <Row gap="16" horizontal="center">
-      <Badge title="Documentation" href="#" icon="book" />
-      <Badge title="Get Started" href="#" icon="play" />
-      <Badge title="View Demo" href="#" icon="eye" />
+      <Badge href="#" id="badge-4" title="Documentation" icon="pages" textVariant="label-default-s" />
     </Row>
   }
   codeInstances={[
     {
       code:
-`<Row gap="16">
-    <Badge title="Documentation" href="#" icon="book" />
-    <Badge title="Get Started" href="#" icon="play" />
-    <Badge title="View Demo" href="#" icon="eye" />
-</Row>`,
+`<Badge href="#" id="badge-4" title="Documentation" icon="pages" textVariant="label-default-s" />`,
       language: "tsx",
       label: "Interactive badges"
     }
   ]}
 />
 
-## Without arrow
+## Arrow
 
-Badges can be displayed without the arrow indicator by setting the `arrow` prop to `false`.
+Badges can be displayed without the arrow indicator by setting the `arrow` prop to `false`. If using multiple badges on a page, add custom `id` to each badge to ensure the arrow gets rendered.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
   codePreview={
     <Row gap="16" horizontal="center">
-      <Badge title="No Arrow" arrow={false} />
-      <Badge title="With Icon" icon="info" arrow={false} />
-      <Badge title="Link" href="#" arrow={false} />
+      <Badge id="badge-5" title="With arrow"/>
+      <Badge title="Without arrow" arrow={false} />
     </Row>
   }
   codeInstances={[
     {
       code:
-`<Row gap="16">
-    <Badge title="No Arrow" arrow={false} />
-    <Badge title="With Icon" icon="info" arrow={false} />
-    <Badge title="Link" href="#" arrow={false} />
-</Row>`,
+`<Badge id="badge-5" title="With arrow"/>
+<Badge title="Without arrow" arrow={false} />`,
       language: "tsx",
-      label: "Badges without arrow"
+      label: "Arrow"
     }
   ]}
 />
 
-## Without animation
+## Effect
 
 Disable the hover animation effect by setting the `effect` prop to `false`.
 
@@ -127,19 +111,17 @@ Disable the hover animation effect by setting the `effect` prop to `false`.
   marginBottom="24"
   codePreview={
     <Row gap="16" horizontal="center">
-      <Badge title="Static Badge" effect={false} />
-      <Badge title="No Animation" icon="pause" effect={false} />
+      <Badge title="With effect" textVariant="label-default-s" icon="play" />
+      <Badge title="Without effect" textVariant="label-default-s" icon="pause" effect={false} />
     </Row>
   }
   codeInstances={[
     {
       code:
-`<Row gap="16">
-    <Badge title="Static Badge" effect={false} />
-    <Badge title="No Animation" icon="pause" effect={false} />
-</Row>`,
+`<Badge title="With effect" icon="play" />
+<Badge title="Without effect" icon="pause" effect={false} />`,
       language: "tsx",
-      label: "Static badges"
+      label: "Effect"
     }
   ]}
 />
@@ -152,50 +134,37 @@ Badges can contain custom content using children instead of the `title` prop.
   marginTop="16"
   marginBottom="24"
   codePreview={
-    <Row gap="16" horizontal="center">
-      <Badge>
-        <Flex gap="8" vertical="center">
-          <Icon name="star" size="s" onBackground="brand-medium" />
-          <Text onBackground="brand-strong" variant="label-strong-s">Custom Content</Text>
-          <Icon name="star" size="s" onBackground="brand-medium" />
-        </Flex>
-      </Badge>
-    </Row>
+    <Badge id="badge-6" paddingY="4" paddingLeft="4" paddingRight="8" gap="12" textVariant="label-default-s" border="neutral-medium" background="neutral-alpha-weak">
+      <Tag>New</Tag>
+      Custom content
+    </Badge>
   }
   codeInstances={[
     {
       code:
-`<Badge>
-    <Flex gap="8" vertical="center">
-      <Icon name="star" size="s" onBackground="brand-medium" />
-      <Text onBackground="brand-strong" variant="label-strong-s">Custom Content</Text>
-      <Icon name="star" size="s" onBackground="brand-medium" />
-    </Flex>
+`<Badge id="badge-6" paddingY="4" paddingLeft="4" paddingRight="8" gap="12" textVariant="label-default-s" border="neutral-medium" background="neutral-alpha-weak">
+    <Tag>New</Tag>
+    Custom content
 </Badge>`,
       language: "tsx",
-      label: "Custom badge content"
+      label: "Custom content"
     }
   ]}
 />
 
 ## API reference
 
-<Table
-  marginTop="16"
-  marginBottom="24"
-  data={{
-    headers: [
-      { header: "Prop" },
-      { header: "Type" },
-      { header: "Default" },
-    ],
-    rows: [
-      ["title", <InlineCode>string</InlineCode>, "-"],
-      ["icon", <InlineCode>IconName</InlineCode>, "-"],
-      ["arrow", <InlineCode>boolean</InlineCode>, <InlineCode>true</InlineCode>],
-      ["href", <InlineCode>string</InlineCode>, "-"],
-      ["effect", <InlineCode>boolean</InlineCode>, <InlineCode>true</InlineCode>],
-      ["children", <InlineCode>React.ReactNode</InlineCode>, "-"]
-    ]
-  }}
+<PropsTable
+  content={[
+    ["title", "string"],
+    ["icon", "IconName"],
+    ["arrow", "boolean"],
+    ["href", "string"],
+    ["effect", "boolean"],
+    ["id", "string", "badge"],
+    ["children"],
+    ["className"],
+    ["style"],
+    ["...flex"]
+  ]}
 />

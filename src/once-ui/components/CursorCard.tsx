@@ -9,6 +9,7 @@ import React, {
   useImperativeHandle,
   useCallback,
 } from "react";
+import { createPortal } from "react-dom";
 import {
   Placement,
 } from "@floating-ui/react-dom";
@@ -68,6 +69,27 @@ const CursorCard = forwardRef<HTMLDivElement, CursorCardProps>(
       }
     }, [handleMouseMove, isTouchDevice]);
 
+    // Create a portal container if it doesn't exist
+    useEffect(() => {
+      if (typeof document !== 'undefined') {
+        let portalContainer = document.getElementById('cursor-card-portal');
+        if (!portalContainer) {
+          portalContainer = document.createElement('div');
+          portalContainer.id = 'cursor-card-portal';
+          document.body.appendChild(portalContainer);
+        }
+      }
+      
+      return () => {
+        if (typeof document !== 'undefined') {
+          const portalContainer = document.getElementById('cursor-card-portal');
+          if (portalContainer && portalContainer.childNodes.length === 0) {
+            document.body.removeChild(portalContainer);
+          }
+        }
+      };
+    }, []);
+
     return (
       <>
         {trigger && (
@@ -79,23 +101,25 @@ const CursorCard = forwardRef<HTMLDivElement, CursorCardProps>(
             {trigger}
           </Flex>
         )}
-        {isHovering && !isTouchDevice && (
+        {isHovering && !isTouchDevice && typeof document !== 'undefined' && createPortal(
           <Flex
-            zIndex={9}
+            zIndex={10}
             position="fixed"
+            top="0"
+            left="0"
             pointerEvents="none"
-            {...flex}
             ref={cardRef}
             className={`${styles.fadeIn} ${className || ""}`}
             style={{
-              top: mousePosition.y,
-              left: mousePosition.x,
-              transform: `translate(${placement.includes("left") ? "-100%" : placement.includes("right") ? "0" : "-50%"}, ${placement.includes("top") ? "-100%" : placement.includes("bottom") ? "0" : "-50%"})`,
+              isolation: "isolate",
+              transform: `translate(calc(${mousePosition.x}px ${placement.includes("left") ? "- 100%" : placement.includes("right") ? "" : "- 50%"}), calc(${mousePosition.y}px ${placement.includes("top") ? "- 100%" : placement.includes("bottom") ? "" : "- 50%"}))`,
               ...style,
             }}
+            {...flex}
           >
             {overlay}
-          </Flex>
+          </Flex>,
+          document.getElementById('cursor-card-portal') || document.body
         )}
       </>
     );

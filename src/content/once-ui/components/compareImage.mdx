@@ -3,7 +3,7 @@ title: "CompareImage"
 summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
 updatedAt: "2025-05-04"
 navLabel: "CompareImage"
-navIcon: "learn"
+navIcon: "components"
 ---
 
 <CodeBlock
@@ -27,8 +27,8 @@ navIcon: "learn"
     border="neutral-alpha-weak"
     overflow="hidden"
     aspectRatio="16 / 9"
-    leftContent={{ src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Left image - Vibe Coding light" }}
-    rightContent={{ src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Right image - Vibe Coding dark" }}
+    leftContent={{ src: "/images/1.jpg", alt: "Image 1" }}
+    rightContent={{ src: "/images/2.jpg", alt: "Image 2" }}
 />`,
       language: "tsx",
       label: "Image"
@@ -60,11 +60,19 @@ The `CompareImage` component supports `ReactNode` for the content.
     border="neutral-alpha-weak"
     overflow="hidden"
     aspectRatio="16 / 9"
-    leftContent={{ src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Left image - Vibe Coding light" }}
-    rightContent={{ src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Right image - Vibe Coding dark" }}
+    leftContent={{ src: "/images/1.jpg", alt: "Image 1" }}
+    rightContent={{ src: "/images/2.jpg", alt: "Image 2" }}
 />`,
       language: "tsx",
       label: "ReactNode"
     }
+  ]}
+/>
+
+<PropsTable
+  content={[
+    ["leftContent", "{ src: string | React.ReactNode, alt?: string }"],
+    ["rightContent", "{ src: string | React.ReactNode, alt?: string }"],
+    ["...flex"]
   ]}
 />

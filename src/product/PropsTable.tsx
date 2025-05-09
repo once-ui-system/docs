@@ -28,9 +28,19 @@ function PropsTable({ content }: PropsTableProps) {
       // Third item (if exists) is the default value
       const defaultValue = propData.length > 2 ? propData[2] : "-";
       
-      // Render type differently based on whether it's an array or string
+      // Render type differently based on special props or data type
       let typeDisplay: ReactNode;
-      if (Array.isArray(propType)) {
+      
+      // Special case for common props
+      if (propName === "children") {
+        typeDisplay = <InlineCode>React.ReactNode</InlineCode>;
+      } else if (propName === "style") {
+        typeDisplay = <InlineCode>React.CSSProperties</InlineCode>;
+      } else if (propName === "className") {
+        typeDisplay = <InlineCode>string</InlineCode>;
+      } else if (propName === "...flex" || propName.includes("FlexProps")) {
+        typeDisplay = <InlineCode>FlexProps</InlineCode>;
+      } else if (Array.isArray(propType)) {
         typeDisplay = (
           <Row gap="4" wrap>
             {(propType as string[]).map((value, index) => (
@@ -42,7 +52,6 @@ function PropsTable({ content }: PropsTableProps) {
         typeDisplay = <InlineCode>{propType}</InlineCode>;
       }
       
-      // Render default value with InlineCode if it exists
       const defaultDisplay = defaultValue === "-" ? <Text onBackground="neutral-weak">—</Text> : <InlineCode>{defaultValue}</InlineCode>;
       
       return [propName, typeDisplay, defaultDisplay];
