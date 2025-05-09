@@ -41,7 +41,7 @@ export function BasicDropdown() {
         </Button>
       }
       dropdown={
-        <Flex fillWidth padding="4" direction="column" gap="2">
+        <Column minWidth={10} padding="4" gap="2">
           {options.map((option) => (
             <Option
               key={option.value}
@@ -51,7 +51,7 @@ export function BasicDropdown() {
               onClick={handleSelect}
             />
           ))}
-        </Flex>
+        </Column>
       }
     />
   );
@@ -109,10 +109,10 @@ export function CustomPositionDropdown() {
   const [selected, setSelected] = useState("");
   
   const options = [
-    { label: "Top option", value: "top" },
-    { label: "Middle option", value: "middle" },
-    { label: "Bottom option", value: "bottom" }
-  ];
+    { label: "Option 1", value: "option1" },
+    { label: "Option 2", value: "option2" },
+    { label: "Option 3", value: "option3" }
+];
   
   const handleSelect = (value: string) => {
     setSelected(value);
@@ -120,33 +120,31 @@ export function CustomPositionDropdown() {
   };
   
   return (
-    <Flex horizontal="center">
-      <DropdownWrapper
-        isOpen={isOpen}
-        onOpenChange={setIsOpen}
-        floatingPlacement="top"
-        trigger={
-          <Button 
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            Open Upward
-          </Button>
-        }
-        dropdown={
-          <Flex fillWidth padding="4" direction="column" gap="2">
-            {options.map((option) => (
-              <Option
-                key={option.value}
-                label={option.label}
-                value={option.value}
-                selected={option.value === selected}
-                onClick={handleSelect}
-              />
-            ))}
-          </Flex>
-        }
-      />
-    </Flex>
+    <DropdownWrapper
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      floatingPlacement="right-start"
+      trigger={
+        <Button 
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          Open right
+        </Button>
+      }
+      dropdown={
+        <Flex fillWidth padding="4" direction="column" gap="2">
+          {options.map((option) => (
+            <Option
+              key={option.value}
+              label={option.label}
+              value={option.value}
+              selected={option.value === selected}
+              onClick={handleSelect}
+            />
+          ))}
+        </Flex>
+      }
+    />
   );
 }
 
@@ -176,7 +174,7 @@ export function SearchableDropdown() {
     <DropdownWrapper
       isOpen={isOpen}
       onOpenChange={setIsOpen}
-      minWidth={20}
+      minHeight={200}
       trigger={
         <Button 
           variant="secondary" 
@@ -187,9 +185,11 @@ export function SearchableDropdown() {
         </Button>
       }
       dropdown={
-        <Column fillWidth>
-          <Flex fillWidth padding="8">
+        <Column fillWidth minWidth={12}>
+          <Column padding="4" fillWidth position="sticky" top="0" background="page" zIndex={1}>
             <Input
+              labelAsPlaceholder
+              height="s"
               id="search-dropdown"
               label="Search"
               hasPrefix={<Icon name="search" size="xs" />}
@@ -197,8 +197,8 @@ export function SearchableDropdown() {
               onChange={(e) => setSearchQuery(e.target.value)}
               onClick={(e) => e.stopPropagation()}
             />
-          </Flex>
-          <Flex fillWidth padding="4" direction="column" gap="2">
+          </Column>
+          <Column fillWidth gap="2" padding="4">
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (
                 <Option
@@ -211,11 +211,11 @@ export function SearchableDropdown() {
                 />
               ))
             ) : (
-              <Flex fillWidth vertical="center" horizontal="center" paddingX="16" paddingY="32">
+              <Flex fillWidth center paddingX="16" paddingY="32">
                 <Text>No results found</Text>
               </Flex>
             )}
-          </Flex>
+          </Column>
         </Column>
       }
     />

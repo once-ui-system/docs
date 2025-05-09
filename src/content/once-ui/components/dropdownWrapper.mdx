@@ -16,7 +16,9 @@ A simple dropdown with a button trigger and custom content.
   marginTop="16"
   marginBottom="24"
   codePreview={
-    <BasicDropdown />
+    <Row fillWidth height={10} horizontal="center" vertical="start">
+      <BasicDropdown />
+    </Row>
   }
   codeInstances={[
     {
@@ -24,59 +26,52 @@ A simple dropdown with a button trigger and custom content.
 `const [isOpen, setIsOpen] = useState(false);
 const [selected, setSelected] = useState("");
 
+const options = [
+    { label: "Option 1", value: "option1" },
+    { label: "Option 2", value: "option2" },
+    { label: "Option 3", value: "option3" }
+];
+
+const handleSelect = (value: string) => {
+    setSelected(value);
+    setIsOpen(false);
+};
+
 return (
-  <DropdownWrapper
-    isOpen={isOpen}
-    onOpenChange={setIsOpen}
-    trigger={
-      <Button 
-        variant="secondary" 
-        suffixIcon="chevronDown"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {selected || "Select an option"}
-      </Button>
-    }
-    dropdown={
-      <Flex fillWidth padding="4" direction="column" gap="2">
-        <Option
-          label="Option 1"
-          value="option1"
-          selected={selected === "option1"}
-          onClick={(value) => {
-            setSelected(value);
-            setIsOpen(false);
-          }}
-        />
-        <Option
-          label="Option 2"
-          value="option2"
-          selected={selected === "option2"}
-          onClick={(value) => {
-            setSelected(value);
-            setIsOpen(false);
-          }}
-        />
-        <Option
-          label="Option 3"
-          value="option3"
-          selected={selected === "option3"}
-          onClick={(value) => {
-            setSelected(value);
-            setIsOpen(false);
-          }}
-        />
-      </Flex>
-    }
-  />
+    <DropdownWrapper
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      trigger={
+        <Button 
+          variant="secondary" 
+          suffixIcon="chevronDown"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {selected ? options.find(opt => opt.value === selected)?.label : "Select an option"}
+        </Button>
+      }
+      dropdown={
+        <Column minWidth={10} padding="4" gap="2">
+          {options.map((option) => (
+            <Option
+              key={option.value}
+              label={option.label}
+              value={option.value}
+              selected={option.value === selected}
+              onClick={handleSelect}
+            />
+          ))}
+        </Column>
+      }
+    />
 );`,
       language: "tsx",
-      label: "Basic Usage"
+      label: "DropdownWrapper"
     }
   ]}
 />
 
-## Custom positioning
+## Placement
 
 Control the placement of the dropdown relative to its trigger element.
 
@@ -84,7 +79,9 @@ Control the placement of the dropdown relative to its trigger element.
   marginTop="16"
   marginBottom="24"
   codePreview={
-    <CustomPositionDropdown />
+    <Row fillWidth height={10} horizontal="center" vertical="start">
+      <CustomPositionDropdown />
+    </Row>
   }
   codeInstances={[
     {
@@ -125,66 +122,101 @@ return (
   </Flex>
 );`,
       language: "tsx",
-      label: "Positioning"
+      label: "Placement"
     }
   ]}
 />
 
-## Custom width and height
+## Custom
 
 Control the dimensions of the dropdown menu.
+
+<Feedback marginY="12" variant="warning" vertical="center" description="The DropdownWrapper component doesn't handle keyboard navigation. Make sure to implement it when using the component."/>
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
   codePreview={
-    <SearchableDropdown />
+    <Row fillWidth height={10} horizontal="center" vertical="start">
+      <SearchableDropdown />
+    </Row>
   }
   codeInstances={[
     {
       code:
 `const [isOpen, setIsOpen] = useState(false);
+const [selected, setSelected] = useState("");
+const [searchQuery, setSearchQuery] = useState("");
+
+const options = [
+    { label: "Apple", value: "apple", description: "Fruit" },
+    { label: "Banana", value: "banana", description: "Fruit" },
+    { label: "Carrot", value: "carrot", description: "Vegetable" },
+    { label: "Broccoli", value: "broccoli", description: "Vegetable" },
+    { label: "Orange", value: "orange", description: "Fruit" }
+];
+
+const handleSelect = (value: string) => {
+    setSelected(value);
+    setIsOpen(false);
+};
+
+const filteredOptions = options.filter(option => 
+    option.label.toLowerCase().includes(searchQuery.toLowerCase())
+);
 
 return (
-  <DropdownWrapper
-    isOpen={isOpen}
-    onOpenChange={setIsOpen}
-    minWidth={20}    // Set minimum width in rem
-    maxWidth={30}    // Set maximum width in rem
-    minHeight={100}  // Set minimum height in pixels
-    trigger={
-      <Button 
-        variant="secondary" 
-        suffixIcon="chevronDown"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        Custom Size Dropdown
-      </Button>
-    }
-    dropdown={
-      <Flex fillWidth padding="4" direction="column" gap="2">
-        <Input
-          id="search-dropdown"
-          label="Search"
-          hasPrefix={<Icon name="search" size="xs" />}
-        />
-        <Option
-          label="Option with description"
-          value="option1"
-          description="This is a description for the option"
-          onClick={() => setIsOpen(false)}
-        />
-        <Option
-          label="Another option"
-          value="option2"
-          onClick={() => setIsOpen(false)}
-        />
-      </Flex>
-    }
-  />
+    <DropdownWrapper
+      isOpen={isOpen}
+      onOpenChange={setIsOpen}
+      minHeight={200}
+      trigger={
+        <Button 
+          variant="secondary" 
+          suffixIcon="chevronDown"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {selected ? options.find(opt => opt.value === selected)?.label : "Search items"}
+        </Button>
+      }
+      dropdown={
+        <Column fillWidth minWidth={12}>
+          <Column padding="4" fillWidth position="sticky" top="0" background="page" zIndex={1}>
+            <Input
+              labelAsPlaceholder
+              height="s"
+              id="search-dropdown"
+              label="Search"
+              hasPrefix={<Icon name="search" size="xs" />}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </Column>
+          <Column fillWidth gap="2" padding="4">
+            {filteredOptions.length > 0 ? (
+              filteredOptions.map((option) => (
+                <Option
+                  key={option.value}
+                  label={option.label}
+                  value={option.value}
+                  description={option.description}
+                  selected={option.value === selected}
+                  onClick={handleSelect}
+                />
+              ))
+            ) : (
+              <Flex fillWidth center paddingX="16" paddingY="32">
+                <Text>No results found</Text>
+              </Flex>
+            )}
+          </Column>
+        </Column>
+      }
+    />
 );`,
       language: "tsx",
-      label: "Custom Size"
+      label: "Custom"
     }
   ]}
 />

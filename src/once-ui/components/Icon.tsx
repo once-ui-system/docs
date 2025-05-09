@@ -17,6 +17,8 @@ interface IconProps extends React.ComponentProps<typeof Flex> {
   decorative?: boolean;
   tooltip?: ReactNode;
   tooltipPosition?: "top" | "bottom" | "left" | "right";
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const Icon = forwardRef<HTMLDivElement, IconProps>(
@@ -29,6 +31,8 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(
       decorative = true,
       tooltip,
       tooltipPosition = "top",
+      className,
+      style,
       ...rest
     },
     ref,
@@ -77,11 +81,12 @@ const Icon = forwardRef<HTMLDivElement, IconProps>(
         fit
         as="span"
         ref={ref}
-        className={classNames(colorClass, styles.icon, styles[size])}
+        className={classNames(colorClass, styles.icon, styles[size], className)}
         aria-hidden={decorative ? "true" : undefined}
         aria-label={decorative ? undefined : name}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
+        style={style}
         {...rest}
       >
         <IconComponent />
