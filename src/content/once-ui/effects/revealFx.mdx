@@ -1,9 +1,55 @@
 ---
 title: "RevealFx"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "Reveals content with a vertical slide-in animation. Useful for motion-enhanced entrances of sections or cards."
+updatedAt: "2025-05-11"
 navLabel: "RevealFx"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+RevealFx animates content into view using a vertical translateY motion. You can control the speed, delay, and triggering behavior.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <RevealFx speed="medium" delay={0} translateY={0} trigger>
+      <Flex direction="column" padding="24" gap="8">
+        <Text variant="heading-strong-m">Special effects in v0.3.1</Text>
+        <Text onBackground="neutral-medium" marginBottom="16">
+          Great news. Been waiting for this!
+        </Text>
+        <Button label="Awesome!"/>
+      </Flex>
+    </RevealFx>
+  }
+  codeInstances={[
+    {
+      code:
+`<RevealFx speed="medium" delay={0} translateY={0} trigger>
+    <Column>
+      <Heading>Special effects in v0.3.1</Heading>
+      <Text>Great news. Been waiting for this!</Text>
+      <Button label="Awesome!"/>
+    </Column>
+</RevealFx>`,
+      language: "tsx",
+      label: "RevealFx"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["speed", ["slow", "medium", "fast"], "medium"],
+    ["delay", "number (seconds)", "0"],
+    ["revealedByDefault", "boolean", "false"],
+    ["translateY", "number | SpacingToken", "-"],
+    ["trigger", "boolean", "-"],
+    ["children"],
+    ["className"],
+    ["style"],
+    ["...flex"],
+  ]}
+/>
