@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Flex, SmartImage, IconButton } from ".";
+import { Flex, Media, IconButton } from ".";
 import styles from "./CompareImage.module.scss";
 
 interface SideContent {
@@ -17,7 +17,7 @@ interface CompareImageProps extends React.ComponentProps<typeof Flex> {
 const renderContent = (content: SideContent, clipPath: string) => {
   if (typeof content.src === "string") {
     return (
-      <SmartImage
+      <Media
         src={content.src}
         alt={content.alt || ""}
         fill

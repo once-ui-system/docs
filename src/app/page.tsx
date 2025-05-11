@@ -7,7 +7,7 @@ import {
   Button, 
   Grid, 
   Card, 
-  SmartImage, 
+  Media, 
   Line, 
   StatusIndicator
 } from "@/once-ui/components";
@@ -146,7 +146,7 @@ export default function Home() {
               padding="4"
               gap="4"
             >
-              <SmartImage 
+              <Media 
                 src={template.image} 
                 aspectRatio="16/9" 
                 radius="l" 
@@ -201,7 +201,7 @@ export default function Home() {
         <Row fillWidth gap="20" position="relative" mobileDirection="column">
           <Column fillWidth gap="12">
             {latestChangelogEntry.image && (
-              <SmartImage
+              <Media
                 priority
                 sizes="(max-width: 768px) 100vw, 768px"
                 radius="l"

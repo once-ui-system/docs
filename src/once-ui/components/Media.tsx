@@ -5,11 +5,11 @@ import Image from "next/image";
 
 import { Flex, Skeleton } from "@/once-ui/components";
 
-export interface SmartImageProps extends React.ComponentProps<typeof Flex> {
+export interface MediaProps extends React.ComponentProps<typeof Flex> {
   aspectRatio?: string;
   height?: number;
   alt?: string;
-  isLoading?: boolean;
+  loading?: boolean;
   objectFit?: CSSProperties["objectFit"];
   enlarge?: boolean;
   src: string;
@@ -18,11 +18,11 @@ export interface SmartImageProps extends React.ComponentProps<typeof Flex> {
   priority?: boolean;
 }
 
-const SmartImage: React.FC<SmartImageProps> = ({
+const Media: React.FC<MediaProps> = ({
   aspectRatio,
   height,
   alt = "",
-  isLoading = false,
+  loading = false,
   objectFit = "cover",
   enlarge = false,
   src,
@@ -131,8 +131,8 @@ const SmartImage: React.FC<SmartImageProps> = ({
         onClick={handleClick}
         {...rest}
       >
-        {isLoading && <Skeleton shape="block" />}
-        {!isLoading && isVideo && (
+        {loading && <Skeleton shape="block" />}
+        {!loading && isVideo && (
           <video
             src={src}
             autoPlay
@@ -146,7 +146,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
             }}
           />
         )}
-        {!isLoading && isYouTube && (
+        {!loading && isYouTube && (
           <iframe
             width="100%"
             height="100%"
@@ -159,7 +159,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
             }}
           />
         )}
-        {!isLoading && !isVideo && !isYouTube && (
+        {!loading && !isVideo && !isYouTube && (
           <Image
             src={src}
             alt={alt}
@@ -233,6 +233,5 @@ const SmartImage: React.FC<SmartImageProps> = ({
   );
 };
 
-SmartImage.displayName = "SmartImage";
-
-export { SmartImage };
+Media.displayName = "Media";
+export { Media };

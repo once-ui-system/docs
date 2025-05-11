@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, SmartLink, Row, Line, Text, Heading, SmartImage } from "@/once-ui/components";
+import { Column, SmartLink, Row, Line, Text, Heading, Media } from "@/once-ui/components";
 import { baseURL, meta, schema, changelog } from "@/app/resources";
 import { Meta, Schema, HeadingLink } from "@/once-ui/modules";
 import { formatDate } from "../utils/formatDate";
@@ -74,7 +74,7 @@ const Changelog: React.FC = () => {
             )}
             
             {entry.image && (
-              <SmartImage
+              <Media
                 priority={index === 0}
                 sizes="(max-width: 768px) 100vw, 768px"
                 marginTop="20"

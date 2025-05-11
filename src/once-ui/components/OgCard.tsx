@@ -1,6 +1,6 @@
 "use client";
 
-import { Column, SmartImage, Text, Row, Card } from "@/once-ui/components";
+import { Column, Media, Text, Row, Card } from "@/once-ui/components";
 import { useOgData } from "@/once-ui/hooks/useFetchOg";
 import { useMemo } from "react";
 
@@ -83,7 +83,7 @@ const OgCard = ({ url, ogData: providedOgData, direction = "column", ...card }: 
   return (
     <Card href={data.url} direction={direction} fillWidth vertical={direction === "row" || direction === "row-reverse" ? "center" : undefined} gap="4" radius="l" background="surface" border="neutral-alpha-medium" {...card}>
       {proxiedImageUrl && (
-        <SmartImage 
+        <Media 
           minWidth={(direction === "row" || direction === "row-reverse") ? 16 : undefined}
           maxWidth={(direction === "row" || direction === "row-reverse") ? 24 : undefined}
           isLoading={loading}
@@ -97,7 +97,7 @@ const OgCard = ({ url, ogData: providedOgData, direction = "column", ...card }: 
       <Column fillWidth paddingX="12" paddingY="12" gap="12">
         <Row fillWidth gap="8" vertical="center">
           {faviconUrl && (
-            <SmartImage 
+            <Media 
               aspectRatio="1/1" 
               src={faviconUrl} 
               minWidth="16"

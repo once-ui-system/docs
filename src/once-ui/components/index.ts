@@ -54,7 +54,7 @@ export * from "./ScrollToTop";
 export * from "./SegmentedControl";
 export * from "./Select";
 export * from "./Skeleton";
-export * from "./SmartImage";
+export * from "./Media";
 export * from "./SmartLink";
 export * from "./Spinner";
 export * from "./StatusIndicator";

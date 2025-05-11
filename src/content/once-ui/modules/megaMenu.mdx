@@ -1,9 +1,123 @@
 ---
 title: "MegaMenu"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "MegaMenu displays a top-level navigation bar with expandable dropdowns for organized access to grouped links. It supports dynamic sizing and contextual visibility."
+updatedAt: "2025-05-09"
 navLabel: "MegaMenu"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+Use `MegaMenu` for complex navigational layouts where primary sections include sub-links, descriptions, and icons. Ideal for app headers and multi-level SaaS interfaces.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <MegaMenu
+      menuGroups={[
+        {
+          id: "product",
+          label: "Product",
+          suffixIcon: "chevronDown",
+          sections: [
+            {
+              title: "Core",
+              links: [
+                {
+                  label: "Dashboard",
+                  href: "/dashboard",
+                  icon: "layoutDashboard",
+                  description: "Your personal control center",
+                },
+                {
+                  label: "Analytics",
+                  href: "/analytics",
+                  icon: "barChart",
+                  description: "Track your performance",
+                },
+              ],
+            },
+          ],
+        },
+      ]}
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<MegaMenu
+  menuGroups={[
+    {
+      id: "product",
+      label: "Product",
+      suffixIcon: "chevronDown",
+      sections: [
+        {
+          title: "Core",
+          links: [
+            {
+              label: "Dashboard",
+              href: "/dashboard",
+              icon: "layoutDashboard",
+              description: "Your personal control center",
+            },
+            {
+              label: "Analytics",
+              href: "/analytics",
+              icon: "barChart",
+              description: "Track your performance",
+            },
+          ],
+        },
+      ],
+    },
+  ]}
+/>`,
+      language: "tsx",
+      label: "Basic usage"
+    }
+  ]}
+/>
+
+## Responsive dropdown
+
+Dropdown alignment and sizing automatically adapts to the hovered group.
+
+## Auto-selection based on route
+
+When `href` is matched by the current route, the group or item is marked `selected`.
+
+## API reference
+
+<PropsTable
+  content={[
+    ["menuGroups", "MenuGroup[]"],
+    ["className"],
+    ["style"],
+    ["...FlexProps"]
+  ]}
+/>
+
+### Types
+
+```ts
+interface MenuLink {
+  label: ReactNode;
+  href: string;
+  icon?: string;
+  description?: ReactNode;
+  selected?: boolean;
+}
+
+interface MenuSection {
+  title?: ReactNode;
+  links: MenuLink[];
+}
+
+interface MenuGroup {
+  id: string;
+  label: ReactNode;
+  suffixIcon?: string;
+  href?: string;
+  selected?: boolean;
+  sections?: MenuSection[];
+}

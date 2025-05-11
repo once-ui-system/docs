@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import dynamic from "next/dynamic";
 
 import {
-  SmartImage,
+  Media,
   SmartLink,
   Text,
   InlineCode,
@@ -21,7 +21,7 @@ import * as onceComponents from "@/once-ui/components";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { PropsTable } from "@/product/PropsTable";
 import { TextProps } from "@/once-ui/interfaces";
-import { SmartImageProps } from "@/once-ui/components/SmartImage";
+import { MediaProps } from "@/once-ui/components/Media";
 import { HeadingLink } from "@/once-ui/modules";
 import { ClientOption } from "@/product/ClientOption";
 
@@ -58,14 +58,14 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
   );
 }
 
-function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) {
+function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   if (!src) {
-    console.error("SmartImage requires a valid 'src' property.");
+    console.error("Media requires a valid 'src' property.");
     return null;
   }
 
   return (
-    <SmartImage
+    <Media
       marginTop="8"
       marginBottom="16"
       enlarge
@@ -172,7 +172,7 @@ const components = {
   Text,
   CodeBlock,
   InlineCode,
-  SmartImage,
+  Media,
   SmartLink,
   Row,
   Column,
