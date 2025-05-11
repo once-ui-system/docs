@@ -86,7 +86,7 @@ const OgCard = ({ url, ogData: providedOgData, direction = "column", ...card }: 
         <Media 
           minWidth={(direction === "row" || direction === "row-reverse") ? 16 : undefined}
           maxWidth={(direction === "row" || direction === "row-reverse") ? 24 : undefined}
-          isLoading={loading}
+          loading={loading}
           radius="l"
           sizes="320px"
           aspectRatio="16/9" 

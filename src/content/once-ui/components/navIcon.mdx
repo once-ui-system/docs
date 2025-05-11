@@ -1,9 +1,196 @@
 ---
 title: "NavIcon"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The NavIcon component provides a toggleable hamburger menu icon for navigation interfaces."
+updatedAt: "2025-05-11"
 navLabel: "NavIcon"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+A simple yet effective component for creating hamburger menu icons that can toggle between active and inactive states. NavIcon is commonly used in responsive navigation interfaces to indicate the presence of a menu.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <NavIconToggle />
+  }
+  codeInstances={[
+    {
+      code:
+`"use client";
+import { NavIcon } from "@/once-ui/components";
+import { useState } from "react";
+
+function NavIconToggle() {
+  const [isActive, setIsActive] = useState(false);
+  
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
+
+  return (
+    <NavIcon isActive={isActive} onClick={handleClick} />
+  );
+}`,
+      language: "tsx",
+      label: "Interactive Example"
+    }
+  ]}
+/>
+
+## States
+
+NavIcon has two states: active and inactive, controlled by the `isActive` prop.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <NavIconStates />
+  }
+  codeInstances={[
+    {
+      code:
+`<NavIcon isActive={false} />
+<NavIcon isActive={true} />`,
+      language: "tsx",
+      label: "States"
+    }
+  ]}
+/>
+
+## Usage
+
+The NavIcon component is typically used in navigation headers to toggle mobile menus.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeInstances={[
+    {
+      code:
+`import { NavIcon } from "@/once-ui/components";
+import { useState } from "react";
+
+function MobileHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <header>
+      <div className="logo">My App</div>
+      <NavIcon 
+        isActive={menuOpen} 
+        onClick={toggleMenu} 
+      />
+      {menuOpen && (
+        <nav className="mobile-menu">
+          {/* Navigation links */}
+        </nav>
+      )}
+    </header>
+  );
+}`,
+      language: "tsx",
+      label: "Mobile Header Example"
+    }
+  ]}
+/>
+
+## Customization
+
+The NavIcon component accepts all the props of the `Flex` component, allowing for customization of size, spacing, and other properties.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeInstances={[
+    {
+      code:
+`<NavIcon 
+  isActive={isActive} 
+  onClick={handleClick}
+  width="48"
+  height="48"
+  background="primary-light"
+  padding="8"
+  radius="l"
+/>`,
+      language: "tsx",
+      label: "Customization"
+    }
+  ]}
+/>
+
+## Props
+
+<PropsTable
+  headers={[
+    { key: "prop", label: "Prop" },
+    { key: "type", label: "Type" },
+    { key: "default", label: "Default" },
+    { key: "description", label: "Description" }
+  ]}
+  rows={[
+    {
+      prop: "isActive",
+      type: "boolean",
+      default: "false",
+      description: "Controls the state of the NavIcon (active/inactive)"
+    },
+    {
+      prop: "onClick",
+      type: "() => void",
+      default: "undefined",
+      description: "Function called when the NavIcon is clicked"
+    },
+    {
+      prop: "className",
+      type: "string",
+      default: "undefined",
+      description: "Additional CSS class names to apply to the component"
+    },
+    {
+      prop: "style",
+      type: "React.CSSProperties",
+      default: "undefined",
+      description: "Inline styles to apply to the component"
+    },
+    {
+      prop: "...FlexProps",
+      type: "FlexProps",
+      default: "",
+      description: "All props from the Flex component are also supported"
+    }
+  ]}
+/>
+
+## Accessibility
+
+The NavIcon component includes a `tabIndex={0}` by default, making it keyboard accessible. When implementing NavIcon in your application, consider the following accessibility best practices:
+
+- Add an `aria-label` or `aria-labelledby` attribute to describe the purpose of the button
+- Use `aria-expanded` to indicate the current state of the menu it controls
+- Ensure the menu that is toggled by the NavIcon is properly accessible
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeInstances={[
+    {
+      code:
+`<NavIcon 
+  isActive={isMenuOpen} 
+  onClick={toggleMenu}
+  aria-label="Toggle navigation menu"
+  aria-expanded={isMenuOpen}
+  aria-controls="mobile-nav"
+/>`,
+      language: "tsx",
+      label: "Accessible NavIcon"
+    }
+  ]}
+/>
