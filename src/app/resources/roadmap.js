@@ -31,6 +31,11 @@ const roadmap = [
             description: "Simplified SEO with the new Meta and Schema. Better navigations with Command Palette, HeadingNav, MegaMenu. Minor styling improvements.",
             type: "feature"
           },
+          {
+            title: "New Docs",
+            description: "Rebuilt Once UI docs with Magic Docs from scratch. More examples, use cases, guides.",
+            type: "feature"
+          },
         ]
       }
     ]
@@ -226,9 +231,6 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
-          {
-
-          }
         ]
       },
       {
