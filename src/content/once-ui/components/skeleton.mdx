@@ -11,7 +11,7 @@ Use `Skeleton` to maintain layout consistency and improve perceived performance 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth fitHeight>
       <Skeleton shape="circle" width="l" height="l" />
       <Skeleton shape="line" delay="1" width="m" height="xs" />
@@ -19,7 +19,7 @@ Use `Skeleton` to maintain layout consistency and improve perceived performance 
       <Skeleton shape="block" delay="3" width="l" minHeight="80" />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Skeleton shape="circle" width="l" height="l" />
@@ -39,14 +39,14 @@ Skeletons can be shaped as lines, circles, or blocks.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth horizontal="center">
       <Skeleton shape="circle" />
       <Skeleton shape="line" height="xs" />
       <Skeleton shape="block" minHeight="48"/>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Skeleton shape="line" height="xs" />
@@ -65,7 +65,7 @@ Control the visual dimensions using predefined size tokens.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Skeleton shape="line" height="xl" width="xl" />
       <Skeleton shape="line" height="l" width="l" />
@@ -74,7 +74,7 @@ Control the visual dimensions using predefined size tokens.
       <Skeleton shape="line" height="xs" width="xs" />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Skeleton shape="line" height="xl" width="xl" />
@@ -95,14 +95,14 @@ Apply delay classes to stagger loading effects for multiple items.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Skeleton shape="line" width="l" delay="1" />
       <Skeleton shape="line" width="m" delay="2" />
       <Skeleton shape="line" width="s" delay="3" />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Skeleton shape="line" width="l" delay="1" />

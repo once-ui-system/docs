@@ -9,9 +9,9 @@ navIcon: "learn"
 component description
 
 <CodeBlock
-    codePreview={
+    preview={
         <CodeBlock
-            codeInstances={[
+            codes={[
                 {
                     code: "console.log('Hello, World!');",
                     language: "javascript",
@@ -20,7 +20,7 @@ component description
             ]}
         />
     }
-    codeInstances={[
+    codes={[
         {
             code: "console.log('Hello, World!');",
             language: "javascript",
@@ -39,7 +39,7 @@ component description
             { content: "Description", key: "description" }
         ],
         rows: [
-            ["codeInstances", "CodeInstance[]", "Array of code instances to display."]
+            ["codes", "CodeInstance[]", "Array of code instances to display."]
         ]
     }}
 />

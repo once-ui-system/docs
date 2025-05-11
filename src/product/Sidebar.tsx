@@ -124,7 +124,7 @@ const NavigationItemComponent: React.FC<{
             paddingBottom={undefined}
             paddingLeft="4"
             paddingTop="4"
-            open={shouldBeOpen} // Open if section is selected, contains active route, or is a parent of current path
+            open={shouldBeOpen}
             title={
               <Row textVariant="label-strong-s" onBackground="brand-strong">
                 {item.title}
@@ -157,20 +157,20 @@ const NavigationItemComponent: React.FC<{
       className={depth === 0 ? styles.navigation : undefined}
       href={`/${correctedSlug}`}>
       <Row fillWidth horizontal="space-between" vertical="center">
-          <Row
-            overflow="hidden"
-            gap="8"
-            onBackground={isSelected ? "neutral-strong" : "neutral-weak"}
-            textVariant={isSelected ? "label-strong-s" : "label-default-s"}
-            style={{ textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
-              {item.navIcon && <Icon size="xs" name={item.navIcon}/>}
-              {item.label || item.title}
-          </Row>
-          {item.navTag && (
-            <Tag data-theme="dark" data-brand={item.navTagVariant} style={{marginRight: "-0.5rem", transform: "scale(0.8)", transformOrigin: "right center"}} variant="brand" size="s">
-                {item.navTag}
-            </Tag>
-          )}
+        <Row
+          overflow="hidden"
+          gap="8"
+          onBackground={isSelected ? "neutral-strong" : "neutral-weak"}
+          textVariant={isSelected ? "label-strong-s" : "label-default-s"}
+          style={{ textOverflow: "ellipsis", whiteSpace: "nowrap"}}>
+            {item.navIcon && <Icon size="xs" name={item.navIcon}/>}
+            {item.label || item.title}
+        </Row>
+        {item.navTag && (
+          <Tag data-theme="dark" data-brand={item.navTagVariant} style={{marginRight: "-0.5rem", transform: "scale(0.8)", transformOrigin: "right center"}} variant="brand" size="s">
+              {item.navTag}
+          </Tag>
+        )}
       </Row>
     </ToggleButton>
   );

@@ -43,7 +43,7 @@ We expose two convenience wrappers: `Row` and `Column`. These are semantically e
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row fillWidth gap="16" mobileDirection="column" textVariant="label-default-s" onBackground="neutral-weak">
       <Background
         background="neutral-alpha-weak"
@@ -73,7 +73,7 @@ We expose two convenience wrappers: `Row` and `Column`. These are semantically e
       </Background>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row fillWidth gap="16" mobileDirection="column">
@@ -107,7 +107,7 @@ Rather than wrestling with `justifyContent` and `alignItems`, we use semantic `h
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="16">
       <Background
         background="neutral-alpha-weak"
@@ -129,7 +129,7 @@ Rather than wrestling with `justifyContent` and `alignItems`, we use semantic `h
       </Background>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column fillWidth minHeight={10}>
@@ -155,7 +155,7 @@ We can also use `space-around` and `space-between` values for the alignment prop
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="16">
       <Background
         background="neutral-alpha-weak"
@@ -173,7 +173,7 @@ We can also use `space-around` and `space-between` values for the alignment prop
       </Background>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column fillWidth horizontal="space-between">
@@ -200,7 +200,7 @@ Use `fit`, `fitWidth`, `fitHeight` to apply `fit-content`.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth horizontal="center" gap="16">
       <Background
         background="neutral-alpha-weak"
@@ -218,7 +218,7 @@ Use `fit`, `fitWidth`, `fitHeight` to apply `fit-content`.
       </Background>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column fit>
@@ -239,7 +239,7 @@ Use the `flex` prop to create asymmetric space distributions, like a bento grid:
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="16">
       <Row fillWidth gap="16" mobileDirection="column">
         <Background
@@ -267,7 +267,7 @@ Use the `flex` prop to create asymmetric space distributions, like a bento grid:
       </Row>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column fillWidth gap="16">
@@ -291,7 +291,7 @@ You can also use `maxWidth`, `minHeight`, and `aspectRatio`. `maxWidth` will als
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fitHeight fillWidth horizontal="center" gap="16" align="center" onBackground="neutral-weak" textVariant="label-default-s">
       <Background maxWidth={20}
         background="neutral-alpha-weak"
@@ -308,7 +308,7 @@ You can also use `maxWidth`, `minHeight`, and `aspectRatio`. `maxWidth` will als
       </Background>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column maxWidth={20}>
@@ -331,7 +331,7 @@ Override the default `relative` position with `absolute`, `fixed`, `sticky`, or 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth height={12} padding="24" border="neutral-alpha-medium" radius="xl">
       <Background
         fill
@@ -342,7 +342,7 @@ Override the default `relative` position with `absolute`, `fixed`, `sticky`, or 
       <Icon width="40" height="40" position="absolute" top="12" right="12" center solid="brand-medium" radius="full" name="close" onSolid="brand-strong"/>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column padding="24">
@@ -362,7 +362,7 @@ Use the `background` and `solid` props to apply colors, and the `onBackground` a
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
   <Flex fillWidth gap="l" mobileDirection="column">
     <Column
       data-theme="dark"
@@ -409,7 +409,7 @@ Use the `background` and `solid` props to apply colors, and the `onBackground` a
     </Column>
   </Flex>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row background="brand-medium">
@@ -428,7 +428,7 @@ The `solid` prop is commonly used for interactive element backgrounds, such as t
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
   <Flex fillWidth gap="l" mobileDirection="column">
     <Column
       data-theme="dark"
@@ -495,7 +495,7 @@ The `solid` prop is commonly used for interactive element backgrounds, such as t
     </Column>
   </Flex>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row solid="accent-medium">
@@ -514,7 +514,7 @@ The `alpha` properties let you design subtle backgrounds and overlays.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
   <Flex fillWidth gap="l" mobileDirection="column">
     <Column
       data-theme="dark"
@@ -583,7 +583,7 @@ The `alpha` properties let you design subtle backgrounds and overlays.
     </Column>
   </Flex>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row background="success-alpha-weak" border="success-alpha-weak">
@@ -604,7 +604,7 @@ The surface properties are designed for large layout container elements such as 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
   <Flex 
     data-surface="filled" fillWidth gap="l" mobileDirection="column">
     <Flex
@@ -688,7 +688,7 @@ The surface properties are designed for large layout container elements such as 
     </Flex>
   </Flex>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row
@@ -710,7 +710,7 @@ Use utility props to apply spacing consistently, such as the `padding`, `padding
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth>
       <Background fillWidth height="48"
         background="neutral-alpha-weak"
@@ -729,7 +729,7 @@ Use utility props to apply spacing consistently, such as the `padding`, `padding
       </Column>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Column fillWidth>
@@ -752,7 +752,7 @@ Apply borders using the `border`, `borderWidth` and `borderStyle` props. Since m
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row fillWidth gap="24" wrap horizontal="center">
       <Background
         background="success-alpha-weak"
@@ -783,7 +783,7 @@ Apply borders using the `border`, `borderWidth` and `borderStyle` props. Since m
       />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Background
@@ -811,7 +811,7 @@ Border radius convention follows the [extended T-shirt size model](/once-ui/basi
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Flex fillWidth mobileDirection="column" gap="m">
       <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="xs-8">
         <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="xs-4">
@@ -875,7 +875,7 @@ Border radius convention follows the [extended T-shirt size model](/once-ui/basi
       </Flex>
     </Flex>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row radius="xs-8" padding="8">
@@ -914,7 +914,7 @@ Apply radius to specific sides or corners of a `Flex`.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row fillWidth horizontal="center" gap="4">
       <Background fillWidth height={4}
         background="neutral-alpha-weak"
@@ -926,7 +926,7 @@ Apply radius to specific sides or corners of a `Flex`.
         lines={{display: true, color: "neutral-alpha-weak"}}/>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row>
@@ -944,7 +944,7 @@ Define a `radius` and then override it at specific corners:
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="4">
       <Row fillWidth horizontal="center" gap="4">
         <Background fillWidth height={4}
@@ -968,7 +968,7 @@ Define a `radius` and then override it at specific corners:
       </Row>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row>
@@ -992,7 +992,7 @@ Use the `shadow` prop to apply box-shadows with the default T-shirt size model.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="40" horizontal="center">
       <Row fillWidth gap="16" height={6}>
         <Background fill
@@ -1024,7 +1024,7 @@ Use the `shadow` prop to apply box-shadows with the default T-shirt size model.
       <ThemeSwitcher/>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row shadow="xs"/>
@@ -1045,7 +1045,7 @@ You can set `opacity` from `0` to `100` in steps of `10`.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row fillWidth gap="16" height={6}>
       <Background fill opacity="0"
         background="neutral-alpha-weak"
@@ -1093,7 +1093,7 @@ You can set `opacity` from `0` to `100` in steps of `10`.
         lines={{display: true, color: "neutral-alpha-weak"}}/>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row opacity="0"/>
@@ -1120,7 +1120,7 @@ Use the `hide` and `show` props to conditionally render elements based on breakp
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="24" align="center" onBackground="neutral-weak" textVariant="label-default-s">
       <Background hide="m" fillWidth padding="24" center
         background="neutral-alpha-weak"
@@ -1137,7 +1137,7 @@ Use the `hide` and `show` props to conditionally render elements based on breakp
       You can only see a single block, but there are two here.
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row hide="s" hide="m">
@@ -1157,7 +1157,7 @@ Use the `dark` and `light` props to limit rendering by theme.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="24" horizontal="center">
       <Media src="/images/docs/once-ui/vibe-coding-dark.jpg" alt="Dark theme" dark
         sizes="(max-width: 1024px) 90vw, 640px"
@@ -1170,7 +1170,7 @@ Use the `dark` and `light` props to limit rendering by theme.
       <ThemeSwitcher/>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Media dark src="/image-dark.jpg"/>
@@ -1188,7 +1188,7 @@ Adjust the cursor with the `cursor` prop. Use the `interactive` value to utilize
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row fillWidth gap="24">
       <Background
         height={6} padding="16"
@@ -1240,7 +1240,7 @@ Adjust the cursor with the `cursor` prop. Use the `interactive` value to utilize
       </Background>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row cursor="interactive">
@@ -1269,7 +1269,7 @@ You can set `zIndex` from `-1` to `10`.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="24" textVariant="label-default-s" onBackground="neutral-weak" align="center">
     <Row fillWidth height={6} style={{isolation: "isolate"}}>
       <Background fill zIndex="10" style={{marginLeft: "-1rem"}}
@@ -1300,7 +1300,7 @@ You can set `zIndex` from `-1` to `10`.
     Based on the HTML, the order should be the opposite, but we reverse it with zIndex.
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row zIndex="10"/>
@@ -1322,7 +1322,7 @@ Use the `textVariant` prop to apply text styles to children elements. Use the `a
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth gap="16">
       <Background
         center padding="16" fillWidth
@@ -1366,7 +1366,7 @@ Use the `textVariant` prop to apply text styles to children elements. Use the `a
       </Background>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row textVariant="display-strong-xs">
@@ -1397,7 +1397,7 @@ Override layout flow with `mobileDirection` or `tabletDirection`.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row fillWidth gap="24" mobileDirection="Column">
       <Background
         fillWidth
@@ -1425,7 +1425,7 @@ Override layout flow with `mobileDirection` or `tabletDirection`.
         lines={{display: true, color: "neutral-alpha-weak"}}/>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code: `
 <Row mobileDirection="column">
@@ -1456,7 +1456,7 @@ Use the `columns` prop to define the number of columns. use the `tabletColumns` 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Grid fillWidth columns="3" tabletColumns="2" mobileColumns="1" gap="24">
       <Background
         fillWidth
@@ -1496,7 +1496,7 @@ Use the `columns` prop to define the number of columns. use the `tabletColumns` 
         lines={{display: true, color: "neutral-alpha-weak"}}/>
     </Grid>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Grid fillWidth columns="4"/>

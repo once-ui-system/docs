@@ -11,7 +11,7 @@ The Kbd component is used to display keyboard keys and shortcuts with consistent
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" wrap>
       <Kbd>Tab</Kbd>
       <Kbd>Enter</Kbd>
@@ -19,7 +19,7 @@ The Kbd component is used to display keyboard keys and shortcuts with consistent
       <Kbd>Esc</Kbd>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Kbd>Tab</Kbd>
@@ -39,8 +39,8 @@ Use multiple Kbd components together to display keyboard shortcuts.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
-    <Column gap="16" fillWidth>
+  preview={
+    <Column gap="16" fillWidth textVariant="label-default-s" onBackground="neutral-weak">
       <Flex gap="8" vertical="center">
         <Kbd>Ctrl</Kbd>
         <Text>+</Text>
@@ -61,7 +61,7 @@ Use multiple Kbd components together to display keyboard shortcuts.
       </Flex>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Flex gap="8" vertical="center">
@@ -83,13 +83,13 @@ You can use either the `children` prop or the `label` prop to set the content of
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16">
       <Kbd label="Space"/>
       <Kbd>Enter</Kbd>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Kbd label="Space"/>
@@ -107,14 +107,14 @@ The Kbd component inherits all Flex props, allowing for customization of its app
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" vertical="center">
       <Kbd background="brand-medium" border="brand-medium" onBackground="brand-weak">Cmd</Kbd>
       <Kbd background="accent-medium" border="accent-medium" onBackground="accent-weak">Alt</Kbd>
       <Kbd paddingX="8" paddingY="4">Space</Kbd>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Kbd background="brand-medium" border="brand-medium" onBackground="brand-weak">Cmd</Kbd>

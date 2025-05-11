@@ -11,7 +11,7 @@ The Icon component is used to display vector icons throughout your application. 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Icon name="check" onBackground="info-medium" />
       <Icon name="danger" onBackground="danger-medium" />
@@ -19,7 +19,7 @@ The Icon component is used to display vector icons throughout your application. 
       <Icon name="warning" onBackground="warning-medium" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Icon name="check" onBackground="info-medium"/>
@@ -39,7 +39,7 @@ Icons come in different sizes to accommodate various use cases.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" center>
       <Icon name="check" size="xs" />
       <Icon name="check" size="s" />
@@ -48,7 +48,7 @@ Icons come in different sizes to accommodate various use cases.
       <Icon name="check" size="xl" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Icon name="check" size="xs"/>
@@ -69,7 +69,7 @@ Icons can be styled with different colors using the `onBackground` or `onSolid` 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Icon name="rocket" onBackground="brand-weak" />
       <Icon name="pages" onBackground="accent-weak" />
@@ -77,7 +77,7 @@ Icons can be styled with different colors using the `onBackground` or `onSolid` 
       <Icon name="check" onBackground="success-weak" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Icon name="rocket" onBackground="brand-weak"/>
@@ -97,7 +97,7 @@ Icons can display tooltips on hover to provide additional context.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Icon name="info" tooltip="Information" tooltipPosition="left"/>
 <Icon name="warning" tooltip="Warning" tooltipPosition="top"/>
@@ -105,7 +105,7 @@ Icons can display tooltips on hover to provide additional context.
 <Icon name="check" tooltip="Success" tooltipPosition="right"/>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Icon name="info" tooltip="Information" tooltipPosition="left"/>
@@ -125,13 +125,13 @@ By default, icons are considered decorative and hidden from screen readers. Use 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16">
       <Icon name="check" decorative={true} />
       <Icon name="warning" decorative={false} />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `// Hidden from screen readers (default)
@@ -152,7 +152,7 @@ The Icon component uses icons from the [react-icons](https://react-icons.github.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" wrap horizontal="center" fillWidth>
       <Icon name="check" />
       <Icon name="chevronDown" />
@@ -166,7 +166,7 @@ The Icon component uses icons from the [react-icons](https://react-icons.github.
       <Icon name="refresh" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Icon name="chevronDown" />

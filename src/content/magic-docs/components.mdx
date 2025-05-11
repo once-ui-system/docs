@@ -17,8 +17,8 @@ The feedback component is used to display critical information to visitors.
     radius="none"
     topRadius="l"
     codeHeight={24}
-    codePreview={<Feedback icon title="Feedback element" variant="success" description="Longer description of the feedback message." marginBottom="24"/>}
-    codeInstances={[
+    preview={<Feedback icon title="Feedback element" variant="success" description="Longer description of the feedback message." marginBottom="24"/>}
+    codes={[
       {
         code:
 `<Feedback
@@ -45,7 +45,7 @@ Tables are used to display data in a structured format.
 <CodeBlock
     radius="none"
     topRadius="l"
-    codePreview={
+    preview={
     <Table 
       data={{
         headers: [
@@ -61,7 +61,7 @@ Tables are used to display data in a structured format.
         ]
       }}
     />}
-    codeInstances={[
+    codes={[
       {
         code:
 `<Table 
@@ -101,12 +101,12 @@ The code block component works based on Once UI's CodeBlock. You can access it w
 <CodeBlock
     radius="none"
     topRadius="l"
-    codeInstances={[
+    codes={[
       {
         code:
 `// Full component syntax
 <CodeBlock
-    codeInstances={[
+    codes={[
       {
         code: "console.log('Hello, World!');",
         language: "javascript",
@@ -142,10 +142,10 @@ The `InlineCode` is another Once UI component that you can access either through
     radius="none"
     topRadius="l"
     codeHeight={24}
-    codePreview={<InlineCode>
+    preview={<InlineCode>
         const x = 10;
     </InlineCode>}
-    codeInstances={[
+    codes={[
       {
         code:
 `// Full component syntax
@@ -173,7 +173,7 @@ Accordions are used to toggle between hiding and showing content.
 <CodeBlock
     radius="none"
     topRadius="l"
-    codePreview={
+    preview={
       <AccordionGroup 
         items={[
           {
@@ -191,7 +191,7 @@ Accordions are used to toggle between hiding and showing content.
         ]}
       />
     }
-    codeInstances={[
+    codes={[
       {
         code:
 `<AccordionGroup 
@@ -229,13 +229,13 @@ Buttons are used to trigger actions or navigate to other pages.
     radius="none"
     topRadius="l"
     codeHeight={24}
-    codePreview={
+    preview={
     <Row gap="8" marginBottom="16" marginTop="8">
       <Button variant="primary" label="Primary" />
       <Button variant="secondary" label="Secondary" />
       <Button variant="tertiary" label="Tertiary" />
     </Row>}
-    codeInstances={[
+    codes={[
       {
         code:
 `<Row gap="8">
@@ -261,7 +261,7 @@ Cards are used to group related content and actions.
 <CodeBlock
     radius="none"
     topRadius="l"
-    codePreview={
+    preview={
     <Row fillWidth horizontal="center">
       <Card
         href=" "
@@ -283,7 +283,7 @@ Cards are used to group related content and actions.
       </Card>
     </Row>
     }
-    codeInstances={[
+    codes={[
       {
         code:
 `<Card
@@ -322,7 +322,7 @@ Icons are used to visually represent actions, objects, or concepts. For instruct
     radius="none"
     topRadius="l"
     codeHeight={24}
-    codePreview={<Row gap="24" wrap>
+    preview={<Row gap="24" wrap>
       <Icon name="rocket" onBackground="danger-medium" size="m" />
       <Icon name="close" size="m" />
       <Icon name="check" onBackground="success-medium" size="m" />
@@ -331,7 +331,7 @@ Icons are used to visually represent actions, objects, or concepts. For instruct
       <Icon name="chevronDown" size="m" />
       <Icon name="search" size="m" />
     </Row>}
-    codeInstances={[
+    codes={[
       {
         code:
 `<Icon name="rocket" size="m" />
@@ -363,7 +363,7 @@ The Flex component is accessible as `Column` and `Row` and can handle a wide ran
 <CodeBlock
     radius="none"
     topRadius="l"
-    codePreview={
+    preview={
     <Row
       fillWidth
       mobileDirection="column"
@@ -387,7 +387,7 @@ The Flex component is accessible as `Column` and `Row` and can handle a wide ran
       </Column>
     </Row>}
     codeHeight={24}
-    codeInstances={[
+    codes={[
       {
         code:
 `<Row
@@ -430,7 +430,7 @@ Use the grid to construct responsive grid layouts. It can be styled similarly to
 <CodeBlock
     radius="none"
     topRadius="l"
-    codePreview={
+    preview={
     <Grid
       fillWidth
       columns="3"
@@ -457,7 +457,7 @@ Use the grid to construct responsive grid layouts. It can be styled similarly to
       </Column>
     </Grid>}
     codeHeight={24}
-    codeInstances={[
+    codes={[
       {
         code:
 `<Grid
@@ -504,8 +504,8 @@ Media provides an optimized way to display images. Access it with the `Media` co
     radius="none"
     topRadius="l"
     codeHeight={24}
-    codePreview={<Media src="/images/docs/magic-bio.jpg" alt="Example image" sizes="640px" aspectRatio="16/9" radius="l" />}
-    codeInstances={[
+    preview={<Media src="/images/docs/magic-bio.jpg" alt="Example image" sizes="640px" aspectRatio="16/9" radius="l" />}
+    codes={[
       {
         code:
 `<Media
@@ -532,8 +532,8 @@ You can also use it to embed YouTube videos.
     radius="none"
     topRadius="l"
     codeHeight={24}
-    codePreview={<Media src="https://www.youtube.com/watch?v=M5lFtW1BvPc" alt="Example video" aspectRatio="16/9" radius="l" />}
-    codeInstances={[
+    preview={<Media src="https://www.youtube.com/watch?v=M5lFtW1BvPc" alt="Example video" aspectRatio="16/9" radius="l" />}
+    codes={[
       {
         code:
 `<Media
@@ -558,8 +558,8 @@ Use the PageList to dynamically render documentation pages based on the path pro
 
 <CodeBlock
     marginBottom="16" marginTop="8"
-    codePreview={<Grid columns="2" mobileColumns="1" gap="8"><PageList path={["magic-docs"]} /></Grid>}
-    codeInstances={[
+    preview={<Grid columns="2" mobileColumns="1" gap="8"><PageList path={["magic-docs"]} /></Grid>}
+    codes={[
       {
         code:
 `<Grid columns="2" mobileColumns="1" gap="8">
@@ -579,12 +579,12 @@ SmartLink provides an enhanced way to link to internal and external resources. Y
 <CodeBlock
     radius="none"
     topRadius="l"
-    codePreview={
+    preview={
       <Row  fillWidth horizontal="center">
         <SmartLink href=" " suffixIcon="chevronRight">Link with icon</SmartLink>
       </Row>
     }
-    codeInstances={[
+    codes={[
       {
         code:
 `<SmartLink href=" " suffixIcon="chevronRight">Link with icon</SmartLink>`,
@@ -605,7 +605,7 @@ Since Magic Docs is based on Once UI, you can use all the components provided by
 <CodeBlock
     marginBottom="16" marginTop="8"
     highlight="2"
-    codeInstances={[
+    codes={[
       {
         code:
 `const components = {

@@ -11,7 +11,7 @@ A versatile component for triggering actions or navigating to different pages. B
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button size="s" weight="default" prefixIcon="check">Primary</Button>
       <Button size="s" weight="default" variant="secondary" prefixIcon="plus">Secondary</Button>
@@ -19,7 +19,7 @@ A versatile component for triggering actions or navigating to different pages. B
       <Button size="s" weight="default" variant="danger" prefixIcon="danger">Danger</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button size="s" weight="default">
@@ -47,14 +47,14 @@ Buttons come in different sizes to accommodate various use cases.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" vertical="center" horizontal="center">
       <Button size="s">Small</Button>
       <Button size="m">Medium</Button>
       <Button size="l">Large</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button size="s">
@@ -79,13 +79,13 @@ Control the font weight of button text.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button variant="secondary" size="s" weight="default">Default</Button>
       <Button variant="secondary" size="s" weight="strong">Strong</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row gap="16">
@@ -109,7 +109,7 @@ Control the width of button.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center" maxWidth={20}>
       <Button size="s" weight="default">
       Default
@@ -119,7 +119,7 @@ Control the width of button.
       </Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row gap="16" horizontal="center" maxWidth={20}>
@@ -143,14 +143,14 @@ Enhance buttons with icons to improve visual communication.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button prefixIcon="check">Confirm</Button>
       <Button suffixIcon="chevronRight">Next</Button>
       <Button prefixIcon="info" suffixIcon="chevronRight">Learn more</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button prefixIcon="check">
@@ -175,14 +175,14 @@ Display a loading spinner to indicate that an action is in progress.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button weight="default" loading>Loading</Button>
       <Button weight="default" variant="secondary" loading>Processing</Button>
       <Button weight="default" variant="tertiary" loading>Saving</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button loading>
@@ -207,14 +207,14 @@ Customize the corner radius of buttons for different design needs.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button weight="default" radius="top-left">Top left</Button>
       <Button weight="default" radius="none">No radius</Button>
       <Button weight="default" radius="bottom-right">Bottom right</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button weight="default" radius="none">
@@ -242,14 +242,14 @@ Buttons can function as links when provided with an `href` property.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button href="#">Link Button</Button>
       <Button href="#" variant="secondary">Secondary Link</Button>
       <Button href="#" variant="tertiary" suffixIcon="chevronRight">Learn More</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button href="#">
@@ -274,13 +274,13 @@ Add an animated arrow that responds to hover events.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <Button id="arrow-button-1" arrowIcon>Primary</Button>
       <Button id="arrow-button-2" variant="secondary" arrowIcon>Secondary</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button id="arrow-button-1" arrowIcon>
@@ -302,7 +302,7 @@ Control the alignment of button content.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" horizontal="center" maxWidth={20}>
       <Button size="s" fillWidth horizontal="start" prefixIcon="check">Left Aligned</Button>
       <Button size="s" fillWidth horizontal="center">Center Aligned</Button>
@@ -310,7 +310,7 @@ Control the alignment of button content.
       <Button size="s" fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="chevronDown">Space Between</Button>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Button fillWidth horizontal="start" prefixIcon="check">
@@ -338,14 +338,14 @@ Override default styles with data attributes.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row wrap gap="16" horizontal="center">
       <Button data-border="rounded" size="s">Button</Button>
       <Button data-border="rounded" data-solid="color" size="s">Button</Button>
       <Button data-border="rounded" data-solid="inverse" data-brand="yellow" size="s">Button</Button>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Row wrap gap="16" horizontal="center">

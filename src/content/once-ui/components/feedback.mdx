@@ -11,7 +11,7 @@ A component for providing users with contextual information, alerts, and notific
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Feedback 
         variant="info" 
@@ -35,7 +35,7 @@ A component for providing users with contextual information, alerts, and notific
       />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Feedback
@@ -70,7 +70,7 @@ Feedback components can include an icon to enhance visual communication.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Feedback
         title="With Icon" 
@@ -84,7 +84,7 @@ Feedback components can include an icon to enhance visual communication.
       />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Feedback
@@ -110,14 +110,14 @@ Add a close button to allow users to dismiss the feedback.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Feedback
       title="Dismissible Feedback" 
       description="This feedback can be dismissed by clicking the close button."
       showCloseButton={true}
     />
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Feedback
@@ -142,13 +142,13 @@ Add custom content to the feedback component.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Feedback>
       <Text variant="body-default-m" marginTop="4">This is custom content inside the Feedback component. You can add any components or elements here.</Text>
       <Button size="s">Action</Button>
     </Feedback>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Feedback>

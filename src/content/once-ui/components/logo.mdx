@@ -13,7 +13,7 @@ The Logo component is used to display brand logos with consistent styling and si
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column fillWidth center gap="40">
       <Row gap="16" wrap center>
         <Logo size="s" />
@@ -23,7 +23,7 @@ The Logo component is used to display brand logos with consistent styling and si
       <ThemeSwitcher/>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Logo size="s" />
@@ -42,7 +42,7 @@ The Logo component comes in different sizes to accommodate various use cases.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" center>
       <Logo size="xs" />
       <Logo size="s" />
@@ -51,7 +51,7 @@ The Logo component comes in different sizes to accommodate various use cases.
       <Logo size="xl" />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Logo size="xs" />
@@ -72,13 +72,13 @@ Display only the icon part of the logo.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" center>
       <Logo wordmark={false} />
       <Logo wordmark={false} size="l" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Logo wordmark={false} />
@@ -96,13 +96,13 @@ Display only the wordmark part of the logo.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" center>
       <Logo icon={false} />
       <Logo icon={false} size="l" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Logo icon={false} />
@@ -120,12 +120,12 @@ You can provide custom image sources for both the icon and wordmark.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16">
       <Logo />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Logo 
@@ -145,13 +145,13 @@ The Logo component can function as a link when provided with an `href` property.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" center>
       <Logo href="/" />
       <Logo href="/about" size="l" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Logo href="/" />

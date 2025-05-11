@@ -11,13 +11,13 @@ The InlineCode component is used to display code snippets inline with text. It p
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" wrap>
       <InlineCode>npm install once-ui</InlineCode>
       <InlineCode>const value = 42;</InlineCode>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<InlineCode>npm install once-ui</InlineCode>
@@ -35,12 +35,12 @@ InlineCode can be used within text elements to highlight code snippets.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Text>Install the package using <InlineCode>npm install once-ui</InlineCode> or <InlineCode>yarn add once-ui</InlineCode>.</Text>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Text>
@@ -59,14 +59,14 @@ InlineCode inherits Flex props, allowing for customization of its appearance.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" wrap>
       <InlineCode background="brand-alpha-weak" border="brand-alpha-medium">Custom background</InlineCode>
       <InlineCode background="accent-alpha-weak" border="accent-alpha-medium">Accent style</InlineCode>
       <InlineCode background="success-alpha-weak" border="success-alpha-medium">Success style</InlineCode>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<InlineCode background="brand-alpha-weak" border="brand-alpha-medium">

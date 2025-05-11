@@ -11,26 +11,32 @@ RevealFx animates content into view using a vertical translateY motion. You can 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
-    <RevealFx speed="medium" delay={0} translateY={0} trigger>
-      <Flex direction="column" padding="24" gap="8">
-        <Text variant="heading-strong-m">Special effects in v0.3.1</Text>
-        <Text onBackground="neutral-medium" marginBottom="16">
-          Great news. Been waiting for this!
-        </Text>
-        <Button label="Awesome!"/>
-      </Flex>
-    </RevealFx>
+  preview={
+    <Column fillWidth>
+      <RevealFx padding="8">
+        <Text variant="heading-strong-l">The revolution begins</Text>
+      </RevealFx>
+      <RevealFx padding="8" marginBottom="16" delay={0.2} translateY={0.5} onBackground="neutral-weak">
+        Get ready for the next phase
+      </RevealFx>
+      <RevealFx padding="8" delay={0.4} translateY={1}>
+        <Button href="https://designengineers.club" size="s" data-border="rounded">Join now</Button>
+      </RevealFx>
+    </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
-`<RevealFx speed="medium" delay={0} translateY={0} trigger>
-    <Column>
-      <Heading>Special effects in v0.3.1</Heading>
-      <Text>Great news. Been waiting for this!</Text>
-      <Button label="Awesome!"/>
-    </Column>
+`<RevealFx>
+    The revolution begins
+</RevealFx>
+<RevealFx delay={0.2} translateY={0.5}>
+    Get ready for the next phase.
+</RevealFx>
+<RevealFx delay={0.4} translateY={1}>
+    <Button>
+      Join now
+    </Button>
 </RevealFx>`,
       language: "tsx",
       label: "RevealFx"
@@ -43,10 +49,10 @@ RevealFx animates content into view using a vertical translateY motion. You can 
 <PropsTable
   content={[
     ["speed", ["slow", "medium", "fast"], "medium"],
-    ["delay", "number (seconds)", "0"],
+    ["delay", "number (sec)", "0"],
     ["revealedByDefault", "boolean", "false"],
-    ["translateY", "number | SpacingToken", "-"],
-    ["trigger", "boolean", "-"],
+    ["translateY", ["number", "SpacingToken"]],
+    ["trigger", "boolean"],
     ["children"],
     ["className"],
     ["style"],

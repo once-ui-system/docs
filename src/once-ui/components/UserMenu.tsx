@@ -5,11 +5,13 @@ import classNames from "classnames";
 import { Flex, DropdownWrapper, User, UserProps } from ".";
 import styles from "./UserMenu.module.scss";
 import { DropdownWrapperProps } from "./DropdownWrapper";
+import { Placement } from "@floating-ui/react-dom";
 
 interface UserMenuProps
   extends UserProps,
     Pick<DropdownWrapperProps, "minHeight" | "minWidth" | "maxWidth"> {
   selected?: boolean;
+  placement?: Placement;
   dropdown?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -21,6 +23,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   minWidth,
   maxWidth,
   minHeight,
+  placement,
   className,
   style,
   ...userProps
@@ -30,6 +33,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
       minWidth={minWidth}
       maxWidth={maxWidth}
       minHeight={minHeight}
+      floatingPlacement={placement}
       style={{
         borderRadius: "var(--radius-full)",
       }}

@@ -7,8 +7,6 @@ import { Footer, Header } from "@/product";
 import { baseURL, effects, style } from "@/app/resources";
 
 import { Analytics } from "@vercel/analytics/react"
-import { Geist } from "next/font/google";
-import { Geist_Mono } from "next/font/google";
 
 import { Background, Column, Flex, ToastProvider, ThemeProvider } from "@/once-ui/components";
 import { font, layout, schema } from "./resources/config";

@@ -19,14 +19,14 @@ Override the default shape style with the `data-border` attribute on a native HT
   label="Shape style"
   marginTop="16"
   marginBottom="24"
-  codeInstances={[
+  codes={[
     {
       code: `<Flex data-border="conservative | playful | rounded" radius="m"/>`,
       language: "tsx",
       label: "Shape style"
     }
   ]}
-  codePreview={
+  preview={
     <Flex fillWidth mobileDirection="column" gap="m">
       <Flex
         data-border="conservative"
@@ -67,14 +67,14 @@ In Once UI, we adopt the T-shirt size model for managing border radius, with val
   label="Border radius"
   marginTop="16"
   marginBottom="24"
-  codeInstances={[
+  codes={[
     {
       code: `<Flex radius="xs | s | m | l | xl"/>`,
       language: "tsx",
       label: "Border radius"
     }
   ]}
-  codePreview={
+  preview={
     <Flex fillWidth mobileDirection="column" gap="m">
       <Flex
         fillWidth
@@ -128,7 +128,7 @@ A common challenge in border-radius systems is nesting. For nested elements to m
   label="Nested radius"
   marginTop="16"
   marginBottom="24"
-  codeInstances={[
+  codes={[
     {
       code: `const radius = { xs | s | m | l | xl }
 
@@ -141,7 +141,7 @@ A common challenge in border-radius systems is nesting. For nested elements to m
       label: "Nested radius"
     }
   ]}
-  codePreview={
+  preview={
     <Flex fillWidth mobileDirection="column" gap="m">
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="xs-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="xs-4">

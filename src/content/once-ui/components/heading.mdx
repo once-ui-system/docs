@@ -11,7 +11,7 @@ The Heading component is used for displaying titles and section headings through
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Heading variant="heading-strong-xl">Heading 1</Heading>
       <Heading variant="heading-strong-l">Heading 2</Heading>
@@ -19,7 +19,7 @@ The Heading component is used for displaying titles and section headings through
       <Heading variant="heading-strong-s">Heading 4</Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading variant="heading-strong-xl">
@@ -47,7 +47,7 @@ Heading components can be styled using the `variant` prop which combines font ty
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16">
       <Heading variant="display-strong-xl">Display Strong XL</Heading>
       <Heading variant="display-strong-l">Display Strong L</Heading>
@@ -74,7 +74,7 @@ Heading components can be styled using the `variant` prop which combines font ty
       <Heading variant="heading-default-xs">Heading Default XS</Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading variant="display-strong-xl">
@@ -96,7 +96,7 @@ Headings can be styled with different colors using the `onBackground` or `onSoli
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Heading onBackground="brand-medium">Brand medium</Heading>
       <Heading onBackground="accent-medium">Accent medium</Heading>
@@ -104,7 +104,7 @@ Headings can be styled with different colors using the `onBackground` or `onSoli
       <Heading onBackground="success-weak">Success weak</Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading onBackground="brand-medium">
@@ -132,14 +132,14 @@ Control the text alignment of headings using the `align` prop.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Heading align="left">Left Aligned</Heading>
       <Heading align="center">Center Aligned</Heading>
       <Heading align="right">Right Aligned</Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading align="left">
@@ -164,13 +164,13 @@ Control how text wraps with the `wrap` prop. By default, the `wrap` prop is set 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" maxWidth={32}>
       <Heading>This text uses balance wrapping for optimal readability</Heading>
       <Heading wrap="normal">This text uses normal wrapping behavior</Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading>
@@ -192,7 +192,7 @@ Headings support various spacing props for margin and padding.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Heading marginLeft="40">
           With left margin
@@ -205,7 +205,7 @@ Headings support various spacing props for margin and padding.
       </Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading marginLeft="40">
@@ -230,7 +230,7 @@ Use the `as` prop to control the underlying HTML element while maintaining consi
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16" fillWidth>
       <Heading variant="heading-strong-xl">This is an h1 element</Heading>
       <Heading variant="heading-strong-l">This is an h2 element</Heading>
@@ -239,7 +239,7 @@ Use the `as` prop to control the underlying HTML element while maintaining consi
       <Heading variant="heading-strong-xs">This is an h5 element</Heading>
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Heading as="h1">

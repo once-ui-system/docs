@@ -11,7 +11,7 @@ The IconButton component provides a compact, icon-based interactive element for 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center" wrap>
       <IconButton icon="check" variant="primary" />
       <IconButton icon="plus" variant="secondary" />
@@ -20,7 +20,7 @@ The IconButton component provides a compact, icon-based interactive element for 
       <IconButton icon="info" variant="ghost" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<IconButton icon="check" variant="primary" />
@@ -41,14 +41,14 @@ IconButtons come in different sizes to accommodate various use cases.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" vertical="center" horizontal="center">
       <IconButton icon="chevronDown" size="s" />
       <IconButton icon="chevronDown" size="m" />
       <IconButton icon="chevronDown" size="l" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<IconButton icon="chevronDown" size="s" />
@@ -67,7 +67,7 @@ Add tooltips to provide context for icon buttons.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <IconButton variant="secondary" icon="check" tooltip="Confirm" tooltipPosition="left" />
       <IconButton variant="secondary" icon="danger" tooltip="Delete" tooltipPosition="top" />
@@ -75,7 +75,7 @@ Add tooltips to provide context for icon buttons.
       <IconButton variant="secondary" icon="warning" tooltip="Warning" tooltipPosition="right" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<IconButton variant="secondary" icon="check" tooltip="Confirm" tooltipPosition="left" />
@@ -95,14 +95,14 @@ Customize the border radius of the `IconButton` for different design needs.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="1" horizontal="center">
       <IconButton icon="chevronLeft" radius="top-left" />
       <IconButton icon="chevronDown" radius="none" />
       <IconButton icon="chevronRight" radius="bottom-right" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<IconButton icon="chevronLeft" radius="top-left" />
@@ -121,13 +121,13 @@ IconButtons can function as links when provided with an `href` property.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <IconButton icon="arrowUpRight" href="#" variant="secondary" />
       <IconButton icon="chevronRight" href="#" variant="tertiary" />
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<IconButton icon="arrowUpRight" href="#" variant="secondary" />
@@ -145,7 +145,7 @@ Use the children prop to add custom content to the IconButton.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Row gap="16" horizontal="center">
       <IconButton>
         <Text variant="body-strong-s" onSolid="neutral-medium">A</Text>
@@ -158,7 +158,7 @@ Use the children prop to add custom content to the IconButton.
       </IconButton>
     </Row>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<IconButton>

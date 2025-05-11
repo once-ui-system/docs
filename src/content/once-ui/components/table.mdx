@@ -11,7 +11,7 @@ navIcon: "components"
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Table
       data={{
         headers: [
@@ -26,14 +26,14 @@ navIcon: "components"
       }}
     />
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<Table
     data={{
       headers: [
-        { content: "Name", key: "name", sortable: true },
-        { content: "Role", key: "role", sortable: true },
+        { content: "Name", key: "name" },
+        { content: "Role", key: "role" },
       ],
       rows: [
         ["Alice", "Engineer"],
@@ -52,6 +52,46 @@ navIcon: "components"
 
 Enable sorting per column by setting `sortable: true` on the corresponding header. Click toggles between ascending and descending.
 
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Table
+      data={{
+        headers: [
+          { content: "Name", key: "name", sortable: true },
+          { content: "Role", key: "role", sortable: true },
+        ],
+        rows: [
+          ["Alice", "Engineer"],
+          ["Bob", "Designer"],
+          ["Carol", "Product"],
+        ],
+      }}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Table
+    data={{
+      headers: [
+        { content: "Name", key: "name", sortable: true },
+        { content: "Role", key: "role", sortable: true },
+      ],
+      rows: [
+        ["Alice", "Engineer"],
+        ["Bob", "Designer"],
+        ["Carol", "Product"],
+      ],
+    }}
+/>`,
+      language: "tsx",
+      label: "Sorting"
+    }
+  ]}
+/>
+
 ## Row actions
 
 Add `onRowClick` to make rows interactive. A hover state is applied automatically.
@@ -59,7 +99,7 @@ Add `onRowClick` to make rows interactive. A hover state is applied automaticall
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codeInstances={[
+  codes={[
     {
       code:
 `<Table
@@ -85,7 +125,7 @@ Add `onRowClick` to make rows interactive. A hover state is applied automaticall
 
 <PropsTable
   content={[
-    ["data", "{ headers: { content: ReactNode; key: string; sortable?: boolean; }[]; rows: ReactNode[][]; }"],
+    ["data", `{ headers: { content: ReactNode; key: string; sortable?: boolean; }[]; rows: ReactNode[][]; }`],
     ["onRowClick", "(rowIndex: number) => void"],
     ["className"],
     ["style"],

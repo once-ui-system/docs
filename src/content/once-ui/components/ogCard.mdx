@@ -11,12 +11,12 @@ The `OgCard` component displays rich link previews for URLs by fetching and rend
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <OgCard 
       url="https://once-ui.com"
     />
   }
-  codeInstances={[
+  codes={[
     {
       language: "tsx",
       label: "OgCard",
@@ -35,7 +35,7 @@ Instead of fetching Open Graph data from a URL, you can directly provide the dat
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <OgCard 
       ogData={{
         title: "Design Engineers Club",
@@ -46,7 +46,7 @@ Instead of fetching Open Graph data from a URL, you can directly provide the dat
       }}
     />
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<OgCard 
@@ -71,7 +71,7 @@ The OgCard component supports different layout directions.
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <Column gap="16">
       <OgCard 
         url="https://once-ui.com/about"
@@ -83,7 +83,7 @@ The OgCard component supports different layout directions.
       />
     </Column>
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<OgCard 
@@ -108,7 +108,7 @@ The `OgCard` extends the `Card` component, so you can use all `Card` props to cu
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  codePreview={
+  preview={
     <OgCard 
       url="https://once-ui.com/customize"
       background="brand-alpha-weak"
@@ -116,7 +116,7 @@ The `OgCard` extends the `Card` component, so you can use all `Card` props to cu
       shadow="l"
     />
   }
-  codeInstances={[
+  codes={[
     {
       code:
 `<OgCard 

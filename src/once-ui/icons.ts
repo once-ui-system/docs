@@ -55,6 +55,8 @@ import {
   HiOutlinePause,
   HiOutlinePencil,
   HiOutlineTrash,
+  HiOutlineArrowRightOnRectangle,
+  HiOutlineCog6Tooth,
 } from "react-icons/hi2";
 
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
@@ -82,6 +84,8 @@ export const iconLibrary: Record<string, IconType> = {
   eyeDropper: HiEyeDropper,
   clipboard: HiOutlineClipboard,
   person: HiMiniUser,
+  settings: HiOutlineCog6Tooth,
+  logout: HiOutlineArrowRightOnRectangle,
   close: HiMiniXMark,
   openLink: HiOutlineLink,
   discord: FaDiscord,
