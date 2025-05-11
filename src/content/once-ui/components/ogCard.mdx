@@ -64,7 +64,7 @@ Instead of fetching Open Graph data from a URL, you can directly provide the dat
   ]}
 />
 
-## Direction variants
+## Direction
 
 The OgCard component supports different layout directions.
 
@@ -87,26 +87,16 @@ The OgCard component supports different layout directions.
     {
       code:
 `<OgCard 
-    ogData={{
-        title: "Row Layout",
-        description: "This card uses a row layout with the image on the left.",
-        image: "/placeholder-image.jpg",
-        url: "https://example.com"
-    }}
+    url="https://once-ui.com/about"
     direction="row"
 />
 
 <OgCard 
-    ogData={{
-        title: "Row Reverse Layout",
-        description: "This card uses a row-reverse layout with the image on the right.",
-        image: "/placeholder-image.jpg",
-        url: "https://example.com"
-    }}
+    url="https://once-ui.com/products"
     direction="row-reverse"
 />`,
       language: "tsx",
-      label: "Direction variants"
+      label: "Direction"
     }
   ]}
 />

@@ -28,7 +28,7 @@ import { ClientOption } from "@/product/ClientOption";
 import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "@/product/DialogExample";
 import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "@/product/DropdownWrapperExample";
 import { BasicRawDropdown, IconsRawDropdown, DescriptionRawDropdown, CustomStyledRawDropdown } from "@/product/DropdownExample";
-import { NavIconToggle, NavIconStates } from "@/product/NavIconExample";
+import { NavIconToggle, NavIconStates, CustomNavIcon } from "@/product/NavIconExample";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -200,6 +200,7 @@ const components = {
   ClientOption,
   NavIconToggle,
   NavIconStates,
+  CustomNavIcon,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

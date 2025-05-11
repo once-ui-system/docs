@@ -1,9 +1,94 @@
 ---
 title: "Table"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "The Table component displays structured tabular data with optional sorting and click interactions. It supports custom cell rendering and dynamic row behavior."
+updatedAt: "2025-05-09"
 navLabel: "Table"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+`Table` is used to organize and render lists of information in a column/row format. It supports sorting, optional click handlers, and flexible cell content using `ReactNode`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <Table
+      data={{
+        headers: [
+          { content: "Name", key: "name", sortable: true },
+          { content: "Role", key: "role", sortable: true },
+        ],
+        rows: [
+          ["Alice", "Engineer"],
+          ["Bob", "Designer"],
+          ["Carol", "Product"],
+        ],
+      }}
+    />
+  }
+  codeInstances={[
+    {
+      code:
+`<Table
+    data={{
+      headers: [
+        { content: "Name", key: "name", sortable: true },
+        { content: "Role", key: "role", sortable: true },
+      ],
+      rows: [
+        ["Alice", "Engineer"],
+        ["Bob", "Designer"],
+        ["Carol", "Product"],
+      ],
+    }}
+/>`,
+      language: "tsx",
+      label: "Table"
+    }
+  ]}
+/>
+
+## Sorting
+
+Enable sorting per column by setting `sortable: true` on the corresponding header. Click toggles between ascending and descending.
+
+## Row actions
+
+Add `onRowClick` to make rows interactive. A hover state is applied automatically.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeInstances={[
+    {
+      code:
+`<Table
+    onRowClick={(index) => alert(\`Clicked row \${index}\`)}
+    data={{
+      headers: [
+        { content: "Task", key: "task" },
+        { content: "Status", key: "status" },
+      ],
+      rows: [
+        ["Launch", "In progress"],
+        ["Prototype", "Done"],
+      ],
+    }}
+/>`,
+      language: "tsx",
+      label: "Row actions"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["data", "{ headers: { content: ReactNode; key: string; sortable?: boolean; }[]; rows: ReactNode[][]; }"],
+    ["onRowClick", "(rowIndex: number) => void"],
+    ["className"],
+    ["style"],
+    ["...flex"]
+  ]}
+/>

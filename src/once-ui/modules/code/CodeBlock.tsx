@@ -220,7 +220,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     size: "m",
                     variant: "tertiary",
                   }}
-                />
+                >
+                  <IconButton icon="sparkle" />
+                </StyleOverlay>
               )}
               {copyButton && (
                 <IconButton

@@ -1,9 +1,125 @@
 ---
 title: "SmartLink"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
-navLabel: "SmartLink"
-navIcon: "learn"
+summary: "SmartLink is a styled anchor component that supports prefix/suffix icons, fill layout, and intelligent styling. It adapts behavior based on props like selection and unstyled mode."
+updatedAt: "2025-05-09"
+navLabel: "Smart Link"
+navIcon: "components"
 ---
 
-## Coming soon
+`SmartLink` provides flexible and consistent inline navigation with built-in icon support and style overrides.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <SmartLink href="#" prefixIcon="link" suffixIcon="arrowRight">
+      Learn more
+    </SmartLink>
+  }
+  codeInstances={[
+    {
+      code:
+`<SmartLink href="#" prefixIcon="link" suffixIcon="arrowRight">
+  Learn more
+</SmartLink>`,
+      language: "tsx",
+      label: "Basic usage"
+    }
+  ]}
+/>
+
+## Fill width
+
+Use `fillWidth` to stretch the link across the container. It's useful when you're using fluid children elements.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <SmartLink href="#" fillWidth unstyled>
+      <Row fillWidth background="surface" border="surface" radius="l" padding="16" horizontal="space-between" vertical="center">
+        <Text>Full width link</Text>
+        <Icon name="chevronRight" />
+      </Row>
+    </SmartLink>
+  }
+  codeInstances={[
+    {
+      code:
+`<SmartLink href="#" fillWidth unstyled>
+    <Row fillWidth background="surface" border="surface" radius="l" padding="16" horizontal="space-between" vertical="center">
+      <Text>Full width link</Text>
+      <Icon name="chevronRight" />
+    </Row>
+</SmartLink>`,
+      language: "tsx",
+      label: "Fill width"
+    }
+  ]}
+/>
+
+## Unstyled
+
+Disable default padding and visual treatments using `unstyled`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <SmartLink href="#" unstyled>
+      Raw link
+    </SmartLink>
+  }
+  codeInstances={[
+    {
+      code:
+`<SmartLink href="#" unstyled>
+    Raw link
+</SmartLink>`,
+      language: "tsx",
+      label: "Unstyled"
+    }
+  ]}
+/>
+
+## Selected
+
+Apply underline when `selected` is true.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codePreview={
+    <SmartLink href="#" selected>
+      Active link
+    </SmartLink>
+  }
+  codeInstances={[
+    {
+      code:
+`<SmartLink href="#" selected>
+    Active link
+</SmartLink>`,
+      language: "tsx",
+      label: "Selected"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["href", "string"],
+    ["prefixIcon", "IconName"],
+    ["suffixIcon", "IconName"],
+    ["iconSize", ["xs", "s", "m", "l", "xl"], "xs"],
+    ["fillWidth", "boolean", "false"],
+    ["selected", "boolean", "false"],
+    ["unstyled", "boolean", "false"],
+    ["children"],
+    ["className"],
+    ["style"],
+    ["...AnchorHTMLAttributes", "AnchorHTMLAttributes"]
+  ]}
+/>

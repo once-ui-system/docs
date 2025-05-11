@@ -11,6 +11,7 @@ A simple yet effective component for creating hamburger menu icons that can togg
 <CodeBlock
   marginTop="16"
   marginBottom="24"
+  codeHeight={24}
   codePreview={
     <NavIconToggle />
   }
@@ -18,29 +19,75 @@ A simple yet effective component for creating hamburger menu icons that can togg
     {
       code:
 `"use client";
-import { NavIcon } from "@/once-ui/components";
+import { NavIcon, Flex, Text, Row } from "@/once-ui/components";
 import { useState } from "react";
 
 function NavIconToggle() {
-  const [isActive, setIsActive] = useState(false);
-  
-  const handleClick = () => {
-    setIsActive(!isActive);
-  };
+    const [isActive, setIsActive] = useState(false);
+    
+    const handleClick = () => {
+      setIsActive(!isActive);
+    };
 
-  return (
-    <NavIcon isActive={isActive} onClick={handleClick} />
-  );
+    return (
+      <Column fillWidth>
+        <Flex 
+          paddingX="20" 
+          paddingY="8" 
+          background="surface"
+          border="surface"
+          radius="l" 
+          horizontal="space-between" 
+          vertical="center"
+          fillWidth
+        >
+          <Logo wordmark={false}/>
+          <NavIcon 
+            isActive={isActive} 
+            onClick={handleClick} 
+            aria-label="Toggle navigation menu"
+            aria-expanded={isActive}
+            aria-controls="demo-nav"
+          />
+        </Flex>
+        
+        {isActive && (
+          <Column 
+            id="demo-nav"
+            padding="16" 
+            background="surface" 
+            border="surface"
+            radius="l" 
+            marginTop="8"
+            fillWidth
+            gap="8"
+          >
+            <ToggleButton fillWidth horizontal="start" size="l">
+              Home
+            </ToggleButton>
+            <ToggleButton fillWidth horizontal="start" size="l">
+              Products
+            </ToggleButton>
+            <ToggleButton fillWidth horizontal="start" size="l">
+              About
+            </ToggleButton>
+            <ToggleButton fillWidth horizontal="start" size="l">
+              Contact
+            </ToggleButton>
+          </Column>
+        )}
+      </Column>
+    );
 }`,
       language: "tsx",
-      label: "Interactive Example"
+      label: "NavIcon"
     }
   ]}
 />
 
 ## States
 
-NavIcon has two states: active and inactive, controlled by the `isActive` prop.
+NavIcon has two states: `active` and `inactive`, controlled by the `isActive` prop.
 
 <CodeBlock
   marginTop="16"
@@ -59,47 +106,6 @@ NavIcon has two states: active and inactive, controlled by the `isActive` prop.
   ]}
 />
 
-## Usage
-
-The NavIcon component is typically used in navigation headers to toggle mobile menus.
-
-<CodeBlock
-  marginTop="16"
-  marginBottom="24"
-  codeInstances={[
-    {
-      code:
-`import { NavIcon } from "@/once-ui/components";
-import { useState } from "react";
-
-function MobileHeader() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  return (
-    <header>
-      <div className="logo">My App</div>
-      <NavIcon 
-        isActive={menuOpen} 
-        onClick={toggleMenu} 
-      />
-      {menuOpen && (
-        <nav className="mobile-menu">
-          {/* Navigation links */}
-        </nav>
-      )}
-    </header>
-  );
-}`,
-      language: "tsx",
-      label: "Mobile Header Example"
-    }
-  ]}
-/>
-
 ## Customization
 
 The NavIcon component accepts all the props of the `Flex` component, allowing for customization of size, spacing, and other properties.
@@ -107,17 +113,21 @@ The NavIcon component accepts all the props of the `Flex` component, allowing fo
 <CodeBlock
   marginTop="16"
   marginBottom="24"
+  codePreview={
+    <CustomNavIcon />
+  }
   codeInstances={[
     {
       code:
 `<NavIcon 
-  isActive={isActive} 
-  onClick={handleClick}
-  width="48"
-  height="48"
-  background="primary-light"
-  padding="8"
-  radius="l"
+    isActive={isActive} 
+    onClick={handleClick}
+    width="48"
+    height="48"
+    border="neutral-alpha-medium"
+    background="neutral-strong"
+    padding="8"
+    radius="full"
 />`,
       language: "tsx",
       label: "Customization"
@@ -128,43 +138,12 @@ The NavIcon component accepts all the props of the `Flex` component, allowing fo
 ## Props
 
 <PropsTable
-  headers={[
-    { key: "prop", label: "Prop" },
-    { key: "type", label: "Type" },
-    { key: "default", label: "Default" },
-    { key: "description", label: "Description" }
-  ]}
-  rows={[
-    {
-      prop: "isActive",
-      type: "boolean",
-      default: "false",
-      description: "Controls the state of the NavIcon (active/inactive)"
-    },
-    {
-      prop: "onClick",
-      type: "() => void",
-      default: "undefined",
-      description: "Function called when the NavIcon is clicked"
-    },
-    {
-      prop: "className",
-      type: "string",
-      default: "undefined",
-      description: "Additional CSS class names to apply to the component"
-    },
-    {
-      prop: "style",
-      type: "React.CSSProperties",
-      default: "undefined",
-      description: "Inline styles to apply to the component"
-    },
-    {
-      prop: "...FlexProps",
-      type: "FlexProps",
-      default: "",
-      description: "All props from the Flex component are also supported"
-    }
+  content={[
+    ["isActive", "boolean", "false"],
+    ["onClick", "() => void"],
+    ["className"],
+    ["style"],
+    ["...flex"]
   ]}
 />
 
@@ -183,14 +162,14 @@ The NavIcon component includes a `tabIndex={0}` by default, making it keyboard a
     {
       code:
 `<NavIcon 
-  isActive={isMenuOpen} 
-  onClick={toggleMenu}
-  aria-label="Toggle navigation menu"
-  aria-expanded={isMenuOpen}
-  aria-controls="mobile-nav"
+    isActive={isMenuOpen} 
+    onClick={toggleMenu}
+    aria-label="Toggle navigation menu"
+    aria-expanded={isMenuOpen}
+    aria-controls="mobile-nav"
 />`,
       language: "tsx",
-      label: "Accessible NavIcon"
+      label: "Accessibility"
     }
   ]}
 />
