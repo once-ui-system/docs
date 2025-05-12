@@ -29,6 +29,9 @@ import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from 
 import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "@/product/DropdownWrapperExample";
 import { BasicRawDropdown, IconsRawDropdown, DescriptionRawDropdown, CustomStyledRawDropdown } from "@/product/DropdownExample";
 import { NavIconToggle, NavIconStates, CustomNavIcon } from "@/product/NavIconExample";
+import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, ClientSwitch } from "@/product/SwitchExample";
+import { IndeterminateCheckboxExample } from "@/product/CheckboxExample";
+import { SubscriptionRadioGroup } from "@/product/RadioButtonExample";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -201,6 +204,13 @@ const components = {
   NavIconToggle,
   NavIconStates,
   CustomNavIcon,
+  BasicSwitch,
+  SwitchWithFeedback,
+  SwitchWithLoading,
+  ReversedSwitch,
+  ClientSwitch,
+  IndeterminateCheckboxExample,
+  SubscriptionRadioGroup,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

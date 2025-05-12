@@ -38,8 +38,12 @@ function PropsTable({ content }: PropsTableProps) {
         typeDisplay = <InlineCode>React.CSSProperties</InlineCode>;
       } else if (propName === "className") {
         typeDisplay = <InlineCode>string</InlineCode>;
-      } else if (propName === "...flex" || propName.includes("FlexProps")) {
+      } else if (propName === "...flex") {
         typeDisplay = <InlineCode>FlexProps</InlineCode>;
+      } else if (propName === "...grid") {
+        typeDisplay = <InlineCode>GridProps</InlineCode>;
+      } else if (propName === "...input") {
+        typeDisplay = <InlineCode>InputHTMLAttributes</InlineCode>;
       } else if (Array.isArray(propType)) {
         typeDisplay = (
           <Row gap="4" wrap>

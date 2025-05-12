@@ -1,9 +1,164 @@
 ---
 title: "Select"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "Select provides a dropdown menu for choosing from a list of options with optional search functionality."
+updatedAt: "2025-05-12"
 navLabel: "Select"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+The `Select` component offers a dropdown menu for selecting from a list of options. It's built on top of the `DropdownWrapper` and `Input` components, providing a consistent user experience with other form controls.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Select
+      id="basic-select"
+      label="Choose a country"
+      options={[
+        { label: "United States", value: "us" },
+        { label: "Canada", value: "ca" },
+        { label: "United Kingdom", value: "uk" },
+        { label: "Australia", value: "au" }
+      ]}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Select
+  id="basic-select"
+  label="Choose a country"
+  options={[
+    { label: "United States", value: "us" },
+    { label: "Canada", value: "ca" },
+    { label: "United Kingdom", value: "uk" },
+    { label: "Australia", value: "au" }
+  ]}
+/>`,
+      language: "tsx",
+      label: "Select"
+    }
+  ]}
+/>
+
+## Searchable
+
+Enable search functionality to filter options in large lists.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Select
+      id="searchable-select"
+      label="Choose a country"
+      searchable
+      options={[
+        { label: "United States", value: "us" },
+        { label: "Canada", value: "ca" },
+        { label: "United Kingdom", value: "uk" },
+        { label: "Australia", value: "au" },
+        { label: "Germany", value: "de" },
+        { label: "France", value: "fr" },
+        { label: "Japan", value: "jp" },
+        { label: "Brazil", value: "br" }
+      ]}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Select
+  id="searchable-select"
+  label="Choose a country"
+  searchable
+  options={[
+    { label: "United States", value: "us" },
+    { label: "Canada", value: "ca" },
+    { label: "United Kingdom", value: "uk" },
+    { label: "Australia", value: "au" },
+    { label: "Germany", value: "de" },
+    { label: "France", value: "fr" },
+    { label: "Japan", value: "jp" },
+    { label: "Brazil", value: "br" }
+  ]}
+/>`,
+      language: "tsx",
+      label: "Searchable"
+    }
+  ]}
+/>
+
+## Custom empty state
+
+Customize the message shown when no options match the search query.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Select
+      id="empty-state-select"
+      label="Choose a country"
+      searchable={true}
+      emptyState={<Text onBackground="neutral-weak">No matching countries found</Text>}
+      options={[
+        { label: "United States", value: "us" },
+        { label: "Canada", value: "ca" },
+        { label: "United Kingdom", value: "uk" },
+        { label: "Australia", value: "au" }
+      ]}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Select
+  id="empty-state-select"
+  label="Choose a country"
+  searchable={true}
+  emptyState={<Text onBackground="neutral-weak">No matching countries found</Text>}
+  options={[
+    { label: "United States", value: "us" },
+    { label: "Canada", value: "ca" },
+    { label: "United Kingdom", value: "uk" },
+    { label: "Australia", value: "au" }
+  ]}
+/>`,
+      language: "tsx",
+      label: "Empty State"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["id", "string"],
+    ["label", "string"],
+    ["options", "SelectOptionType[]"],
+    ["value", "string", ""],
+    ["emptyState", "ReactNode", "No results"],
+    ["onSelect", "(value: string) => void"],
+    ["floatingPlacement", "Placement"],
+    ["searchable", "boolean", "false"],
+    ["minHeight", "SpacingToken"],
+    ["minWidth", "SpacingToken"],
+    ["maxWidth", "SpacingToken"],
+    ["className"],
+    ["style"],
+    ["...input"]
+  ]}
+/>
+
+### SelectOptionType
+
+<PropsTable
+  content={[
+    ["label", "ReactNode"],
+    ["value", "string"],
+    ["onClick", "(value: string) => void"]
+  ]}
+/>

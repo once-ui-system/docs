@@ -6,11 +6,6 @@ const roadmap = [
       {
         title: "Planned",
         tasks: [
-          {
-            title: "Cursor card",
-            description: "A card component that pops up when hovering a trigger element.",
-            type: "feature"
-          },
         ]
       },
       {
@@ -26,6 +21,16 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Docs migration",
+            description: "Migrate Once UI docs to Magic Docs with more use cases and examples.",
+            type: "feature"
+          },
+          {
+            title: "Cursor card",
+            description: "A card component that pops up when hovering a trigger element.",
+            type: "feature"
+          },
           {
             title: "0.6 release",
             description: "Simplified SEO with the new Meta and Schema. Better navigations with Command Palette, HeadingNav, MegaMenu. Minor styling improvements.",
@@ -145,18 +150,8 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "New gallery layout",
-            description: "Rework gallery with improved design and flexibility for artists and photographers.",
-            type: "improvement"
-          },
-          {
             title: "Improve Blog layout",
             description: "Add pagination, featured read and a recent article block.",
-            type: "improvement"
-          },
-          {
-            title: "Migrate to 0.6",
-            description: "Migrate to Once UI 0.6.",
             type: "improvement"
           },
         ]
@@ -169,6 +164,16 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Migrate to 0.6",
+            description: "Migrate to Once UI 0.6.",
+            type: "improvement"
+          },
+          {
+            title: "New gallery layout",
+            description: "Rework gallery with improved design and flexibility for artists and photographers.",
+            type: "improvement"
+          },
         ]
       }
     ]

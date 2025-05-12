@@ -57,6 +57,7 @@ import {
   HiOutlineTrash,
   HiOutlineArrowRightOnRectangle,
   HiOutlineCog6Tooth,
+  HiOutlineCheck,
 } from "react-icons/hi2";
 
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
@@ -78,6 +79,7 @@ export const iconLibrary: Record<string, IconType> = {
   info: HiOutlineInformationCircle,
   warning: HiOutlineExclamationTriangle,
   danger: HiOutlineExclamationCircle,
+  checkbox: HiOutlineCheck,
   check: HiOutlineCheckCircle,
   play: HiOutlinePlay,
   pause: HiOutlinePause,

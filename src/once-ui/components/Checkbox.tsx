@@ -109,7 +109,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
           {(controlledIsChecked !== undefined ? controlledIsChecked : isChecked) &&
             !isIndeterminate && (
               <Flex className={styles.icon}>
-                <Icon onSolid="brand-strong" name="check" size="xs" />
+                <Icon onSolid="brand-strong" name="checkbox" size="xs" />
               </Flex>
             )}
           {isIndeterminate && (

@@ -1,15 +1,141 @@
 ---
 title: "Input"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "Input provides a flexible text entry field with support for labels, validation, and custom styling."
+updatedAt: "2025-05-12"
 navLabel: "Input"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+The `Input` component provides a text entry field with floating labels, validation support, and customizable styling. Use it for collecting user input in forms.
 
-<Input
-  id="input"
-  name="input"
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Input
+      id="basic-input"
+      label="Username"
+    />
+  }
+  codes={[
+    {
+      code:
+`<Input
+  id="basic-input"
+  label="Username"
+/>`,
+      language: "tsx",
+      label: "Input"
+    }
+  ]}
+/>
+
+## Validation
+
+The Input component supports error states and validation messages.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Input
+      id="error-input"
+      label="Email"
+      error={true}
+      errorMessage="Please enter a valid email address"
+    />
+  }
+  codes={[
+    {
+      code:
+`<Input
+  id="error-input"
+  label="Email"
+  error={true}
+  errorMessage="Please enter a valid email address"
+/>`,
+      language: "tsx",
+      label: "Validation"
+    }
+  ]}
+/>
+
+## With prefix and suffix
+
+Add icons or other elements before or after the input text.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Input
+      id="prefix-suffix-input"
+      label="Search"
+      hasPrefix={<Icon name="search" size="xs" />}
+      hasSuffix={<IconButton icon="close" size="s" />}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Input
+  id="prefix-suffix-input"
+  label="Search"
+  hasPrefix={<Icon name="search" size="xs" />}
+  hasSuffix={<IconButton icon="close" size="s" />}
+/>`,
+      language: "tsx",
+      label: "Prefix & Suffix"
+    }
+  ]}
+/>
+
+## Label as placeholder
+
+Use the label as a placeholder that disappears when the input is focused.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Input
+      id="placeholder-input"
+      label="Enter your name"
+      labelAsPlaceholder
+    />
+  }
+  codes={[
+    {
+      code:
+`<Input
+  id="placeholder-input"
   label="Enter your name"
+  labelAsPlaceholder
+/>`,
+      language: "tsx",
+      label: "Label as placeholder"
+    }
+  ]}
+/>
+
+## API reference
+
+<PropsTable
+  content={[
+    ["id", "string"],
+    ["label", "string"],
+    ["height", ["s", "m"], "m"],
+    ["error", "boolean", "false"],
+    ["errorMessage", "ReactNode"],
+    ["description", "ReactNode"],
+    ["radius", ["none", "top", "right", "bottom", "left", "top-left", "top-right", "bottom-right", "bottom-left"]],
+    ["hasPrefix", "ReactNode"],
+    ["hasSuffix", "ReactNode"],
+    ["labelAsPlaceholder", "boolean", "false"],
+    ["cursor", ["interactive"]],
+    ["validate", "(value: ReactNode) => ReactNode | null"],
+    ["className"],
+    ["style"],
+    ["...input"]
+  ]}
 />

@@ -29,15 +29,16 @@ The `UserMenu` component renders a user avatar and name, and opens a dropdown fo
     {
       code:
 `<UserMenu
-  name="Lorant One"
-  subline="Design Engineer"
-  avatarProps={{ src: "/images/avatar.jpg" }}
-  dropdown={
-    <Column gap="4" padding="4">
-      <ClientOption hasPrefix={<Icon icon="settings" />} label="Settings" href=""/settings />
-      <ClientOption hasPrefix={<Icon icon="logOut" />} label="Log out" onClick={() => {}} />
-    </Column>
-  }
+    name="Lorant One"
+    subline="Design Engineer"
+    placement="right-end"
+    avatarProps={{ src: "/images/avatar.jpg" }}
+    dropdown={
+      <Column gap="4" padding="4" minWidth={10}>
+        <ClientOption fillWidth hasPrefix={<Icon size="xs" onBackground="neutral-weak" name="settings" />} label="Settings" />
+        <ClientOption fillWidth hasPrefix={<Icon size="xs" onBackground="neutral-weak" name="logout" />} label="Log out" />
+      </Column>
+    }
 />`,
       language: "tsx",
       label: "UserMenu"
