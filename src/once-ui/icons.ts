@@ -58,6 +58,7 @@ import {
   HiOutlineArrowRightOnRectangle,
   HiOutlineCog6Tooth,
   HiOutlineCheck,
+  HiOutlineEnvelope,
 } from "react-icons/hi2";
 
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
@@ -72,6 +73,7 @@ export const iconLibrary: Record<string, IconType> = {
   chevronLeft: HiChevronLeft,
   chevronsLeftRight: LuChevronsLeftRight,
   refresh: HiOutlineArrowPath,
+  email: HiOutlineEnvelope,
   light: HiOutlineSun,
   dark: HiOutlineMoon,
   computer: HiOutlineComputerDesktop,

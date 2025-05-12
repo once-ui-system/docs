@@ -85,6 +85,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
           }}
           role="checkbox"
           tabIndex={0}
+          cursor={disabled ? "not-allowed" : undefined}
           horizontal="center"
           vertical="center"
           radius="xs"
@@ -118,7 +119,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<HTMLInputElement, CheckboxP
             </Flex>
           )}
         </Flex>
-        {props.label && <InteractiveDetails id={checkboxId} {...props} onClick={toggleItem} />}
+        {props.label && <InteractiveDetails disabled={disabled} id={checkboxId} {...props} onClick={toggleItem} />}
       </Flex>
     );
   },

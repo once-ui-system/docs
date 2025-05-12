@@ -9,13 +9,14 @@ import React, {
   ReactNode,
 } from "react";
 import classNames from "classnames";
-import { Flex, Text } from ".";
+import { Column, Flex, Text } from ".";
 import styles from "./Input.module.scss";
 import useDebounce from "../hooks/useDebounce";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
-  label: string;
+  label?: string;
+  placeholder?: string;
   height?: "s" | "m";
   error?: boolean;
   errorMessage?: ReactNode;
@@ -34,7 +35,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   style?: React.CSSProperties;
   hasPrefix?: ReactNode;
   hasSuffix?: ReactNode;
-  labelAsPlaceholder?: boolean;
   cursor?: undefined | "interactive";
   validate?: (value: ReactNode) => ReactNode | null;
 }
@@ -44,6 +44,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     {
       id,
       label,
+      placeholder,
       height = "m",
       error = false,
       errorMessage,
@@ -53,7 +54,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       style,
       hasPrefix,
       hasSuffix,
-      labelAsPlaceholder = false,
       children,
       onFocus,
       onBlur,
@@ -122,15 +122,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         [styles.focused]: isFocused,
         [styles.withPrefix]: hasPrefix,
         [styles.withSuffix]: hasSuffix,
-        [styles.labelAsPlaceholder]: labelAsPlaceholder,
+        [styles.labelAsPlaceholder]: placeholder,
         [styles.hasChildren]: children,
         [styles.error]: displayError && debouncedValue !== "",
       },
     );
 
     return (
-      <Flex
-        direction="column"
+      <Column
         gap="8"
         style={style}
         fillWidth
@@ -161,19 +160,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               {hasPrefix}
             </Flex>
           )}
-          <Flex fillWidth direction="column">
+          <Column fillWidth>
             <input
               {...props}
               ref={ref}
               id={id}
-              placeholder={labelAsPlaceholder ? label : props.placeholder}
+              placeholder={placeholder}
               onFocus={handleFocus}
               onBlur={handleBlur}
               className={inputClassNames}
               aria-describedby={displayError ? `${id}-error` : undefined}
               aria-invalid={!!displayError}
             />
-            {!labelAsPlaceholder && (
+            {label && (
               <Text
                 as="label"
                 variant="label-default-m"
@@ -186,7 +185,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               </Text>
             )}
             {children}
-          </Flex>
+          </Column>
           {hasSuffix && (
             <Flex paddingRight="12" className={styles.suffix} position="static">
               {hasSuffix}
@@ -211,7 +210,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {description}
           </Flex>
         )}
-      </Flex>
+      </Column>
     );
   },
 );

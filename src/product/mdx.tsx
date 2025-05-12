@@ -25,13 +25,14 @@ import { MediaProps } from "@/once-ui/components/Media";
 import { HeadingLink } from "@/once-ui/modules";
 import { ClientOption } from "@/product/ClientOption";
 
-import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "@/product/DialogExample";
-import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "@/product/DropdownWrapperExample";
-import { BasicRawDropdown, IconsRawDropdown, DescriptionRawDropdown, CustomStyledRawDropdown } from "@/product/DropdownExample";
-import { NavIconToggle, NavIconStates, CustomNavIcon } from "@/product/NavIconExample";
-import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, ClientSwitch } from "@/product/SwitchExample";
-import { IndeterminateCheckboxExample } from "@/product/CheckboxExample";
-import { SubscriptionRadioGroup } from "@/product/RadioButtonExample";
+import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "./DialogExample";
+import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "./DropdownWrapperExample";
+import { BasicRawDropdown, IconsRawDropdown, DescriptionRawDropdown, CustomStyledRawDropdown } from "./DropdownExample";
+import { NavIconToggle, NavIconStates, CustomNavIcon } from "./NavIconExample";
+import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, ClientSwitch } from "./SwitchExample";
+import { IndeterminateCheckboxExample } from "./CheckboxExample";
+import { SubscriptionRadioGroup } from "./RadioButtonExample";
+import { SearchInput, ValidationInputExample } from "./InputExamples";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -211,6 +212,8 @@ const components = {
   ClientSwitch,
   IndeterminateCheckboxExample,
   SubscriptionRadioGroup,
+  SearchInput,
+  ValidationInputExample,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 
