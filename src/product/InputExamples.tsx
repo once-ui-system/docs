@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Input, Icon, IconButton, Row } from "@/once-ui/components";
+import { Input, Icon, IconButton, Row, ColorInput, DateInput } from "@/once-ui/components";
 
 // Search input with managed state and conditional clear button
 export function SearchInput() {
@@ -60,6 +60,61 @@ export function ValidationInputExample() {
       onChange={(e) => setValue(e.target.value)}
       validate={validateEmail}
       placeholder="Email"
+    />
+  );
+}
+
+// Color input example with managed state
+export function ColorInputExample() {
+  const [colorValue, setColorValue] = useState("#4287f5");
+  
+  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setColorValue(e.target.value);
+  };
+  
+  return (
+    <ColorInput
+      id="color-input-example"
+      label="Brand Color"
+      value={colorValue}
+      onChange={handleColorChange}
+    />
+  );
+}
+
+// Date input example with managed state
+export function DateInputExample() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  
+  const handleDateChange = (newDate: Date) => {
+    setDate(newDate);
+  };
+  
+  return (
+    <DateInput
+      id="date-input-example"
+      label="Select Date"
+      value={date}
+      onChange={handleDateChange}
+    />
+  );
+}
+
+// Date and time input example
+export function DateTimeInputExample() {
+  const [dateTime, setDateTime] = useState<Date | undefined>(new Date());
+  
+  const handleDateTimeChange = (newDateTime: Date) => {
+    setDateTime(newDateTime);
+  };
+  
+  return (
+    <DateInput
+      id="date-time-input-example"
+      label="Select Date & Time"
+      value={dateTime}
+      onChange={handleDateTimeChange}
+      timePicker={true}
     />
   );
 }

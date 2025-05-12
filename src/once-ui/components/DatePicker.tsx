@@ -389,8 +389,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
               <Flex fillWidth gap="16" vertical="center" data-scaling="110">
                 <NumberInput
                   id="hours"
-                  label="Hours"
-                  labelAsPlaceholder
+                  placeholder="Hours"
                   min={1}
                   max={12}
                   value={selectedTime?.hours ? convert24to12(selectedTime.hours) : 12}
@@ -404,8 +403,7 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
                 :
                 <NumberInput
                   id="minutes"
-                  label="Minutes"
-                  labelAsPlaceholder
+                  placeholder="Minutes"
                   min={0}
                   max={59}
                   padStart={2}

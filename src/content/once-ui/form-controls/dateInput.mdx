@@ -1,9 +1,89 @@
 ---
 title: "DateInput"
-summary: "Once UI is an open-source design system built for indie creators, small teams, and startups to fuel the next generation of web applications."
-updatedAt: "2025-05-04"
+summary: "DateInput provides a user-friendly date and time picker with calendar interface."
+updatedAt: "2025-05-12"
 navLabel: "DateInput"
-navIcon: "learn"
+navIcon: "components"
 ---
 
-## Coming soon
+The `DateInput` component provides an enhanced date picker that combines an input field with a dropdown calendar interface. It allows users to easily select dates with optional time selection.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={<DateInputExample />}
+  codes={[
+    {
+      code:
+`const [date, setDate] = useState<Date | undefined>(new Date());
+  
+const handleDateChange = (newDate: Date) => {
+  setDate(newDate);
+};
+
+<DateInput
+  id="date-input-example"
+  label="Select Date"
+  value={date}
+  onChange={handleDateChange}
+/>`,
+      language: "tsx",
+      label: "DateInput"
+    }
+  ]}
+/>
+
+## With Time Picker
+
+Enable time selection by setting the `timePicker` prop to `true`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={<DateTimeInputExample />}
+  codes={[
+    {
+      code:
+`const [dateTime, setDateTime] = useState<Date | undefined>(new Date());
+  
+const handleDateTimeChange = (newDateTime: Date) => {
+  setDateTime(newDateTime);
+};
+
+<DateInput
+  id="date-time-input-example"
+  label="Select Date & Time"
+  value={dateTime}
+  onChange={handleDateTimeChange}
+  timePicker={true}
+/>`,
+      language: "tsx",
+      label: "With Time Picker"
+    }
+  ]}
+/>
+
+## Features
+
+- **Calendar Interface**: Visual calendar for easy date selection
+- **Time Selection**: Optional time picker for selecting hours and minutes
+- **Formatted Display**: Displays selected date in a readable format
+- **Dropdown Integration**: Uses DropdownWrapper for a clean UI experience
+
+## Props
+
+The `DateInput` component extends the standard `Input` component props with the following modifications:
+
+<PropsTable
+  marginTop="16"
+  marginBottom="24"
+  content={[
+    ["id", "string"],
+    ["label", "string"],
+    ["value", "Date", "undefined"],
+    ["onChange", "(date: Date) => void"],
+    ["timePicker", "boolean", "false"],
+    ["className", "string"],
+    ["style", "React.CSSProperties"]
+  ]}
+/>

@@ -183,10 +183,9 @@ return (
         <Column fillWidth minWidth={12}>
           <Column padding="4" fillWidth position="sticky" top="0" background="page" zIndex={1}>
             <Input
-              labelAsPlaceholder
               height="s"
               id="search-dropdown"
-              label="Search"
+              placeholder="Search"
               hasPrefix={<Icon name="search" size="xs" />}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

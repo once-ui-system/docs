@@ -195,9 +195,8 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
                     marginLeft: "-1px",
                     width: "calc(100% + 2px)",
                   }}
-                  labelAsPlaceholder
                   id="search"
-                  label="Search"
+                  placeholder="Search"
                   height="s"
                   radius="none"
                   hasSuffix={

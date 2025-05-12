@@ -32,7 +32,7 @@ import { NavIconToggle, NavIconStates, CustomNavIcon } from "./NavIconExample";
 import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, ClientSwitch } from "./SwitchExample";
 import { IndeterminateCheckboxExample } from "./CheckboxExample";
 import { SubscriptionRadioGroup } from "./RadioButtonExample";
-import { SearchInput, ValidationInputExample } from "./InputExamples";
+import { SearchInput, ValidationInputExample, ColorInputExample, DateInputExample, DateTimeInputExample } from "./InputExamples";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -214,6 +214,9 @@ const components = {
   SubscriptionRadioGroup,
   SearchInput,
   ValidationInputExample,
+  ColorInputExample,
+  DateInputExample,
+  DateTimeInputExample,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

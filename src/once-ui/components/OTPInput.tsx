@@ -99,8 +99,7 @@ const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
                 inputsRef.current[index] = el;
               }}
               id={`otp-${index}`}
-              label=""
-              labelAsPlaceholder
+              placeholder=""
               type="text"
               inputMode="numeric"
               maxLength={1}
