@@ -15,7 +15,8 @@ import useDebounce from "../hooks/useDebounce";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
-  label: string;
+  label?: string;
+  placeholder?: string;
   lines?: number | "auto";
   error?: boolean;
   errorMessage?: ReactNode;
@@ -43,6 +44,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     {
       id,
       label,
+      placeholder,
       lines = 3,
       error = false,
       errorMessage,
@@ -51,7 +53,6 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       className,
       hasPrefix,
       hasSuffix,
-      labelAsPlaceholder = false,
       resize = "vertical",
       validate,
       children,
@@ -136,7 +137,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         [styles.focused]: isFocused,
         [styles.withPrefix]: hasPrefix,
         [styles.withSuffix]: hasSuffix,
-        [styles.labelAsPlaceholder]: labelAsPlaceholder,
+        [styles.labelAsPlaceholder]: placeholder,
         [styles.hasChildren]: children,
       },
     );
@@ -152,7 +153,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         })}
       >
         <Flex
-          minHeight={labelAsPlaceholder ? "48" : "56"}
+          minHeight={placeholder ? "48" : "56"}
           transition="micro-medium"
           border="neutral-medium"
           background="neutral-alpha-weak"
@@ -183,7 +184,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               }}
               id={id}
               rows={typeof lines === "number" ? lines : 1}
-              placeholder={labelAsPlaceholder ? label : props.placeholder}
+              placeholder={placeholder}
               onFocus={handleFocus}
               onBlur={handleBlur}
               className={textareaClassNames}
@@ -196,7 +197,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
               }}
               onChange={handleChange}
             />
-            {!labelAsPlaceholder && (
+            {!placeholder && (
               <Text
                 as="label"
                 variant="label-default-m"

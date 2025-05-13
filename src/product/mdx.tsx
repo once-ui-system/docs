@@ -33,6 +33,7 @@ import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, Cli
 import { IndeterminateCheckboxExample } from "./CheckboxExample";
 import { SubscriptionRadioGroup } from "./RadioButtonExample";
 import { SearchInput, ValidationInputExample, ColorInputExample, DateInputExample, DateTimeInputExample } from "./InputExamples";
+import { BasicChipExample, ChipWithIconsExample, RemovableChipsExample, CustomRemovableChipExample, InteractiveChipExample } from "./ChipExamples";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -201,7 +202,6 @@ const components = {
   IconsRawDropdown,
   DescriptionRawDropdown,
   CustomStyledRawDropdown,
-  ClientOption,
   NavIconToggle,
   NavIconStates,
   CustomNavIcon,
@@ -217,6 +217,12 @@ const components = {
   ColorInputExample,
   DateInputExample,
   DateTimeInputExample,
+  BasicChipExample,
+  ChipWithIconsExample,
+  RemovableChipsExample,
+  CustomRemovableChipExample,
+  InteractiveChipExample,
+  ClientOption,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

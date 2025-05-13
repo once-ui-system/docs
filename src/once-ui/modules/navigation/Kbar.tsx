@@ -316,8 +316,7 @@ export const KbarContent: React.FC<KbarContentProps> = ({ isOpen, onClose, items
         <Flex fillWidth>
           <Input
             id="kbar-search"
-            label="Search docs..."
-            labelAsPlaceholder
+            placeholder="Search docs..."
             value={searchQuery}
             onChange={handleSearchChange}
             onKeyDown={handleKeyDown}
