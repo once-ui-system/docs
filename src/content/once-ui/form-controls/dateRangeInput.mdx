@@ -20,49 +20,17 @@ The `DateRangeInput` component provides a user-friendly interface for selecting 
     {
       code:
 `<DateRangeInput
-  id="basic-date-range-example"
-  startLabel="Start date"
-  endLabel="End date"
-  value={dateRange}
-  onChange={handleDateRangeChange}
+    id="basic-date-range-example"
+    startLabel="Start date"
+    endLabel="End date"
+    value={dateRange}
+    onChange={handleDateRangeChange}
 />`,
       language: "tsx",
       label: "Basic"
     }
   ]}
 />
-
-## Custom Labels
-
-<CodeBlock
-  marginTop="16"
-  marginBottom="24"
-  preview={
-    <CustomLabelDateRangeInputExample />
-  }
-  codes={[
-    {
-      code:
-`<DateRangeInput
-  id="custom-label-date-range-example"
-  startLabel="Check-in"
-  endLabel="Check-out"
-  value={dateRange}
-  onChange={handleDateRangeChange}
-/>`,
-      language: "tsx",
-      label: "Custom Labels"
-    }
-  ]}
-/>
-
-## Features
-
-- **Dual Input Fields**: Separate fields for start and end dates
-- **Calendar Interface**: Visual calendar for intuitive date range selection
-- **Formatted Display**: Displays selected dates in a readable format
-- **Custom Labels**: Configurable labels for start and end date fields
-- **Dropdown Integration**: Uses `DropdownWrapper` for a clean UI experience
 
 ## API reference
 
@@ -80,6 +48,14 @@ The `DateRangeInput` component provides a user-friendly interface for selecting 
     ["style"]
   ]}
 />
+
+## Features
+
+- **Dual Input Fields**: Separate fields for start and end dates
+- **Calendar Interface**: Visual calendar for intuitive date range selection
+- **Formatted Display**: Displays selected dates in a readable format
+- **Custom Labels**: Configurable labels for start and end date fields
+- **Dropdown Integration**: Uses `DropdownWrapper` for a clean UI experience
 
 ## Accessibility
 

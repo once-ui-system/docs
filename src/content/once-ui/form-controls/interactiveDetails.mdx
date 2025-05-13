@@ -3,50 +3,30 @@ title: "InteractiveDetails"
 summary: "A utility component for displaying labels and descriptions for interactive form elements."
 updatedAt: "2025-05-09"
 navLabel: "InteractiveDetails"
-navIcon: "form-controls"
+navIcon: "components"
 ---
 
-The InteractiveDetails component is a utility component used to display labels and descriptions for interactive form elements such as checkboxes and radio buttons. It provides consistent styling and behavior for these elements.
+The `InteractiveDetails` component is a utility component used to display labels and descriptions for interactive form elements such as checkboxes and radio buttons. It provides consistent styling and behavior for these elements.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  preview={
-    <Column gap="16">
-      <InteractiveDetails 
-        label="Basic label" 
-        onClick={() => {}}
-      />
-      <InteractiveDetails 
-        label="With description" 
-        description="This is a description for the interactive element"
-        onClick={() => {}}
-      />
-      <InteractiveDetails 
-        label="With help tooltip" 
-        iconButtonProps={{ tooltip: "This is a help tooltip" }}
-        onClick={() => {}}
-      />
-    </Column>
-  }
+  preview={<InteractiveDetailsExample />}
   codes={[
     {
       code:
 `<InteractiveDetails 
     label="Basic label" 
-    onClick={() => {}}
 />
 
 <InteractiveDetails 
     label="With description" 
     description="This is a description for the interactive element"
-    onClick={() => {}}
 />
 
 <InteractiveDetails 
     label="With help tooltip" 
-    iconButtonProps={{ tooltip: "This is a help tooltip" }}
-    onClick={() => {}}
+    iconButtonProps={{ tooltip: "This is a help tooltip", tooltipPosition: "right" }}
 />`,
       language: "tsx",
       label: "InteractiveDetails"
@@ -54,89 +34,57 @@ The InteractiveDetails component is a utility component used to display labels a
   ]}
 />
 
-## Usage with form controls
+## Usage
 
-InteractiveDetails is primarily used as a building block for form controls like Checkbox and RadioButton to provide consistent labeling and description functionality.
+The `InteractiveDetails` component is primarily used as a building block for form controls like `Checkbox`, `RadioButton` and `Switch` to provide consistent labeling and description functionality.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  preview={
-    <Column gap="16">
-      <Checkbox 
-        label="Checkbox with InteractiveDetails"
-        description="This checkbox uses InteractiveDetails for its label and description"
-      />
-      <RadioButton 
-        label="Radio button with InteractiveDetails"
-        description="This radio button uses InteractiveDetails for its label and description"
-      />
-    </Column>
-  }
+  preview={<FormControlsExample />}
   codes={[
     {
       code:
 `<Checkbox 
-    label="Checkbox with InteractiveDetails"
-    description="This checkbox uses InteractiveDetails for its label and description"
+  label="Checkbox with InteractiveDetails"
+  description="This checkbox uses InteractiveDetails for its label and description"
 />
 
 <RadioButton 
-    label="Radio button with InteractiveDetails"
-    description="This radio button uses InteractiveDetails for its label and description"
+  label="Radio button with InteractiveDetails"
+  description="This radio button uses InteractiveDetails for its label and description"
 />`,
       language: "tsx",
-      label: "Form controls"
+      label: "Usage"
     }
   ]}
 />
 
-## With help tooltip
+## Tooltip
 
 Add a help tooltip to provide additional information about the form control.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  preview={
-    <Column gap="16">
-      <InteractiveDetails 
-        label="With tooltip on top"
-        iconButtonProps={{ 
-          tooltip: "This tooltip appears on top", 
-          tooltipPosition: "top" 
-        }}
-        onClick={() => {}}
-      />
-      <InteractiveDetails 
-        label="With tooltip on right"
-        iconButtonProps={{ 
-          tooltip: "This tooltip appears on the right", 
-          tooltipPosition: "right" 
-        }}
-        onClick={() => {}}
-      />
-    </Column>
-  }
+  preview={<TooltipExample />}
   codes={[
     {
       code:
 `<InteractiveDetails 
     label="With tooltip on top"
     iconButtonProps={{ 
-        tooltip: "This tooltip appears on top", 
-        tooltipPosition: "top" 
+      tooltip: "This tooltip appears on top", 
+      tooltipPosition: "top" 
     }}
-    onClick={() => {}}
 />
 
 <InteractiveDetails 
     label="With tooltip on right"
     iconButtonProps={{ 
-        tooltip: "This tooltip appears on the right", 
-        tooltipPosition: "right" 
+      tooltip: "This tooltip appears on the right", 
+      tooltipPosition: "right" 
     }}
-    onClick={() => {}}
 />`,
       language: "tsx",
       label: "Tooltip"
@@ -148,11 +96,11 @@ Add a help tooltip to provide additional information about the form control.
 
 <PropsTable
   content={[
+    ["id", "string"],
     ["label", "React.ReactNode"],
     ["description", "React.ReactNode"],
     ["iconButtonProps", "IconButtonProps"],
     ["onClick", "() => void"],
-    ["className", "string"],
-    ["id", "string"]
+    ["className"],
   ]}
 />

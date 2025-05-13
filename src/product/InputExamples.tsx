@@ -1,7 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import { Input, Icon, IconButton, ColorInput, DateInput } from "@/once-ui/components";
+import { 
+  Input, 
+  Icon, 
+  IconButton, 
+  ColorInput, 
+  DateInput, 
+  NumberInput, 
+  OTPInput, 
+  PasswordInput, 
+  TagInput,
+  Flex,
+  Text,
+  Kbd
+} from "@/once-ui/components";
+import { useToast } from "@/once-ui/components/ToastProvider";
 
 // Search input with managed state and conditional clear button
 export function SearchInput() {
@@ -112,10 +126,94 @@ export function DateTimeInputExample() {
   return (
     <DateInput
       id="date-time-input-example"
-      placeholder="Select date & time"
+      label="Date & Time"
       value={dateTime}
       onChange={handleDateTimeChange}
       timePicker
+    />
+  );
+}
+
+// NumberInput example with min, max, and step
+export function NumberInputExample() {
+  const [value, setValue] = useState<number>(0);
+  
+  const handleChange = (newValue: number) => {
+    setValue(newValue);
+  };
+  
+  return (
+    <NumberInput
+      id="number-input-example"
+      label="Quantity"
+      value={value}
+      onChange={handleChange}
+      min={0}
+      max={100}
+      step={1}
+    />
+  );
+}
+
+// OTP Input example for verification codes
+export function OTPInputExample() {
+  const { addToast } = useToast();
+  
+  const handleComplete = (code: string) => {
+    addToast({
+      variant: "success",
+      message: `Verification code ${code} submitted successfully`
+    });
+  };
+  
+  return (
+    <Flex direction="column" gap="16">
+      <Text as="label" htmlFor="otp-input-example" variant="label-default-s" onBackground="neutral-weak">
+        Verification Code
+      </Text>
+      <OTPInput
+        id="otp-input-example"
+        length={6}
+        onComplete={handleComplete}
+        autoFocus
+      />
+    </Flex>
+  );
+}
+
+// Password Input example with toggle visibility
+export function PasswordInputExample() {
+  const [password, setPassword] = useState<string>('');
+  
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+  
+  return (
+    <PasswordInput
+      id="password-input-example"
+      value={password}
+      onChange={handleChange}
+      placeholder="Password"
+    />
+  );
+}
+
+// Tag Input example for adding multiple tags
+export function TagInputExample() {
+  const [tags, setTags] = useState<string[]>(['React', 'Next.js']);
+  
+  const handleChange = (newTags: string[]) => {
+    setTags(newTags);
+  };
+  
+  return (
+    <TagInput
+      id="tag-input-example"
+      value={tags}
+      onChange={handleChange}
+      placeholder="Add interest"
+      hasSuffix={<Kbd position="absolute" top="12" right="12">Enter</Kbd>}
     />
   );
 }

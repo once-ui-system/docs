@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef, forwardRef, useEffect } from "react";
-import { Flex, Input, Text } from ".";
+import { Column, Flex, Input, Text } from ".";
 import styles from "./OTPInput.module.scss";
 
 interface OTPInputProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -90,7 +90,7 @@ const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
     };
 
     return (
-      <Flex direction="column" gap="8" ref={ref}>
+      <Column gap="8" ref={ref}>
         <Flex gap="8" center onClick={handleContainerClick}>
           {Array.from({ length }, (_, index) => (
             <Input
@@ -99,10 +99,11 @@ const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
                 inputsRef.current[index] = el;
               }}
               id={`otp-${index}`}
-              placeholder=""
               type="text"
+              placeholder=" "
               inputMode="numeric"
               maxLength={1}
+              error={error}
               value={values[index]}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(index, e)}
@@ -114,12 +115,12 @@ const OTPInput = forwardRef<HTMLDivElement, OTPInputProps>(
         </Flex>
         {error && errorMessage && (
           <Flex paddingX="8">
-            <Text as="span" variant="body-default-s" onBackground="danger-weak">
+            <Text variant="body-default-s" onBackground="danger-weak">
               {errorMessage}
             </Text>
           </Flex>
         )}
-      </Flex>
+      </Column>
     );
   },
 );

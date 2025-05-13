@@ -32,10 +32,22 @@ import { NavIconToggle, NavIconStates, CustomNavIcon } from "./NavIconExample";
 import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, ClientSwitch } from "./SwitchExample";
 import { IndeterminateCheckboxExample } from "./CheckboxExample";
 import { SubscriptionRadioGroup } from "./RadioButtonExample";
-import { SearchInput, ValidationInputExample, ColorInputExample, DateInputExample, DateTimeInputExample } from "./InputExamples";
-import { BasicDatePickerExample, DateTimePickerExample, DateRangePickerExample } from "./DatePickerExamples";
+import { 
+  SearchInput, 
+  ValidationInputExample, 
+  ColorInputExample, 
+  DateInputExample, 
+  DateTimeInputExample,
+  NumberInputExample,
+  OTPInputExample,
+  PasswordInputExample,
+  TagInputExample
+} from "./InputExamples";
+import { BasicDatePickerExample, DateTimePickerExample, DateRangePickerExample, DateRangePickerPresetsExample } from "./DatePickerExamples";
 import { BasicDateRangeInputExample, CustomLabelDateRangeInputExample } from "./DateRangeInputExamples";
 import { BasicChipExample, ChipWithIconsExample, RemovableChipsExample, CustomRemovableChipExample, InteractiveChipExample } from "./ChipExamples";
+import { InteractiveDetailsExample, FormControlsExample, TooltipExample } from "./InteractiveDetailsExamples";
+import { ValidationTextareaExample } from "./TextareaExamples";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -219,9 +231,14 @@ const components = {
   ColorInputExample,
   DateInputExample,
   DateTimeInputExample,
+  NumberInputExample,
+  OTPInputExample,
+  PasswordInputExample,
+  TagInputExample,
   BasicDatePickerExample,
   DateTimePickerExample,
   DateRangePickerExample,
+  DateRangePickerPresetsExample,
   BasicDateRangeInputExample,
   CustomLabelDateRangeInputExample,
   BasicChipExample,
@@ -230,6 +247,10 @@ const components = {
   CustomRemovableChipExample,
   InteractiveChipExample,
   ClientOption,
+  InteractiveDetailsExample,
+  FormControlsExample,
+  TooltipExample,
+  ValidationTextareaExample,
   Schema: dynamic(() => import("@/once-ui/modules").then(mod => mod.Schema), { ssr: true }),
 };
 

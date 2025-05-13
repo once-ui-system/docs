@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { DatePicker, Flex } from "@/once-ui/components";
+import { DatePicker, DateRangePicker } from "@/once-ui/components";
+import type { DateRange } from "@/once-ui/components/DateRangePicker";
 
 // Basic DatePicker example with managed state
 export function BasicDatePickerExample() {
@@ -12,12 +13,10 @@ export function BasicDatePickerExample() {
   };
   
   return (
-    <Flex padding="16">
-      <DatePicker
-        value={selectedDate}
-        onChange={handleDateChange}
-      />
-    </Flex>
+    <DatePicker
+      value={selectedDate}
+      onChange={handleDateChange}
+    />
   );
 }
 
@@ -30,48 +29,50 @@ export function DateTimePickerExample() {
   };
   
   return (
-    <Flex padding="16">
-      <DatePicker
-        value={dateTime}
-        onChange={handleDateTimeChange}
-        timePicker
-      />
-    </Flex>
+    <DatePicker
+      value={dateTime}
+      onChange={handleDateTimeChange}
+      timePicker
+    />
   );
 }
 
-// DatePicker with range selection
+// DateRangePicker example
 export function DateRangePickerExample() {
-  const [rangeStart, setRangeStart] = useState<Date | undefined>(new Date());
-  const [rangeEnd, setRangeEnd] = useState<Date | undefined>(
-    new Date(new Date().setDate(new Date().getDate() + 7))
-  );
-  const [hoverDate, setHoverDate] = useState<Date | null>(null);
+  const [dateRange, setDateRange] = useState<DateRange>({
+    startDate: new Date(),
+    endDate: new Date(new Date().setDate(new Date().getDate() + 7))
+  });
   
-  const handleHover = (date: Date | null) => {
-    setHoverDate(date);
+  const handleRangeChange = (range: DateRange) => {
+    setDateRange(range);
   };
   
   return (
-    <Flex padding="16">
-      <DatePicker
-        range={{
-          startDate: rangeStart,
-          endDate: rangeEnd
-        }}
-        onHover={handleHover}
-      />
-    </Flex>
+    <DateRangePicker
+      value={dateRange}
+      onChange={handleRangeChange}
+    />
   );
 }
 
-// Component that combines all examples
-export function DatePickerExamples() {
+// DateRangePicker with custom styling example
+export function DateRangePickerPresetsExample() {
+  const [dateRange, setDateRange] = useState<DateRange>({
+    startDate: new Date(),
+    endDate: new Date(new Date().setDate(new Date().getDate() + 7))
+  });
+  
+  const handleRangeChange = (range: DateRange) => {
+    setDateRange(range);
+  };
+  
   return (
-    <Flex direction="column" gap="32">
-      <BasicDatePickerExample />
-      <DateTimePickerExample />
-      <DateRangePickerExample />
-    </Flex>
+    <DateRangePicker
+      value={dateRange}
+      onChange={handleRangeChange}
+      size="l"
+      style={{ border: '1px solid #e0e0e0', borderRadius: '8px', padding: '16px' }}
+    />
   );
 }
