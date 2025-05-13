@@ -12,23 +12,25 @@ GlitchFx applies a glitch animation to any nested content. You can control the s
   marginTop="16"
   marginBottom="24"
   preview={
-    <GlitchFx fillWidth speed="medium">
-      <Column center fillWidth gap="8">
-        <Media
-          src="/images/docs/once-ui/earth.png"
-          alt="Earth"
-          aspectRatio="1 / 1"
-          maxWidth={24}
-          sizes="640px"
-        />
-        <Text align="center" variant="display-default-xs">
-          Welcome to Earth
-        </Text>
-        <Text align="center" variant="body-default-s" onBackground="neutral-weak">
-          Home to over 8 billion apes
-        </Text>
-      </Column>
-    </GlitchFx>
+    <Row fill overflow="hidden">
+      <GlitchFx fillWidth speed="medium">
+        <Column center fillWidth gap="8">
+          <Media
+            src="/images/docs/once-ui/earth.png"
+            alt="Earth"
+            aspectRatio="1 / 1"
+            maxWidth={24}
+            sizes="640px"
+          />
+          <Text align="center" variant="display-default-xs">
+            Welcome to Earth
+          </Text>
+          <Text align="center" variant="body-default-s" onBackground="neutral-weak">
+            Home to over 8 billion apes
+          </Text>
+        </Column>
+      </GlitchFx>
+    </Row>
   }
   codes={[
     {

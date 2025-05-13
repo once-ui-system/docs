@@ -95,9 +95,9 @@ const Feedback = forwardRef<HTMLDivElement, FeedbackProps>(
                 </Flex>
               )}
               {description && (
-                <Flex fillWidth textVariant="body-default-s" onBackground={`${variant}-strong`}>
+                <Text variant="body-default-s" onBackground={`${variant}-strong`}>
                   {description}
-                </Flex>
+                </Text>
               )}
             </Column>
           )}

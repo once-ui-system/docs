@@ -18,6 +18,7 @@ import {
   Table,
 } from "@/once-ui/components";
 import * as onceComponents from "@/once-ui/components";
+import * as onceModules from "@/once-ui/modules";
 import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
 import { PropsTable } from "@/product/PropsTable";
 import { TextProps } from "@/once-ui/interfaces";
@@ -176,8 +177,12 @@ function createCodeBlock(props: any) {
   return <pre {...props} />;
 }
 
+// Import specific modules we need, excluding Meta which isn't a valid MDX component
+const { Meta, ...otherOnceModules } = onceModules;
+
 const components = {
   ...onceComponents,
+  ...otherOnceModules,
   p: createParagraph as any,
   h1: createHeading("h1") as any,
   h2: createHeading("h2") as any,
