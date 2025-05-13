@@ -4,6 +4,17 @@ import React, { useState } from "react";
 import { Chip, Row, useToast } from "@/once-ui/components";
 import { IconName } from "@/once-ui/icons";
 
+export function BasicChipExample() {
+  return (
+    <Row gap="16" center>
+      <Chip label="Default" selected />
+      <Chip label="With icon" prefixIcon="calendar" />
+      <Chip label="Removable" onRemove={() => {}} />
+      <Chip label="Unselected" />
+    </Row>
+  );
+}
+
 export function InteractiveChipExample() {
   const [selected, setSelected] = useState<boolean>(true);
 
@@ -18,22 +29,11 @@ export function InteractiveChipExample() {
 
 export function ChipWithIconsExample() {
   return (
-    <Row gap="16" horizontal="center">
+    <Row gap="16" center>
       <Chip label="Date" prefixIcon="calendar" />
       <Chip label="Discord" prefixIcon="discord" />
       <Chip label="Style" prefixIcon="style" />
       <Chip label="Favorite" prefixIcon="like" />
-    </Row>
-  );
-}
-
-export function BasicChipExample() {
-  return (
-    <Row gap="16" horizontal="center">
-      <Chip label="Default" selected />
-      <Chip label="With Icon" prefixIcon="tag" />
-      <Chip label="Removable" onRemove={() => {}} />
-      <Chip label="Unselected" selected={false} />
     </Row>
   );
 }

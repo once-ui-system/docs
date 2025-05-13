@@ -6,7 +6,7 @@
         border-color: var(--neutral-border-medium);
     }
 
-    &:has(.labelAsPlaceholder) {
+    &:has(.placeholder) {
         min-height: var(--static-space-48);
     }
 }
@@ -59,7 +59,7 @@
 .s {
     min-height: var(--static-space-48);
 
-    &:has(.labelAsPlaceholder) {
+    &:has(.placeholder) {
         min-height: var(--static-space-40);
     }
 
@@ -87,19 +87,19 @@
     padding: 0 var(--static-space-16);
     outline: none;
 
-    &.labelAsPlaceholder {
+    &.placeholder {
         padding-top: 0;
     }
 
-    &.textarea.labelAsPlaceholder {
+    &.textarea.placeholder {
         padding-top: var(--static-space-12);
     }
 
-    &:not(.labelAsPlaceholder) {
+    &:not(.placeholder) {
         padding-top: var(--static-space-16);
     }
 
-    &.labelAsPlaceholder.hasChildren {
+    &.placeholder.hasChildren {
         padding-top: var(--static-space-16);
     }
 

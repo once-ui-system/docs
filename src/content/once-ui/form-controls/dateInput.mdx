@@ -11,21 +11,25 @@ The `DateInput` component provides an enhanced date picker that combines an inpu
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  preview={<DateInputExample />}
+  preview={
+    <Row fillWidth height={24} horizontal="center" vertical="start">
+      <DateInputExample />
+    </Row>
+  }
   codes={[
     {
       code:
 `const [date, setDate] = useState<Date | undefined>(new Date());
   
 const handleDateChange = (newDate: Date) => {
-  setDate(newDate);
+    setDate(newDate);
 };
 
 <DateInput
-  id="date-input-example"
-  label="Select Date"
-  value={date}
-  onChange={handleDateChange}
+    id="date-input-example"
+    label="Select Date"
+    value={date}
+    onChange={handleDateChange}
 />`,
       language: "tsx",
       label: "DateInput"
@@ -33,14 +37,18 @@ const handleDateChange = (newDate: Date) => {
   ]}
 />
 
-## With Time Picker
+## Time picker
 
 Enable time selection by setting the `timePicker` prop to `true`.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
-  preview={<DateTimeInputExample />}
+  preview={
+    <Row fillWidth height={24} horizontal="center" vertical="start">
+      <DateTimeInputExample />
+    </Row>
+  }
   codes={[
     {
       code:
@@ -55,10 +63,10 @@ const handleDateTimeChange = (newDateTime: Date) => {
   label="Select Date & Time"
   value={dateTime}
   onChange={handleDateTimeChange}
-  timePicker={true}
+  timePicker
 />`,
       language: "tsx",
-      label: "With Time Picker"
+      label: "TimePicker"
     }
   ]}
 />
@@ -68,11 +76,9 @@ const handleDateTimeChange = (newDateTime: Date) => {
 - **Calendar Interface**: Visual calendar for easy date selection
 - **Time Selection**: Optional time picker for selecting hours and minutes
 - **Formatted Display**: Displays selected date in a readable format
-- **Dropdown Integration**: Uses DropdownWrapper for a clean UI experience
+- **Dropdown Integration**: Uses `DropdownWrapper` for a clean UI experience
 
-## Props
-
-The `DateInput` component extends the standard `Input` component props with the following modifications:
+## API reference
 
 <PropsTable
   marginTop="16"
@@ -83,7 +89,7 @@ The `DateInput` component extends the standard `Input` component props with the 
     ["value", "Date", "undefined"],
     ["onChange", "(date: Date) => void"],
     ["timePicker", "boolean", "false"],
-    ["className", "string"],
-    ["style", "React.CSSProperties"]
+    ["className"],
+    ["style"]
   ]}
 />

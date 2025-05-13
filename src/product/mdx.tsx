@@ -33,6 +33,8 @@ import { BasicSwitch, SwitchWithFeedback, SwitchWithLoading, ReversedSwitch, Cli
 import { IndeterminateCheckboxExample } from "./CheckboxExample";
 import { SubscriptionRadioGroup } from "./RadioButtonExample";
 import { SearchInput, ValidationInputExample, ColorInputExample, DateInputExample, DateTimeInputExample } from "./InputExamples";
+import { BasicDatePickerExample, DateTimePickerExample, DateRangePickerExample } from "./DatePickerExamples";
+import { BasicDateRangeInputExample, CustomLabelDateRangeInputExample } from "./DateRangeInputExamples";
 import { BasicChipExample, ChipWithIconsExample, RemovableChipsExample, CustomRemovableChipExample, InteractiveChipExample } from "./ChipExamples";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -217,6 +219,11 @@ const components = {
   ColorInputExample,
   DateInputExample,
   DateTimeInputExample,
+  BasicDatePickerExample,
+  DateTimePickerExample,
+  DateRangePickerExample,
+  BasicDateRangeInputExample,
+  CustomLabelDateRangeInputExample,
   BasicChipExample,
   ChipWithIconsExample,
   RemovableChipsExample,

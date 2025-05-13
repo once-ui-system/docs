@@ -122,7 +122,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         [styles.focused]: isFocused,
         [styles.withPrefix]: hasPrefix,
         [styles.withSuffix]: hasSuffix,
-        [styles.labelAsPlaceholder]: placeholder,
+        [styles.placeholder]: placeholder,
         [styles.hasChildren]: children,
         [styles.error]: displayError && debouncedValue !== "",
       },

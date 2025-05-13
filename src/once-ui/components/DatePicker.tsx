@@ -251,7 +251,15 @@ const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
                 weight={isSelected ? "strong" : "default"}
                 variant={isSelected ? "primary" : "tertiary"}
                 size="m"
-                onClick={() => !isDisabled && handleDateSelect(currentDate)}
+                onClick={(e) => {
+                  if (!isDisabled) {
+                    if (timePicker) {
+                      // Stop propagation to prevent DropdownWrapper from closing
+                      e.stopPropagation();
+                    }
+                    handleDateSelect(currentDate);
+                  }
+                }}
                 onMouseEnter={() => onHover?.(currentDate)}
                 onMouseLeave={() => onHover?.(null)}
                 disabled={isDisabled}

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Input, Icon, IconButton, Row, ColorInput, DateInput } from "@/once-ui/components";
+import { Input, Icon, IconButton, ColorInput, DateInput } from "@/once-ui/components";
 
 // Search input with managed state and conditional clear button
 export function SearchInput() {
@@ -92,8 +92,9 @@ export function DateInputExample() {
   
   return (
     <DateInput
+      hasPrefix={<Icon marginLeft="4" name="calendar" size="xs" />}
       id="date-input-example"
-      label="Select Date"
+      placeholder="Select date"
       value={date}
       onChange={handleDateChange}
     />
@@ -111,10 +112,10 @@ export function DateTimeInputExample() {
   return (
     <DateInput
       id="date-time-input-example"
-      label="Select Date & Time"
+      placeholder="Select date & time"
       value={dateTime}
       onChange={handleDateTimeChange}
-      timePicker={true}
+      timePicker
     />
   );
 }

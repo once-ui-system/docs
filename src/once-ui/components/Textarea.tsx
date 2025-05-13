@@ -34,7 +34,6 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string;
   hasPrefix?: ReactNode;
   hasSuffix?: ReactNode;
-  labelAsPlaceholder?: boolean;
   resize?: "horizontal" | "vertical" | "both" | "none";
   validate?: (value: ReactNode) => ReactNode | null;
 }
@@ -137,7 +136,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         [styles.focused]: isFocused,
         [styles.withPrefix]: hasPrefix,
         [styles.withSuffix]: hasSuffix,
-        [styles.labelAsPlaceholder]: placeholder,
+        [styles.placeholder]: placeholder,
         [styles.hasChildren]: children,
       },
     );
