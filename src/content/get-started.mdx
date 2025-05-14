@@ -18,75 +18,73 @@ Our core product is Once UI, an open-source design system built to fuel the next
 
 Since our templates are not just static page examples, but functional, production-ready apps, there are a few things you need to know. Please read the documentation for more details, and if you need further help, reach out on [Discord](https://discord.com/invite/5EyAQ4eNdS).
 
-<Grid fillWidth columns={2} mobileColumns={1} gap="8" marginTop="16">
-  <Card
-    href="/once-ui/quick-start"
-    fillWidth
-    radius="l"
-    border="neutral-alpha-medium"
-    direction="column"
-    gap="4"
-  >
-    <Media src="/images/docs/once-ui.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
-    <Column fillWidth padding="20" gap="8" horizontal="start">
-      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Once UI</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Get started with the original starter template.</Text>
-    </Column>
-  </Card>
-  <Card
-    href="/magic-portfolio/quick-start"
-    fillWidth
-    radius="l"
-    border="neutral-alpha-medium"
-    direction="column"
-    gap="4"
-  >
-    <Media src="/images/docs/magic-portfolio.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
-    <Column fillWidth padding="20" gap="8" horizontal="start">
-      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Portfolio</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Create your beautiful creative portfolio.</Text>
-    </Column>
-  </Card>
-  <Card
-    href="/magic-store/quick-start"
-    fillWidth
-    radius="l"
-    border="neutral-alpha-medium"
-    direction="column"
-    gap="4"
-  >
-    <Media src="/images/docs/magic-store.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
-    <Column fillWidth padding="20" gap="8" horizontal="start">
-      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Store</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Start selling merch with a ready-made store.</Text>
-    </Column>
-  </Card>
-  <Card
-    href="/magic-docs/quick-start"
-    fillWidth
-    radius="l"
-    border="neutral-alpha-medium"
-    direction="column"
-    gap="4"
-  >
-    <Media src="/images/docs/magic-docs.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
-    <Column fillWidth padding="20" gap="8" horizontal="start">
-      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Docs</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Create product docs without writing code.</Text>
-    </Column>
-  </Card>
-  <Card
-    href="/magic-bio/quick-start"
-    fillWidth
-    radius="l"
-    border="neutral-alpha-medium"
-    direction="column"
-    gap="4"
-  >
-    <Media src="/images/docs/magic-bio.jpg" aspectRatio="16/9" radius="l" sizes="400px" />
-    <Column fillWidth padding="20" gap="8" horizontal="start">
-      <Text variant="heading-strong-m" onBackground="neutral-strong" align="left">Magic Bio</Text>
-      <Text variant="body-default-s" onBackground="neutral-weak" align="left">Launch your link-in-bio site in minutes.</Text>
-    </Column>
-  </Card>
-</Grid>
+<Grid fillWidth columns="2" mobileColumns="1" gap="12" marginTop="16">
+    {[
+      {
+        title: "Once UI Core",
+        description: "The design system that powers all our products.",
+        image: "/images/docs/once-ui.jpg",
+        href: "/once-ui/quick-start"
+      },
+      {
+        title: "Magic Portfolio",
+        description: "Showcase your work with our beautiful portfolio template.",
+        image: "/images/docs/magic-portfolio.jpg",
+        href: "/magic-portfolio/quick-start"
+      },
+      {
+        title: "Magic Docs",
+        description: "Create beautiful documentations like this one.",
+        image: "/images/docs/magic-docs.jpg",
+        href: "/magic-docs/quick-start"
+      },
+      {
+        title: "Magic Store",
+        description: "Start selling merch with a ready-made store.",
+        image: "/images/docs/magic-store.jpg",
+        href: "/magic-store/quick-start"
+      },
+      {
+        title: "Magic Bio",
+        description: "A modern link-in-bio solution for creators.",
+        image: "/images/docs/magic-bio.jpg",
+        href: "/magic-bio/quick-start"
+      }
+    ].map((template, index) => (
+      <Card
+        key={index}
+        href={template.href}
+        fillWidth
+        radius="l"
+        border="neutral-alpha-medium"
+        direction="column"
+      >
+        <Row paddingX="20" paddingY="12" gap="12" vertical="center">
+        <Avatar style={{background: "black"}} src="/trademark/icon-dark.svg" size="s" />
+        <Text variant="label-default-s">Once UI</Text>
+        </Row>
+        <Media
+          border="neutral-alpha-medium"
+          src={template.image} 
+          aspectRatio="16/9" 
+          radius="l" 
+          sizes="400px" 
+        />
+        <Column fillWidth padding="20" gap="4" horizontal="start">
+          <Text 
+            variant="heading-default-xs" 
+            onBackground="neutral-strong"
+          >
+            {template.title}
+          </Text>
+          <Text 
+            variant="body-default-s" 
+            onBackground="neutral-weak"
+            wrap="balance"
+          >
+            {template.description}
+          </Text>
+        </Column>
+      </Card>
+    ))}
+  </Grid>

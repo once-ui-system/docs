@@ -9,7 +9,8 @@ import {
   Card, 
   Media, 
   Line, 
-  StatusIndicator
+  StatusIndicator,
+  Avatar
 } from "@/once-ui/components";
 import { baseURL, meta, schema, changelog, roadmap } from "@/app/resources";
 import { Meta, Schema } from "@/once-ui/modules";
@@ -60,34 +61,6 @@ const roadmapStats = calculateRoadmapStats();
 // Get the latest changelog entry
 const latestChangelogEntry = changelog[0];
 
-// Template data
-const templates = [
-  {
-    title: "Once UI",
-    description: "The original starter template with all components.",
-    image: "/images/docs/once-ui.jpg",
-    href: "/once-ui/quick-start"
-  },
-  {
-    title: "Magic Portfolio",
-    description: "Showcase your work with this beautiful portfolio.",
-    image: "/images/docs/magic-portfolio.jpg",
-    href: "/magic-portfolio/quick-start"
-  },
-  {
-    title: "Magic Docs",
-    description: "Create beautiful documentation like this site.",
-    image: "/images/docs/magic-docs.jpg",
-    href: "/magic-docs/quick-start"
-  },
-  {
-    title: "Magic Bio",
-    description: "A modern link-in-bio solution for creators.",
-    image: "/images/docs/magic-bio.jpg",
-    href: "/magic-bio/quick-start"
-  }
-];
-
 export default function Home() {
   return (
     <Column maxWidth={56} gap="xl">
@@ -107,10 +80,10 @@ export default function Home() {
         <Row fillWidth gap="l">
           <Column maxWidth="xs" gap="12">
             <Heading variant="display-strong-s">
-              Magic Docs
+              Once UI Docs
             </Heading>
             <Text wrap="balance" onBackground="neutral-weak" variant="body-default-xl" marginBottom="20">
-              Get started with premium, plug-and-play solutions as an independent creator
+              Get started with our premium, plug-and-play solutions built for vibe coding
             </Text>
             <Button data-border="rounded" size="s" href="/get-started" variant="secondary" arrowIcon id="get-started">Quick start</Button>
           </Column>
@@ -134,36 +107,69 @@ export default function Home() {
           Deploy fully functional apps in minutes
         </Text>
       </Column>
-      <Grid fillWidth columns="2" mobileColumns="1" gap="8" marginTop="16">
-          {templates.map((template, index) => (
+      <Grid fillWidth columns="2" mobileColumns="1" gap="12" marginTop="16">
+          {[
+            {
+              title: "Once UI Core",
+              description: "The design system that powers all our products.",
+              image: "/images/docs/once-ui.jpg",
+              href: "/once-ui/quick-start"
+            },
+            {
+              title: "Magic Portfolio",
+              description: "Showcase your work with our beautiful portfolio template.",
+              image: "/images/docs/magic-portfolio.jpg",
+              href: "/magic-portfolio/quick-start"
+            },
+            {
+              title: "Magic Docs",
+              description: "Create beautiful documentations like this one.",
+              image: "/images/docs/magic-docs.jpg",
+              href: "/magic-docs/quick-start"
+            },
+            {
+              title: "Magic Store",
+              description: "Start selling merch with a ready-made store.",
+              image: "/images/docs/magic-store.jpg",
+              href: "/magic-store/quick-start"
+            },
+            {
+              title: "Magic Bio",
+              description: "A modern link-in-bio solution for creators.",
+              image: "/images/docs/magic-bio.jpg",
+              href: "/magic-bio/quick-start"
+            }
+          ].map((template, index) => (
             <Card
               key={index}
               href={template.href}
               fillWidth
-              radius="l-4"
+              radius="l"
               border="neutral-alpha-medium"
               direction="column"
-              padding="4"
-              gap="4"
             >
-              <Media 
+              <Row paddingX="20" paddingY="12" gap="12" vertical="center">
+              <Avatar style={{background: "black"}} src="/trademark/icon-dark.svg" size="s" />
+              <Text variant="label-default-s">Once UI</Text>
+              </Row>
+              <Media
+                border="neutral-alpha-medium"
                 src={template.image} 
                 aspectRatio="16/9" 
                 radius="l" 
                 sizes="400px" 
               />
-              <Column fillWidth padding="20" gap="8" horizontal="start">
+              <Column fillWidth padding="20" gap="4" horizontal="start">
                 <Text 
-                  variant="heading-strong-m" 
-                  onBackground="neutral-strong" 
-                  align="left"
+                  variant="heading-default-xs" 
+                  onBackground="neutral-strong"
                 >
                   {template.title}
                 </Text>
                 <Text 
                   variant="body-default-s" 
-                  onBackground="neutral-weak" 
-                  align="left"
+                  onBackground="neutral-weak"
+                  wrap="balance"
                 >
                   {template.description}
                 </Text>
@@ -176,82 +182,74 @@ export default function Home() {
       {/* Latest Update Section */}
       <Column 
         maxWidth={56}
-        gap="20" 
-        padding="32"
         background="overlay"
         radius="l"
         border="neutral-alpha-weak"
       >
-        <Row fillWidth horizontal="space-between" mobileDirection="column" gap="20">
-          <Column gap="8" fillWidth>
+        <Column paddingX="32" paddingY="24" fillWidth horizontal="space-between" mobileDirection="column" gap="4">
+          <Row fillWidth vertical="center" horizontal="space-between" gap="16" wrap>
             <Heading as="h2" variant="display-default-xs">
               Latest Update
             </Heading>
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              {formatDate(latestChangelogEntry.date)}
-            </Text>
-          </Column>
-          <Button variant="secondary" href="/changelog" size="s" suffixIcon="chevronRight">
-            View Changelog
-          </Button>
-        </Row>
+            <Button data-border="rounded" weight="default" variant="secondary" href="/changelog" size="s" suffixIcon="chevronRight">
+              All changes
+            </Button>
+          </Row>
+          <Text variant="label-default-s" onBackground="neutral-weak">
+            {formatDate(latestChangelogEntry.date)}
+          </Text>
+        </Column>
         
-        <Line background="neutral-alpha-weak" />
-        
-        <Row fillWidth gap="20" position="relative" mobileDirection="column">
-          <Column fillWidth gap="12">
-            {latestChangelogEntry.image && (
-              <Media
-                priority
-                sizes="(max-width: 768px) 100vw, 768px"
-                radius="l"
-                src={latestChangelogEntry.image} 
-                alt={`Illustration for ${latestChangelogEntry.title}`}
-                border="neutral-alpha-weak"
-                aspectRatio="16 / 9"
-              />
-            )}
-            <Column fillWidth gap="8" paddingX="16" paddingTop="8">
-              <Heading as="h3">
-                {latestChangelogEntry.title}
-              </Heading>
+        <Column fillWidth>
+          {latestChangelogEntry.image && (
+            <Media
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              radius="l"
+              src={latestChangelogEntry.image} 
+              alt={`Illustration for ${latestChangelogEntry.title}`}
+              border="neutral-alpha-weak"
+              aspectRatio="16 / 9"
+            />
+          )}
+          <Column fillWidth gap="4" paddingX="32" paddingY="24">
+            <Heading as="h3">
+              {latestChangelogEntry.title}
+            </Heading>
 
-              {latestChangelogEntry.description && (
-                <Text variant="body-default-m" onBackground="neutral-weak">
-                  {latestChangelogEntry.description}
-                </Text>
-              )}
-            </Column>
+            {latestChangelogEntry.description && (
+              <Text variant="body-default-m" onBackground="neutral-weak">
+                {latestChangelogEntry.description}
+              </Text>
+            )}
           </Column>
-        </Row>
+        </Column>
       </Column>
       
       {/* Roadmap Progress Section */}
       <Column 
         maxWidth={56}
-        gap="20" 
-        padding="32"
         background="overlay"
         radius="l"
         border="neutral-alpha-weak"
       >
-        <Row fillWidth horizontal="space-between" mobileDirection="column" gap="20">
-          <Column gap="8" fillWidth>
+        <Column paddingX="32" paddingY="24" fillWidth horizontal="space-between" mobileDirection="column" gap="4">
+          <Row fillWidth vertical="center" horizontal="space-between" gap="16" wrap>
             <Heading as="h2" variant="display-default-xs">
               Q2 2025 Roadmap
             </Heading>
-            <Text variant="label-default-s" onBackground="neutral-weak">
-              Progress and task status
-            </Text>
-          </Column>
-          <Button variant="secondary" href="/roadmap" size="s" suffixIcon="chevronRight">
+            <Button data-border="rounded" weight="default" variant="secondary" href="/roadmap" size="s" suffixIcon="chevronRight">
             View Roadmap
           </Button>
-        </Row>
+          </Row>
+          <Text variant="label-default-s" onBackground="neutral-weak">
+            Progress and task status
+          </Text>
+        </Column>
         
         <Line background="neutral-alpha-weak" />
         
-        <Row fillWidth gap="20" position="relative" mobileDirection="column">
+        <Row fillWidth padding="32" gap="20" position="relative" mobileDirection="column">
           <Row fillWidth gap="12">
             {/* Overall Progress */}
             <Column fillWidth gap="8" paddingTop="8">

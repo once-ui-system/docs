@@ -2,8 +2,8 @@ const changelog = [
   {
     date: "2025-05-01",
     title: "Once UI Hub",
-    image: "/og?title=Once UI Hub&description=Share & connect with creatives",
-    description: "Our new community hub where you can share what you are building and connect with other creatives.",
+    image: "/og?title=Once UI Hub&description=Share your work and connect with creatives",
+    description: "We launched the Once UI Hub, a place to share your work and connect with other creatives.",
     sections: [
       {
         title: "Features",

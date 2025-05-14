@@ -2,7 +2,7 @@
   "title": "Once UI",
   "order": 1,
   "pages": {
-    "installation": 1,
+    "quick-start": 1,
     "config": 2,
     "icons": 3,
     "components": 4

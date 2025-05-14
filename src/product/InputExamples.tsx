@@ -155,8 +155,7 @@ export function NumberInputExample() {
   );
 }
 
-// OTP Input example for verification codes
-export function OTPInputExample() {
+export function OTPInputExample({ autoFocus = true }: { autoFocus?: boolean }) {
   const { addToast } = useToast();
   
   const handleComplete = (code: string) => {
@@ -175,7 +174,7 @@ export function OTPInputExample() {
         id="otp-input-example"
         length={6}
         onComplete={handleComplete}
-        autoFocus
+        autoFocus={autoFocus}
       />
     </Flex>
   );
