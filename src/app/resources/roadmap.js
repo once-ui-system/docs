@@ -22,8 +22,8 @@ const roadmap = [
         title: "Done",
         tasks: [
           {
-            title: "Docs migration",
-            description: "Migrate Once UI docs to Magic Docs with more use cases and examples.",
+            title: "New docs",
+            description: "Rebuilt Once UI docs with Magic Docs from scratch. More examples, use cases, guides.",
             type: "feature"
           },
           {
@@ -34,11 +34,6 @@ const roadmap = [
           {
             title: "0.6 release",
             description: "Simplified SEO with the new Meta and Schema. Better navigations with Command Palette, HeadingNav, MegaMenu. Minor styling improvements.",
-            type: "feature"
-          },
-          {
-            title: "New Docs",
-            description: "Rebuilt Once UI docs with Magic Docs from scratch. More examples, use cases, guides.",
             type: "feature"
           },
         ]

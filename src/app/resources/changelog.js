@@ -1,5 +1,23 @@
 const changelog = [
   {
+    date: "2025-05-14",
+    title: "Once UI Core Docs",
+    image: "/images/changelog/once-ui.jpg",
+    description: "We rebuilt the Once UI Core docs from scratch with better, more comprehensive examples and use cases.",
+    sections: [
+      {
+        title: "Features",
+        bullets: [
+          "Get started guides",
+          "Component documentations",
+          "Module documentations",
+          "Comprehensive examples"
+        ],
+        link: "/once-ui/quick-start"
+      }
+    ]
+  },
+  {
     date: "2025-05-01",
     title: "Once UI Hub",
     image: "/og?title=Once UI Hub&description=Share your work and connect with creatives",
