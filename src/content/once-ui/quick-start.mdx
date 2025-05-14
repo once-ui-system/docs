@@ -34,3 +34,41 @@ Start the local development server:
     language: "bash"
   }
 ]} />
+
+## Structure
+
+<CodeBlock compact marginBottom="16" codes={[
+  {
+    code:
+`.
+├── once-ui
+│   ├── tokens
+│   │   ├── index.scss
+│   │   └── ...
+│   ├── styles
+│   │   ├── index.scss
+│   │   └── ...
+│   ├── components
+│   │   ├── Accordion.tsx
+│   │   ├── Accordion.module.scss
+│   │   └── ...
+│   ├── types.ts
+│   └── icons.ts
+├── app-1
+│   ├── resources
+│   │   └── config.js
+│   ├── page 1
+│   │   └── page.tsx
+│   ├── page 2
+│   │   └── page.tsx
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── utils
+├── app-2
+│   └── ...
+├── next.config.js
+├── package.json
+└── tsconfig.json`,
+    language: "bash"
+  }
+]} />

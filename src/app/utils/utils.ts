@@ -368,8 +368,64 @@ export function getAdjacentPages(currentSlug: string, sortType: SortType = 'sect
     }
     
     // Get previous and next pages based on the sidebar order
-    const prevPage = currentIndex > 0 ? sidebarOrderedPages[currentIndex - 1] : null;
-    const nextPage = currentIndex < sidebarOrderedPages.length - 1 ? sidebarOrderedPages[currentIndex + 1] : null;
+    let prevPage = currentIndex > 0 ? sidebarOrderedPages[currentIndex - 1] : null;
+    let nextPage = currentIndex < sidebarOrderedPages.length - 1 ? sidebarOrderedPages[currentIndex + 1] : null;
+    
+    // Check if current page is in a section or nested folder
+    if (currentSlug.includes('/')) {
+      const currentParts = currentSlug.split('/');
+      const currentSection = currentParts[0];
+      
+      // Handle previous page navigation
+      if (prevPage) {
+        if (!prevPage.slug.includes('/')) {
+          // If previous page is a top-level page, set it to null
+          prevPage = null;
+        } else {
+          const prevParts = prevPage.slug.split('/');
+          const prevSection = prevParts[0];
+          
+          // If previous page is from a different section, set it to null
+          if (prevSection !== currentSection) {
+            prevPage = null;
+          } else if (currentParts.length > 2 && prevParts.length > 2) {
+            // If both are in nested folders, check if they're in the same folder
+            if (currentParts[1] !== prevParts[1]) {
+              // If they're in different folders within the same section, set prevPage to null
+              prevPage = null;
+            }
+          } else if (currentParts.length > 2 && prevParts.length === 2) {
+            // If current page is in a nested folder but prev is direct child of section
+            prevPage = null;
+          }
+        }
+      }
+      
+      // Handle next page navigation
+      if (nextPage) {
+        if (!nextPage.slug.includes('/')) {
+          // If next page is a top-level page (shouldn't happen normally), set it to null
+          nextPage = null;
+        } else {
+          const nextParts = nextPage.slug.split('/');
+          const nextSection = nextParts[0];
+          
+          // If next page is from a different section, set it to null
+          if (nextSection !== currentSection) {
+            nextPage = null;
+          } else if (currentParts.length > 2 && nextParts.length > 2) {
+            // If both are in nested folders, check if they're in the same folder
+            if (currentParts[1] !== nextParts[1]) {
+              // If they're in different folders within the same section, set nextPage to null
+              nextPage = null;
+            }
+          } else if (currentParts.length === 2 && nextParts.length > 2) {
+            // If current page is direct child of section but next is in a nested folder
+            nextPage = null;
+          }
+        }
+      }
+    }
     
     return { prevPage, nextPage };
   } catch (error) {

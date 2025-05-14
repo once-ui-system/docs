@@ -18,19 +18,19 @@ The `CodeBlock` component provides a way to display code snippets with syntax hi
     {
       code:
 `<CodeBlock
-  copyButton
-  preview={
-    <Button size="s" weight="default" prefixIcon="sparkle">
-      Click me
-    </Button>
-  }
-  codes={[
-    {
-      code: "const greeting = 'Hello, world!';",
-      language: "javascript",
-      label: "Example"
+    copyButton
+    preview={
+      <Button size="s" weight="default" prefixIcon="sparkle">
+        Click me
+      </Button>
     }
-  ]}
+    codes={[
+      {
+        code: "const greeting = 'Hello, world!';",
+        language: "javascript",
+        label: "Example"
+      }
+    ]}
 />`,
       language: "tsx",
       label: "CodeBlock"
