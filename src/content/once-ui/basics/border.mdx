@@ -23,37 +23,40 @@ Override the default shape style with the `data-border` attribute on a native HT
     {
       code: `<Flex data-border="conservative | playful | rounded" radius="m"/>`,
       language: "tsx",
-      label: "Shape style"
+      label: "Radius style"
     }
   ]}
   preview={
     <Flex fillWidth mobileDirection="column" gap="m">
-      <Flex
+      <Background
         data-border="conservative"
-        fillWidth
-        height={4}
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        background="neutral-strong"
-        border="neutral-strong"
+        fillWidth
         radius="m"
+        height={4}
+        border="neutral-alpha-medium"
       />
-      <Flex
+      <Background
         data-border="playful"
-        fillWidth
-        height={4}
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        background="neutral-strong"
-        border="neutral-strong"
+        fillWidth
         radius="m"
+        height={4}
+        border="neutral-alpha-medium"
       />
-      <Flex
+      <Background
         data-border="rounded"
-        fillWidth
-        height={4}
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        background="neutral-strong"
-        border="neutral-strong"
+        fillWidth
         radius="m"
+        height={4}
+        border="neutral-alpha-medium"
       />
     </Flex>
   }
@@ -76,44 +79,49 @@ In Once UI, we adopt the T-shirt size model for managing border radius, with val
   ]}
   preview={
     <Flex fillWidth mobileDirection="column" gap="m">
-      <Flex
+      <Background
         fillWidth
         height={4}
-        background="neutral-strong"
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        border="neutral-strong"
+        border="neutral-alpha-medium"
         radius="xs"
       />
-      <Flex
+      <Background
         fillWidth
         height={4}
-        background="neutral-strong"
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        border="neutral-strong"
+        border="neutral-alpha-medium"
         radius="s"
       />
-      <Flex
+      <Background
         fillWidth
         height={4}
-        background="neutral-strong"
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        border="neutral-strong"
+        border="neutral-alpha-medium"
         radius="m"
       />
-      <Flex
+      <Background
         fillWidth
         height={4}
-        background="neutral-strong"
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        border="neutral-strong"
+        border="neutral-alpha-medium"
         radius="l"
       />
-      <Flex
+      <Background
         fillWidth
         height={4}
-        background="neutral-strong"
+        background="neutral-alpha-weak"
+        lines={{display: true, color: "neutral-alpha-weak"}}
         shadow="m"
-        border="neutral-strong"
+        border="neutral-alpha-medium"
         radius="xl"
       />
     </Flex>
@@ -130,12 +138,13 @@ A common challenge in border-radius systems is nesting. For nested elements to m
   marginBottom="24"
   codes={[
     {
-      code: `const radius = { xs | s | m | l | xl }
+      code:
+`const radius = { xs | s | m | l | xl }
 
 <Flex radius="{radius}-8">
-  <Flex radius="{radius}-4">
-    <Flex radius="{radius}"/>
-  </Flex>
+    <Flex radius="{radius}-4">
+      <Flex radius="{radius}"/>
+    </Flex>
 </Flex>`,
       language: "tsx",
       label: "Nested radius"
@@ -145,55 +154,65 @@ A common challenge in border-radius systems is nesting. For nested elements to m
     <Flex fillWidth mobileDirection="column" gap="m">
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="xs-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="xs-4">
-          <Flex
+          <Background
             fillWidth
             height={4}
-            background="neutral-strong"
-            border="neutral-strong"
+            background="neutral-alpha-weak"
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            shadow="m"
+            border="neutral-alpha-medium"
             radius="xs"
           />
         </Flex>
       </Flex>
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="s-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="s-4">
-          <Flex
+          <Background
             fillWidth
             height={4}
-            background="neutral-strong"
-            border="neutral-strong"
+            background="neutral-alpha-weak"
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            shadow="m"
+            border="neutral-alpha-medium"
             radius="s"
           />
         </Flex>
       </Flex>
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="m-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="m-4">
-          <Flex
+          <Background
             fillWidth
             height={4}
-            background="neutral-strong"
-            border="neutral-strong"
+            background="neutral-alpha-weak"
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            shadow="m"
+            border="neutral-alpha-medium"
             radius="m"
           />
         </Flex>
       </Flex>
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="l-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="l-4">
-          <Flex
+          <Background
             fillWidth
             height={4}
-            background="neutral-strong"
-            border="neutral-strong"
+            background="neutral-alpha-weak"
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            shadow="m"
+            border="neutral-alpha-medium"
             radius="l"
           />
         </Flex>
       </Flex>
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="xl-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="xl-4">
-          <Flex
+          <Background
             fillWidth
             height={4}
-            background="neutral-strong"
-            border="neutral-strong"
+            background="neutral-alpha-weak"
+            lines={{display: true, color: "neutral-alpha-weak"}}
+            shadow="m"
+            border="neutral-alpha-medium"
             radius="xl"
           />
         </Flex>
@@ -202,21 +221,40 @@ A common challenge in border-radius systems is nesting. For nested elements to m
   }
 />
 
-## Border style
+## Border width
 
-Sets the `border-style` and `border-width` properties.
+Sets the `border-width` property.
 
 <Table
   marginTop="16"
   marginBottom="24"
   data={{
     headers: [
-      { content: "Class", key: "class", sortable: true },
+      { content: "Class", key: "class", sortable: false },
       { content: "Preview", key: "preview", sortable: false },
     ],
     rows: [
-      [".solid-1", <Flex width="64" height="20" border="neutral-strong" radius="xs"></Flex>],
-      [".solid-2", <Flex width="64" height="20" border="neutral-strong" borderStyle="solid-2" radius="xs"></Flex>]
+      [".border-1", <Flex width="64" height="20" border="neutral-strong" radius="xs"/>],
+      [".border-2", <Flex width="64" height="20" border="neutral-strong" borderWidth="2" radius="xs"/>]
+    ]
+  }}
+/>
+
+## Border style
+
+Sets the `border-style` property.
+
+<Table
+  marginTop="16"
+  marginBottom="24"
+  data={{
+    headers: [
+      { content: "Class", key: "class", sortable: false },
+      { content: "Preview", key: "preview", sortable: false },
+    ],
+    rows: [
+      [".border-solid", <Flex width="64" height="20" border="neutral-strong" radius="xs"/>],
+      [".border-dashed", <Flex width="64" height="20" border="neutral-strong" borderStyle="dashed" radius="xs"/>]
     ]
   }}
 />
@@ -232,15 +270,45 @@ Sets the `border-color` property.
     headers: [
       { content: "Class", key: "class", sortable: false },
       { content: "Value", key: "value", sortable: false },
-      { content: <Row gap="8"><Icon name="dark" size="xs"/><Icon name="light" size="xs"/></Row>, key: "preview", sortable: false },
+      { content: <Row gap="8"><Icon padding="2" name="dark" size="xs"/><Icon padding="2" name="light" size="xs"/></Row>, key: "preview", sortable: false },
     ],
     rows: [
-      [".neutral-border-weak", <InlineCode>var(--neutral-border-weak)</InlineCode>, <Row gap="8"><Flex border="neutral-weak" radius="xs" width="20" height="20"/></Row>],
-      [".neutral-border-medium", <InlineCode>var(--neutral-border-medium)</InlineCode>, <Row gap="8"><Flex border="neutral-medium" radius="xs" width="20" height="20"/></Row>],
-      [".neutral-border-strong", <InlineCode>var(--neutral-border-strong)</InlineCode>, <Row gap="8"><Flex border="neutral-strong" radius="xs" width="20" height="20"/></Row>],
-      [".neutral-border-alpha-weak", <InlineCode>var(--neutral-border-alpha-weak)</InlineCode>, <Row gap="8"><Flex border="neutral-alpha-weak" radius="xs" width="20" height="20"/></Row>],
-      [".neutral-border-alpha-medium", <InlineCode>var(--neutral-border-alpha-medium)</InlineCode>, <Row gap="8"><Flex border="neutral-alpha-medium" radius="xs" width="20" height="20"/></Row>],
-      [".neutral-border-alpha-strong", <InlineCode>var(--neutral-border-alpha-strong)</InlineCode>, <Row gap="8"><Flex border="neutral-alpha-strong" radius="xs" width="20" height="20"/></Row>],
+      // Generate rows for each color scheme and variant combination
+      ...[
+        "neutral",
+        "brand",
+        "accent",
+        "warning",
+        "danger",
+        "success"
+      ].flatMap(scheme => [
+        // Standard variants
+        ...[
+          "weak",
+          "medium",
+          "strong",
+        ].map(variant => [
+          `.${scheme}-border-${variant}`,
+          <InlineCode>{`var(--${scheme}-border-${variant})`}</InlineCode>,
+          <Row gap="8">
+            <Flex data-theme="dark" background="neutral-alpha-weak" border={`${scheme}-${variant}`} radius="xs" width="20" height="20"/>
+            <Flex data-theme="light" background="neutral-alpha-weak" border={`${scheme}-${variant}`} radius="xs" width="20" height="20"/>
+          </Row>
+        ]),
+        // Alpha variants for all schemes
+        ...[
+          "alpha-weak",
+          "alpha-medium",
+          "alpha-strong",
+        ].map(variant => [
+          `.${scheme}-border-${variant}`,
+          <InlineCode>{`var(--${scheme}-border-${variant})`}</InlineCode>,
+          <Row gap="8">
+            <Flex data-theme="dark"  background="neutral-alpha-weak" border={`${scheme}-${variant}`} radius="xs" width="20" height="20"/>
+            <Flex data-theme="light" background="neutral-alpha-weak" border={`${scheme}-${variant}`} radius="xs" width="20" height="20"/>
+          </Row>
+        ])
+      ])
     ]
   }}
 />
