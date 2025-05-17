@@ -49,6 +49,7 @@ import { BasicDateRangeInputExample, CustomLabelDateRangeInputExample } from "./
 import { BasicChipExample, ChipWithIconsExample, RemovableChipsExample, CustomRemovableChipExample, InteractiveChipExample } from "./ChipExamples";
 import { InteractiveDetailsExample, FormControlsExample, TooltipExample } from "./InteractiveDetailsExamples";
 import { ValidationTextareaExample } from "./TextareaExamples";
+import { PageList } from "./PageList";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
