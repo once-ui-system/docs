@@ -64,8 +64,10 @@ import {
   HiOutlineCodeBracket,
 } from "react-icons/hi2";
 
+import { LiaCubesSolid } from "react-icons/lia";
+
 import { RiDiscountPercentLine, RiVisaLine } from "react-icons/ri";
-import { PiRuler, PiTShirt } from "react-icons/pi";
+import { PiRuler, PiToggleLeft, PiTShirt } from "react-icons/pi";
 import { FaDiscord, FaGithub, FaGoogle, FaLinkedin, FaMailchimp, FaThreads } from "react-icons/fa6";
 import { LuChevronsLeftRight } from "react-icons/lu";
 
@@ -145,6 +147,8 @@ export const iconLibrary: Record<string, IconType> = {
   edit: HiOutlinePencil,
   copy: HiOutlineDocumentDuplicate,
   delete: HiOutlineTrash,
+  switch: PiToggleLeft,
+  modules: LiaCubesSolid,
 };
 
 export type IconLibrary = typeof iconLibrary;
