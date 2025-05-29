@@ -4,7 +4,7 @@ import React, { useEffect, useState, useMemo, useRef } from "react";
 import { ToggleButton } from '@/once-ui/components/ToggleButton';
 import { Accordion, Column, Flex, Icon, Row, Tag } from "@/once-ui/components";
 import { usePathname } from 'next/navigation';
-import { layout } from "@/app/resources/config";
+import { layout } from "@/app/resources/once-ui.config";
 import { routes } from "@/app/resources";
 import { Schemes } from "@/once-ui/types";
 

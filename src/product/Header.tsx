@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Button, Fade, Flex, Logo, NavIcon, Row } from "@/once-ui/components";
-import { layout, routes } from "@/app/resources/config";
+import { layout, routes } from "@/app/resources/once-ui.config";
 import { Sidebar, NavigationItem } from "./Sidebar";
 import { useTheme } from "@/once-ui/components/ThemeProvider";
 import { Kbar } from "@/once-ui/modules";

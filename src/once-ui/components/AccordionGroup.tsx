@@ -1,5 +1,5 @@
 import React from "react";
-import { Column, Accordion, Line, Flex } from "@/once-ui/components";
+import { Column, Accordion, Line, Flex } from ".";
 
 export type AccordionItem = {
   title: React.ReactNode;

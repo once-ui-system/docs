@@ -1,4 +1,4 @@
-import { layout, social } from "@/app/resources/config";
+import { layout, social } from "@/app/resources/once-ui.config";
 import {
   Button,
   Column,

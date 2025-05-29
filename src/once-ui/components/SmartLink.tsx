@@ -2,8 +2,7 @@
 
 import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
-import { Icon } from ".";
-import { ElementType } from "./ElementType";
+import { Icon, ElementType } from ".";
 import { IconName } from "../icons";
 
 interface CommonProps {

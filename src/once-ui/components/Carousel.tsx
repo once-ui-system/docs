@@ -1,6 +1,6 @@
 "use client";
 
-import { Flex, RevealFx, Scroller, Media } from "@/once-ui/components";
+import { Flex, RevealFx, Scroller, Media } from ".";
 import { useEffect, useState, useRef } from "react";
 
 interface Image {

@@ -2,10 +2,8 @@
 
 import React, { useState, useRef, useEffect, forwardRef, ReactNode } from "react";
 import classNames from "classnames";
-import { DropdownWrapper, Flex, Icon, IconButton, Input, InputProps, Option } from ".";
+import { DropdownWrapper, Flex, Icon, IconButton, Input, InputProps, Option, OptionProps, DropdownWrapperProps } from ".";
 import inputStyles from "./Input.module.scss";
-import type { OptionProps } from "./Option";
-import type { DropdownWrapperProps } from "./DropdownWrapper";
 import { Placement } from "@floating-ui/react-dom";
 
 type SelectOptionType = Omit<OptionProps, "selected">;

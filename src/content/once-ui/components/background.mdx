@@ -307,24 +307,30 @@ Combine multiple background effects to create unique and visually interesting ba
     {
       code:
 `<Background
-  height="200px"
-  fillWidth
-  radius="m"
-  gradient={{ display: true, opacity: 0.3 }}
-  lines={{ 
-    display: true, 
-    opacity: 0.2,
-    size: "32",
-    thickness: 1,
-    angle: -45,
-    color: "neutral-strong"
-  }}
-  dots={{ 
-    display: true, 
-    opacity: 0.3,
-    size: "24",
-    color: "neutral-strong"
-  }}
+    fill
+    height={16}
+    gradient={{ 
+      display: true, 
+      opacity: 1,
+      x: 50,
+      y: 0,
+      colorStart: "accent-background-strong",
+      colorEnd: "static-transparent"
+    }}
+    lines={{
+      display: true,
+      opacity: 1,
+      size: "16",
+      thickness: 1,
+      angle: 90,
+      color: "accent-background-strong"
+    }}
+    dots={{
+      display: true,
+      opacity: 1,
+      size: "4",
+      color: "page-background"
+    }}
 />`,
       language: "tsx",
       label: "Stacking"

@@ -2,9 +2,8 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import { Flex, IconButton } from ".";
+import { Flex, IconButton, BaseColor, Fade } from ".";
 import styles from "./Scroller.module.scss";
-import { BaseColor, Fade } from "./Fade";
 
 interface ScrollerProps extends React.ComponentProps<typeof Flex> {
   children?: React.ReactNode;

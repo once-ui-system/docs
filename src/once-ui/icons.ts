@@ -62,6 +62,10 @@ import {
   HiOutlineSquares2X2,
   HiOutlineUser,
   HiOutlineCodeBracket,
+  HiOutlineChartBar,
+  HiOutlinePresentationChartLine,
+  HiOutlineChartPie,
+  HiOutlineArrowTrendingUp,
 } from "react-icons/hi2";
 
 import { LiaCubesSolid } from "react-icons/lia";
@@ -149,6 +153,10 @@ export const iconLibrary: Record<string, IconType> = {
   delete: HiOutlineTrash,
   switch: PiToggleLeft,
   modules: LiaCubesSolid,
+  barChart: HiOutlineChartBar,
+  lineChart: HiOutlineArrowTrendingUp,
+  pieChart: HiOutlineChartPie,
+  lineBarChart: HiOutlinePresentationChartLine,
 };
 
 export type IconLibrary = typeof iconLibrary;

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import { Row, useTheme, IconButton } from "@/once-ui/components";
+import { Row, useTheme, IconButton } from ".";
 
 const ThemeSwitcher = forwardRef<HTMLDivElement, React.ComponentProps<typeof Row>>((flex, ref) => {
   const { theme, setTheme } = useTheme();

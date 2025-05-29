@@ -7,7 +7,9 @@ export {
   schema,
   meta,
   routes
-} from "@/app/resources/config";
+} from "@/app/resources/once-ui.config";
+
+export { chart } from "@/app/resources/data.config";
 
 export {
   roadmap,

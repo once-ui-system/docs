@@ -1,8 +1,6 @@
 "use client";
 
-import { Row } from "./Row";
-import { IconButton } from "./IconButton";
-import { Flex } from "./Flex";
+import { Flex, Row, IconButton } from ".";
 import { useState, ReactNode } from "react";
 import styles from "./Table.module.scss";
 
@@ -100,7 +98,7 @@ function Table({ data, onRowClick, ...flex }: TableProps) {
   return (
     <Row
       fillWidth
-      radius="m"
+      radius="l"
       overflowY="hidden"
       border="neutral-alpha-medium"
       overflowX="auto"

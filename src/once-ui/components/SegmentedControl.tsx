@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ToggleButton, Scroller, Flex } from ".";
-import type { ToggleButtonProps } from "./ToggleButton";
+import { ToggleButton, Scroller, Flex, ToggleButtonProps } from ".";
 
 interface ButtonOption extends Omit<ToggleButtonProps, "selected"> {
   value: string;

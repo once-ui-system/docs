@@ -1,7 +1,7 @@
 "use client";
 
 import React, { forwardRef } from "react";
-import { Arrow, Flex, Icon, SmartLink, Text } from ".";
+import { Arrow, Flex, Icon, SmartLink } from ".";
 
 import styles from "./Badge.module.scss";
 import { IconName } from "../icons";
@@ -20,7 +20,7 @@ interface BadgeProps extends React.ComponentProps<typeof Flex> {
 }
 
 const Badge = forwardRef<HTMLDivElement | HTMLAnchorElement, BadgeProps>(
-  ({ title, icon, arrow = true, children, href, effect = true, className, style, id, ...rest }, ref) => {
+  ({ title, icon, href, arrow = href ? true : false, children, effect = true, className, style, id, ...rest }, ref) => {
     const content = (
       <Flex
         id={id || "badge"}

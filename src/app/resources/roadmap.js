@@ -11,16 +11,16 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
-          {
-            title: "Data visualization module",
-            description: "Data components built on top of Recharts.",
-            type: "feature"
-          }
         ]
       },
       {
         title: "Done",
-        tasks: [
+        tasks: [ 
+          {
+            title: "Data visualization module",
+            description: "Data components built on top of Recharts.",
+            type: "feature"
+          },
           {
             title: "New docs",
             description: "Rebuilt Once UI docs with Magic Docs from scratch. More examples, use cases, guides.",

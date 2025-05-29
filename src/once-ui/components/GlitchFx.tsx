@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, forwardRef, useCallback } from "react";
 import styles from "./GlitchFx.module.scss";
-import { Flex } from "./Flex";
+import { Flex } from ".";
 import classNames from "classnames";
 
 interface GlitchFxProps extends React.ComponentProps<typeof Flex> {

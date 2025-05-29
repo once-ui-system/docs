@@ -19,11 +19,10 @@ import {
 } from "@/once-ui/components";
 import * as onceComponents from "@/once-ui/components";
 import * as onceModules from "@/once-ui/modules";
-import { CodeBlock } from "@/once-ui/modules/code/CodeBlock";
+import { CodeBlock, HeadingLink } from "@/once-ui/modules";
 import { PropsTable } from "@/product/PropsTable";
 import { TextProps } from "@/once-ui/interfaces";
 import { MediaProps } from "@/once-ui/components/Media";
-import { HeadingLink } from "@/once-ui/modules";
 import { ClientOption } from "@/product/ClientOption";
 
 import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "./DialogExample";
@@ -211,6 +210,7 @@ const components = {
   Heading,
   Icon,
   Table,
+  PageList,
   PropsTable,
   BasicDialog,
   DialogWithFooter,

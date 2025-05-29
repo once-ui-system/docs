@@ -13,6 +13,7 @@ export interface DateRangePickerProps extends Omit<React.ComponentProps<typeof F
   onChange?: (range: DateRange) => void;
   minDate?: Date;
   maxDate?: Date;
+  dual?: boolean;
   size?: "s" | "m" | "l";
 }
 
@@ -22,6 +23,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   minDate,
   maxDate,
   size = "m",
+  dual,
   ...rest
 }) => {
   const [internalValue, setInternalValue] = useState<DateRange>({
@@ -30,8 +32,13 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   });
 
   const [hoveredDate, setHoveredDate] = useState<Date | null>(null);
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  // Initialize with the startDate's month and year if available, otherwise use current date
+  const [currentMonth, setCurrentMonth] = useState(
+    value?.startDate ? value.startDate.getMonth() : new Date().getMonth()
+  );
+  const [currentYear, setCurrentYear] = useState(
+    value?.startDate ? value.startDate.getFullYear() : new Date().getFullYear()
+  );
 
   useEffect(() => {
     if (value) {
@@ -39,6 +46,12 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         startDate: value.startDate,
         endDate: value.endDate,
       });
+      
+      // Update the current month and year when value changes and has a startDate
+      if (value.startDate) {
+        setCurrentMonth(value.startDate.getMonth());
+        setCurrentYear(value.startDate.getFullYear());
+      }
     }
   }, [value]);
 
@@ -102,25 +115,27 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         minDate={minDate}
         maxDate={maxDate}
         size={size}
-        nextMonth={false}
+        nextMonth={dual ? false : true}
         currentMonth={currentMonth}
         currentYear={currentYear}
         onMonthChange={handleMonthChange}
         onHover={setHoveredDate}
       />
-      <DatePicker
-        value={internalValue.endDate}
-        onChange={handleDateChange}
-        range={getPreviewRange() || internalValue}
-        minDate={minDate}
-        maxDate={maxDate}
-        previousMonth={false}
-        size={size}
-        currentMonth={getSecondMonth().getMonth()}
-        currentYear={getSecondMonth().getFullYear()}
-        onMonthChange={handleMonthChange}
-        onHover={setHoveredDate}
-      />
+      {dual && (
+        <DatePicker
+          value={internalValue.endDate}
+          onChange={handleDateChange}
+          range={getPreviewRange() || internalValue}
+          minDate={minDate}
+          maxDate={maxDate}
+          previousMonth={false}
+          size={size}
+          currentMonth={getSecondMonth().getMonth()}
+          currentYear={getSecondMonth().getFullYear()}
+          onMonthChange={handleMonthChange}
+          onHover={setHoveredDate}
+        />
+      )}
     </Flex>
   );
 };

@@ -1,5 +1,4 @@
-import { Row } from "./Row";
-import { Flex } from "./Flex";
+import { Row, Flex } from ".";
 import { forwardRef } from "react";
 
 interface BannerProps extends React.ComponentProps<typeof Flex> {}

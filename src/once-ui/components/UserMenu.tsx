@@ -2,9 +2,8 @@
 
 import React from "react";
 import classNames from "classnames";
-import { Flex, DropdownWrapper, User, UserProps } from ".";
+import { Flex, DropdownWrapper, User, UserProps, DropdownWrapperProps } from ".";
 import styles from "./UserMenu.module.scss";
-import { DropdownWrapperProps } from "./DropdownWrapper";
 import { Placement } from "@floating-ui/react-dom";
 
 interface UserMenuProps

@@ -2,8 +2,7 @@
 
 import React, { forwardRef, ReactNode } from "react";
 import classNames from "classnames";
-import { ElementType } from "./ElementType";
-import { Flex, Icon } from ".";
+import { Flex, Icon, ElementType } from ".";
 import styles from "./ToggleButton.module.scss";
 import { IconName } from "../icons";
 

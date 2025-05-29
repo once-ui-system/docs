@@ -4,12 +4,12 @@ import "@/once-ui/tokens/index.scss";
 import classNames from "classnames";
 
 import { Footer, Header } from "@/product";
-import { baseURL, effects, style } from "@/app/resources";
+import { baseURL, effects, style, chart } from "@/app/resources";
 
 import { Analytics } from "@vercel/analytics/react"
 
 import { Background, Column, Flex, ToastProvider, ThemeProvider } from "@/once-ui/components";
-import { font, layout, schema } from "./resources/config";
+import { font, layout, schema } from "./resources/once-ui.config";
 import { meta } from "@/app/resources";
 import { RouteGuard } from "@/product/RouteGuard";
 import { Meta } from "@/once-ui/modules";
@@ -91,6 +91,8 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             data-border={style.border}
             data-surface={style.surface}
             data-transition={style.transition}
+            data-viz={chart.mode}
+            data-mode={chart.variant}
             className={classNames(
               font.primary.variable,
               font.secondary.variable,

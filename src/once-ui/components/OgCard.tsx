@@ -1,7 +1,7 @@
 "use client";
 
-import { Column, Media, Text, Row, Card } from "@/once-ui/components";
-import { useOgData } from "@/once-ui/hooks/useFetchOg";
+import { Column, Media, Text, Row, Card } from ".";
+import { useOgData } from "../hooks/useFetchOg";
 import { useMemo } from "react";
 
 export interface OgData {
