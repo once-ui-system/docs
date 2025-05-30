@@ -1,5 +1,32 @@
 const changelog = [
   {
+    date: "2025-05-29",
+    title: "Once UI Data Viz Module",
+    image: "/images/changelog/once-ui.jpg",
+    description: "We've released the Once UI Data Viz module, a collection of components for creating beautiful charts and graphs.",
+    sections: [
+      {
+        title: "Components",
+        bullets: [
+          "LineChart",
+          "BarChart",
+          "LineBarChart",
+          "PieChart"
+        ],
+      },
+      {
+        title: "Features",
+        bullets: [
+          "Date selection",
+          "Style and color variants",
+          "Simple component APIs",
+          "Responsive design"
+        ],
+        link: "/once-ui/data/setup"
+      }
+    ]
+  },
+  {
     date: "2025-05-14",
     title: "Once UI Core Docs",
     image: "/images/changelog/once-ui.jpg",
