@@ -6,6 +6,7 @@ import { Flex, Text, SegmentedControl, IconButton, Scroller, Column } from ".";
 import styles from "./StylePanel.module.scss";
 import classNames from "classnames";
 import { style } from "@/app/resources/once-ui.config";
+import { chart } from "@/app/resources/data.config";
 
 interface StylePanelProps extends React.ComponentProps<typeof Flex> {
   style?: React.CSSProperties;
@@ -59,6 +60,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
   const [transition, setTransition] = useState(style.transition);
   const [scaling, setScaling] = useState(style.scaling);
   const [surface, setSurface] = useState(style.surface);
+  const [dataStyle, setDataStyle] = useState(chart.mode);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -73,6 +75,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
     root.setAttribute("data-scaling", scaling);
     root.setAttribute("data-surface", surface);
     root.setAttribute("data-transition", transition);
+    root.setAttribute("data-viz", dataStyle);
   }, [
     selectedShape,
     brandColor,
@@ -84,6 +87,7 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
     transition,
     surface,
     scaling,
+    dataStyle,
   ]);
 
   return (
@@ -453,6 +457,40 @@ const StylePanel = forwardRef<HTMLDivElement, StylePanelProps>(({ ...rest }, ref
                 size: "l",
                 label: "110",
                 value: "110",
+              },
+            ]}
+          />
+        </Flex>
+        <Flex
+          borderBottom="neutral-alpha-medium"
+          horizontal="space-between"
+          vertical="center"
+          fillWidth
+          paddingX="24"
+          paddingY="16"
+          gap="24"
+        >
+          <Text variant="label-default-s">Data Style</Text>
+          <SegmentedControl
+            maxWidth={22}
+            minWidth={0}
+            onToggle={(value) => setDataStyle(value as "categorical" | "divergent" | "sequential")}
+            selected={dataStyle}
+            buttons={[
+              {
+                size: "l",
+                label: "Categorical",
+                value: "categorical",
+              },
+              {
+                size: "l",
+                label: "Divergent",
+                value: "divergent",
+              },
+              {
+                size: "l",
+                label: "Sequential",
+                value: "sequential",
               },
             ]}
           />

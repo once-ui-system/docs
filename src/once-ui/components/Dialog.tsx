@@ -189,17 +189,24 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
 
     useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
+        // Only handle left clicks (button 0), ignore right clicks
+        if (event.button !== 0) return;
+
+        event.stopPropagation();
+
         if (!dialogRef.current?.contains(event.target as Node)) {
           if (stack || !base) {
+            // Prevent default to avoid triggering any links behind the dialog
+            event.preventDefault();
             onClose();
           }
         }
       };
 
       if (isVisible) {
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside, { capture: true });
         return () => {
-          document.removeEventListener("mousedown", handleClickOutside);
+          document.removeEventListener("mousedown", handleClickOutside, { capture: true });
         };
       }
     }, [isVisible, onClose, stack, base]);

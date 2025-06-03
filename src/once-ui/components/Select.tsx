@@ -2,7 +2,17 @@
 
 import React, { useState, useRef, useEffect, forwardRef, ReactNode } from "react";
 import classNames from "classnames";
-import { DropdownWrapper, Flex, Icon, IconButton, Input, InputProps, Option, OptionProps, DropdownWrapperProps } from ".";
+import {
+  DropdownWrapper,
+  Flex,
+  Icon,
+  IconButton,
+  Input,
+  InputProps,
+  Option,
+  OptionProps,
+  DropdownWrapperProps,
+} from ".";
 import inputStyles from "./Input.module.scss";
 import { Placement } from "@floating-ui/react-dom";
 
@@ -15,7 +25,7 @@ interface SelectProps
   value?: string;
   emptyState?: ReactNode;
   onSelect?: (value: string) => void;
-  floatingPlacement?: Placement;
+  placement?: Placement;
   searchable?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -32,7 +42,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
       minHeight,
       minWidth,
       maxWidth,
-      floatingPlacement,
+      placement,
       className,
       style,
       ...rest
@@ -159,7 +169,7 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
         }}
         isOpen={isDropdownOpen}
         onOpenChange={setIsDropdownOpen}
-        floatingPlacement={floatingPlacement}
+        placement={placement}
         minHeight={minHeight}
         trigger={
           <Input

@@ -53,6 +53,7 @@ const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(
         {
           "fill-width": fillWidth,
           "fit-width": !fillWidth,
+          "min-width-0": fillWidth,
           "px-2 mx-2": !unstyled,
         },
       ),
@@ -62,7 +63,7 @@ const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(
               textDecoration: "underline",
               textUnderlineOffset: "0.3em",
               textUnderlineThickness: "var(--static-space-1)",
-              color: "var(--neutral-on-background-strong)"
+              color: "var(--neutral-on-background-strong)",
             }),
             ...style,
           }

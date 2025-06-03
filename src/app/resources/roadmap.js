@@ -11,6 +11,11 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
+          {
+            title: "NPM package",
+            description: "Publish Once UI to NPM.",
+            type: "feature"
+          },
         ]
       },
       {
@@ -48,13 +53,13 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Module: Social media",
-            description: "Social components to power your indie social apps: posts, comments, OG card and more.",
+            title: "Product: SaaS landing page",
+            description: "A landing page template for SaaS products.",
             type: "feature"
           },
           {
-            title: "Page: Dashboard",
-            description: "A dashboard page with analytics and metrics based on the data visualization module.",
+            title: "Module: Social media",
+            description: "Social components to power your indie social apps: posts, comments, OG card and more.",
             type: "feature"
           },
           {
@@ -72,6 +77,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Page: Dashboard",
+            description: "A dashboard page with analytics and metrics based on the data visualization module.",
+            type: "feature"
+          },
           {
             title: "Product: Magic Store",
             description: "New solution for e-commerce stores powered by Fourthwall. Build a strong brand and monetize early with an out-of-the-box merch store.",

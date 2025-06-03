@@ -25,6 +25,7 @@ import { TextProps } from "@/once-ui/interfaces";
 import { MediaProps } from "@/once-ui/components/Media";
 import { ClientOption } from "@/product/ClientOption";
 
+import { InfiniteScrollExample } from "./InfiniteScrollExample";
 import { BasicDialog, DialogWithFooter, StackedDialogs, CustomizedDialog } from "./DialogExample";
 import { BasicDropdown, DropdownWithIcons, CustomPositionDropdown, SearchableDropdown } from "./DropdownWrapperExample";
 import { BasicRawDropdown, IconsRawDropdown, DescriptionRawDropdown, CustomStyledRawDropdown } from "./DropdownExample";
@@ -256,6 +257,7 @@ const components = {
   InteractiveChipExample,
   ClientOption,
   InteractiveDetailsExample,
+  InfiniteScrollExample,
   FormControlsExample,
   TooltipExample,
   ValidationTextareaExample,

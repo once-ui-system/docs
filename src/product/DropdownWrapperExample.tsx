@@ -123,7 +123,7 @@ export function CustomPositionDropdown() {
     <DropdownWrapper
       isOpen={isOpen}
       onOpenChange={setIsOpen}
-      floatingPlacement="right-start"
+      placement="right-start"
       trigger={
         <Button 
           onClick={() => setIsOpen(!isOpen)}
