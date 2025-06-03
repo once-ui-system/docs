@@ -10,7 +10,9 @@ import {
   Media, 
   Line, 
   StatusIndicator,
-  Avatar
+  Avatar,
+  Badge,
+  Tag
 } from "@/once-ui/components";
 import { baseURL, meta, schema, changelog, roadmap } from "@/app/resources";
 import { Meta, Schema } from "@/once-ui/modules";
@@ -79,6 +81,25 @@ export default function Home() {
       <Column fillWidth gap="l" paddingTop="l">
         <Row fillWidth gap="l">
           <Column maxWidth="xs" gap="12">
+          <Badge
+              background="overlay"
+              paddingLeft="4"
+              paddingRight="16"
+              paddingY="4"
+              border="neutral-alpha-medium"
+              shadow={undefined}
+              href="/once-ui/data/setup"
+              vertical="center"
+              marginBottom="12"
+            >
+                <Tag marginRight="12">Data Viz</Tag>
+                <Text
+                  variant="label-default-s"
+                  onBackground="neutral-weak"
+                >
+                  Official chart library
+                </Text>
+            </Badge>
             <Heading variant="display-strong-s">
               Once UI Docs
             </Heading>
