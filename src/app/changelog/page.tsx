@@ -1,7 +1,6 @@
 import React from "react";
-import { Column, SmartLink, Row, Line, Text, Heading, Media } from "@/once-ui/components";
-import { baseURL, meta, schema, changelog } from "@/app/resources";
-import { Meta, Schema, HeadingLink } from "@/once-ui/modules";
+import { Column, SmartLink, Row, Line, Text, Heading, Media, Meta, Schema, HeadingLink } from "@once-ui-system/core";
+import { baseURL, meta, schema, changelog } from "@/resources";
 import { formatDate } from "../utils/formatDate";
 
 export async function generateMetadata() {

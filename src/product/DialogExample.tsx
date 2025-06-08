@@ -9,7 +9,7 @@ import {
   Feedback,
   Column,
   Input,
-} from "@/once-ui/components";
+} from "@once-ui-system/core";
 
 export function BasicDialog() {
   const [isOpen, setIsOpen] = useState(false);

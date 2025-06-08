@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
-import { InfiniteScroll, Background, Column } from "@/once-ui/components";
+import { InfiniteScroll, Background, Column } from "@once-ui-system/core";
 
 export function InfiniteScrollExample() {
   const [items, setItems] = useState(Array(5).fill(null).map((_, i) => i));

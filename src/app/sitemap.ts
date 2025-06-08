@@ -1,5 +1,5 @@
 import { getPages } from "@/app/utils/utils";
-import { baseURL } from "@/app/resources";
+import { baseURL } from "@/resources";
 
 export default async function sitemap() {
   const pages = getPages(["src", "content"]).map((post) => ({

@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Chip, Row, useToast } from "@/once-ui/components";
-import { IconName } from "@/once-ui/icons";
+import { Chip, Row, useToast } from "@once-ui-system/core";
 
 export function BasicChipExample() {
   return (
@@ -40,7 +39,7 @@ export function ChipWithIconsExample() {
 
 export function RemovableChipsExample() {
   const { addToast } = useToast();
-  const [chips, setChips] = useState<Array<{id: string, label: string, icon?: IconName}>>([
+  const [chips, setChips] = useState<Array<{id: string, label: string, icon?: string}>>([
     { id: "1", label: "React", icon: "code" },
     { id: "2", label: "TypeScript", icon: "code" },
     { id: "3", label: "Next.js" }

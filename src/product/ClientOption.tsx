@@ -1,7 +1,7 @@
 "use client";
 
-import { Option } from "@/once-ui/components";
-import type { OptionProps } from "@/once-ui/components/Option";
+import { Option } from "@once-ui-system/core";
+import type { OptionProps } from "@once-ui-system/core";
 import React from "react";
 
 // This is a client-side wrapper for the Option component

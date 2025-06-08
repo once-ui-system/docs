@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Textarea } from "@/once-ui/components";
+import { Textarea } from "@once-ui-system/core";
 
 // Textarea with validation
 export function ValidationTextareaExample() {

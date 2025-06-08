@@ -13,9 +13,9 @@ import {
   TagInput,
   Flex,
   Text,
-  Kbd
-} from "@/once-ui/components";
-import { useToast } from "@/once-ui/components/ToastProvider";
+  Kbd,
+  useToast
+} from "@once-ui-system/core";
 
 // Search input with managed state and conditional clear button
 export function SearchInput() {

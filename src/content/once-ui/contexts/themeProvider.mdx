@@ -1,0 +1,166 @@
+---
+title: "ThemeProvider"
+summary: "The ThemeProvider enables dynamic light, dark, and system themes by syncing user preferences with the `data-theme` attribute and exposing a global theme context."
+updatedAt: "2025-06-08"
+github: "contexts/ThemeProvider.tsx"
+navLabel: "ThemeProvider"
+navIcon: "chip"
+navTag: "new"
+navTagVariant: "cyan"
+---
+
+Use `ThemeProvider` to persist user theme preferences and sync with the system’s light/dark setting. It provides a `useTheme` hook to manage theme state at runtime and sets `data-theme` along with other style attributes on the `<html>` element.
+
+Wrap your app or layout with `ThemeProvider` and pass the style configuration. You can create a source of truth for the style configuration in a separate file, for example `once-ui.config.js`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeHeight={24}
+  lineNumbers
+  codes={[
+    {
+      code:
+`import { style } from "@/resources/once-ui.config";
+import { ThemeProvider, DataThemeProvider, IconProvider, BorderStyle, ToastProvider, NeutralColor, ScalingSize, Schemes, SolidStyle, SolidType, SurfaceStyle, TransitionStyle, Theme } from "@once-ui-system/core";
+
+export function Providers({ children }: {
+    children: React.ReactNode
+}) {
+    return (
+      <ThemeProvider
+        theme={style.theme as Theme}
+        brand={style.brand as Schemes}
+        accent={style.accent as Schemes}
+        neutral={style.neutral as NeutralColor}
+        solid={style.solid as SolidType}
+        solidStyle={style.solidStyle as SolidStyle}
+        border={style.border as BorderStyle}
+        surface={style.surface as SurfaceStyle}
+        transition={style.transition as TransitionStyle}
+        scaling={style.scaling as ScalingSize}>
+        <DataThemeProvider>
+          <ToastProvider>
+            <IconProvider>
+              {children}
+            </IconProvider>
+          </ToastProvider>
+        </DataThemeProvider>
+      </ThemeProvider>
+    );
+}`,
+      language: "tsx",
+      highlight: "1,8-18,26",
+      label: "Providers.tsx"
+    },
+    {
+      code:
+`export const style = {
+    theme: "system", // system | dark | light
+    neutral: "gray", // sand | gray | slate
+    brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    accent: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    solid: "contrast", // color | contrast
+    solidStyle: "flat", // flat | plastic
+    border: "playful", // rounded | playful | conservative
+    surface: "translucent", // filled | translucent
+    transition: "all", // all | micro | macro
+    scaling: "100"
+};`,
+      language: "tsx",
+      label: "once-ui.config.js"
+    }
+  ]}
+/>
+
+If you don't set `theme` on the `ThemeProvider`, it will use the system theme. If the visitor has theme preferences (saved in localStorage), the `ThemeProvider` will use those. To force a theme, set `theme` on the `ThemeProvider` as `light` or `dark`.
+
+## UseTheme
+
+Access and modify theme state with `useTheme`:
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  lineNumbers
+  codes={[
+    {
+      code:
+`const { theme, setTheme } = useTheme();
+
+useEffect(() => {
+    console.log("Current theme:", theme);
+}, [theme]);`,
+      language: "tsx",
+      label: "useTheme"
+    }
+  ]}
+/>
+
+## Usage
+
+Visit the [ThemeSwitcher](/once-ui/components/themeSwitcher) or [StylePanel](/once-ui/components/stylePanel) page for native, out-of-the-box `ThemeProvider` usage with localStorage persistence.
+
+## SSR hydration
+
+Inject this script into the `<head>` to set the initial theme before hydration in `layout.tsx`:
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeHeight={24}
+  lineNumbers
+  codes={[
+    {
+      code:
+`<head>
+    <script
+      dangerouslySetInnerHTML={{
+        __html: '
+          (function() {
+            try {
+              const root = document.documentElement;
+              
+              const defaultTheme = 'system';
+              root.setAttribute('data-neutral', 'gray');
+              root.setAttribute('data-brand', 'blue');
+              root.setAttribute('data-accent', 'indigo');
+              root.setAttribute('data-solid', 'contrast');
+              root.setAttribute('data-solid-style', 'flat');
+              root.setAttribute('data-border', 'playful');
+              root.setAttribute('data-surface', 'filled');
+              root.setAttribute('data-transition', 'all');
+              root.setAttribute('data-scaling', '100');
+              root.setAttribute('data-viz-style', 'categorical');
+              
+              const resolveTheme = (themeValue) => {
+                if (!themeValue || themeValue === 'system') {
+                  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                return themeValue;
+              };
+              
+              const theme = localStorage.getItem('data-theme');
+              const resolvedTheme = resolveTheme(theme);
+              root.setAttribute('data-theme', resolvedTheme);
+              
+              const styleKeys = ['neutral', 'brand', 'accent', 'solid', 'solid-style', 'viz-style', 'border', 'surface', 'transition', 'scaling'];
+              styleKeys.forEach(key => {
+                const value = localStorage.getItem('data-' + key);
+                if (value) {
+                  root.setAttribute('data-' + key, value);
+                }
+              });
+            } catch (e) {
+              document.documentElement.setAttribute('data-theme', 'dark');
+            }
+          })();
+        ',
+      }}
+    />
+</head>`,
+      language: "js",
+      label: "Hydration script"
+    }
+  ]}
+/>

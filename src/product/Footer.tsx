@@ -1,4 +1,4 @@
-import { layout, social } from "@/app/resources/once-ui.config";
+import { layout, social } from "@/resources/once-ui.config";
 import {
   Button,
   Column,
@@ -7,13 +7,14 @@ import {
   Row,
   SmartLink,
   ThemeSwitcher,
-} from "@/once-ui/components";
+} from "@once-ui-system/core";
 
 export const Footer = () => {
   return (
     <Column gap="40" fillWidth paddingY="xl" paddingX="l" horizontal="center" position="relative">
       <Row gap="12" textVariant="label-default-m" maxWidth={layout.footer.width} vertical="center">
-        <Logo href="/" wordmark={false} size="m" />
+        <Logo className="dark-flex" href="/" icon="/trademark/icon-dark.svg" size="m" />
+        <Logo className="light-flex" href="/" icon="/trademark/icon-light.svg" size="m" />
         <Button
           data-border="rounded"
           size="s"

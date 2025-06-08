@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { Schemes } from "@/once-ui/types";
+import { Schemes } from "@once-ui-system/core";
 
 interface Post {
   slug: string;
@@ -13,6 +13,7 @@ interface Post {
   metadata: {
     title: string;
     summary?: string;
+    github?: string;
     updatedAt: string;
     image?: string;
     order?: number; // Add order field for explicit ordering
@@ -77,6 +78,7 @@ export function getPages(customPath = ["src", "content"]): Post[] {
           metadata: {
             title: data.title || '',
             summary: data.summary,
+            github: data.github,
             updatedAt: data.updatedAt || '',
             image: data.image,
             // Priority: 1. Frontmatter order, 2. meta.json order, 3. undefined

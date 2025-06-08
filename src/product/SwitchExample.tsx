@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Switch, Flex, Text } from "@/once-ui/components";
+import { Switch, Flex } from "@once-ui-system/core";
 
 // Basic switch with state management
 export function BasicSwitch() {

@@ -1,5 +1,5 @@
 import { getPages, sortPages } from "@/app/utils/utils";
-import { Card, Column, Icon, Row, Media, Text } from "@/once-ui/components";
+import { Card, Column, Icon, Row, Media, Text } from "@once-ui-system/core";
 import React from "react";
 
 interface props extends Omit<React.ComponentProps<typeof Card>, 'onClick'> {

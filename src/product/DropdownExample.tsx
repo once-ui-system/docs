@@ -6,7 +6,7 @@ import {
   Option,
   Icon,
   Line,
-} from "@/once-ui/components";
+} from "@once-ui-system/core";
 
 export function BasicRawDropdown() {
   const [selected, setSelected] = useState("");

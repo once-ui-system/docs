@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { DateRangeInput, DateRange, Flex } from "@/once-ui/components";
+import { DateRangeInput, DateRange, Flex } from "@once-ui-system/core";
 
 // Basic DateRangeInput example with managed state
 export function BasicDateRangeInputExample() {

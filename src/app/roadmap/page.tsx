@@ -1,8 +1,7 @@
 import React from "react";
-import { Text, Column, Row, Card, User, Heading, StatusIndicator } from "@/once-ui/components";
-import { baseURL, layout, meta, roadmap, schema, task } from "../resources";
-import { Meta, Schema } from "@/once-ui/modules";
-import { Schemes } from "@/once-ui/types";
+import { Text, Column, Row, Card, User, Heading, StatusIndicator, Meta, Schema } from "@once-ui-system/core";
+import { baseURL, layout, meta, roadmap, schema, task } from "../../resources";
+import { Schemes } from "@once-ui-system/core";
 
 export interface Task {
   title: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import { NavIcon, Flex, Column, Logo, ToggleButton } from "@/once-ui/components";
+import { NavIcon, Flex, Column, Logo, ToggleButton } from "@once-ui-system/core";
 import React, { useState } from "react";
 
 export function NavIconToggle() {
@@ -22,7 +22,7 @@ export function NavIconToggle() {
         vertical="center"
         fillWidth
       >
-        <Logo wordmark={false}/>
+        <Logo icon="trademark/icon-dark.svg"/>
         <NavIcon 
           isActive={isActive} 
           onClick={handleClick} 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Checkbox, Column, Flex } from "@/once-ui/components";
+import { Checkbox, Column } from "@once-ui-system/core";
 
 // Indeterminate checkbox example with interactive child checkboxes
 export function IndeterminateCheckboxExample() {

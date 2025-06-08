@@ -10,7 +10,7 @@ import {
   Option,
   Icon,
   Input
-} from "@/once-ui/components";
+} from "@once-ui-system/core";
 
 export function BasicDropdown() {
   const [isOpen, setIsOpen] = useState(false);

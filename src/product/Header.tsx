@@ -2,11 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Button, Fade, Flex, Logo, NavIcon, Row } from "@/once-ui/components";
-import { layout, routes } from "@/app/resources/once-ui.config";
+import { Button, Fade, Flex, Logo, NavIcon, Row, Kbar, useTheme } from "@once-ui-system/core";
+import { layout, routes } from "@/resources/once-ui.config";
 import { Sidebar, NavigationItem } from "./Sidebar";
-import { useTheme } from "@/once-ui/components/ThemeProvider";
-import { Kbar } from "@/once-ui/modules";
 
 export function Header() {
   const [sidebarVisible, setSidebarVisible] = useState(false);
@@ -168,7 +166,8 @@ export function Header() {
         <Row maxWidth={layout.header.width} vertical="center" horizontal="space-between" gap="l">
           <Row fillWidth vertical="center" gap="8">
             <NavIcon show="m" onClick={toggleSidebar}/>
-            <Logo icon={false} size="s" href="/"/>
+            <Logo className="dark-flex" wordmark="/trademark/type-dark.svg" size="s" href="/"/>
+            <Logo className="light-flex" wordmark="/trademark/type-light.svg" size="s" href="/"/>
           </Row>
           <Kbar hide="m" items={kbar} radius="full" background="neutral-alpha-weak">
             <Button data-border="rounded" size="s" variant="tertiary" weight="default">

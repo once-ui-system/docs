@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { InteractiveDetails, Checkbox, RadioButton, Column } from "@/once-ui/components";
+import { InteractiveDetails, Checkbox, RadioButton, Column } from "@once-ui-system/core";
 
 // Basic InteractiveDetails examples
 export function InteractiveDetailsExample() {

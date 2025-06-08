@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { RadioButton, Column, Text } from "@/once-ui/components";
+import { RadioButton, Column, Text } from "@once-ui-system/core";
 
 // Radio button group example with state management
 export function SubscriptionRadioGroup() {

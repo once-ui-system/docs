@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import { getPages, getAdjacentPages } from "@/app/utils/utils";
 import { formatDate } from "@/app/utils/formatDate";
-import { Column, Heading, Icon, Row, Media, Text, Card } from "@/once-ui/components";
-import { HeadingNav, Meta, Schema } from "@/once-ui/modules";
-import { baseURL, layout, schema } from "@/app/resources";
+import { Column, Heading, Icon, Row, Media, Text, Card, HeadingNav, Meta, Schema, Button } from "@once-ui-system/core";
+import { baseURL, layout, schema } from "@/resources";
 import { CustomMDX } from "@/product/mdx";
 import { Metadata } from "next";
 import React from "react";
@@ -77,6 +76,11 @@ export default async function Docs({
             <Text variant="body-default-s" onBackground="neutral-weak">
               Last update: {formatDate(doc.metadata.updatedAt)}
             </Text>
+            {doc.metadata.github && (
+              <Button className="mt-20" href={"https://github.com/once-ui-system/core/blob/main/packages/core/src/" + doc.metadata.github} size="s" variant="secondary" prefixIcon="github" weight="default" data-border="rounded">
+                View on GitHub
+              </Button>
+            )}
           </Column>
           {doc.metadata.image && (
             <Media border="neutral-alpha-medium" enlarge src={doc.metadata.image} alt={"Thumbnail of " + doc.metadata.title} aspectRatio="16 / 9" radius="m" sizes="(max-width: 768px) 100vw, 768px" priority />

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Table, Row, InlineCode, Text } from "@/once-ui/components";
+import { Table, Row, InlineCode, Text } from "@once-ui-system/core";
 import { ReactNode } from "react";
 
 type PropType = string | string[] | ReactNode;

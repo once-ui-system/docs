@@ -12,10 +12,11 @@ import {
   StatusIndicator,
   Avatar,
   Badge,
-  Tag
-} from "@/once-ui/components";
-import { baseURL, meta, schema, changelog, roadmap } from "@/app/resources";
-import { Meta, Schema } from "@/once-ui/modules";
+  Tag,
+  Meta,
+  Schema
+} from "@once-ui-system/core";
+import { baseURL, meta, schema, changelog, roadmap } from "@/resources";
 import { formatDate } from "./utils/formatDate";
 
 export async function generateMetadata() {

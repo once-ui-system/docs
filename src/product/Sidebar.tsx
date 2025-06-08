@@ -1,12 +1,9 @@
 "use client";
 
-import React, { useEffect, useState, useMemo, useRef } from "react";
-import { ToggleButton } from '@/once-ui/components/ToggleButton';
-import { Accordion, Column, Flex, Icon, Row, Tag } from "@/once-ui/components";
+import React, { useEffect, useState, useMemo } from "react";
+import { Schemes, Accordion, Column, Flex, Icon, Row, Tag, ToggleButton } from "@once-ui-system/core";
 import { usePathname } from 'next/navigation';
-import { layout } from "@/app/resources/once-ui.config";
-import { routes } from "@/app/resources";
-import { Schemes } from "@/once-ui/types";
+import { routes, layout } from "@/resources";
 
 import styles from './Sidebar.module.scss';
 

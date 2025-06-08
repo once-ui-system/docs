@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { DatePicker, DateRangePicker } from "@/once-ui/components";
-import type { DateRange } from "@/once-ui/components/DateRangePicker";
+import { DatePicker, DateRangePicker } from "@once-ui-system/core";
+import type { DateRange } from "@once-ui-system/core";
 
 // Basic DatePicker example with managed state
 export function BasicDatePickerExample() {
