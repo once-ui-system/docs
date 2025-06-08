@@ -11,10 +11,37 @@ navTagVariant: "cyan"
 
 The `IconProvider` component is a context provider that allows you to pass an object of icon instances to your application. Add any icon from the [react-icons](https://react-icons.github.io/react-icons/) library to the provider.
 
+## Simple setup
+
+Wrap your app with `IconProvider` and pass it the icons as props.
+
 <CodeBlock
   marginTop="16"
   marginBottom="24"
   codeHeight={24}
+  lineNumbers
+  codes={[
+    {
+      code:
+`import { HiHome } from "react-icons/hi2";
+
+<IconProvider icons={{home: HiHome}}>
+    {children}
+</IconProvider>`,
+      language: "tsx",
+      label: "layout.tsx"
+    }
+  ]}
+/>
+
+## Advanced setup
+
+You can create a separate file for all icons, for example `icons.ts`. We also recommend using a `Providers` component to wrap your app.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  codeHeight={32}
   lineNumbers
   codes={[
     {
@@ -43,7 +70,8 @@ export function Providers({ children }: {
     },
     {
     code:
-`import { IconType } from "react-icons";
+`// This is the default iconset used by Once UI
+import { IconType } from "react-icons";
 
 import {
     HiChevronUp,
@@ -75,6 +103,8 @@ import {
     HiOutlineCalendar,
     HiOutlineDocumentDuplicate,
     HiOutlineCheck,
+    HiOutlineArrowsPointingIn,
+    HiOutlineArrowsPointingOut,
 } from "react-icons/hi2";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -107,6 +137,8 @@ export const iconLibrary: Record<string, IconType> = {
     security: HiOutlineShieldCheck,
     sparkle: HiOutlineSparkles,
     computer: HiOutlineComputerDesktop,
+    minimize: HiOutlineArrowsPointingIn,
+    maximize: HiOutlineArrowsPointingOut,
 };
 
 export type IconLibrary = typeof iconLibrary;

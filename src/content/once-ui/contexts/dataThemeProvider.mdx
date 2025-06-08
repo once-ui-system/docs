@@ -11,7 +11,41 @@ navTagVariant: "cyan"
 
 The `DataThemeProvider` is a context provider that allows you to override the default app-level data-viz styles configuration.
 
-Wrap your app or layout with `DataThemeProvider`:
+## Simple setup
+
+Wrap your app with `DataThemeProvider` and pass the style configuration as props.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  lineNumbers
+  codes={[
+    {
+      code:
+`<DataThemeProvider
+    variant="gradient" // flat | gradient | outline
+    mode="categorical" // categorical | divergent | sequential
+    height={24} // default chart height
+    axis={{
+      stroke: "var(--neutral-alpha-weak)",
+    }}
+    tick={{
+      fill: "var(--neutral-on-background-weak)",
+      fontSize: 11,
+      line: false
+    }}
+>
+    {children}
+</DataThemeProvider>`,
+      language: "tsx",
+      label: "layout.tsx"
+    }
+  ]}
+/>
+
+## Advanced setup
+
+You can create a single source of truth for all style configuration in a separate file, for example `once-ui.config.js`. We also recommend using a `Providers` component to wrap your app.
 
 <CodeBlock
   marginTop="16"

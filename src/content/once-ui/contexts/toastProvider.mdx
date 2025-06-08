@@ -9,7 +9,29 @@ navIcon: "chip"
 
 The `ToastProvider` wraps your app to provide access to `useToast`, allowing any component to trigger lightweight, dismissible toast messages globally.
 
-Wrap your app in `ToastProvider` to activate toast functionality.
+## Simple setup
+
+Wrap your app with `ToastProvider` to activate toast functionality.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  lineNumbers
+  codes={[
+    {
+      code:
+`<ToastProvider>
+    {children}
+</ToastProvider>`,
+      language: "tsx",
+      label: "layout.tsx"
+    }
+  ]}
+/>
+
+## Advanced setup
+
+We recommend using a `Providers` component to wrap your app.
 
 <CodeBlock
   marginTop="16"

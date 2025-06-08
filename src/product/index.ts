@@ -20,4 +20,3 @@ export * from "./PropsTable";
 export * from "./RadioButtonExample";
 export * from "./SwitchExample";
 export * from "./TextareaExamples";
-export * from "./ToastExample";
