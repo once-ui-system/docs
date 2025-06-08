@@ -1,13 +1,6 @@
 import { IconType } from "react-icons";
 
 import {
-  HiChevronUp,
-  HiChevronDown,
-  HiChevronRight,
-  HiChevronLeft,
-  HiOutlineArrowPath,
-  HiOutlineSun,
-  HiOutlineMoon,
   HiMiniMinus,
   HiOutlineEye,
   HiOutlineEyeSlash,
