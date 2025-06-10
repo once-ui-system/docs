@@ -9,23 +9,35 @@ const routes = {
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
-const primaryFont = Geist({
-  variable: "--font-primary",
+const heading = Geist({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
 });
 
-const monoFont = Geist_Mono({
+const body = Geist({
+  variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const label = Geist({
+  variable: "--font-label",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const code = Geist_Mono({
   variable: "--font-code",
   subsets: ["latin"],
   display: "swap",
 });
 
 const fonts = {
-  primary: primaryFont,
-  secondary: primaryFont,
-  tertiary: primaryFont,
-  code: monoFont,
+  heading: heading,
+  body: body,
+  label: label,
+  code: code,
 };
 
 const style = {
@@ -148,19 +160,19 @@ const meta = {
     title: `Docs – ${schema.name}`,
     description: schema.description,
     path: "/",
-    image: "/og?title=Magic Templates&description=Documentation of the official Once UI templates"
+    image: "/generate-og?title=Magic Templates&description=Documentation of the official Once UI templates"
   },
   roadmap: {
     title: `Roadmap – ${schema.name}`,
     description: schema.description,
     path: "/roadmap",
-    image: "/og?title=Roadmap"
+    image: "/generate-og?title=Roadmap"
   },
   changelog: {
     title: `Changelog – ${schema.name}`,
     description: schema.description,
     path: "/changelog",
-    image: "/og?title=Changelog"
+    image: "/generate-og?title=Changelog"
   }
 };
 
