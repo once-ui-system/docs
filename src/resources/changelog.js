@@ -47,7 +47,7 @@ const changelog = [
   {
     date: "2025-05-01",
     title: "Once UI Hub",
-    image: "/generate-og?title=Once UI Hub&description=Share your work and connect with creatives",
+    image: "/api/og/generate?title=Once UI Hub&description=Share your work and connect with creatives",
     description: "We launched the Once UI Hub, a place to share your work and connect with other creatives.",
     sections: [
       {
@@ -147,7 +147,7 @@ const changelog = [
   },
   {
     date: "2025-02-25",
-    image: "/generate-og?title=Once UI Pro&description=New blocks and page examples",
+    image: "/api/og/generate?title=Once UI Pro&description=New blocks and page examples",
     title: "Once UI Pro",
     sections: [
       {
@@ -171,7 +171,7 @@ const changelog = [
   },
   {
     date: "2025-02-19",
-    image: "/generate-og?title=Once UI Pro&description=New blocks and page examples",
+    image: "/api/og/generate?title=Once UI Pro&description=New blocks and page examples",
     title: "Once UI Pro",
     sections: [
       {

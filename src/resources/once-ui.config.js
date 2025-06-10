@@ -160,19 +160,19 @@ const meta = {
     title: `Docs – ${schema.name}`,
     description: schema.description,
     path: "/",
-    image: "/generate-og?title=Magic Templates&description=Documentation of the official Once UI templates"
+    image: "/api/og/generate?title=Magic Templates&description=Documentation of the official Once UI templates"
   },
   roadmap: {
     title: `Roadmap – ${schema.name}`,
     description: schema.description,
     path: "/roadmap",
-    image: "/generate-og?title=Roadmap"
+    image: "/api/og/generate?title=Roadmap"
   },
   changelog: {
     title: `Changelog – ${schema.name}`,
     description: schema.description,
     path: "/changelog",
-    image: "/generate-og?title=Changelog"
+    image: "/api/og/generate?title=Changelog"
   }
 };
 

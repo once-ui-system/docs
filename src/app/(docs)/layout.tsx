@@ -8,7 +8,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <Row fillWidth gap="24" position="relative">
+    <Row fillWidth gap="24">
       <Sidebar hide="m" />
       {children}
     </Row>
