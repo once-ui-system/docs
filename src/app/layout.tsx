@@ -167,11 +167,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             horizontal="center"
             flex={1}
           >
-              <Flex horizontal="center" maxWidth={layout.body.width} minHeight="0">
-                <RouteGuard>
-                  {children}
-                </RouteGuard>
-              </Flex>
+            <Flex horizontal="center" maxWidth={layout.body.width} minHeight="0">
+              <RouteGuard>
+                {children}
+              </RouteGuard>
+            </Flex>
           </Flex>
           <Footer />
         </Column>
