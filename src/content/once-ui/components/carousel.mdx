@@ -15,9 +15,9 @@ An interactive component for displaying a collection of images with smooth trans
   preview={
     <Carousel
       radius="l"
-      images={[
-        { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
-        { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+      items={[
+        { slide: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+        { slide: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
       ]}
     />
   }
@@ -25,9 +25,9 @@ An interactive component for displaying a collection of images with smooth trans
     {
       code:
 `<Carousel
-    images={[
-      { src: "/images/1.jpg", alt: "Image 1" },
-      { src: "/images/2.jpg", alt: "Image 2" },
+    items={[
+      { slide: "/images/1.jpg", alt: "Image 1" },
+      { slide: "/images/2.jpg", alt: "Image 2" },
     ]}
 />`,
       language: "tsx",
@@ -47,16 +47,16 @@ The Carousel supports two types of indicators for navigation: line (default) and
     <Column gap="32" fillWidth>
       <Carousel
         indicator="line"
-        images={[
-          { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
-          { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+        items={[
+          { slide: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+          { slide: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
         ]}
       />
       <Carousel
         indicator="thumbnail"
-        images={[
-          { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
-          { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+        items={[
+          { slide: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+          { slide: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
         ]}
       />
     </Column>
@@ -66,21 +66,53 @@ The Carousel supports two types of indicators for navigation: line (default) and
       code:
 `<Carousel
     indicator="line"
-    images={[
-      { src: "/images/1.jpg", alt: "Image 1" },
-      { src: "/images/2.jpg", alt: "Image 2" },
+    items={[
+      { slide: "/images/1.jpg", alt: "Image 1" },
+      { slide: "/images/2.jpg", alt: "Image 2" },
     ]}
 />
 
 <Carousel
     indicator="thumbnail"
-    images={[
-      { src: "/images/1.jpg", alt: "Image 1" },
-      { src: "/images/2.jpg", alt: "Image 2" },
+    items={[
+      { slide: "/images/1.jpg", alt: "Image 1" },
+      { slide: "/images/2.jpg", alt: "Image 2" },
     ]}
 />`,
       language: "tsx",
       label: "Indicator"
+    }
+  ]}
+/>
+
+## Controls
+
+You can hide the controls with the `controls` prop.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Carousel
+      controls={false}
+      items={[
+        { slide: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+        { slide: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+      ]}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Carousel
+    controls={false}
+    items={[
+      { slide: "/images/1.jpg", alt: "Image 1" },
+      { slide: "/images/2.jpg", alt: "Image 2" },
+    ]}
+/>`,
+      language: "tsx",
+      label: "Controls"
     }
   ]}
 />
@@ -95,9 +127,9 @@ You can customize the aspect ratio of the carousel to fit your design needs.
   preview={
     <Carousel
       aspectRatio="4 / 3"
-      images={[
-        { src: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
-        { src: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
+      items={[
+        { slide: "/images/docs/once-ui/vibe-coding-light.jpg", alt: "Vibe coding light theme" },
+        { slide: "/images/docs/once-ui/vibe-coding-dark.jpg", alt: "Vibe coding dark theme" },
       ]}
     />
   }
@@ -106,9 +138,9 @@ You can customize the aspect ratio of the carousel to fit your design needs.
       code:
 `<Carousel
     aspectRatio="4 / 3"
-    images={[
-      { src: "/images/1.jpg", alt: "Image 1" },
-      { src: "/images/2.jpg", alt: "Image 2" },
+    items={[
+      { slide: "/images/1.jpg", alt: "Image 1" },
+      { slide: "/images/2.jpg", alt: "Image 2" },
     ]}
 />`,
       language: "tsx",
@@ -117,13 +149,44 @@ You can customize the aspect ratio of the carousel to fit your design needs.
   ]}
 />
 
+## Custom content
+
+You can place custom content inside the slides as `ReactNode`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Carousel
+      items={[
+        { slide: <Row fill center radius="s" background="brand-strong"><Text>Slide 1</Text></Row> },
+        { slide: <Row fill center radius="s" background="accent-strong"><Text>Slide 2</Text></Row> },
+      ]}
+    />
+  }
+  codes={[
+    {
+      code:
+`<Carousel
+    items={[
+      { slide: <Row fill center radius="s" background="brand-strong"><Text>Slide 1</Text></Row> },
+      { slide: <Row fill center radius="s" background="accent-strong"><Text>Slide 2</Text></Row> },
+    ]}
+/>`,
+      language: "tsx",
+      label: "Custom content"
+    }
+  ]}
+/>
+
 ## API reference
 
 <PropsTable
   content={[
-    ["images", "Array<{ src: string; alt: string }>", "[]"],
+    ["items", "Array<{ slide: string | ReactNode; alt: string }>", "[]"],
     ["indicator", ["line", "thumbnail"], "line"],
     ["aspectRatio", "string", "16 / 9"],
+    ["controls", "boolean", "true"],
     ["sizes", "string"],
     ["revealedByDefault", "boolean", "false"],
     ["...flex"]
