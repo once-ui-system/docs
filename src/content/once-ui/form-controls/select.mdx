@@ -29,21 +29,20 @@ The `Select` component offers a dropdown menu for selecting from a list of optio
     codes={[
         {
             code:
-                `
-const [selectedCountry, setSelectedCountry] = useState("");
+`const [selectedCountry, setSelectedCountry] = useState("");
 
-                <Select
-                    id="basic-select"
-                    label="Choose a country"
-                    value={selectedCountry}
-                    options={[
-                      { label: "United States", value: "us" },
-                      { label: "Canada", value: "ca" },
-                      { label: "United Kingdom", value: "uk" },
-                      { label: "Australia", value: "au" }
-                    ]}
-                    onSelect={country => setSelectedCountry(country)}
-                />`,
+<Select
+    id="basic-select"
+    label="Choose a country"
+    value={selectedCountry}
+    options={[
+      { label: "United States", value: "us" },
+      { label: "Canada", value: "ca" },
+      { label: "United Kingdom", value: "uk" },
+      { label: "Australia", value: "au" }
+    ]}
+    onSelect={country => setSelectedCountry(country)}
+/>`,
             language: "tsx",
             label: "Select"
         }
@@ -79,26 +78,25 @@ Enable search functionality to filter options in large lists.
     codes={[
         {
             code:
-                `
-const [selectedCountry, setSelectedCountry] = useState("");
+`const [selectedCountry, setSelectedCountry] = useState("");
 
-                <Select
-                  id="searchable-select"
-                  label="Choose a country"
-                  value={selectedCountry}
-                  searchable
-                  options={[
-                    { label: "United States", value: "us" },
-                    { label: "Canada", value: "ca" },
-                    { label: "United Kingdom", value: "uk" },
-                    { label: "Australia", value: "au" },
-                    { label: "Germany", value: "de" },
-                    { label: "France", value: "fr" },
-                    { label: "Japan", value: "jp" },
-                    { label: "Brazil", value: "br" }
-                  ]}
-                  onSelect={country => setSelectedCountry(country)}
-                />`,
+<Select
+    id="searchable-select"
+    label="Choose a country"
+    value={selectedCountry}
+    searchable
+    options={[
+      { label: "United States", value: "us" },
+      { label: "Canada", value: "ca" },
+      { label: "United Kingdom", value: "uk" },
+      { label: "Australia", value: "au" },
+      { label: "Germany", value: "de" },
+      { label: "France", value: "fr" },
+      { label: "Japan", value: "jp" },
+      { label: "Brazil", value: "br" }
+    ]}
+    onSelect={country => setSelectedCountry(country)}
+/>`,
             language: "tsx",
             label: "Searchable"
         }
@@ -135,27 +133,26 @@ Customize the message shown when no options match the search query.
     codes={[
         {
             code:
-                `
-const [selectedCountry, setSelectedCountry] = useState("");
+`const [selectedCountry, setSelectedCountry] = useState("");
 
-                <Select
-                    id="empty-state-select"
-                    label="Choose a country"
-                    value={selectedCountry}
-                    searchable
-                    emptyState={
-                      <Text onBackground="neutral-weak">
-                        No matching countries found
-                      </Text>
-                    }
-                    options={[
-                      { label: "United States", value: "us" },
-                      { label: "Canada", value: "ca" },
-                      { label: "United Kingdom", value: "uk" },
-                      { label: "Australia", value: "au" }
-                    ]}
-                    onSelect={country => setSelectedCountry(country)}
-                />`,
+<Select
+    id="empty-state-select"
+    label="Choose a country"
+    value={selectedCountry}
+    searchable
+    emptyState={
+      <Text onBackground="neutral-weak">
+        No matching countries found
+      </Text>
+    }
+    options={[
+      { label: "United States", value: "us" },
+      { label: "Canada", value: "ca" },
+      { label: "United Kingdom", value: "uk" },
+      { label: "Australia", value: "au" }
+    ]}
+    onSelect={country => setSelectedCountry(country)}
+/>`,
             language: "tsx",
             label: "Empty State"
         }
@@ -186,9 +183,9 @@ const [selectedCountry, setSelectedCountry] = useState("");
 ### SelectOptionType
 
 <PropsTable
-    content={[
-        ["label", "ReactNode"],
-        ["value", "string"],
-        ["onClick", "(value: string) => void"]
-    ]}
+  content={[
+    ["label", "ReactNode"],
+    ["value", "string"],
+    ["onClick", "(value: string) => void"]
+  ]}
 />
