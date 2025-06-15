@@ -1,7 +1,7 @@
 ---
 title: "HeadingLink"
 summary: "The HeadingLink component creates linkable section headings that work with the HeadingNav component for automatic table of contents navigation."
-updatedAt: "2025-05-14"
+updatedAt: "2025-06-15"
 github: "modules/navigation/HeadingLink.tsx"
 navLabel: "HeadingLink"
 navIcon: "modules"
@@ -14,7 +14,7 @@ The `HeadingLink` component creates linkable section headings that automatically
   marginBottom="24"
   preview={
     <Column fillWidth gap="16">
-      <HeadingLink level={2} id="example-section">
+      <HeadingLink as="h2" id="example-section">
         Example Section
       </HeadingLink>
       <Text onBackground="neutral-weak">
@@ -25,7 +25,7 @@ The `HeadingLink` component creates linkable section headings that automatically
   codes={[
     {
       code:
-`<HeadingLink level={2} id="example-section">
+`<HeadingLink as="h2" id="example-section">
     Example Section
 </HeadingLink>
 <Text onBackground="neutral-weak">
@@ -46,13 +46,13 @@ Use the `HeadingLink` component to create section headings throughout your conte
   marginBottom="24"
   preview={
     <Column fillWidth gap="16">
-      <HeadingLink level={2} id="first-section">
+      <HeadingLink as="h2" id="first-section">
         First Section
       </HeadingLink>
       <Text onBackground="neutral-weak" marginBottom="16">
         Content for the first section
       </Text>
-      <HeadingLink level={3} id="subsection">
+      <HeadingLink as="h3" id="subsection">
         Subsection
       </HeadingLink>
       <Text onBackground="neutral-weak">
@@ -63,13 +63,13 @@ Use the `HeadingLink` component to create section headings throughout your conte
   codes={[
     {
       code:
-`<HeadingLink level={2} id="first-section">
+`<HeadingLink as="h2" id="first-section">
     First Section
 </HeadingLink>
 <Text onBackground="neutral-weak" marginBottom="16">
     Content for the first section
 </Text>
-<HeadingLink level={3} id="subsection">
+<HeadingLink as="h3" id="subsection">
     Subsection
 </HeadingLink>
 <Text onBackground="neutral-weak">
@@ -90,7 +90,7 @@ The `HeadingLink` component can be customized with the standard `Heading` stylin
   marginBottom="24"
   preview={
     <Column fillWidth>
-      <HeadingLink level={2} id="styled-heading" onBackground="accent-weak" marginBottom="16">
+      <HeadingLink as="h2" id="styled-heading" onBackground="accent-weak" marginBottom="16">
         Styled Heading
       </HeadingLink>
       <Text onBackground="neutral-weak">
@@ -102,7 +102,7 @@ The `HeadingLink` component can be customized with the standard `Heading` stylin
     {
       code:
 `<HeadingLink 
-    level={2} 
+    as="h2" 
     id="styled-heading" 
     onBackground="accent-weak"
     marginBottom="16"
