@@ -1,5 +1,94 @@
 const changelog = [
   {
+    date: "2025-06-17",
+    title: "Once UI Hub",
+    image: "/api/og/generate?title=Once UI Hub&description=New comment section",
+    description: "Improvements to the Once UI Hub, including a new comment section.",
+    sections: [
+      {
+        title: "Features",
+        bullets: [
+          "Comments: Start discussions and share feedback with the community",
+        ],
+        link: "https://once-ui.com/hub"
+      }
+    ]
+  },
+  {
+    date: "2025-06-16",
+    title: "Once UI Blocks",
+    image: "/api/og/generate?title=Once UI Blocks&description=New blocks and page examples",
+    description: "Improved dashboard page example and music player widget.",
+    sections: [
+      {
+        title: "New block",
+        bullets: [
+          "MusicPlayer with controls and tracklist",
+        ],
+        link: "https://once-ui.com/blocks/widgets"
+      },
+      {
+        title: "Improved page example",
+        bullets: [
+          "Dashboard page with new design and layout",
+        ],
+        link: "https://once-ui.com/blocks/dashboard"
+      }
+    ]
+  },
+  {
+    date: "2025-06-14",
+    title: "Once UI Core Migration",
+    image: "/api/og/generate?title=Once UI Core Migration&description=Refact all Magic products to use Once UI Core",
+    description: "All Magic products now use Once UI Core. The updates slashed 200k+ lines of code.",
+    sections: [
+      {
+        title: "Products",
+        bullets: [
+          "Once UI Starter",
+          "Magic Portfolio",
+          "Magic Store",
+          "Magic Docs",
+          "Magic Bio",
+        ],
+        link: "https://once-ui.com/products"
+      },
+      {
+        title: "Magic Bio",
+        bullets: [
+          "Brand new design and style",
+          "Better OG data resolution"
+        ],
+        link: "https://once-ui.com/products/magic-bio"
+      },
+      {
+        title: "Magic Docs",
+        bullets: [
+          "Improved style",
+          "Sidebar bug fixes"
+        ],
+        link: "https://once-ui.com/products/magic-docs"
+      }
+    ]
+  },
+  {
+    date: "2025-06-05",
+    title: "Once UI Core",
+    image: "/api/og/generate?title=Once UI Core&description=Official NPM package for Once UI",
+    description: "Once UI Core, the official NPM package for Once UI is here.",
+    sections: [
+      {
+        title: "Features",
+        bullets: [
+          "New providers for a more robust and scalable app-level theme management",
+          "Import everything (components, hooks, utils) from a single source: @once-ui-system/core",
+          "Improved directory structure with better separation between responsibilities"
+        ],
+        link: "https://www.npmjs.com/package/@once-ui-system/core"
+      }
+    ]
+  },
+  {
     date: "2025-05-29",
     title: "Once UI Data Viz Module",
     image: "/images/changelog/once-ui.jpg",
