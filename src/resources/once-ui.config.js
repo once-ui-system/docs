@@ -41,7 +41,7 @@ const fonts = {
 };
 
 const style = {
-  theme: "dark", // dark | light
+  theme: "system", // dark | light
   neutral: "gray", // sand | gray | slate
   brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   accent: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan

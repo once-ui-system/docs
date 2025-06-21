@@ -7,6 +7,7 @@ import { iconLibrary } from "@/resources/icons";
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider
+      theme={style.theme as Theme}
       brand={style.brand as Schemes}
       accent={style.accent as Schemes}
       neutral={style.neutral as NeutralColor}

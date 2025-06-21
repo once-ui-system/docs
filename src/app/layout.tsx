@@ -9,7 +9,7 @@ import { baseURL } from "@/resources";
 import { Analytics } from "@vercel/analytics/react"
 
 import { Background, Column, Flex, Meta } from "@once-ui-system/core";
-import { effects, fonts, layout, schema } from "../resources/once-ui.config";
+import { dataStyle, effects, fonts, layout, schema, style } from "../resources/once-ui.config";
 import { meta } from "@/resources";
 import { RouteGuard } from "@/product/RouteGuard";
 import { Providers } from '@/product/Providers';
@@ -69,43 +69,56 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             dangerouslySetInnerHTML={{
               __html: `
                 (function() {
-                try {
-                  const root = document.documentElement;
-                  
-                  const defaultTheme = 'system';
-                  root.setAttribute('data-neutral', 'gray');
-                  root.setAttribute('data-brand', 'blue');
-                  root.setAttribute('data-accent', 'indigo');
-                  root.setAttribute('data-solid', 'contrast');
-                  root.setAttribute('data-solid-style', 'flat');
-                  root.setAttribute('data-border', 'playful');
-                  root.setAttribute('data-surface', 'filled');
-                  root.setAttribute('data-transition', 'all');
-                  root.setAttribute('data-scaling', '100');
-                  root.setAttribute('data-viz-style', 'categorical');
-                  
-                  const resolveTheme = (themeValue) => {
-                    if (!themeValue || themeValue === 'system') {
-                      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                    }
-                    return themeValue;
-                  };
-                  
-                  const theme = localStorage.getItem('data-theme');
-                  const resolvedTheme = resolveTheme(theme);
-                  root.setAttribute('data-theme', resolvedTheme);
-                  
-                  const styleKeys = ['neutral', 'brand', 'accent', 'solid', 'solid-style', 'viz-style', 'border', 'surface', 'transition', 'scaling'];
-                  styleKeys.forEach(key => {
-                    const value = localStorage.getItem('data-' + key);
-                    if (value) {
+                  try {
+                    const root = document.documentElement;
+                    
+                    // Set defaults from config
+                    const config = ${JSON.stringify({
+                      theme: style.theme,
+                      brand: style.brand,
+                      accent: style.accent,
+                      neutral: style.neutral,
+                      solid: style.solid,
+                      'solid-style': style.solidStyle,
+                      border: style.border,
+                      surface: style.surface,
+                      transition: style.transition,
+                      scaling: style.scaling,
+                      'viz-style': dataStyle.variant,
+                    })};
+                    
+                    // Apply default values
+                    Object.entries(config).forEach(([key, value]) => {
                       root.setAttribute('data-' + key, value);
-                    }
-                  });
-                } catch (e) {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
-              })();
+                    });
+                    
+                    // Resolve theme
+                    const resolveTheme = (themeValue) => {
+                      if (!themeValue || themeValue === 'system') {
+                        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                      }
+                      return themeValue;
+                    };
+                    
+                    // Apply saved theme or use config default
+                    const savedTheme = localStorage.getItem('data-theme');
+                    // Only override with system preference if explicitly set to 'system'
+                    const resolvedTheme = savedTheme ? resolveTheme(savedTheme) : config.theme === 'system' ? resolveTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : config.theme;
+                    root.setAttribute('data-theme', resolvedTheme);
+                    
+                    // Apply any saved style overrides
+                    const styleKeys = Object.keys(config);
+                    styleKeys.forEach(key => {
+                      const value = localStorage.getItem('data-' + key);
+                      if (value) {
+                        root.setAttribute('data-' + key, value);
+                      }
+                    });
+                  } catch (e) {
+                    console.error('Failed to initialize theme:', e);
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                  }
+                })();
               `,
             }}
           />
