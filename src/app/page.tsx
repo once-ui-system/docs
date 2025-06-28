@@ -144,6 +144,12 @@ export default function Home() {
               href: "/magic-portfolio/quick-start"
             },
             {
+              title: "Magic Convert",
+              description: "Create conversion-optimized landing pages and dashboards.",
+              image: "/images/docs/magic-convert.jpg",
+              href: "/magic-convert/quick-start"
+            },
+            {
               title: "Magic Docs",
               description: "Create beautiful documentations like this one.",
               image: "/images/docs/magic-docs.jpg",
