@@ -53,16 +53,6 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Product: SaaS landing page",
-            description: "A landing page template for SaaS products.",
-            type: "feature"
-          },
-          {
-            title: "Module: Social media",
-            description: "Social components to power your indie social apps: posts, comments, OG card and more.",
-            type: "feature"
-          },
-          {
             title: "Block: Price list",
             description: "Service list with prices and details built with accordion.",
             type: "feature"
@@ -72,11 +62,21 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
+          {
+            title: "Module: Social media",
+            description: "Social components to power your indie social apps: posts, comments, OG card and more.",
+            type: "feature"
+          },
         ]
       },
       {
         title: "Done",
         tasks: [
+          {
+            title: "Product: SaaS landing page",
+            description: "A landing page template for SaaS products.",
+            type: "feature"
+          },
           {
             title: "Page: Dashboard",
             description: "A dashboard page with analytics and metrics based on the data visualization module.",
@@ -195,11 +195,6 @@ const roadmap = [
             description: "Add email block with Mailchimp integration.",
             type: "feature"
           },
-          {
-            title: "Migrate to 0.6",
-            description: "Migrate to Once UI 0.6.",
-            type: "improvement"
-          },
         ]
       },
       {
@@ -210,6 +205,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Migrate to 0.6",
+            description: "Migrate to Once UI 0.6.",
+            type: "improvement"
+          },
         ]
       }
     ]

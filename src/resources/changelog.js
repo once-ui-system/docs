@@ -1,5 +1,24 @@
 const changelog = [
   {
+    date: "2025-06-28",
+    title: "Magic Convert",
+    image: "/images/docs/magic-convert.jpg",
+    description: "New conversion-optimized landing page and dashboard template.",
+    sections: [
+      {
+        title: "Features",
+        bullets: [
+          "Responsive design",
+          "SEO-friendly",
+          "Customizable",
+          "Deployment-ready",
+          "Modular structure"
+        ],
+        link: "https://once-ui.com/products/magic-convert"
+      }
+    ]
+  },
+  {
     date: "2025-06-17",
     title: "Once UI Hub",
     image: "/api/og/generate?title=Once UI Hub&description=New comment section",
