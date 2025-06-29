@@ -126,7 +126,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <Providers>
         <Column background="page" as="body" fillWidth margin="0" padding="0" style={{ minHeight: "100vh" }}>
         <Background
-          position="fixed"
+          position="absolute"
+          top="0"
+          left="0"
           mask={{
             cursor: effects.mask.cursor,
             x: effects.mask.x,
