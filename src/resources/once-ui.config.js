@@ -151,7 +151,7 @@ const schema = {
   type: "Organization",
   name: "Once UI",
   description: "Once UI and Magic templates documentation.",
-  email: "lorant@once-ui.com",
+  email: "support@once-ui.com",
   locale: "en_US"
 };
 
