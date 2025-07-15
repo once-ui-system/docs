@@ -6,6 +6,96 @@ const roadmap = [
       {
         title: "Planned",
         tasks: [
+          {
+            title: "Flex & Grid breakpoint objects",
+            description: "Override props based on breakpoint.",
+            type: "improvement"
+          },
+          {
+            title: "Logo copy svg + visit brand page",
+            description: "Add svg copy to logo and optional link to visit brand page.",
+            type: "improvement"
+          },
+          {
+            title: "Smartlink preview",
+            description: "Optional prop to preview OG data on hover.",
+            type: "improvement"
+          },
+          {
+            title: "Accordion auto-collapse",
+            description: "Optional prop to collapse other accordions when opening a new one.",
+            type: "improvement"
+          },
+          {
+            title: "Chart error state",
+            description: "Add error state to chart components.",
+            type: "improvement"
+          },
+          {
+            title: "Media caption",
+            description: "Add optional caption to the Media component.",
+            type: "improvement"
+          },
+          {
+            title: "Carousel effects",
+            description: "Add new transition effects and rework timing functions.",
+            type: "improvement"
+          },
+          {
+            title: "OgCard improvements",
+            description: "Add size prop and data overrides separately.",
+            type: "improvement"
+          },
+          {
+            title: "Text highlights",
+            description: "Add highlight effects (svg) to text.",
+            type: "feature"
+          },
+          {
+            title: "Context menu",
+            description: "New component: Context menu on right click.",
+            type: "feature"
+          },
+          {
+            title: "ProgressBar",
+            description: "New component: Progress bar.",
+            type: "feature"
+          },
+          {
+            title: "BlockQuote",
+            description: "New component: Block quote and remove default styles from global.scss.",
+            type: "feature"
+          },
+          {
+            title: "StylePanel refactoring",
+            description: "Make stylepanel composable and add additional edit options like custom colors.",
+            type: "feature"
+          },
+          {
+            title: "Datepicker accessibility",
+            description: "Add arrow navigation and use Options instead of Buttons.",
+            type: "bug"
+          },
+          {
+            title: "Codeblock higlhight",
+            description: "Fix highlight issue when switching between Codeblock tabs.",
+            type: "bug"
+          },
+          {
+            title: "OgCard",
+            description: "Update OgCard docs with display prop. (Related: OgCard improvements)",
+            type: "documentation"
+          },
+          {
+            title: "Chart states",
+            description: "Add state examples to chart docs. (Related: Chart error state)",
+            type: "documentation"
+          },
+          {
+            title: "Hooks & utils",
+            description: "Add hooks and utils to docs.",
+            type: "documentation"
+          },
         ]
       },
       {
@@ -15,32 +105,7 @@ const roadmap = [
       },
       {
         title: "Done",
-        tasks: [ 
-          {
-            title: "NPM package",
-            description: "Publish Once UI to NPM.",
-            type: "feature"
-          },
-          {
-            title: "Data visualization module",
-            description: "Data components built on top of Recharts.",
-            type: "feature"
-          },
-          {
-            title: "New docs",
-            description: "Rebuilt Once UI docs with Magic Docs from scratch. More examples, use cases, guides.",
-            type: "feature"
-          },
-          {
-            title: "Cursor card",
-            description: "A card component that pops up when hovering a trigger element.",
-            type: "feature"
-          },
-          {
-            title: "0.6 release",
-            description: "Simplified SEO with the new Meta and Schema. Better navigations with Command Palette, HeadingNav, MegaMenu. Minor styling improvements.",
-            type: "feature"
-          },
+        tasks: [
         ]
       }
     ]
@@ -53,8 +118,13 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Block: Price list",
-            description: "Service list with prices and details built with accordion.",
+            title: "Magic Agent",
+            description: "New chat agent product template.",
+            type: "feature"
+          },
+          {
+            title: "Magic Connect",
+            description: "New social media app product template.",
             type: "feature"
           },
         ]
@@ -62,40 +132,25 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
-          {
-            title: "Module: Social media",
-            description: "Social components to power your indie social apps: posts, comments, OG card and more.",
-            type: "feature"
-          },
         ]
       },
       {
         title: "Done",
         tasks: [
           {
-            title: "Product: SaaS landing page",
-            description: "A landing page template for SaaS products.",
+            title: "Blocks page",
+            description: "Rework the page layout and UI.",
             type: "feature"
           },
           {
-            title: "Page: Dashboard",
-            description: "A dashboard page with analytics and metrics based on the data visualization module.",
+            title: "Comments",
+            description: "Add comment system UI to Blocks.",
             type: "feature"
           },
           {
-            title: "Product: Magic Store",
-            description: "New solution for e-commerce stores powered by Fourthwall. Build a strong brand and monetize early with an out-of-the-box merch store.",
-            type: "feature"
-          },
-          {
-            title: "Pages",
-            description: "Commonly used landing page examples: team, contact, about, pricing, blog.",
-            type: "feature"
-          },
-          {
-            title: "Blocks",
-            description: "Commonly used landing page blocks: features, testimonials, plans.",
-            type: "feature"
+            title: "Improve block designs",
+            description: "Rework block UI and improve aesthetics.",
+            type: "improvement"
           },
         ]
       },
@@ -109,18 +164,13 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Tab navigation in MDX files",
-            description: "Expand the hierarchical structure of MDX files with optional tab navigation.",
-            type: "feature"
-          },
-          {
-            title: "Documentation version control",
-            description: "Ability to switch between documentation versions.",
-            type: "feature"
-          },
-          {
             title: "Hot reload",
             description: "Automatically re-render documentation when changes are detected in MDX files.",
+            type: "feature"
+          },
+          {
+            title: "Versioning",
+            description: "Add versioning to documentation.",
             type: "feature"
           },
         ]
@@ -133,16 +183,6 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
-          {
-            title: "Changelog",
-            description: "Changelog page with release notes and updates based on JSON.",
-            type: "feature"
-          },
-          {
-            title: "Roadmap",
-            description: "Roadmap page with auto-generated columns based on JSON.",
-            type: "feature"
-          },
         ]
       }
     ]
@@ -155,9 +195,9 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Improve Blog layout",
-            description: "Add pagination, featured read and a recent article block.",
-            type: "improvement"
+            title: "Fix OG error",
+            description: "Fix Open Graph resolution error.",
+            type: "bug"
           },
         ]
       },
@@ -169,16 +209,6 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
-          {
-            title: "Migrate to 0.6",
-            description: "Migrate to Once UI 0.6.",
-            type: "improvement"
-          },
-          {
-            title: "New gallery layout",
-            description: "Rework gallery with improved design and flexibility for artists and photographers.",
-            type: "improvement"
-          },
         ]
       }
     ]
@@ -191,9 +221,9 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Email block",
-            description: "Add email block with Mailchimp integration.",
-            type: "feature"
+            title: "Add OG data overrides",
+            description: "Add OG data overrides to links. (Related: OgCard improvements)",
+            type: "improvement"
           },
         ]
       },
@@ -205,11 +235,6 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
-          {
-            title: "Migrate to 0.6",
-            description: "Migrate to Once UI 0.6.",
-            type: "improvement"
-          },
         ]
       }
     ]
@@ -222,11 +247,6 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Comments",
-            description: "Comment section for projects with reply and mentions.",
-            type: "feature"
-          },
-          {
             title: "Notifications",
             description: "Notification center for project updates and comments.",
             type: "feature"
@@ -235,7 +255,22 @@ const roadmap = [
             title: "Post formats",
             description: "Support for different post formats.",
             type: "feature"
-          }
+          },
+          {
+            title: "Achievements",
+            description: "Add achievements to profile page.",
+            type: "feature"
+          },
+          {
+            title: "Testimonials",
+            description: "Submit testimonials and display on Once UI landing pages.",
+            type: "feature"
+          },
+          {
+            title: "Drafts",
+            description: "Add new draft status that hides posts from feed and search.",
+            type: "feature"
+          },
         ]
       },
       {
@@ -246,31 +281,6 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
-          {
-            title: "Profile page",
-            description: "Profile page with user information and settings.",
-            type: "feature"
-          },
-          {
-            title: "Feed pages",
-            description: "Feed pages with project posts.",
-            type: "feature"
-          },
-          {
-            title: "Project upload",
-            description: "Project upload with image gallery and project details.",
-            type: "feature"
-          },
-          {
-            title: "Showcase",
-            description: "Dynamically display projects on related marketing pages.",
-            type: "feature"
-          },
-          {
-            title: "Feature project",
-            description: "Highlight projects with a note and badge.",
-            type: "feature"
-          }
         ]
       }
     ]
@@ -299,7 +309,7 @@ const roadmap = [
         tasks: [
           {
             title: "Merch drop",
-            description: 'Design and drop the "Stay Human" line.',
+            description: "New mascot design for Once UI and merch line",
             type: "feature"
           },
         ]
