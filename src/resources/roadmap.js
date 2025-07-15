@@ -157,6 +157,37 @@ const roadmap = [
     ]
   },
   {
+    product: "Magic Convert",
+    brand: "green",
+    columns: [
+      {
+        title: "Planned",
+        tasks: [
+          {
+            title: "Product page designs",
+            description: "Create designs for product pages.",
+            type: "feature"
+          },
+          {
+            title: "Brand guidelines page",
+            description: "Create brand guidelines page. (Related: Logo copy svg + visit brand page)",
+            type: "feature"
+          },
+        ]
+      },
+      {
+        title: "In Progress",
+        tasks: [
+        ]
+      },
+      {
+        title: "Done",
+        tasks: [
+        ]
+      }
+    ]
+  },
+  {
     product: "Magic Docs",
     brand: "magenta",
     columns: [
