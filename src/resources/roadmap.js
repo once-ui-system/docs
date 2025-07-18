@@ -12,11 +12,6 @@ const roadmap = [
             type: "improvement"
           },
           {
-            title: "Logo copy svg + visit brand page",
-            description: "Add svg copy to logo and optional link to visit brand page.",
-            type: "improvement"
-          },
-          {
             title: "Smartlink preview",
             description: "Optional prop to preview OG data on hover.",
             type: "improvement"
@@ -52,28 +47,13 @@ const roadmap = [
             type: "feature"
           },
           {
-            title: "Context menu",
-            description: "New component: Context menu on right click.",
-            type: "feature"
-          },
-          {
-            title: "ProgressBar",
-            description: "New component: Progress bar.",
-            type: "feature"
-          },
-          {
-            title: "BlockQuote",
-            description: "New component: Block quote and remove default styles from global.scss.",
-            type: "feature"
-          },
-          {
             title: "StylePanel refactoring",
             description: "Make stylepanel composable and add additional edit options like custom colors.",
             type: "feature"
           },
           {
             title: "Datepicker accessibility",
-            description: "Add arrow navigation and use Options instead of Buttons.",
+            description: "Add arrow navigation and use Options instead of Buttons. Add year picker.",
             type: "bug"
           },
           {
@@ -101,11 +81,31 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
+          {
+            title: "ProgressBar",
+            description: "New component: Progress bar.",
+            type: "feature"
+          },
         ]
       },
       {
         title: "Done",
         tasks: [
+          {
+            title: "BlockQuote",
+            description: "New component: Block quote and remove default styles from global.scss.",
+            type: "feature"
+          },
+          {
+            title: "Context menu",
+            description: "New component: Context menu on right click.",
+            type: "feature"
+          },
+          {
+            title: "Logo copy svg + visit brand page",
+            description: "Add svg copy to logo and optional link to visit brand page.",
+            type: "improvement"
+          },
         ]
       }
     ]
@@ -118,11 +118,6 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Magic Agent",
-            description: "New chat agent product template.",
-            type: "feature"
-          },
-          {
             title: "Magic Connect",
             description: "New social media app product template.",
             type: "feature"
@@ -132,6 +127,11 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
+          {
+            title: "Magic Agent",
+            description: "New chat agent product template.",
+            type: "feature"
+          },
         ]
       },
       {
@@ -168,11 +168,6 @@ const roadmap = [
             description: "Create designs for product pages.",
             type: "feature"
           },
-          {
-            title: "Brand guidelines page",
-            description: "Create brand guidelines page. (Related: Logo copy svg + visit brand page)",
-            type: "feature"
-          },
         ]
       },
       {
@@ -183,6 +178,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Brand guidelines page",
+            description: "Create brand guidelines page. (Related: Logo copy svg + visit brand page)",
+            type: "feature"
+          },
         ]
       }
     ]
@@ -225,16 +225,16 @@ const roadmap = [
       {
         title: "Planned",
         tasks: [
-          {
-            title: "Fix OG error",
-            description: "Fix Open Graph resolution error.",
-            type: "bug"
-          },
         ]
       },
       {
         title: "In Progress",
         tasks: [
+          {
+            title: "Fix OG error",
+            description: "Fix Open Graph resolution error.",
+            type: "bug"
+          },
         ]
       },
       {
@@ -297,11 +297,6 @@ const roadmap = [
             description: "Submit testimonials and display on Once UI landing pages.",
             type: "feature"
           },
-          {
-            title: "Drafts",
-            description: "Add new draft status that hides posts from feed and search.",
-            type: "feature"
-          },
         ]
       },
       {
@@ -312,6 +307,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Drafts",
+            description: "Add new draft status that hides posts from feed and search.",
+            type: "feature"
+          },
         ]
       }
     ]
@@ -328,6 +328,11 @@ const roadmap = [
             description: "Create a new home for our community.",
             type: "feature"
           },
+          {
+            title: "Merch drop",
+            description: "New mascot design for Once UI and merch line",
+            type: "feature"
+          },
         ]
       },
       {
@@ -338,11 +343,6 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
-          {
-            title: "Merch drop",
-            description: "New mascot design for Once UI and merch line",
-            type: "feature"
-          },
         ]
       }
     ]
