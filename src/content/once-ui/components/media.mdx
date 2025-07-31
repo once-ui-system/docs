@@ -5,6 +5,8 @@ updatedAt: "2025-05-09"
 github: "components/Media.tsx"
 navLabel: "Media"
 navIcon: "components"
+navTag: "Update"
+navTagVariant: "indigo"
 ---
 
 `Media` handles responsive media content with support for lazy loading, aspect ratios, and intelligent rendering of videos or embeds. Use it for dynamic content blocks with consistent behavior.
@@ -61,6 +63,40 @@ Show a skeleton block while content is loading.
 />`,
       language: "tsx",
       label: "Skeleton"
+    }
+  ]}
+/>
+
+## Caption
+
+The `caption` prop renders a `ReactNode` below the image, making it easy to provide additional details. It will render the image as `figure` and the caption as `figcaption`.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Media
+      caption="Vibe code with Quasar! The time is now."
+      src="/images/docs/once-ui/vibe-coding-light.jpg"
+      alt="Preview"
+      radius="xl"
+      border="neutral-alpha-medium"
+      aspectRatio="16/9"
+    />
+  }
+  codes={[
+    {
+      code:
+`<Media
+    caption="Vibe code with Quasar! The time is now."
+    src="/image.jpg"
+    alt="Preview"
+    radius="xl"
+    border="neutral-alpha-medium"
+    aspectRatio="16/9"
+/>`,
+      language: "tsx",
+      label: "Caption"
     }
   ]}
 />

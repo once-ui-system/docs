@@ -308,7 +308,7 @@ Control the alignment of button content.
       <Button size="s" fillWidth horizontal="start" prefixIcon="check">Left Aligned</Button>
       <Button size="s" fillWidth horizontal="center">Center Aligned</Button>
       <Button size="s" fillWidth horizontal="end" suffixIcon="chevronDown">Right Aligned</Button>
-      <Button size="s" fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="chevronDown">Space Between</Button>
+      <Button size="s" fillWidth horizontal="between" prefixIcon="check" suffixIcon="chevronDown">Space Between</Button>
     </Column>
   }
   codes={[
@@ -323,7 +323,7 @@ Control the alignment of button content.
   <Button fillWidth horizontal="end" suffixIcon="chevronDown">
     Right Aligned
   </Button>
-  <Button fillWidth horizontal="space-between" prefixIcon="check" suffixIcon="chevronDown">
+  <Button fillWidth horizontal="between" prefixIcon="check" suffixIcon="chevronDown">
     Space Between
 </Button>`,
       language: "tsx",
@@ -373,7 +373,7 @@ Override default styles with data attributes.
     ["suffixIcon", "IconName"],
     ["loading", "boolean", "false"],
     ["fillWidth", "boolean", "false"],
-    ["horizontal", ["start", "center", "end", "space-between"], "center"],
+    ["horizontal", ["start", "center", "end", "between"], "center"],
     ["children", "ReactNode"],
     ["href", "string"],
     ["arrowIcon", "boolean", "false"],

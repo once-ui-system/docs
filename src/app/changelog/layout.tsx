@@ -8,8 +8,8 @@ const DocsLayout = memo(({
   children: React.ReactNode;
 }) => {
   return (
-    <Row fillWidth gap="24" position="relative">
-      <Sidebar hide="m" />
+    <Row fillWidth gap="24">
+      <Sidebar m={{hide: true}} />
       {children}
     </Row>
   );

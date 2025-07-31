@@ -43,7 +43,7 @@ const fonts = {
 const style = {
   theme: "system", // dark | light
   neutral: "gray", // sand | gray | slate
-  brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+  brand: "emerald", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   accent: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
@@ -109,7 +109,7 @@ const effects = {
     opacity: 50,
   },
   dots: {
-    display: true,
+    display: false,
     size: 2,
     color: "brand-on-background-weak",
     opacity: 20,

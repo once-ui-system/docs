@@ -7,38 +7,8 @@ const roadmap = [
         title: "Planned",
         tasks: [
           {
-            title: "Flex & Grid breakpoint objects",
-            description: "Override props based on breakpoint.",
-            type: "improvement"
-          },
-          {
             title: "Smartlink preview",
             description: "Optional prop to preview OG data on hover.",
-            type: "improvement"
-          },
-          {
-            title: "Accordion auto-collapse",
-            description: "Optional prop to collapse other accordions when opening a new one.",
-            type: "improvement"
-          },
-          {
-            title: "Chart error state",
-            description: "Add error state to chart components.",
-            type: "improvement"
-          },
-          {
-            title: "Media caption",
-            description: "Add optional caption to the Media component.",
-            type: "improvement"
-          },
-          {
-            title: "Carousel effects",
-            description: "Add new transition effects and rework timing functions.",
-            type: "improvement"
-          },
-          {
-            title: "OgCard improvements",
-            description: "Add size prop and data overrides separately.",
             type: "improvement"
           },
           {
@@ -50,11 +20,6 @@ const roadmap = [
             title: "StylePanel refactoring",
             description: "Make stylepanel composable and add additional edit options like custom colors.",
             type: "feature"
-          },
-          {
-            title: "Datepicker accessibility",
-            description: "Add arrow navigation and use Options instead of Buttons. Add year picker.",
-            type: "bug"
           },
           {
             title: "Codeblock higlhight",
@@ -81,30 +46,85 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
-          {
-            title: "ProgressBar",
-            description: "New component: Progress bar.",
-            type: "feature"
-          },
         ]
       },
       {
         title: "Done",
         tasks: [
           {
-            title: "BlockQuote",
-            description: "New component: Block quote and remove default styles from global.scss.",
-            type: "feature"
-          },
-          {
-            title: "Context menu",
-            description: "New component: Context menu on right click.",
-            type: "feature"
+            title: "Flex & Grid breakpoint objects",
+            description: "Override props based on breakpoint.",
+            type: "improvement"
           },
           {
             title: "Logo copy svg + visit brand page",
             description: "Add svg copy to logo and optional link to visit brand page.",
             type: "improvement"
+          },
+          {
+            title: "ContextMenu",
+            description: "New component: Context menu on right click.",
+            type: "feature"
+          },
+          {
+            title: "Accordion auto-collapse",
+            description: "Optional prop to collapse other accordions when opening a new one.",
+            type: "improvement"
+          },
+          {
+            title: "Chart error state",
+            description: "Add error state to chart components.",
+            type: "improvement"
+          },
+          {
+            title: "Media caption",
+            description: "Add optional caption to the Media component.",
+            type: "improvement"
+          },
+          {
+            title: "OgCard improvements",
+            description: "Add size prop and data overrides separately.",
+            type: "improvement"
+          },
+          {
+            title: "ProgressBar",
+            description: "New component: Progress bar.",
+            type: "feature"
+          },
+          {
+            title: "Custom cursor",
+            description: "Allow Flex and Grid to support custom cursor elements as ReactNode.",
+            type: "feature"
+          },
+          {
+            title: "List and ListItem",
+            description: "New List and ListItem components.",
+            type: "feature"
+          },
+          {
+            title: "Select multiple options",
+            description: "Add option for Select to handle multiple options.",
+            type: "feature"
+          },
+          {
+            title: "Number animations",
+            description: "Create component to handle number animations.",
+            type: "feature"
+          },
+          {
+            title: "Carousel effects",
+            description: "Rework timing functions in RevealFx and Carousel.",
+            type: "improvement"
+          },
+          {
+            title: "BlockQuote",
+            description: "New component: Block quote and remove default styles from global.scss.",
+            type: "feature"
+          },
+          {
+            title: "Datepicker accessibility",
+            description: "Add arrow navigation and use Options instead of Buttons.",
+            type: "bug"
           },
         ]
       }
@@ -127,11 +147,6 @@ const roadmap = [
       {
         title: "In Progress",
         tasks: [
-          {
-            title: "Magic Agent",
-            description: "New chat agent product template.",
-            type: "feature"
-          },
         ]
       },
       {
@@ -152,6 +167,11 @@ const roadmap = [
             description: "Rework block UI and improve aesthetics.",
             type: "improvement"
           },
+          {
+            title: "Magic Agent",
+            description: "New chat agent product template.",
+            type: "feature"
+          },
         ]
       },
     ]
@@ -163,16 +183,16 @@ const roadmap = [
       {
         title: "Planned",
         tasks: [
-          {
-            title: "Product page designs",
-            description: "Create designs for product pages.",
-            type: "feature"
-          },
         ]
       },
       {
         title: "In Progress",
         tasks: [
+          {
+            title: "Product page designs",
+            description: "Create designs for product pages.",
+            type: "feature"
+          },
         ]
       },
       {
@@ -328,11 +348,6 @@ const roadmap = [
             description: "Create a new home for our community.",
             type: "feature"
           },
-          {
-            title: "Merch drop",
-            description: "New mascot design for Once UI and merch line",
-            type: "feature"
-          },
         ]
       },
       {
@@ -343,6 +358,11 @@ const roadmap = [
       {
         title: "Done",
         tasks: [
+          {
+            title: "Merch drop",
+            description: "New mascot design for Once UI and merch line",
+            type: "feature"
+          },
         ]
       }
     ]

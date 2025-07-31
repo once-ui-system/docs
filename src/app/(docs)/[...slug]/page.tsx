@@ -89,7 +89,7 @@ export default async function Docs({
             <CustomMDX source={doc.content} />
           </Column>
           
-          <Row gap="16" fillWidth horizontal="space-between" mobileDirection="column">              
+          <Row gap="16" fillWidth horizontal="between" s={{direction: "column"}}>              
               {prevPage ? (
                 <Row fillWidth>
                 <Row maxWidth={20}>
@@ -145,7 +145,7 @@ export default async function Docs({
             </Row>
         </Column>
       </Row>
-      <Column gap="16" maxWidth={layout.sideNav.width} hide="s" position="sticky" top="80" fitHeight>
+      <Column gap="16" maxWidth={layout.sideNav.width} s={{hide: true}} position="sticky" top="80" fitHeight>
         <Row gap="12" paddingLeft="2" vertical="center" onBackground="neutral-medium" textVariant="label-default-s">
           <Icon name="document" size="xs"/>
           On this page

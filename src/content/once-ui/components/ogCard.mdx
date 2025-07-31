@@ -5,6 +5,8 @@ updatedAt: "2025-05-09"
 github: "components/OgCard.tsx"
 navLabel: "OgCard"
 navIcon: "components"
+navTag: "Update"
+navTagVariant: "indigo"
 ---
 
 The `OgCard` component displays rich link previews for URLs by fetching and rendering Open Graph metadata. It's perfect for showcasing external links with preview images, titles, and descriptions.
@@ -38,26 +40,22 @@ Instead of fetching Open Graph data from a URL, you can directly provide the dat
   marginBottom="24"
   preview={
     <OgCard 
-      ogData={{
-        title: "Design Engineers Club",
-        description: "The Design Engineers Club is a community of vibe coders.",
-        image: "/images/docs/once-ui/vibe-coding-dark.jpg",
-        faviconUrl: "/images/avatar.jpg",
-        url: "https://designengineers.club"
-      }}
+      title="Design Engineers Club"
+      description="The Design Engineers Club is a community of vibe coders."
+      image="/images/docs/once-ui/vibe-coding-dark.jpg"
+      favicon="/images/avatar.jpg"
+      url="https://designengineers.club"
     />
   }
   codes={[
     {
       code:
 `<OgCard 
-    ogData={{
-      title: "Design Engineers Club",
-      description: "The Design Engineers Club is a community of vibe coders.",
-      image: "/images/docs/once-ui/vibe-coding-dark.jpg",
-      faviconUrl: "/images/avatar.jpg",
-      url: "https://designengineers.club"
-    }}
+    title="Design Engineers Club"
+    description="The Design Engineers Club is a community of vibe coders."
+    image="/images/docs/once-ui/vibe-coding-dark.jpg"
+    favicon="/images/avatar.jpg"
+    url="https://designengineers.club"
 />`,
       language: "tsx",
       label: "Mock data"
@@ -102,7 +100,51 @@ The OgCard component supports different layout directions.
   ]}
 />
 
-## Card styling
+## Size
+
+The OgCard component supports different sizes.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Column gap="16">
+      <OgCard
+        size="s"
+        url="https://once-ui.com/about"
+      />
+      <OgCard
+        size="m"
+        url="https://once-ui.com/products"
+      />
+      <OgCard
+        size="l"
+        url="https://once-ui.com/customize"
+      />
+    </Column>
+  }
+  codes={[
+    {
+      code:
+`<OgCard 
+    size="s"
+    url="https://once-ui.com/about"
+/>
+<OgCard 
+    size="m"
+    url="https://once-ui.com/products"
+/>
+<OgCard 
+    size="l"
+    url="https://once-ui.com/customize"
+/>`,
+      language: "tsx",
+      label: "Size"
+    }
+  ]}
+/>
+
+## Custom style
 
 The `OgCard` extends the `Card` component, so you can use all `Card` props to customize its appearance.
 
@@ -121,19 +163,14 @@ The `OgCard` extends the `Card` component, so you can use all `Card` props to cu
     {
       code:
 `<OgCard 
-    ogData={{
-        title: "Styled Card",
-        description: "This card has custom styling applied to it.",
-        image: "/placeholder-image.jpg",
-        url: "https://example.com"
-    }}
+    url="https://once-ui.com/customize"
     direction="column"
     background="brand-alpha-weak"
     border="brand-alpha-medium"
     shadow="l"
 />`,
       language: "tsx",
-      label: "Card styling"
+      label: "Custom style"
     }
   ]}
 />
@@ -143,15 +180,17 @@ The `OgCard` extends the `Card` component, so you can use all `Card` props to cu
 <PropsTable
   content={[
     ["url", "string"],
-    ["ogData", "{ title: string; description: string; image: string; url: string }"],
-    ["direction", ["column", "row", "column-reverse", "row-reverse"], "column"],
+    ["title", ["string", "false"]],
+    ["description", ["string", "false"]],
+    ["image", ["string", "false"]],
+    ["favicon", ["string", "false"]],
     ["...card", "CardProps"]
   ]}
 />
 
 ## Notes
 
-- Either `url` or `ogData` must be provided for the component to render
 - The component automatically fetches favicons for the domain
 - Images are proxied through an API endpoint to avoid CORS issues
-- If both `url` and `ogData` are provided, `ogData` takes precedence
+- You can overwrite the default props by providing static values
+- You can set any value to `false` to disable it

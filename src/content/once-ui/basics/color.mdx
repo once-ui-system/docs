@@ -23,7 +23,7 @@ color system and they are not meant to be used directly.
 Schemes provide a comprehensive and consistent initial color palette. There are 16
 different schemes defined in the system:
 
-<Grid marginBottom="48" fillWidth gap="1" columns="4" mobileColumns="2" radius="l" overflow="hidden">
+<Grid marginBottom="48" fillWidth gap="1" columns="4" s={{columns: 2}} radius="l" overflow="hidden">
   {[
     { name: "Sand", color: "var(--scheme-sand-500)" },
     { name: "Gray", color: "var(--scheme-gray-500)" },
@@ -65,7 +65,7 @@ background.
 
 There are 12 weights available for each color scheme:
 
-<Grid marginBottom="16" gap="1" columns="6" tabletColumns="3" mobileColumns="2" radius="l" overflow="hidden">
+<Grid marginBottom="16" gap="1" columns="6" s={{columns: 2}} m={{columns: 3}} radius="l" overflow="hidden">
   {[
     { weight: 100, contrast: 1.05, theme: "dark" },
     { weight: 200, contrast: 1.15, theme: "dark" },

@@ -24,7 +24,7 @@ Override the default shape style with the `data-border` attribute on a native HT
     }
   ]}
   preview={
-    <Flex fillWidth mobileDirection="column" gap="m">
+    <Flex fillWidth s={{direction: "column"}} gap="m">
       <Background
         data-border="conservative"
         background="neutral-alpha-weak"
@@ -75,7 +75,7 @@ In Once UI, we adopt the T-shirt size model for managing border radius, with val
     }
   ]}
   preview={
-    <Flex fillWidth mobileDirection="column" gap="m">
+    <Flex fillWidth s={{direction: "column"}} gap="m">
       <Background
         fillWidth
         height={4}
@@ -148,7 +148,7 @@ A common challenge in border-radius systems is nesting. For nested elements to m
     }
   ]}
   preview={
-    <Flex fillWidth mobileDirection="column" gap="m">
+    <Flex fillWidth s={{direction: "column"}} gap="m">
       <Flex fillWidth padding="8" shadow="m" border="neutral-strong" radius="xs-8">
         <Flex fillWidth padding="4" border="neutral-strong" radius="xs-4">
           <Background

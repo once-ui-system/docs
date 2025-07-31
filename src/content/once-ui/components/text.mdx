@@ -95,7 +95,7 @@ Text color can be set using `onBackground` or `onSolid`.
   marginBottom="24"
   preview={
     <Column fillWidth gap="16" textVariant="label-default-s">
-    <Row gap="12" fillWidth mobileDirection="column">
+    <Row gap="12" fillWidth s={{direction: "column"}}>
       <Row gap="12" fillWidth radius="l" padding="12" horizontal="center">
         <Text onBackground="neutral-weak">Neutral weak</Text>
       </Row>
@@ -106,7 +106,7 @@ Text color can be set using `onBackground` or `onSolid`.
         <Text onBackground="brand-weak">Brand weak</Text>
       </Row>
     </Row>
-    <Row gap="12" fillWidth mobileDirection="column">
+    <Row gap="12" fillWidth s={{direction: "column"}}>
       <Row gap="12" solid="neutral-medium" fillWidth radius="l" padding="12" horizontal="center">
         <Text onSolid="neutral-weak">Neutral medium</Text>
       </Row>

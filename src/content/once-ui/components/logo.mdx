@@ -1,15 +1,15 @@
 ---
 title: "Logo"
 summary: "A component for displaying brand logos with consistent styling and sizing options."
-updatedAt: "2025-05-09"
+updatedAt: "2025-07-31"
 github: "components/Logo.tsx"
 navLabel: "Logo"
 navIcon: "components"
+navTag: "Update"
+navTagVariant: "indigo"
 ---
 
 The Logo component is used to display brand logos with consistent styling and sizing. It supports displaying both an icon and a wordmark, either separately or together.
-
-<Feedback marginY="24" vertical="center" description={<Text>Replace the SVG files in the <InlineCode>public/trademark</InlineCode> folder with your own brand logo files. It will be used as the default logo and automatically render in the correct theme.</Text>}/>
 
 <CodeBlock
   marginTop="16"
@@ -169,6 +169,35 @@ The Logo component can function as a link when provided with an `href` property.
   ]}
 />
 
+## Brand
+
+The `brand` prop provides a `copy` option for allowing the icon and wordmark to be separately copied as an svg to the clipboard on right click through a context menu. The `url` option displays a link to your brand page when provided.
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <>
+      <Logo light icon="/trademark/icon-light.svg" wordmark="/trademark/type-light.svg" brand={{ copy: true, url: "https://once-ui.com/brand" }} />
+      <Logo dark icon="/trademark/icon-dark.svg" wordmark="/trademark/type-dark.svg" brand={{ copy: true, url: "https://once-ui.com/brand" }} />
+    </>
+  }
+  codes={[
+    {
+      code:
+`<Logo
+    wordmark="/trademark/type-dark.svg"
+    brand={{
+      copy: true,
+      url: "https://once-ui.com/brand"
+    }}
+/>`,
+      language: "tsx",
+      label: "Brand"
+    }
+  ]}
+/>
+
 ## API reference
 
 <PropsTable
@@ -179,6 +208,7 @@ The Logo component can function as a link when provided with an `href` property.
     ["iconSrc", "string"],
     ["wordmarkSrc", "string"],
     ["href", "string"],
+    ["brand", "object"],
     ["className"],
     ["style"]
   ]}

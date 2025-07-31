@@ -111,6 +111,37 @@ function createInlineCode({ children }: { children: ReactNode }) {
   return <onceUIComponents.InlineCode>{children}</onceUIComponents.InlineCode>;
 }
 
+function createBlockQuote({ children }: { children: ReactNode }) {
+  return (
+    <onceUIComponents.BlockQuote
+      marginTop="8"
+      marginBottom="12"
+    >
+      {children}
+    </onceUIComponents.BlockQuote>
+  );
+}
+
+function createList({ children }: { children: ReactNode }) {
+  return (
+    <onceUIComponents.List
+    >
+      {children}
+    </onceUIComponents.List>
+  );
+}
+
+function createListItem({ children }: { children: ReactNode }) {
+  return (
+    <onceUIComponents.ListItem
+      marginTop="4"
+      marginBottom="8"
+    >
+      {children}
+    </onceUIComponents.ListItem>
+  );
+}
+
 function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
   if (props.children && props.children.props && props.children.props.className) {
@@ -153,6 +184,10 @@ const mdxComponents: MDXComponents = {
   a: CustomLink as any,
   code: createInlineCode as any,
   pre: createCodeBlock as any,
+  blockquote: createBlockQuote as any,
+  ul: createList as any,
+  ol: createList as any,
+  li: createListItem as any,
   ...onceUIComponents,
   ...productComponents,
 };

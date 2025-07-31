@@ -2,9 +2,10 @@
   "title": "Contexts",
   "order": 2,
   "pages": {
-    "themeProvider": 1,
-    "dataThemeProvider": 2,
-    "iconProvider": 3,
-    "toastProvider": 4
+    "layoutProvider": 1,
+    "themeProvider": 2,
+    "dataThemeProvider": 3,
+    "iconProvider": 4,
+    "toastProvider": 5
   }
 }

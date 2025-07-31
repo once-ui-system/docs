@@ -5,8 +5,6 @@ updatedAt: "2025-06-08"
 github: "contexts/ThemeProvider.tsx"
 navLabel: "ThemeProvider"
 navIcon: "chip"
-navTag: "new"
-navTagVariant: "cyan"
 ---
 
 The `ThemeProvider` is a context that persists user theme preferences and syncs with the system’s light/dark setting. It provides a `useTheme` hook to manage theme state at runtime and sets data attributes on the `<html>` element.
@@ -319,7 +317,7 @@ Just add the `data-theme`, `data-neutral`, `data-brand`, `data-accent`, `data-bo
       padding="8"
     >
       <Row maxWidth={20}
-        horizontal="space-between"
+        horizontal="between"
         padding="8"
         vertical="center"
         background="neutral-weak"
@@ -407,7 +405,7 @@ Just add the `data-theme`, `data-neutral`, `data-brand`, `data-accent`, `data-bo
                 src: article.avatar,
               }}
             />
-            <Flex fillWidth gap="24" mobileDirection="column">
+            <Flex fillWidth gap="24" s={{direction: "column"}}>
               <Column gap="12">
                 <Text variant="heading-strong-l" onBackground="neutral-strong">
                   {article.title}

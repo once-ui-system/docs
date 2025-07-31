@@ -4,6 +4,8 @@ summary: "Once UI is an open-source design system built for indie creators, smal
 updatedAt: "2025-05-04"
 navLabel: "Structure"
 navIcon: "lightbulb"
+navTag: "Update"
+navTagVariant: "indigo"
 ---
 
 ## Flex
@@ -44,7 +46,7 @@ We expose two convenience wrappers: `Row` and `Column`. These are semantically e
   marginTop="16"
   marginBottom="24"
   preview={
-    <Row fillWidth gap="16" mobileDirection="column" textVariant="label-default-s" onBackground="neutral-weak">
+    <Row fillWidth fitHeight gap="16" s={{direction: "column"}} textVariant="label-default-s" onBackground="neutral-weak">
       <Background
         background="neutral-alpha-weak"
         lines={{display: true, color: "neutral-alpha-weak"}}
@@ -76,7 +78,7 @@ We expose two convenience wrappers: `Row` and `Column`. These are semantically e
   codes={[
     {
       code:
-`<Row fillWidth gap="16" mobileDirection="column">
+`<Row fillWidth fitHeight gap="16" s={{direction: "column"}}>
     <Column fillWidth center>
         col
     </Column>
@@ -150,7 +152,7 @@ Rather than wrestling with `justifyContent` and `alignItems`, we use semantic `h
 
 The `start` is the default value for both alignments, so we don't declare them. The `center` prop is shorthand for both `horizontal="center"` and `vertical="center"`.
 
-We can also use `space-around` and `space-between` values for the alignment props:
+We can also use `around` and `between` values for the alignment props:
 
 <CodeBlock
   marginTop="16"
@@ -160,14 +162,14 @@ We can also use `space-around` and `space-between` values for the alignment prop
       <Background
         background="neutral-alpha-weak"
         lines={{display: true, color: "neutral-alpha-weak"}}
-        fillWidth horizontal="space-between" padding="16" radius="m" border="neutral-alpha-medium">
+        fillWidth horizontal="between" padding="16" radius="m" border="neutral-alpha-medium">
         <IconButton icon="chevronLeft" variant="secondary" data-border="rounded"/>
         <Button size="s" data-border="rounded">Continue</Button>
       </Background>
       <Background
         background="neutral-alpha-weak"
         lines={{display: true, color: "neutral-alpha-weak"}}
-        direction="column" minHeight={16} fillWidth horizontal="center" vertical="space-around" padding="16" radius="m" border="neutral-alpha-medium">
+        direction="column" minHeight={16} fillWidth horizontal="center" vertical="around" padding="16" radius="m" border="neutral-alpha-medium">
         <IconButton icon="chevronLeft" variant="secondary" data-border="rounded"/>
         <Button size="s" data-border="rounded">Continue</Button>
       </Background>
@@ -176,11 +178,11 @@ We can also use `space-around` and `space-between` values for the alignment prop
   codes={[
     {
       code:
-`<Column fillWidth horizontal="space-between">
+`<Column fillWidth horizontal="between">
     <IconButton icon="chevronLeft"/>
     <Button label="Continue"/>
 </Column>
-<Column fillWidth horizontal="center" vertical="space-around">
+<Column fillWidth horizontal="center" vertical="around">
     <IconButton icon="chevronLeft"/>
     <Button label="Continue"/>
 </Column>
@@ -241,26 +243,26 @@ Use the `flex` prop to create asymmetric space distributions, like a bento grid:
   marginBottom="24"
   preview={
     <Column fillWidth gap="16">
-      <Row fillWidth gap="16" mobileDirection="column">
+      <Row fillWidth gap="16" s={{direction: "column"}}>
         <Background
-          height={8}
+          minHeight={8}
           flex="2"
           background="neutral-alpha-weak" border="neutral-alpha-medium" radius="m"
           lines={{display: true, color: "neutral-alpha-weak"}}/>
         <Background
-          height={8}
+          minHeight={8}
           flex="3"
           background="neutral-alpha-weak" border="neutral-alpha-medium" radius="m"
           lines={{display: true, color: "neutral-alpha-weak"}}/>
       </Row>
-      <Row fillWidth gap="16" mobileDirection="column">
+      <Row fillWidth gap="16" s={{direction: "column"}}>
         <Background
-          height={8}
+          minHeight={8}
           flex="3"
           background="neutral-alpha-weak" border="neutral-alpha-medium" radius="m"
           lines={{display: true, color: "neutral-alpha-weak"}}/>
         <Background
-          height={8}
+          minHeight={8}
           flex="2"
           background="neutral-alpha-weak" border="neutral-alpha-medium" radius="m"
           lines={{display: true, color: "neutral-alpha-weak"}}/>
@@ -271,11 +273,11 @@ Use the `flex` prop to create asymmetric space distributions, like a bento grid:
     {
       code:
 `<Column fillWidth gap="16">
-    <Row fillWidth gap="16" mobileDirection="column">
+    <Row fillWidth gap="16" s={{direction: "column"}}>
       <Row flex="2" height={8}/>
       <Row flex="3" height={8}/>
     </Row>
-    <Row fillWidth gap="16" mobileDirection="column">
+    <Row fillWidth gap="16" s={{direction: "column"}}>
       <Row flex="3" height={8}/>
       <Row flex="2" height={8}/>
     </Row>
@@ -363,7 +365,7 @@ Use the `background` and `solid` props to apply colors, and the `onBackground` a
   marginTop="16"
   marginBottom="24"
   preview={
-  <Flex fillWidth gap="l" mobileDirection="column">
+  <Flex fillWidth gap="l" s={{direction: "column"}}>
     <Column
       data-theme="dark"
       fillWidth
@@ -429,7 +431,7 @@ The `solid` prop is commonly used for interactive element backgrounds, such as t
   marginTop="16"
   marginBottom="24"
   preview={
-  <Flex fillWidth gap="l" mobileDirection="column">
+  <Flex fillWidth gap="l" s={{direction: "column"}}>
     <Column
       data-theme="dark"
       fillWidth
@@ -515,7 +517,7 @@ The `alpha` properties let you design subtle backgrounds and overlays.
   marginTop="16"
   marginBottom="24"
   preview={
-  <Flex fillWidth gap="l" mobileDirection="column">
+  <Flex fillWidth gap="l" s={{direction: "column"}}>
     <Column
       data-theme="dark"
       fillWidth
@@ -605,10 +607,10 @@ The surface properties are designed for large layout container elements such as 
   marginTop="16"
   marginBottom="24"
   preview={
-  <Flex 
-    data-surface="filled" fillWidth gap="l" mobileDirection="column">
+  <Column
+    horizontal="center"
+    data-surface="filled" fillWidth gap="l" s={{direction: "column"}}>
     <Flex
-      data-theme="dark"
       fillWidth
       vertical="center"
       background="neutral-weak"
@@ -633,11 +635,11 @@ The surface properties are designed for large layout container elements such as 
         background="surface"
         border="surface"
         radius="m"
-        horizontal="space-between"
+        horizontal="between"
         vertical="center"
       >
-        <Logo size="xs" className="dark-flex" wordmark="/trademark/type-dark.svg" href="/"/>
-        <Logo size="xs" className="light-flex" wordmark="/trademark/type-light.svg" href="/"/>
+        <Logo dark wordmark="/trademark/type-dark.svg" size="xs" href="/"/>
+        <Logo light wordmark="/trademark/type-light.svg" size="xs" href="/"/>
         <Avatar
           size="m"
           src="/images/avatar.jpg"
@@ -647,47 +649,8 @@ The surface properties are designed for large layout container elements such as 
         />
       </Flex>
     </Flex>
-
-    <Flex
-      data-theme="light"
-      vertical="center"
-      fillWidth
-      background="neutral-weak"
-      paddingY="l"
-      paddingX="m"
-      radius="m"
-      gap="16"
-      minHeight={8}
-      border="neutral-medium"
-    >
-      <Tag
-        position="absolute"
-        left="8"
-        top="8"
-        label="Light"
-        variant="neutral"
-      />
-      <Flex
-        fillWidth
-        paddingX="16"
-        paddingY="8"
-        background="surface"
-        border="surface"
-        radius="m"
-        horizontal="space-between"
-        vertical="center"
-      >
-        <Logo size="xs" icon={false}/>
-        <Avatar
-          size="m"
-          src="/images/avatar.jpg"
-          statusIndicator={{
-            color: "green",
-          }}
-        />
-      </Flex>
-    </Flex>
-  </Flex>
+    <ThemeSwitcher/>
+  </Column>
   }
   codes={[
     {
@@ -695,8 +658,8 @@ The surface properties are designed for large layout container elements such as 
 `<Row
     background="surface"
     border="surface">
-    <Logo className="dark-flex" wordmark="/trademark/type-dark.svg" size="s" href="/"/>
-            <Logo className="light-flex" wordmark="/trademark/type-light.svg" size="s" href="/"/>
+    <Logo dark wordmark="/trademark/type-dark.svg" size="xs"/>
+    <Logo light wordmark="/trademark/type-light.svg" size="xs"/>
     <Avatar/>
 </Row>`,
       language: "tsx",
@@ -814,7 +777,7 @@ Border radius convention follows the [extended T-shirt size model](/once-ui/basi
   marginTop="16"
   marginBottom="24"
   preview={
-    <Flex fillWidth mobileDirection="column" gap="m">
+    <Flex fillWidth s={{direction: "column"}} gap="m">
       <Flex fillWidth padding="8" shadow="m" border="neutral-alpha-medium" radius="xs-8">
         <Flex fillWidth padding="4" border="neutral-alpha-medium" radius="xs-4">
           <Background
@@ -1117,24 +1080,24 @@ You can set `opacity` from `0` to `100` in steps of `10`.
 
 ### Conditionals
 
-Use the `hide` and `show` props to conditionally render elements based on breakpoint.
+Use the `hide` prop to conditionally render elements based on breakpoint.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
   preview={
     <Column fillWidth gap="24" align="center" onBackground="neutral-weak" textVariant="label-default-s">
-      <Background hide="m" fillWidth padding="24" center
+      <Background m={{hide: true}} fillWidth padding="24" center
+        background="neutral-alpha-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Shown above the "m" breakpoint
+      </Background>
+      <Background hide m={{hide: false}} fillWidth padding="24" center
         background="neutral-alpha-weak"
         border="neutral-alpha-medium" radius="l"
         lines={{display: true, color: "neutral-alpha-weak"}}>
         Hidden on / below the "m" breakpoint
-      </Background>
-      <Background show="m" fillWidth padding="24" center
-        background="neutral-alpha-weak"
-        border="neutral-alpha-medium" radius="l"
-        lines={{display: true, color: "neutral-alpha-weak"}}>
-        Shown on / above the "m" breakpoint
       </Background>
       You can only see a single block, but there are two here.
     </Column>
@@ -1142,11 +1105,11 @@ Use the `hide` and `show` props to conditionally render elements based on breakp
   codes={[
     {
       code:
-`<Row hide="s" hide="m">
-    <Text>Hidden on / below the "m" breakpoint</Text>
+`<Row m={{hide: true}}>
+    <Text>Shown above the "m" breakpoint</Text>
 </Row>
-<Row hide="l" show="m">
-    <Text>Shown on / above the "m" breakpoint</Text>
+<Row hide m={{hide: false}}>
+    <Text>Hidden on / below the "m" breakpoint</Text>
 </Row>`,
       language: "tsx",
       label: "Hide / Show"
@@ -1259,6 +1222,82 @@ Adjust the cursor with the `cursor` prop. Use the `interactive` value to utilize
 </Row>`,
       language: "tsx",
       label: "Cursor"
+    }
+  ]}
+/>
+
+<CodeBlock
+  marginTop="16"
+  marginBottom="24"
+  preview={
+    <Row fillWidth gap="24">
+      <Background
+        height={6} padding="16"
+        horizontal="center" vertical="end"
+        onBackground="neutral-weak"
+        textVariant="label-default-s"
+        fillWidth
+        cursor={<Spinner />}
+        background="neutral-alpha-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Loading
+      </Background>
+      <Background
+        height={6} padding="16"
+        horizontal="center" vertical="end"
+        onBackground="neutral-weak"
+        textVariant="label-default-s"
+        cursor={<Row fill center><Line minWidth={1000} /> <Line vert minHeight={1000} position="absolute" /></Row>}
+        fillWidth
+        background="neutral-alpha-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Crosshair
+      </Background>
+      <Background
+        height={6} padding="16"
+        horizontal="center" vertical="end"
+        onBackground="neutral-weak"
+        textVariant="label-default-s"
+        cursor={<Row width="24" height="24" radius="full" solid="brand-strong" />}
+        fillWidth
+        background="neutral-alpha-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Circle
+      </Background>
+      <Background
+        height={6} padding="16"
+        horizontal="center" vertical="end"
+        onBackground="neutral-weak"
+        textVariant="label-default-s"
+        cursor={<Media src="/images/docs/poko-dafaq.png" width="128" alt="Poko cursor" sizes="128px" aspectRatio="232/198"/>}
+        fillWidth
+        background="neutral-alpha-weak"
+        border="neutral-alpha-medium" radius="l"
+        lines={{display: true, color: "neutral-alpha-weak"}}>
+        Poko
+      </Background>
+    </Row>
+  }
+  codes={[
+    {
+      code:
+`<Row cursor="interactive">
+    Interactive
+</Row>
+<Row cursor="text">
+    text
+</Row>
+<Row cursor="wait">
+    wait
+</Row>
+<Row cursor="zoom-in">
+    zoom-in
+</Row>`,
+      language: "tsx",
+      label: "Custom cursor"
     }
   ]}
 />
@@ -1394,13 +1433,13 @@ Use the `textVariant` prop to apply text styles to children elements. Use the `a
 
 ### Responsiveness
 
-Override layout flow with `mobileDirection` or `tabletDirection`.
+Override layout flow with `s` or `m` props.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
   preview={
-    <Row fillWidth gap="24" mobileDirection="Column">
+    <Row fillWidth gap="24" s={{direction: "column"}}>
       <Background
         fillWidth
         height={6}
@@ -1430,7 +1469,7 @@ Override layout flow with `mobileDirection` or `tabletDirection`.
   codes={[
     {
       code: `
-<Row mobileDirection="column">
+<Row s={{direction: "column"}}>
     <Row fillWidth height={6}/>
     <Row fillWidth height={6}/>
     <Row fillWidth height={6}/>
@@ -1453,13 +1492,13 @@ All non-flex-specific properties of the `Flex` are also available on the `Grid`.
 
 ### Columns
 
-Use the `columns` prop to define the number of columns. use the `tabletColumns` and `mobileColumns` props to define the number of columns on tablet and mobile devices.
+Use the `columns` prop to define the number of columns. use the `s` and `m` props to define the number of columns on mobile and tablet devices.
 
 <CodeBlock
   marginTop="16"
   marginBottom="24"
   preview={
-    <Grid fillWidth columns="3" tabletColumns="2" mobileColumns="1" gap="24">
+    <Grid fillWidth columns="3" m={{columns: 2}} s={{columns: 1}} gap="24">
       <Background
         fillWidth
         height={6}

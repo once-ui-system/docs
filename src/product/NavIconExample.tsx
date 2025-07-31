@@ -18,7 +18,7 @@ export function NavIconToggle() {
         background="surface"
         border="surface"
         radius="l" 
-        horizontal="space-between" 
+        horizontal="between" 
         vertical="center"
         fillWidth
       >
