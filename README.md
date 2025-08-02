@@ -60,16 +60,17 @@ Add new .mdx files to src/content/
 - Responsive navigation with mobile-friendly sidebar
 - Supports all Once UI components
 
-# Authors
+## Creators
 
-Connect with us on Threads or LinkedIn.
+Connect with us!
 
-Lorant One: [Threads](https://www.threads.net/@lorant.one), [LinkedIn](https://www.linkedin.com/in/lorant-one/)  
-Zsofia Komaromi: [Threads](https://www.threads.net/@zsofia_kom), [LinkedIn](https://www.linkedin.com/in/zsofiakomaromi/)
+**Lorant One**: [Site](https://lorant.one) / [Threads](https://www.threads.net/@lorant.one) / [LinkedIn](https://www.linkedin.com/in/lorant-one/)
 
-# Get involved
+## Become a Oncer
 
-- Join the [Design Engineers Club on Discord](https://discord.com/invite/5EyAQ4eNdS) and share your project with us!
+![Design Engineers Club](https://docs.once-ui.com/images/docs/vibe-coding-dark.jpg)
+
+Join the [Design Engineers Club](https://discord.com/invite/5EyAQ4eNdS) on Discord to connect with us and share your projects.
 
 # License
 
