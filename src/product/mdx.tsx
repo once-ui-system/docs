@@ -171,6 +171,10 @@ function createCodeBlock(props: any) {
   return <pre {...props} />;
 }
 
+function createHr() {
+  return <onceUIComponents.Line />;
+}
+
 // @ts-ignore
 const mdxComponents: MDXComponents = {
   p: createParagraph as any,
@@ -188,6 +192,7 @@ const mdxComponents: MDXComponents = {
   ul: createList as any,
   ol: createList as any,
   li: createListItem as any,
+  hr: createHr as any,
   ...onceUIComponents,
   ...productComponents,
 };
