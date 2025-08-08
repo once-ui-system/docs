@@ -23,7 +23,7 @@ export const Footer = () => {
           href="https://once-ui.com/products"
         >
           <Row gap="12" vertical="center">
-            Launch your app now
+            Build your products
             <Icon size="xs" name="arrowUpRight" onBackground="brand-medium" />
           </Row>
         </Button>

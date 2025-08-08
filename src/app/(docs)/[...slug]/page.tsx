@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getPages, getAdjacentPages } from "@/app/utils/utils";
 import { formatDate } from "@/app/utils/formatDate";
-import { Column, Heading, Icon, Row, Media, Text, Card, HeadingNav, Meta, Schema, Button } from "@once-ui-system/core";
+import { Column, Heading, Icon, Row, Media, Text, Card, HeadingNav, Meta, Schema, Button, SmartLink, Line } from "@once-ui-system/core";
 import { baseURL, layout, schema } from "@/resources";
 import { CustomMDX } from "@/product/mdx";
 import { Metadata } from "next";
@@ -90,59 +90,67 @@ export default async function Docs({
           </Column>
           
           <Row gap="16" fillWidth horizontal="between" s={{direction: "column"}}>              
-              {prevPage ? (
-                <Row fillWidth>
+            {prevPage ? (
+              <Row fillWidth>
+              <Row maxWidth={20}>
+              <Card
+                fillWidth
+                border="neutral-alpha-medium"
+                vertical="center" gap="4"
+                href={`/${prevPage.slug}`} 
+                radius="l" 
+                paddingX="16"
+              >
+                <Icon name="chevronLeft" size="s" onBackground="neutral-weak" />
+                <Column gap="4" vertical="center" paddingX="16" paddingY="12">
+                  <Text variant="label-default-s" onBackground="neutral-weak">
+                    {prevPage.slug.includes('/') ? 
+                      `${prevPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
+                      'page'}
+                  </Text>
+                  <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
+                    {prevPage.metadata.title}
+                  </Text>
+                </Column>
+              </Card>
+              </Row>
+              </Row>
+            ) : <Row/>}
+            {nextPage ? (
+              <Row fillWidth horizontal="end">
                 <Row maxWidth={20}>
-                <Card
-                  fillWidth
-                  border="neutral-alpha-medium"
-                  vertical="center" gap="4"
-                  href={`/${prevPage.slug}`} 
-                  radius="l" 
-                  paddingX="16"
-                >
-                  <Icon name="chevronLeft" size="s" onBackground="neutral-weak" />
-                  <Column gap="4" vertical="center" paddingX="16" paddingY="12">
-                    <Text variant="label-default-s" onBackground="neutral-weak">
-                      {prevPage.slug.includes('/') ? 
-                        `${prevPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
-                        'page'}
-                    </Text>
-                    <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
-                      {prevPage.metadata.title}
-                    </Text>
-                  </Column>
-                </Card>
+                  <Card
+                    fillWidth
+                    border="neutral-alpha-medium"
+                    horizontal="end" vertical="center" gap="4"
+                    href={`/${nextPage.slug}`} 
+                    radius="l" 
+                    paddingX="16"
+                  >
+                    <Column horizontal="end" gap="4" vertical="center" paddingX="16" paddingY="12">
+                      <Text variant="label-default-s" onBackground="neutral-weak">
+                        {nextPage.slug.includes('/') ? 
+                          `${nextPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
+                          'page'}
+                      </Text>
+                      <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
+                        {nextPage.metadata.title}
+                      </Text>
+                    </Column>
+                    <Icon name="chevronRight" size="s" onBackground="neutral-weak" />
+                  </Card>
                 </Row>
-                </Row>
-              ) : <Row/>}
-              {nextPage ? (
-                <Row fillWidth horizontal="end">
-                  <Row maxWidth={20}>
-                    <Card
-                      fillWidth
-                      border="neutral-alpha-medium"
-                      horizontal="end" vertical="center" gap="4"
-                      href={`/${nextPage.slug}`} 
-                      radius="l" 
-                      paddingX="16"
-                    >
-                      <Column horizontal="end" gap="4" vertical="center" paddingX="16" paddingY="12">
-                        <Text variant="label-default-s" onBackground="neutral-weak">
-                          {nextPage.slug.includes('/') ? 
-                            `${nextPage.slug.split('/')[0].split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}` : 
-                            'page'}
-                        </Text>
-                        <Text onBackground="neutral-strong" variant="heading-strong-m" wrap="balance">
-                          {nextPage.metadata.title}
-                        </Text>
-                      </Column>
-                      <Icon name="chevronRight" size="s" onBackground="neutral-weak" />
-                    </Card>
-                  </Row>
-                </Row>
-              ) : <Row/>}
-            </Row>
+              </Row>
+            ) : <Row/>}
+          </Row>
+          {doc.metadata.docs && (
+            <>
+              <Line width="40"/>
+              <Row fillWidth vertical="center" gap="8" onBackground="neutral-weak" textVariant="label-default-s">
+                Edit this page on <SmartLink prefixIcon="github" href={"https://github.com/once-ui-system/docs/tree/main/src/content/" + doc.metadata.docs}>GitHub</SmartLink>
+              </Row>
+            </>
+          )}
         </Column>
       </Row>
       <Column gap="16" maxWidth={layout.sideNav.width} s={{hide: true}} position="sticky" top="80" fitHeight>

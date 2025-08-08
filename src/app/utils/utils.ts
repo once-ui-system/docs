@@ -14,9 +14,10 @@ interface Post {
     title: string;
     summary?: string;
     github?: string;
+    docs?: string;
     updatedAt: string;
     image?: string;
-    order?: number; // Add order field for explicit ordering
+    order?: number;
   };
 }
 
@@ -78,6 +79,7 @@ export function getPages(customPath = ["src", "content"]): Post[] {
           metadata: {
             title: data.title || '',
             summary: data.summary,
+            docs: data.docs,
             github: data.github,
             updatedAt: data.updatedAt || '',
             image: data.image,
