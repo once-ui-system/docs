@@ -14,12 +14,14 @@ interface NavigationItem {
     keywords?: string;
     children?: NavigationItem[];
     order?: number;
+    pro?: boolean;
 }
 
 interface MetaData {
     title?: string;
     order?: number;
-    pages?: Record<string, number>; 
+    pages?: Record<string, number>;
+    pro?: boolean;
 }
 
 // Shared sorting function to ensure consistent sorting at all levels
@@ -102,6 +104,7 @@ export default function getNavigation(dirPath = path.join(process.cwd(), 'src/co
         slug: entry.name,
         title: metaData?.title || entry.name,
         order: metaData?.order,
+        pro: metaData?.pro,
         children: children, // Already sorted by the recursive call
       };
       

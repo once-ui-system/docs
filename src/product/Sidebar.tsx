@@ -18,6 +18,7 @@ export interface NavigationItem extends Omit<React.ComponentProps<typeof Flex>, 
   children?: NavigationItem[];
   schemes?: Schemes;
   keywords?: string;
+  pro?: boolean;
   navIcon?: string;
   navTag?: string;
   navLabel?: string;
@@ -121,8 +122,13 @@ const NavigationItemComponent: React.FC<{
             paddingTop="4"
             open={shouldBeOpen}
             title={
-              <Row textVariant="label-strong-s" onBackground="brand-strong">
+              <Row fillWidth textVariant="label-strong-s" onBackground="brand-strong">
                 {item.title}
+                {item.pro && (
+                  <Tag position="absolute" right="12" data-theme="dark" data-brand="brand" style={{transform: "scale(0.8)", transformOrigin: "right center"}} variant="brand" size="s">
+                      Pro
+                  </Tag>
+                )}
               </Row>
             }>
               {renderNavigation(item.children, depth + 1)}
